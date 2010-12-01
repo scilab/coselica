@@ -1,0 +1,67 @@
+// Copyright (C) 2010 - DIGITEO
+
+// This file is released into the public domain
+
+mprintf("Start COSELICA module\n");
+
+if isdef("cos_mech_translib") then
+	warning("COSELICA module is already loaded");
+	return;
+end
+
+etc_tlbx  = get_absolute_file_path("coselica.start");
+etc_tlbx  = getshortpathname(etc_tlbx);
+root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+
+//Load  functions library
+// =============================================================================
+mprintf("\tLoad macros\n");
+
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Continuous/";
+cos_blocks_contlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Nonlinear/";
+cos_blocks_nllib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Interfaces/";
+cos_blocks_interflib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Math/";
+cos_blocks_mathlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Routing/";
+cos_blocks_routlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Sources/";
+cos_blocks_srcslib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Thermal/HeatTransfer/";
+cos_thermal_heattlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Electrical/";
+cos_eleclib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Mechanics/Rotational/";
+cos_mech_rotlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Mechanics/Planar/";
+cos_mech_planlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Mechanics/Translational/";
+cos_mech_translib = lib(pathmacros);
+
+clear pathmacros;
+
+// load xcos libraries
+// =============================================================================
+loadScicosLibs();
+
+// load palette
+// =============================================================================
+
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_continuous.xpal', 'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_nonlinear.xpal',  'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_interface.xpal',  'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_math.xpal',       'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_routing.xpal',    'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_sources.xpal',    'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_thermal_heattransfert.xpal', 'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_electrical.xpal',        'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_mechanics_rotational.xpal', 'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_mechanics_planar.xpal',  'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_mechanics_translational.xpal', 'Coselica');
+
+%MODELICA_USER_LIBS = root_tlbx + filesep() + 'macros';
+
+clear root_tlbx;
+clear etc_tlbx;

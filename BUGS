@@ -1,0 +1,66 @@
+BUGS (# = open, * = fixed, ?=dont know)
+=======================================
+
+#001 - text labels of some mechanical block icons are not fully
+       visible in Scicos editor
+
+*002 - text labels in icons are not (correctly?) flipped
+
+#003 - label of BodyRadiation doesn't show parameter value
+       (this is NOT considered a bug of Coselica, because it's 
+        actually a deficiency of MSL 2.2)
+
+*004 - VariableInductor, VariableCapacitor do not compile,
+       because of "assert", which is not supported by scicos'
+       modelica compiler
+
+*005 - GUI function of VariableInductor uses a  parameter named
+       "I"  instead of "L"
+
+*006 - BodyRadiation does not compile because of missing
+       Modelica.Constants.sigma
+
+*007 - changing the parameter "exact" in Translational.Position,
+       Rotational.Position, and Rotational.Speed has no effect.
+       Currently this behaviour is intended, the input signal is always
+       filtered, assuming that the input signal is usually supplied by a
+       non-modelica, i.e. ordinary causal, scicos block.
+
+#008 - icon graphics of most (but not all) Modelica.Blocks.* should not be
+       flipped
+
+*009 - typo/error in macros/Blocks/Interfaces/buildmacros.sce
+
+*010 - graphics.in_implicit/graphics.out_implicit in all GUI functions
+       should be set to 'E', this will give the user are more familiar
+       diagram editing experience
+
+#011 - trying to start a link at "graphically explicit" (see BUG 010) 
+       input ports provokes a error message like
+
+         I recovered from the following error:
+         invalid index
+         in SmartLink_ action.
+
+       in the ScicosLab shell window. This happens for MEAI_IdealClosingSwitch
+       and some others ...
+
+       Currently it is not clear, whether this a bug of Coselica or a bug/flaw of
+       ScicosLab?
+
+*012  output "port" of Modelica.Thermal.HeatTransfer.PrescribedTemperature
+      should be marked as implicit ("I") for the scicos editor
+
+#013  steadyStartState in HeatCapacitor is useless because initial equations
+      are not supported by scicoslab 4.3
+
+#014  example/test TranslationalForcedMovement is broken, simulation fails
+      at approx. t=7.31s
+
+*015 Planar.Sensors.{AbsAngle,AbsAngularVelocity,AbsAngularAcceleration} are
+     not working
+
+*016 Planar.Force.LineForce is a complete disaster, DO NOT USE it!!!
+
+?017 provide initialization parameters only for block w/ states, i.e.
+     remove it from Planar.Parts.{Body,BodyShape}

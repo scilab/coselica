@@ -1,0 +1,153 @@
+Version 0.4.1.1 -> 0.4.2
+========================
+
+- fixed Planar.Forces.LineForce (bug 016)
+- changed example/test PlanarSpringDamper
+- added some joints without states (see Planar.LoopJoints), they can be used
+  for modeling of kinematic loops. Hint: Use exactly three of these joints
+  in every loop!
+- added examples/tests PlanarCrankshaft, PlanarFourbar
+
+Version 0.4.1 -> 0.4.1.1
+========================
+
+- fixed Planar.Sensors.{AbsAngle,AbsAngularVelocity,AbsAngularAcceleration}
+  (bug 015)
+
+Version 0.4 -> 0.4.1
+====================
+
+- added Planar.Sensors.{CutForce2,RelPosition2,RelVelocity2,RelAcceleration2}
+  for measurements resolved in an arbitrary frame
+- added Planar.Sensors.{AbsAngle,AbsAngularVelocity,AbsAngularAcceleration}
+- added Planar.Sensors.{AbsPosition,AbsVelocity,AbsAcceleration}
+  and variants (i.e. AbsPosition2, AbsVelocity2, and AbsAcceleration2)
+  for measurements resolved in an abitrary frame
+- added Planar.Forces.{WorldForce,WorldTorque,FrameForce,LineForce}
+- added Planar.Joints.FreeMotion
+- added example/test AirResistance, PlanarSpringDamper, PlanarSensors
+
+Version 0.3.6 -> 0.4
+====================
+
+- started a package for planar (2D) multibody mechanics, it contains
+  blocks for revolute and prismatic joints and rigid bodies with mass and
+  inertia. Currently it allows modeling and simulation of OPEN kinematic
+  chains only
+- added simplified Multiplex2, DeMultiplex2 blocks to deal with 2-dimensional
+  signals from sensors like Planar.Sensors.{CutForce,RelPosition,RelVelocity,
+  RelAcceleration}
+- added examples/tests Pendulum, DoublePendulum, CartWithPendulum
+
+Version 0.3.5 -> 0.3.6 (not released)
+=====================================
+
+- labels of RealOutput, RealInput blocks are now shown in icon
+- added Rotational.Sensors.PowerSensor
+- added Rotational.Components.Disc
+- added Translational.Sources.Force2
+- added Translational.Sensors.{RelPositionSensor,RelSpeedSensor,RelAccSensor,
+  PowerSensor}
+- GUI function names and icons of Translational.Sensors.{PositionSensor,
+  SpeedSensor, AccSensor, ForceSensor} have changed, thus existing scicos
+  diagrams containing these blocks have to be updated
+- updated examples/tests (ElastoGap, IdealGearR2T, MassWithFriction,
+  MassWithFrictionAndStop, StickSlipOscillation,
+  TranslationalForcedMovement)
+- fixed bug of ElastoGap,ElastoBacklash according to MSL 3.0.1
+- GUI function name of ElastoGap, ElastoBacklash has changed, thus existing
+  diagrams have to be updated
+- added example/test ElastoBacklash
+
+Version 0.3.4 -> 0.3.5
+======================
+
+- further improvement (?) of rotational friction components
+- first attempt of Coulomb friction based Rotational.{OneWayClutch,Clutch,Brake}
+- added an ideal freewheel component (Rotational.Freewheel)
+- added examples/tests (RotationalOneWayClutch,RotationalClutch,
+  RotationalBrake,ClutchAndBrake,IdealFreewheel)
+
+Version 0.3.3 -> 0.3.4
+======================
+
+- rewritten and improved (?) components with Coulomb friction and Stribeck
+  effect (Translational.{MassWithFriction,Stop}, Rotational.BearingFriction)
+
+Version 0.3.2 -> 0.3.3
+======================
+
+- first attempt to implement components with Coulomb friction and Stribeck
+  effect (Translational.{MassWithFriction,Stop} Rotational.BearingFriction)
+- addded Rotational.{ConstantSpeed,ConstantTorque,TorqueStep,
+  LinearSpeedDependentTorque,QuadraticSpeedDependentTorque}
+- added Sources.{RampVoltage,RampCurrent,SawToothVoltage,SawToothCurrent}
+- added Sources.Trapezoid
+- added examples/tests (MassWithFriction,MassWithFrictionAndStop,
+  StickSlipOscillation,BearingFriction)
+
+Version 0.3.1 -> 0.3.2
+======================
+
+- fixed bug 012
+- fixed bug 007:  modified Translational.Position, Rotational.{Position,Speed},
+  now they are NOT filtering any input signal. We might add variants of these
+  blocks w/ filtering, if there is a need for that.
+- added Translational.Speed (/wo filtering)
+- physical units of parameters are now shown in setup dialogs
+- added Math.{TwoInputs,TwoOutputs,Atan2}
+- added example/test ArcTangent
+
+Version 0.3 -> 0.3.1
+====================
+
+- fixed bugs 009, 010
+- added Continuous.{Der,LimPID}
+- added Math.{Min,Max}
+- added Nonlinear{Limiter,DeadZone}
+- added some electrical voltage and current sources (Step, Sine, Pulse)
+- added example/test MinMax
+
+Version 0.2.2 -> 0.3
+====================
+
+- improved interface between native Scicos and Modelica part
+  (new connectors/blocks RealInput, RealOutput) which is incompatible
+  with previous versions of Coselica
+- updated all existing blocks and examples
+- added quite a number of blocks from Modelica.Blocks.{Math,Sources,Continuous}
+- added examples/tests (Arithmetics, ContinuousBlocks, HyperbolicFunctions,
+  MathFunctions, SignalSources)
+
+Version 0.2.1 -> 0.2.2
+======================
+
+- added translational blocks (ElastoGap, Position)
+- added rotational blocks (Position, Speed, Torque)
+- added examples (ElastoGap, TranslationalForcedMovement,
+  RotationalForcedMovement)
+
+Version 0.2 -> 0.2.1
+====================
+
+- added "lines(0)" at top of loadmacros.sce
+- fixed bugs 004, 005 & 006
+- added examples VariableInductor, HeatTransfer_Radiation
+
+Version 0.1 -> 0.2
+==================
+
+- added most blocks of Modelica.Thermal.HeatTransfer
+- added HeatingResistor
+- added examples HeatTransfer_TwoMasses, ControlledTemperature
+
+Version 0.0 -> 0.1
+==================
+
+- added some electrical blocks (IdealOpeningSwitch, IdealClosingSwitch,
+  Transformer, NPN, PNP, NMOS, PMOS)
+- added some rotational blocks (IdealPlanetary, Accelerate)
+- added some examples (IdealGearR2T, IdealSwitch, ColpittsOscillator,
+  NMOS_NAND)
+- improved Torque2's graphical appearance
+- partial fix of bug 001, fix of bug 002
