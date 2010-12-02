@@ -54,6 +54,14 @@ getd(toolbox_dir + filesep() + 'macros/Mechanics/Rotational');
 getd(toolbox_dir + filesep() + 'macros/Mechanics/Planar');
 getd(toolbox_dir + filesep() + 'macros/Mechanics/Translational');
 
+// creating images path
+if fileinfo (toolbox_dir + "/images") == [] then
+    mkdir(toolbox_dir + "/images");
+end
+if fileinfo (toolbox_dir + "/images/h5") == [] then
+    mkdir(toolbox_dir + "/images/h5");
+end
+
 ///////////////////////////////
 // Blocks continuous palette //
 ///////////////////////////////
@@ -78,7 +86,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon); // YC: fonctionnerait selon clément
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -101,7 +109,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -124,7 +132,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -170,7 +178,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -193,7 +201,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -224,7 +232,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -261,7 +269,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -326,7 +334,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -381,7 +389,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -443,7 +451,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
@@ -487,7 +495,7 @@ for i=1:size(Icons_list,1)
   export_to_hdf5(toolbox_dir + '/images/h5/' + macro_name + '.h5','scs_m');
   clear scs_m;
   //xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, xcos_icon);
-  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon);
+  xpal = xcosPalAddBlock(xpal, toolbox_dir + '/images/h5/' + macro_name + '.h5', palette_icon, palette_icon);
 end
 
 // Now save the palette
