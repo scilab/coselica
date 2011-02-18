@@ -167,6 +167,6 @@ select job
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
-    x.graphics.out_implicit=['I','E'];
+    x.graphics.out_implicit=['I','I'];
   end
 endfunction
