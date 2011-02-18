@@ -68,7 +68,7 @@ select job
           'e.fill_mode=""off"";';...
          ];
     x=standard_define([2/3 2/3],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E'];
+    x.graphics.in_implicit=['I'];
     x.graphics.out_implicit=['E'];
   end
 endfunction
