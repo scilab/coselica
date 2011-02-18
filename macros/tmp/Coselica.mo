@@ -1807,8 +1807,8 @@ package XcosModelica
     //import SI = XcosModelica.SIunits;
     //import NonSI = XcosModelica.SIunits.Conversions.NonSIunits;
     //extends XcosModelica.Icons.Library2;
-    constant Real e = exp(1.0);
-    constant Real pi = 2 * asin(1.0);
+    constant Real e = 2.7182818284590450907956; // exp(1.0);
+    constant Real pi =  3.1415926535897931159980; // 2 * asin(1.0);
     constant Real D2R = pi / 180 "Degree to Radian";
     constant Real R2D = 180 / pi "Radian to Degree";
     constant Real eps = 1e-15 "Biggest number such that 1.0 + eps = 1.0";
