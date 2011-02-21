@@ -7,6 +7,7 @@ lines(0);
 
 TOOLBOX_NAME  = "coselica";
 TOOLBOX_TITLE = "COSELICA";
+original_dir = pwd();
 toolbox_dir   = get_absolute_file_path("builder.sce");
 
 // Check Scilab's version
@@ -20,7 +21,7 @@ end
 
 if v(2) < 3 then
 	// new API in scilab 5.3
-	error(gettext('Scilab 5.3 or more is required.'));  
+	error(gettext('Scilab 5.3 or more is required.'));
 end
 
 // Check development_tools module avaibility
@@ -85,7 +86,7 @@ function xpal = add_to_palette(xpal, currentPalRoot)
 
   for i=1:size(interfaces,1)
     // generate the instance file
-    execstr("scs_m = " + interfaces(i) + '(''define'')'); 
+    execstr("scs_m = " + interfaces(i) + '(''define'')');
     export_to_hdf5(h5_instances(i), 'scs_m');
 
     // generate the gif file
@@ -214,3 +215,4 @@ xcosPalExport(xpal, toolbox_dir + '/coselica_mechanics_translational.xpal');
 delete(f);
 clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE xpal currentPalRoot add_to_palette;
 
+cd(original_dir);
