@@ -34,7 +34,7 @@ select job
     while %t do
       [ok,uMax,uMin,exprs]=...
         getvalue(['';'MBN_Limiter';'';'Limit the range of a signal';''],...
-        [' uMax [-] : Upper limits of input signals',' uMin [-] : Lower limits of input signals'],...
+        [' uMax [-] : Upper limits of input signals';' uMin [-] : Lower limits of input signals'],...
         list('vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.rpar=[uMax,uMin];
@@ -142,7 +142,7 @@ select job
           'e.fill_mode=""off"";';...
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E'];
-    x.graphics.out_implicit=['E'];
+    x.graphics.in_implicit=['I'];
+    x.graphics.out_implicit=['I'];
   end
 endfunction

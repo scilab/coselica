@@ -33,8 +33,8 @@ select job
     model=arg1.model;
     while %t do
       [ok,uMax,uMin,exprs]=...
-        getvalue(['';'MBN_DeadZone';'';'Provide a region of zero output';''],...
-        [' uMax [-] : Upper limits of dead zones',' uMin [-] : Lower limits of dead zones'],...
+        scicos_getvalue(['';'MBN_DeadZone';'';'Provide a region of zero output';''],...
+        [' uMax [-] : Upper limits of dead zones';' uMin [-] : Lower limits of dead zones'],...
         list('vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.rpar=[uMax,uMin];
@@ -142,7 +142,7 @@ select job
           'e.fill_mode=""off"";';...
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E'];
-    x.graphics.out_implicit=['E'];
+    x.graphics.in_implicit=['I'];
+    x.graphics.out_implicit=['I'];
   end
 endfunction
