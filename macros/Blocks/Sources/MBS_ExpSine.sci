@@ -32,18 +32,20 @@ select job
   case 'getorigin' then
     [x,y]=standard_origin(arg1);
   case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
+   x=arg1;
+    graphics=arg1.graphics;
+    exprs=graphics.exprs;
     model=arg1.model;
     while %t do
       [ok,amplitude,freqHz,phase,damping,offset,startTime,exprs]=...
         getvalue(['';'MBS_ExpSine';'';'Generate exponentially damped sine signal';''],...
-        [' amplitude [-] : Amplitude of sine wave',' freqHz [Hz] : Frequency of sine wave',' phase [rad] : Phase of sine wave',' damping [s-1] : Damping coefficient of sine wave',' offset [-] : Offset of output signal',' startTime [s] : Output = offset for time < startTime'],...
+        [' amplitude [-] : Amplitude of sine wave';' freqHz [Hz] : Frequency of sine wave';' phase [rad] : Phase of sine wave';' damping [s-1] : Damping coefficient of sine wave';' offset [-] : Offset of output signal';' startTime [s] : Output = offset for time < startTime'],...
         list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(amplitude,freqHz,phase,damping,offset,startTime)
       graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
+      x.graphics=graphics;
+      x.model=model;
       break
     end
   case 'define' then
@@ -67,8 +69,8 @@ select job
     model.equations=mo;
     model.in=ones(size(mo.inputs,'*'),1);
     model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(amplitude), sci2exp(freqHz), sci2exp(phase), ...
-           sci2exp(damping), sci2exp(offset), sci2exp(startTime)];
+    exprs=[sci2exp(amplitude); sci2exp(freqHz); sci2exp(phase); ...
+           sci2exp(damping); sci2exp(offset); sci2exp(startTime)];
     gr_i=[...
           'if orient then';...
           '  xx=orig(1);yy=orig(2);';...
