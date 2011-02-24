@@ -69,6 +69,7 @@ select job
          ];
     x=standard_define([2/3 2/3],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
+    x.graphics.in_style=["strokeColor=blue;fillColor=blue"];
     x.graphics.out_implicit=['E'];
   end
 endfunction

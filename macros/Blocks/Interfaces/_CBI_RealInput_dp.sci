@@ -49,7 +49,7 @@ function [] = _CBI_RealInput_dp( o )
            inout(:,2)+ones(3,1)*(orig(2)+sz(2)/2),1);
     e=gce();
     e.foreground=color(0,0,191);
-    e.bacground=color(255,255,255);
+    e.background=color(255,255,255);
     e.thickness=0.25;
     
     // input (right)
