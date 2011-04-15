@@ -30,7 +30,8 @@ select job
     [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
+    graphics=arg1.graphics;
+    exprs=graphics.exprs;
     model=arg1.model;
     while %t do
       [ok,k,w,D,exprs]=...
@@ -61,7 +62,7 @@ select job
     model.equations=mo;
     model.in=ones(size(mo.inputs,'*'),1);
     model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(k);sci2exp(w);sci2exp(D)];
+    exprs=[sci2exp(k), sci2exp(w), sci2exp(D)];
     gr_i=[...
           'if orient then';...
           '  xx=orig(1);yy=orig(2);';...
@@ -142,7 +143,7 @@ select job
           'e.fill_mode=""off"";';...
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E'];
-    x.graphics.out_implicit=['E'];
+    x.graphics.in_implicit=['I'];
+    x.graphics.out_implicit=['I'];
   end
 endfunction

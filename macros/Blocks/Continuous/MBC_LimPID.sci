@@ -73,7 +73,8 @@ select job
     model.equations=mo;
     model.in=ones(size(mo.inputs,'*'),1);
     model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(k);sci2exp(Ti);sci2exp(Td);sci2exp(yMax);sci2exp(yMin);sci2exp(wp);sci2exp(wd);sci2exp(Ni);sci2exp(Nd)];
+    exprs=[sci2exp(k), sci2exp(Ti), sci2exp(Td), sci2exp(yMax), ...
+           sci2exp(yMin), sci2exp(wp), sci2exp(wd), sci2exp(Ni), sci2exp(Nd)];
     gr_i=[...
           'if orient then';...
           '  xx=orig(1);yy=orig(2);';...
@@ -144,7 +145,7 @@ select job
           'e.fill_mode=""off"";';...
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E','E'];
-    x.graphics.out_implicit=['E'];
+    x.graphics.in_implicit=['I','I'];
+    x.graphics.out_implicit=['I'];
   end
 endfunction
