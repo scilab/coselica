@@ -2,5 +2,7 @@
 
 *.xpal
 
+*.svg
+
 lib
 names
