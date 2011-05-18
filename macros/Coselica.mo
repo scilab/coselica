@@ -1,3 +1,9 @@
+package SIunits
+
+  
+
+end SIunits;
+
 
 
 package Modelica
@@ -88,6 +94,23 @@ package Modelica
         Q_flow.signal = port_a.Q_flow;
       end HeatFlowSensor;
     
+      model HeatCapacitor "Lumped thermal element storing heat"
+        parameter Real C "Heat capacity of part (= cp*m)";
+        parameter Real steadyStateStart = 0 "true, if component shall start in steady state";
+        parameter Real T_start = 293.15 "Initial temperature of part (in Kelvin)";
+        Real T(final start = T_start, final fixed = true) "Temperature of part";
+        Interfaces.HeatPort_a port;
+      equation 
+        T = port.T;
+        C * der(T) = port.Q_flow;
+      initial equation 
+        if steadyStateStart > 0.0 then
+          der(T) = 0;
+        else
+          T = port.T;
+        end if;
+      end HeatCapacitor;
+    
       model FixedTemperature "Fixed temperature boundary condition in Kelvin"
         parameter Real T "Fixed temperature at port";
         Interfaces.HeatPort_b port;
@@ -161,7 +184,7 @@ package Modelica
         extends Interfaces.Element1D;
         parameter Real Gr "Net radiation conductance between two surfaces (see docu)";
       equation 
-        Q_flow = Gr * Modelica.Constants.sigma * (port_a.T ^ 4 - port_b.T ^ 4);
+        Q_flow = Gr * Coselica.Constants.sigma * (port_a.T ^ 4 - port_b.T ^ 4);
       end BodyRadiation;
     
     end HeatTransfer;
@@ -717,7 +740,7 @@ package Modelica
           parameter Real V = 1 "Amplitude of saw tooth";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.VoltageSource;
-          Modelica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = V, period = period);
+          Coselica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = V, period = period);
         equation
           v = signalSource.y.signal;
         end SawToothVoltage;
@@ -726,7 +749,7 @@ package Modelica
           parameter Real I = 1 "Amplitude of saw tooth";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.CurrentSource;
-          Modelica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = I, period = period);
+          Coselica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = I, period = period);
         equation
           i = signalSource.y.signal;
         end SawToothCurrent;
@@ -754,7 +777,7 @@ package Modelica
           parameter Real width = 50 "Width of pulse in % of period";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.VoltageSource;
-          Modelica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = V, width = width, period = period);
+          Coselica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = V, width = width, period = period);
         equation
           v = signalSource.y.signal;
         end PulseVoltage;
@@ -764,7 +787,7 @@ package Modelica
           parameter Real width = 50 "Width of pulse in % of period";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.CurrentSource;
-          Modelica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = I, width = width, period = period);
+          Coselica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = I, width = width, period = period);
         equation
           i = signalSource.y.signal;
         end PulseCurrent;
@@ -1059,11 +1082,6 @@ package Modelica
           flow Real i "Current flowing into the pin";
         end PositivePin;
       
-        connector NegativePin "Negative pin of an electric component"
-          Real v "Potential at the pin";
-          flow Real i "Current flowing into the pin";
-        end NegativePin;
-
         connector Pin "Pin of an electrical component"
           Real v "Potential at the pin";
           flow Real i "Current flowing into the pin";
@@ -1075,12 +1093,16 @@ package Modelica
           PositivePin p;
           NegativePin n;
         equation 
-          i = p.i;
-          n.i = -i;
           v = p.v - n.v;
-          //0 = p.i + n.i;
+          0 = p.i + n.i;
+          i = p.i;
         end OnePort;
-            
+      
+        connector NegativePin "Negative pin of an electric component"
+          Real v "Potential at the pin";
+          flow Real i "Current flowing into the pin";
+        end NegativePin;
+      
         partial model CurrentSource "Interface for current sources"
           extends OnePort;
           parameter Real offset = 0 "Current offset";
@@ -1174,7 +1196,7 @@ package Modelica
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput L;
           Real Psi;
-          parameter Real Lmin = Modelica.Constants.eps;
+          parameter Real Lmin = Coselica.Constants.eps;
         equation 
           //assert(L.signal >= 0, "Inductance L_ (= " + String(L.signal) + ") has to be >= 0!");
           Psi = noEvent(max(L.signal, Lmin)) * i;
@@ -1184,7 +1206,7 @@ package Modelica
         model VariableCapacitor "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput C;
-          parameter Real Cmin = Modelica.Constants.eps;
+          parameter Real Cmin = Coselica.Constants.eps;
           Real Q;
         equation 
           //assert(C.signal >= 0, "Capacitance C.signal (= " + String(C.signal) + ") has to be >= 0!");
@@ -1336,7 +1358,7 @@ package Modelica
         parameter Real startTime = 0 "Output = offset for time < startTime";
         extends Interfaces.SO;
       protected 
-        constant Real pi = Modelica.Constants.pi;
+        constant Real pi = Coselica.Constants.pi;
       equation 
         y.signal = offset + (if time < startTime then 0 else amplitude * sin(2 * pi * freqHz * (time - startTime) + phase));
       end Sine;
@@ -1394,7 +1416,7 @@ package Modelica
         parameter Real startTime = 0 "Output = offset for time < startTime";
         extends Interfaces.SO;
       protected 
-        constant Real pi = Modelica.Constants.pi;
+        constant Real pi = Coselica.Constants.pi;
       equation 
         y.signal = offset + (if time < startTime then 0 else amplitude * exp( -(time - startTime) * damping) * sin(2 * pi * freqHz * (time - startTime) + phase));
       end ExpSine;
@@ -1674,7 +1696,7 @@ package Modelica
         parameter Real Nd = 10 "The higher Nd, the more ideal the derivative block";
         Blocks.Math.Gain P "Proportional part of PID controller";
         Blocks.Continuous.Integrator I(k = 1 / Ti) "Integral part of PID controller";
-        Blocks.Continuous.Derivative D(k = Td, T = max(Td / Nd,100 * Modelica.Constants.eps)) "Derivative part of PID controller";
+        Blocks.Continuous.Derivative D(k = Td, T = if Td / Nd >= 100 * Coselica.Constants.eps then Td / Nd else 100 * Coselica.Constants.eps) "Derivative part of PID controller";
         Blocks.Math.Gain Gain(k = k) "Gain of PID controller";
         Blocks.Math.Add3 Add;
       equation 
@@ -1714,7 +1736,7 @@ package Modelica
         Blocks.Math.Add addD(k1 = wd, k2 =  -1);
         Blocks.Math.Gain P;
         Blocks.Continuous.Integrator I(k = 1 / Ti);
-        Blocks.Continuous.Derivative D(k = Td, T = max(Td / Nd,1e-14));
+        Blocks.Continuous.Derivative D(k = Td, T = if Td / Nd >= 1e-14 then Td / Nd else 1e-14);
         Blocks.Math.Gain gainPID(k = k);
         Blocks.Math.Add3 addPID;
         Blocks.Math.Add3 addI(k2 =  -1);
@@ -1781,38 +1803,13 @@ package Modelica
         extends Interfaces.SISO;
         Real x "State of block";
       equation 
-        der(x) = if noEvent(abs(k) >= Modelica.Constants.eps) then (u.signal - x) / T else 0;
-        y.signal = if noEvent(abs(k) >= Modelica.Constants.eps) then k / T * (u.signal - x) else 0;
+        der(x) = if noEvent(abs(k) >= Coselica.Constants.eps) then (u.signal - x) / T else 0;
+        y.signal = if noEvent(abs(k) >= Coselica.Constants.eps) then k / T * (u.signal - x) else 0;
       end Derivative;
     
     end Continuous;
   
   end Blocks;
-
-  package Constants "Mathematical constants and constants of nature"
-    //import SI = Modelica.SIunits;
-    //import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    //extends Modelica.Icons.Library2;
-    constant Real e = exp(1.0);
-    constant Real pi = 2 * asin(1.0);
-    constant Real D2R = pi / 180 "Degree to Radian";
-    constant Real R2D = 180 / pi "Radian to Degree";
-    constant Real eps = 1e-15 "Biggest number such that 1.0 + eps = 1.0";
-    constant Real small = 1e-60 "Smallest number such that small and -small are representable on the machine";
-    constant Real inf = 1e+60 "Biggest Real number such that inf and -inf are representable on the machine";
-    constant Integer Integer_inf = 1073741823 "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
-    constant Real c = 299792458 "Speed of light in vacuum";
-    constant Real g_n = 9.80665 "Standard acceleration of gravity on earth";
-    constant Real G = 6.6742e-11 "Newtonian constant of gravitation";
-    constant Real h = 6.6260693e-34 "Planck constant";
-    constant Real k = 1.3806505e-23 "Boltzmann constant";
-    constant Real R = 8.314472 "Molar gas constant";
-    constant Real sigma = 5.6704e-08 "Stefan-Boltzmann constant";
-    constant Real N_A = 6.0221415e+23 "Avogadro constant";
-    constant Real mue_0 = 4 * pi * 1e-07 "Magnetic constant";
-    constant Real epsilon_0 = 1 / (mue_0 * c * c) "Electric constant";
-    constant Real T_zero =  -273.15 "Absolute zero temperature";
-  end Constants;
 
 end Modelica;
 
@@ -1828,7 +1825,7 @@ package Coselica
         parameter Real smin =  -25 "left stop for (left end of) sliding mass";
       equation 
         when s > smax - L / 2 then
-            reinit(s, smax - L / 2 - Modelica.Constants.eps);
+            reinit(s, smax - L / 2 - Coselica.Constants.eps);
           reinit(v, if v > 0 then 0 else v);
           Sticking = if pre(Forward) > 0.5 and v > 0 or pre(StartFor) > 0.5 and v > 0 then 1 else pre(Sticking);
           Forward = if pre(Forward) > 0.5 and v > 0 then 0 else pre(Forward);
@@ -1836,7 +1833,7 @@ package Coselica
         
         end when;
         when s < smin + L / 2 then
-            reinit(s, smin + L / 2 + Modelica.Constants.eps);
+            reinit(s, smin + L / 2 + Coselica.Constants.eps);
           reinit(v, if v < 0 then 0 else v);
           Sticking = if pre(Backward) > 0.5 and v < 0 or pre(StartBack) > 0.5 and v < 0 then 1 else pre(Sticking);
           Backward = if pre(Backward) > 0.5 and v < 0 then 0 else pre(Backward);
@@ -1861,6 +1858,88 @@ package Coselica
     
       package Sources
     
+        model Speed "Forced movement of a flange according to a reference speed"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport(s(start = 0, fixed = true));
+          Real v "Absolute velocity of flange_b";
+          Modelica.Blocks.Interfaces.RealInput v_ref "reference speed of flange as input signal";
+        equation 
+          v = der(s);
+          v = v_ref.signal;
+        end Speed;
+      
+        model Speed0 "Forced movement of a flange according to a reference velocity"
+          Real s "absolute position of flange_b";
+          Real v "absolute velocity of flange flange_b";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b;
+          Modelica.Blocks.Interfaces.RealInput v_ref "reference velocity of flange as input signal";
+        equation 
+          s = flange_b.s;
+          v = der(s);
+          v = v_ref.signal;
+        end Speed0;
+      
+        model QuadraticSpeedDependentForce "Quadratic dependency of force versus speed"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialForce;
+          parameter Real f_nominal = 1 "Nominal force (if negative, force is acting as load)";
+          parameter Real ForceDirection = 1 "Same direction of force in both directions of movement (1=yes,0=no)";
+          parameter Real v_nominal = 1 "Nominal speed (> 0)";
+          Real v "Velocity of flange with respect to support (= der(s))";
+        equation 
+          v = der(s);
+          if ForceDirection > 0 then
+            f =  -f_nominal * (v / v_nominal) ^ 2;
+          else
+            f =  -f_nominal * (if v >= 0 then (v / v_nominal) ^ 2 else  -(v / v_nominal) ^ 2);
+          end if;
+        end QuadraticSpeedDependentForce;
+      
+        model Position "Forced movement of a flange according to a reference position"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport;
+          Modelica.Blocks.Interfaces.RealInput s_ref "reference position of flange as input signal";
+        equation 
+          s = s_ref.signal;
+        end Position;
+      
+        model Position0 "Forced movement of a flange according to a reference position"
+          Real s "absolute position of flange_b";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b;
+          Modelica.Blocks.Interfaces.RealInput s_ref "reference position of flange as input signal";
+        equation 
+          s = flange_b.s;
+          s = s_ref.signal;
+        end Position0;
+      
+        model LinearSpeedDependentForce "Linear dependency of force versus speed"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialForce;
+          parameter Real f_nominal = 1 "Nominal force (if negative, force is acting as load)";
+          parameter Real ForceDirection = 1 "Same direction of force in both directions of movement (1=yes,0=no)";
+          parameter Real v_nominal = 1 "Nominal speed (> 0)";
+          Real v "Velocity of flange with respect to support (= der(s))";
+        equation 
+          v = der(s);
+          if ForceDirection > 0 then
+            f =  -f_nominal * abs(v / v_nominal);
+          else
+            f =  -f_nominal * v / v_nominal;
+          end if;
+        end LinearSpeedDependentForce;
+      
+        model ForceStep "Constant force, not dependent on speed"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialForce;
+          parameter Real stepForce(start = 1) = 1 "Height of force step (if negative, force is acting as load)";
+          parameter Real offsetForce(start = 0) = 0 "Offset of force";
+          parameter Real startTime = 0 "Force = offset for time < startTime";
+        equation 
+          f =  -offsetForce - (if time < startTime then 0 else stepForce);
+        end ForceStep;
+      
+        model Force "External force acting on a drive train element as input signal"
+          extends Interfaces.PartialOneFlangeAndSupport;
+          Modelica.Blocks.Interfaces.RealInput f "driving force as input signal";
+        equation 
+          flange.f =  -f.signal;
+        end Force;
+      
         model Force2 "Input signal acting as torque on two flanges"
           extends Translational.Interfaces.PartialTwoFlanges;
           Modelica.Blocks.Interfaces.RealInput f "driving force as input signal";
@@ -1868,6 +1947,53 @@ package Coselica
           flange_a.f = f.signal;
           flange_b.f =  -f.signal;
         end Force2;
+      
+        model Force0 "External force acting on a drive train element as input signal"
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b;
+          Modelica.Blocks.Interfaces.RealInput f "driving force as input signal";
+        equation 
+          flange_b.f =  -f.signal;
+        end Force0;
+      
+        model ConstantSpeed "Constant speed, not dependent on force"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialForce;
+          parameter Real v_fixed = 1 "Fixed speed (if negative, force is acting as load)";
+          Real v "Velocity of flange with respect to support (= der(s))";
+        equation 
+          v = der(s);
+          v = v_fixed;
+        end ConstantSpeed;
+      
+        model ConstantForce "Constant force, not dependent on speed"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialForce;
+          parameter Real f_constant = 1 "Nominal force (if negative, force is acting as load)";
+        equation 
+          f =  -f_constant;
+        end ConstantForce;
+      
+        model Accelerate "Forced movement of a flange according to an acceleration signal"
+          extends Coselica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport;
+          Real v(start = 0, fixed = true) "Absolute velocity of flange_b";
+          Real a "Absolute acceleration of flange_b";
+          Modelica.Blocks.Interfaces.RealInput a_ref "absolute acceleration of flange as input signal";
+        equation 
+          v = der(s);
+          a = der(v);
+          a = a_ref.signal;
+        end Accelerate;
+      
+        model Accelerate0 "Forced movement of a.signal flange according to an acceleration signal"
+          Real s "Absolute position of flange_b";
+          Real v(start = 0, fixed = true) "Absolute velocity of flange_b";
+          Real a "Absolute acceleration of flange_b";
+          Modelica.Blocks.Interfaces.RealInput a_ref "Absolute acceleration of flange as input signal";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b;
+        equation 
+          s = flange_b.s;
+          v = der(s);
+          a = der(v);
+          a = a_ref.signal;
+        end Accelerate0;
       
       end Sources;
     
@@ -1976,6 +2102,11 @@ package Coselica
     
       package Interfaces
     
+        connector Support "Support/housing 1D translational flange"
+          Real s "absolute position of flange";
+          flow Real f "cut force directed into flange";
+        end Support;
+      
         partial model PartialTwoFlanges "Component with two translational 1D flanges "
           Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)";
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b "(right) driven flange (flange axis directed out of cut plane)";
@@ -1988,6 +2119,21 @@ package Coselica
         equation 
           0 = flange_a.f + flange_b.f;
         end PartialRelativeSensor;
+      
+        partial model PartialOneFlangeAndSupport "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+          Real s = flange.s - support.s "distance between flange and support (= flange.s - support.s)";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange "Flange of component";
+          Support support "Support/housing of component";
+        equation 
+          support.f =  -flange.f;
+        end PartialOneFlangeAndSupport;
+      
+        partial model PartialForce "Partial model of a force acting at the flange (accelerates the flange)"
+          extends PartialOneFlangeAndSupport;
+          Real f "Accelerating force acting at flange (= flange.f)";
+        equation 
+          flange.f = f;
+        end PartialForce;
       
         partial model PartialCompliantWithRelativeStates "Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states"
           Real s_rel(start = 0) "Relative distance (= flange_b.s - flange_a.s)";
@@ -2073,6 +2219,12 @@ package Coselica
     
       package Components
     
+        model Free "Flange moving freely (flange_a.f = 0)"
+          Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)";
+        equation 
+          flange_a.f = 0;
+        end Free;
+      
         model ElastoGap "1D translational spring damper combination with gap"
           extends Coselica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates;
           parameter Real c = 1 "Spring constant (c >= 0)";
@@ -2080,17 +2232,19 @@ package Coselica
           parameter Real s_rel0 = 0 "Unstretched spring length";
         protected 
           Real f_c "Spring force";
-          Real f_d "Unmodified damping force";
+          Real f_d2 "Unmodified damping force";
+          Real f_d "Linear damping force which is limited by spring force (|f_d| <= |f_c|)";
         equation 
           if s_rel > s_rel0 then
             f_c = 0;
+            f_d2 = 0;
             f_d = 0;
-            f = 0;
           else
             f_c = c * (s_rel - s_rel0);
-            f_d = d * v_rel;
-            f = noEvent(if f_c + f_d >= 0 then 0 else f_c + max(f_c, f_d));
+            f_d2 = d * v_rel;
+            f_d = if f_d2 < f_c then f_c else if f_d2 >  -f_c then  -f_c else f_d2;
           end if;
+          f = f_c + f_d;
         end ElastoGap;
       
       end Components;
@@ -2116,6 +2270,155 @@ package Coselica
         w = der(phi);
         w = w_ref.signal;
       end Speed;
+    
+      package Sources
+    
+        model TorqueStep "Constant torque, not dependent on speed"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialTorque;
+          parameter Real stepTorque(start = 1) = 1 "Height of torque step (if negative, torque is acting as load)";
+          parameter Real offsetTorque(start = 0) = 0 "Offset of torque";
+          parameter Real startTime = 0 "Torque = offset for time < startTime";
+          Real tau "Accelerating torque acting at flange (= -flange.tau)";
+        equation 
+          tau =  -flange.tau;
+          tau = offsetTorque + (if time < startTime then 0 else stepTorque);
+        end TorqueStep;
+      
+        model Torque "Input signal acting as external torque on a flange"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport;
+          Modelica.Blocks.Interfaces.RealInput tau "Accelerating torque acting at flange ";
+        equation 
+          flange.tau =  -tau.signal;
+        end Torque;
+      
+        model Torque2 "Input signal acting as torque on two flanges"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+          Modelica.Blocks.Interfaces.RealInput tau "Torque driving the two flanges ";
+        equation 
+          flange_a.tau = tau.signal;
+          flange_b.tau =  -tau.signal;
+        end Torque2;
+      
+        model Torque0 "Input signal acting as external torque on a flange"
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b;
+          Modelica.Blocks.Interfaces.RealInput tau "Accelerating torque acting at flange ";
+        equation 
+          flange_b.tau =  -tau.signal;
+        end Torque0;
+      
+        model Speed "Forced movement of a flange according to a reference angular velocity signal"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport;
+          Real w "Angular velocity of flange with respect to support";
+          Modelica.Blocks.Interfaces.RealInput w_ref "Reference angular velocity of flange with respect to support as input signal";
+        equation 
+          w = der(phi);
+          w = w_ref.signal;
+        end Speed;
+      
+        model Speed0 "Forced movement of a flange according to a reference angular velocity signal"
+          Real phi "absolute position of flange_b";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b;
+          Real w "Angular velocity of flange with respect to support";
+          Modelica.Blocks.Interfaces.RealInput w_ref "Reference angular velocity of flange with respect to support as input signal";
+        equation 
+          phi = flange_b.phi;
+          w = der(phi);
+          w = w_ref.signal;
+        end Speed0;
+      
+        model QuadraticSpeedDependentTorque "Quadratic dependency of torque versus speed"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialTorque;
+          parameter Real tau_nominal "Nominal torque (if negative, torque is acting as load)";
+          parameter Boolean TorqueDirection = 1 "Same direction of torque in both directions of rotation (1=yes,0=no)";
+          parameter Real w_nominal = 1 "Nominal speed (> 0)";
+          Real w "Angular velocity of flange with respect to support (= der(phi))";
+          Real tau "Accelerating torque acting at flange (= -flange.tau)";
+        equation 
+          w = der(phi);
+          tau =  -flange.tau;
+          if TorqueDirection > 0 then
+            tau = tau_nominal * (w / w_nominal) ^ 2;
+          else
+            tau = tau_nominal * (if w >= 0 then (w / w_nominal) ^ 2 else  -(w / w_nominal) ^ 2);
+          end if;
+        end QuadraticSpeedDependentTorque;
+      
+        model Position "Forced movement of a flange according to a reference angle signal"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport;
+          Modelica.Blocks.Interfaces.RealInput phi_ref "Reference angle of flange with respect to support as input signal";
+        equation 
+          phi = phi_ref.signal;
+        end Position;
+      
+        model Position0 "Forced movement of a flange according to a reference angle signal"
+          Real phi "absolute position of flange_b";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b;
+          Modelica.Blocks.Interfaces.RealInput phi_ref "Reference angle of flange with respect to support as input signal";
+        equation 
+          phi = flange_b.phi;
+          phi = phi_ref.signal;
+        end Position0;
+      
+        model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialTorque;
+          parameter Real tau_nominal "Nominal torque (if negative, torque is acting as load)";
+          parameter Real TorqueDirection = 1 "Same direction of torque in both directions of rotation (1=yes,0=no)";
+          parameter Real w_nominal = 1 "Nominal speed (> 0)";
+          Real w "Angular velocity of flange with respect to support (= der(phi))";
+          Real tau "Accelerating torque acting at flange (= -flange.tau)";
+        equation 
+          w = der(phi);
+          tau =  -flange.tau;
+          if TorqueDirection > 0 then
+            tau = tau_nominal * abs(w / w_nominal);
+          else
+            tau = tau_nominal * w / w_nominal;
+          end if;
+        end LinearSpeedDependentTorque;
+      
+        model ConstantTorque "Constant torque, not dependent on speed"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialTorque;
+          parameter Real tau_constant "Constant torque (if negative, torque is acting as load)";
+          Real tau "Accelerating torque acting at flange (= -flange.tau)";
+        equation 
+          tau =  -flange.tau;
+          tau = tau_constant;
+        end ConstantTorque;
+      
+        model ConstantSpeed "Constant speed, not dependent on torque"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialTorque;
+          Real w "Angular velocity of flange with respect to support (= der(phi))";
+          parameter Real w_fixed "Fixed speed";
+        equation 
+          w = der(phi);
+          w = w_fixed;
+        end ConstantSpeed;
+      
+        model Accelerate "Forced movement of a flange according to an acceleration signal"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport;
+          Real w(start = 0, fixed = true) "Angular velocity of flange with respect to support";
+          Real a "Angular acceleration of flange with respect to support";
+          Modelica.Blocks.Interfaces.RealInput a_ref "Absolute angular acceleration of flange with respect to support as input signal";
+        equation 
+          w = der(phi);
+          a = der(w);
+          a = a_ref.signal;
+        end Accelerate;
+      
+        model Accelerate0 "Forced movement of a flange according to an acceleration signal"
+          Real phi "absolute position of flange_b";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b;
+          Real w(start = 0, fixed = true) "Angular velocity of flange with respect to support";
+          Real a "Angular acceleration of flange with respect to support";
+          Modelica.Blocks.Interfaces.RealInput a_ref "Absolute angular acceleration of flange with respect to support as input signal";
+        equation 
+          phi = flange_b.phi;
+          w = der(phi);
+          a = der(w);
+          a = a_ref.signal;
+        end Accelerate0;
+      
+      end Sources;
     
       package Sensors
     
@@ -2163,7 +2466,7 @@ package Coselica
         Real sa "path parameter of tau = f(a_rel) Friction characteristic";
         constant Real eps0 = 0.0001 "Relative hysteresis epsilon";
         Real tau0_max_low "lowest value for tau0_max";
-        parameter Real peak2 = max(peak, 1 + eps0);
+        parameter Real peak2 = if peak >= 1 + eps0 then peak else 1 + eps0;
       public 
         Modelica.Blocks.Interfaces.RealInput f_normalized "Normalized force signal 0..1 ";
       equation 
@@ -2189,6 +2492,28 @@ package Coselica
     
       package Interfaces
     
+        connector Support "Support/housing of a 1-dim. rotational shaft"
+          Real phi "Absolute rotation angle of the support/housing";
+          flow Real tau "Reaction torque in the support/housing";
+        end Support;
+      
+        partial model PartialTwoFlanges "Partial model for a component with two rotational 1-dim. shaft flanges"
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a "Flange of left shaft";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b "Flange of right shaft";
+        end PartialTwoFlanges;
+      
+        partial model PartialTorque "Partial model of a torque acting at the flange (accelerates the flange)"
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport;
+        end PartialTorque;
+      
+        partial model PartialOneFlangeAndSupport "Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+          Real phi = flange.phi - support.phi "distance between flange and support (= flange.phi - support.phi)";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange "Flange of shaft";
+          Support support "Support/housing of component";
+        equation 
+          support.tau =  -flange.tau;
+        end PartialOneFlangeAndSupport;
+      
         partial model PartialCompliantWithRelativeStates "Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states"
           Real phi_rel(start = 0) "Relative rotation angle (= flange_b.phi - flange_a.phi)";
           Real w_rel(start = 0) "Relative angular velocity (= der(phi_rel))";
@@ -2335,17 +2660,23 @@ package Coselica
     
       package Components
     
+        model Free "Flange rotating freely (flange_a.tau = 0)"
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a "Flange of left shaft";
+        equation 
+          flange_a.tau = 0;
+        end Free;
+      
         model ElastoBacklash "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)"
           parameter Real c = 100000.0 "Spring constant (c > 0 required)";
           parameter Real d = 0 "Damping constant (d >= 0)";
           parameter Real b = 0 "Total backlash (b >= 0)";
           parameter Real phi_rel0 = 0 "Unstretched spring angle";
-          extends Coselica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates(tau(start = tau_c + tau_d, fixed = true));
+          extends Coselica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
         protected 
           final parameter Real bMax = b / 2 "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
           final parameter Real bMin =  -bMax "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
           Real tau_c(start = if abs(b) <= bEps then c * phi_diff else if phi_diff > bMax then c * (phi_diff - bMax) else if phi_diff < bMin then c * (phi_diff - bMin) else 0, fixed = true);
-          Real tau_d(start = d * w_rel, fixed = true);
+          Real tau_d;
           Real phi_diff = phi_rel - phi_rel0;
           constant Real bEps = 1e-10 "minimum backlash";
         equation 
@@ -2688,6 +3019,20 @@ package Coselica
     
       package Parts
     
+        model PointMass "Rigid body where body rotation and inertia is neglected (no states)"
+          Interfaces.Frame_a frame_a "Coordinate system fixed at center of mass point";
+          parameter Real m = 1 "Mass of mass point (m > 0)";
+          Real r_0[2](start = {0,0}) "Position vector from origin of world frame to origin of frame_a, resolved in world frame";
+          Real v_0[2](start = {0,0}) "Absolute velocity of frame_a, resolved in world frame (= der(r_0))";
+          Real a_0[2](start = {0,0}) "Absolute acceleration of frame_a resolved in world frame (= der(v_0))";
+        equation 
+          frame_a.t = 0;
+          r_0 = frame_a.r_0;
+          v_0 = frame_a.v_0;
+          a_0 = frame_a.a_0;
+          frame_a.f = m * a_0;
+        end PointMass;
+      
         model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
           Interfaces.Frame_a frame_a "Coordinate system fixed to the component with one cut-force and cut-torque";
           Interfaces.Frame_b frame_b "Coordinate system fixed to the component with one cut-force and cut-torque";
@@ -2743,7 +3088,19 @@ package Coselica
           0 = frame_a.t + frame_b.t + r_0[1] * frame_b.f[2] - r_0[2] * frame_b.f[1];
         end FixedRotation;
       
-        model BodyShape "Rigid body with mass, inertia tensor and two frame connectors (6 potential states)"
+        model Fixed "Frame fixed in the world frame at a given position (used for closing loops)"
+          Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame";
+          parameter Real r[2] = {0,0} "Position vector from world frame to frame_b, resolved in world frame";
+        equation 
+          frame_b.r_0 = r;
+          frame_b.v_0 = {0,0};
+          frame_b.a_0 = {0,0};
+          frame_b.phi = 0;
+          frame_b.w = 0;
+          frame_b.z = 0;
+        end Fixed;
+      
+        model BodyShape "Rigid body with mass, inertia tensor and two frame connectors (no states)"
           Interfaces.Frame_a frame_a "Coordinate system fixed to the component with one cut-force and cut-torque";
           Interfaces.Frame_b frame_b "Coordinate system fixed to the component with one cut-force and cut-torque";
           parameter Real r[2] = {0,0} "Vector from frame_a to frame_b resolved in frame_a";
@@ -2765,7 +3122,7 @@ package Coselica
           connect(frame_a,body.frame_a);
         end BodyShape;
       
-        model Body "Rigid body with mass, inertia tensor and one frame connector (6 potential states)"
+        model Body "Rigid body with mass, inertia tensor and one frame connector (no states)"
           Interfaces.Frame_a frame_a "Coordinate system fixed at body";
           parameter Real r_CM[2] = {0,0} "Vector from frame_a to center of mass, resolved in frame_a";
           parameter Real m = 1 "Mass of rigid body (m >= 0)";
@@ -2850,7 +3207,7 @@ package Coselica
             Real v "First derivative of s (relative velocity)";
             Real a "Second derivative of (relative accleration)";
           protected 
-            parameter Real e[2] = n / sqrt(n * n) "Unit vector in direction of prismatic axis n, resolved in frame_a";
+            Real e[2] = n / sqrt(n * n) "Unit vector in direction of prismatic axis n, resolved in frame_a";
             Real r_0[2] "Vector from frame_a to frame_b resolved in frame_a";
             Real R_0[2,2] "Rotation matrix";
           equation 
@@ -2894,6 +3251,12 @@ package Coselica
     
       package Joints
     
+        model RollingWheel "Joint that describes an ideal rolling wheel (1 non-holonomic constraint, no states)"
+          extends Interfaces.PartialRollingWheel;
+        equation 
+          f_lon = 0;
+        end RollingWheel;
+      
         model Revolute "Revolute joint (1 rotational degree-of-freedom, 2 states)"
           extends Internal.Revolute;
         end Revolute;
@@ -2944,7 +3307,7 @@ package Coselica
             parameter Real v_start = 0 "Initial value of relative velocity v = der(s)";
             parameter Real a_start = 0 "Initial value of relative acceleration a = der(v)";
           protected 
-            parameter Real e[2] = n / sqrt(n * n) "Unit vector in direction of prismatic axis n, resolved in frame_a";
+            Real e[2] = n / sqrt(n * n) "Unit vector in direction of prismatic axis n, resolved in frame_a";
             Real r_0[2] "Vector from frame_a to frame_b resolved in frame_a";
             Real R_0[2,2] "Rotation matrix";
           equation 
@@ -3012,6 +3375,21 @@ package Coselica
           frame_b.t = 0;
         end FreeMotion;
       
+        model ActuatedRollingWheel "Joint that describes an ideal actuated rolling wheel (1 non-holonomic constraint, no states)"
+          extends Interfaces.PartialRollingWheel;
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a axis "1-dim. rotational flange that drives the joint";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing "1-dim. rotational flange of the drive bearing";
+          parameter Real radius = 1 "Radius of wheel";
+          Real w_axis "Angular Velocity (w_axis=der(axis.phi))";
+          Real a_axis "Angular acceleration of wheel axis (a_axis=der(w_axis))";
+        equation 
+          f_lon = radius * axis.tau;
+          w_axis = der(axis.phi);
+          a_axis = der(w_axis);
+          a_axis * radius = (if f_lon > 0 then 1 else  -1) * sqrt(frame_a.a_0 * frame_a.a_0);
+          bearing.phi = 0;
+        end ActuatedRollingWheel;
+      
         model ActuatedRevolute "Actuated revolute joint (1 rotational degree-of-freedom, 2 states)"
           extends Internal.Revolute(final tau = axis.tau);
           Modelica.Mechanics.Rotational.Interfaces.Flange_a axis "1-dim. rotational flange that drives the joint";
@@ -3038,6 +3416,28 @@ package Coselica
           Interfaces.Frame_a frame_a "Coordinate system fixed to the component with one cut-force and cut-torque";
           Interfaces.Frame_b frame_b "Coordinate system fixed to the component with one cut-force and cut-torque";
         end PartialTwoFrames;
+      
+        model PartialRollingWheel "Base model that describes an ideal rolling wheel (1 non-holonomic constraint, no states)"
+          Interfaces.Frame_a frame_a "Frame fixed in wheel center point";
+          parameter Real n[2] = {0,1} "Wheel axis resolved in frame_a";
+        protected 
+          Real f_lat "Force acting on wheel in lateral direction";
+          Real f_lon "Force acting on wheel in longitudinal direction";
+          Real f_wheel[2] "Force acting on wheel, resolved in frame_a";
+          Real e[2] = n / sqrt(n * n) "Unit vector in direction of wheel axis n, resolved in frame_a";
+          Real e_0[2] "Unit vector in direction of wheel axis n, resolved in world frame";
+          Real R_0[2,2] "Rotation matrix";
+        equation 
+          R_0[1,1] = cos(frame_a.phi);
+          R_0[1,2] =  -sin(frame_a.phi);
+          R_0[2,1] = sin(frame_a.phi);
+          R_0[2,2] = cos(frame_a.phi);
+          f_wheel = e * f_lat + {e[2], -e[1]} * f_lon;
+          e_0 = R_0 * e;
+          0 = e_0 * frame_a.v_0;
+          0 = frame_a.t;
+          {0,0} = frame_a.f + R_0 * f_wheel;
+        end PartialRollingWheel;
       
         partial model PartialRelativeVectorSensor "Base model to measure a relative vector variable between two frames"
           extends Modelica.Icons.TranslationalSensor;
@@ -3144,6 +3544,41 @@ package Coselica
           frame_b.t = 0;
         end WorldForce;
       
+        model LineForceWithMass "General line force component with a point mass on the connection line"
+          extends Interfaces.PartialTwoFrames;
+          parameter Real m = 1 "Mass of point mass (> 0) on the connetion line between the origin of frame_a and the origin of frame_b";
+          parameter Real lengthFraction = 0.5 "Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b";
+          Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange_a "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)";
+          Real length "Distance between the origin of frame_a and the origin of frame_b";
+          Real e_rel_0[2] "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+          parameter Real s_small = 1e-10 "Prevent zero-division if distance between frame_a and frame_b is zero";
+          Real phi_rel "Relative angle to rotate frame_a into frame_b (= frame_b.phi - frame_a.phi)";
+          Real w_rel "First derivative of angle phi_rel (relative angular velocity)";
+          Real z_rel "Second derivative of angle phi_rel (relative angular acceleration)";
+        protected 
+          Real r_rel_0[2] "r_rel_a resolved in world frame";
+          Real v_rel_0[2] "v_rel_a resolved in world frame";
+          Real a_rel_0[2] "a_rel_a resolved in world frame";
+          Real a_CM_0[2] "Acceleration of point mass, resolved in world frame";
+        equation 
+          frame_b.r_0 = frame_a.r_0 + r_rel_0;
+          frame_b.v_0 = frame_a.v_0 + v_rel_0 + frame_a.w * { -r_rel_0[2],r_rel_0[1]};
+          frame_b.a_0 = frame_a.a_0 + a_rel_0 + frame_a.z * { -r_rel_0[2],r_rel_0[1]} + 2 * frame_a.w * { -v_rel_0[2],v_rel_0[1]} - frame_a.w * frame_a.w * r_rel_0;
+          frame_b.phi = frame_a.phi + phi_rel;
+          frame_b.w = frame_a.w + w_rel;
+          frame_b.z = frame_a.z + z_rel;
+          a_CM_0 = frame_a.a_0 + lengthFraction * (frame_b.a_0 - frame_a.a_0);
+          length = sqrt(r_rel_0 * r_rel_0);
+          flange_a.s = 0;
+          flange_b.s = length;
+          e_rel_0 = r_rel_0 / noEvent(max(length, s_small));
+          frame_a.f = m * (1 - lengthFraction) * a_CM_0 - flange_a.f * e_rel_0;
+          frame_a.t = 0;
+          frame_b.f = m * lengthFraction * a_CM_0 - flange_b.f * e_rel_0;
+          frame_b.t = 0;
+        end LineForceWithMass;
+      
         model LineForce "General line force component"
           extends Interfaces.PartialTwoFrames;
           Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)";
@@ -3198,6 +3633,219 @@ package Coselica
   
   end Mechanics;
 
+  package Electrical
+
+    package Analog
+  
+      package Sources
+    
+        model TrapezoidVoltage "Trapezoidal voltage source"
+          parameter Real V = 1 "Amplitude of trapezoid";
+          parameter Real rising = 0 "Rising duration of trapezoid (>=0)";
+          parameter Real width = 0.5 "Width duration of trapezoid (>=0)";
+          parameter Real falling = 0 "Falling duration of trapezoid (>=0)";
+          parameter Real period = 1 "Time for one period (>0)";
+          parameter Real nperiod =  -1 "Number of periods (< 0 means infinite number of periods)";
+          extends Modelica.Electrical.Analog.Interfaces.VoltageSource;
+          Coselica.Blocks.Sources.Trapezoid signalSource(amplitude = V, rising = rising, width = width, falling = falling, period = period, nperiod = nperiod);
+        equation 
+          v = signalSource.y;
+        end TrapezoidVoltage;
+      
+        model TrapezoidCurrent "Trapezoidal current source"
+          parameter Real I = 1 "Amplitude of trapezoid";
+          parameter Real rising = 0 "Rising duration of trapezoid (>=0)";
+          parameter Real width = 0.5 "Width duration of trapezoid (>=0)";
+          parameter Real falling = 0 "Falling duration of trapezoid (>=0)";
+          parameter Real period = 1 "Time for one period (>0)";
+          parameter Real nperiod =  -1 "Number of periods (< 0 means infinite number of periods)";
+          extends Modelica.Electrical.Analog.Interfaces.CurrentSource;
+          Coselica.Blocks.Sources.Trapezoid signalSource(amplitude = I, rising = rising, width = width, falling = falling, period = period, nperiod = nperiod);
+        equation 
+          i = signalSource.y;
+        end TrapezoidCurrent;
+      
+      end Sources;
+    
+      package Sensors
+    
+        model PowerSensor "Sensor to measure the power.signal"
+          Modelica.Electrical.Analog.Interfaces.PositivePin pc "Positive pin, current path";
+          Modelica.Electrical.Analog.Interfaces.NegativePin nc "Negative pin, current path";
+          Modelica.Electrical.Analog.Interfaces.PositivePin pv "Positive pin, voltage path";
+          Modelica.Electrical.Analog.Interfaces.NegativePin nv "Negative pin, voltage path";
+          Modelica.Blocks.Interfaces.RealOutput power;
+        equation 
+          pv.i = 0;
+          nv.i = 0;
+          pc.v = nc.v;
+          pc.i =  -nc.i;
+          power.signal = (pv.v - nv.v) * pc.i;
+        end PowerSensor;
+      
+      end Sensors;
+    
+      package Semiconductors
+    
+        model ZDiode "Zener Diode with 3 working areas"
+          extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          parameter Real Ids = 1e-06 "Saturation current";
+          parameter Real Vt = 0.04 "Voltage equivalent of temperature (kT/qn)";
+          parameter Real Maxexp = 30 "Max. exponent for linear continuation";
+          parameter Real R = 100000000.0 "Parallel ohmic resistance";
+          parameter Real Bv = 5.1 "Breakthrough voltage = Zener- or Z-voltage";
+          parameter Real Ibv = 0.7 "Breakthrough knee current";
+          parameter Real Nbv = 0.74 "Breakthrough emission coefficient";
+        equation 
+          i = if v > Maxexp * Vt then Ids * (exp(Maxexp) * (1 + v / Vt - Maxexp) - 1) + v / R else if v + Bv <  -Maxexp * Nbv * Vt then  -Ids - Ibv * exp(Maxexp) * (1 - (v + Bv) / (Nbv * Vt) - Maxexp) + v / R else Ids * (exp(v / Vt) - 1) - Ibv * exp( -(v + Bv) / (Nbv * Vt)) + v / R;
+        end ZDiode;
+      
+        model Thyristor "Simple Thyristor Model"
+          parameter Real VDRM = 100 "Forward breakthrough voltage (>= 0)";
+          parameter Real VRRM = 100 "Reverse breakthrough voltage (>= 0)";
+          parameter Real IDRM = 0.1 "Saturation current";
+          parameter Real VTM = 1.7 "Conducting voltage";
+          parameter Real IH = 0.006 "Holding current";
+          parameter Real ITM = 25 "Conducting current";
+          parameter Real VGT = 0.7 "Gate trigger voltage";
+          parameter Real IGT = 0.005 "Gate trigger current";
+          parameter Real TON = 1e-06 "Switch on time";
+          parameter Real TOFF = 1.5e-05 "Switch off time";
+          parameter Real Vt = 0.04 "Voltage equivalent of temperature (kT/qn)";
+          parameter Real Nbv = 0.74 "Reverse Breakthrough emission coefficient";
+          Real iGK "gate current";
+          Real vGK "voltage between gate and cathode";
+          Real vAK "voltage between anode and cathode";
+          Real vControl(start = 0);
+          Real vContot;
+          Real vConmain;
+        public 
+          Modelica.Electrical.Analog.Interfaces.PositivePin Anode;
+          Modelica.Electrical.Analog.Interfaces.NegativePin Cathode;
+          Modelica.Electrical.Analog.Interfaces.PositivePin Gate;
+        protected 
+          parameter Real Von = 5;
+          parameter Real Voff = 1.5;
+          parameter Real Ron = (VTM - 0.7) / ITM "Forward conducting mode resistance";
+          parameter Real Roff = VDRM ^ 2 / VTM / IH "Blocking mode resistance";
+        equation 
+          Anode.i + Gate.i + Cathode.i = 0;
+          vGK = Gate.v - Cathode.v;
+          vAK = Anode.v - Cathode.v;
+          iGK = Gate.i;
+          vGK = if vGK < 0.65 then VGT / IGT * iGK else 0.65 ^ 2 / VGT + (iGK * (VGT - 0.65)) / IGT;
+          vContot = vConmain + (if iGK < 0.95 * IGT then 0 else if iGK < 0.95 * IGT + 0.001 then 10000 * (iGK - 0.95 * IGT) * vAK else 10 * vAK);
+          der(vControl) = (vContot - vControl) / (if vContot - vControl > 0 then 1.87 * TON else 0.638 * TOFF);
+          Anode.i = noEvent(if vAK <  -VRRM then  -VRRM / Roff * exp( -(vAK + VRRM) / (Nbv * Vt)) else if vControl < Voff then vAK / Roff else if vControl < Von then vAK / (sqrt(Ron * Roff) * (Ron / Roff) ^ ((3 * (2 * vControl - Von - Voff) / (2 * (Von - Voff)) - 4 * ((2 * vControl - Von - Voff) / (2 * (Von - Voff))) ^ 3) / 2)) else vAK / Ron);
+          vConmain = if Anode.i > IH or vAK > VDRM then Von else 0;
+        end Thyristor;
+      
+      end Semiconductors;
+    
+      package Ideal
+    
+        model IdealDiode "Ideal diode"
+          extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          parameter Real Ron = 1e-05 "Forward state-on differential resistance (closed diode resistance >=0)";
+          parameter Real Goff = 1e-05 "Backward state-off conductance (opened diode conductance >= 0)";
+          parameter Real Vknee = 0 "Forward threshold voltage (>= 0";
+        protected 
+          Real s "Auxiliary variable: if on then current, if opened then voltage";
+        equation 
+          v = s * (if s < 0 then 1 else Ron) + Vknee;
+          i = s * (if s < 0 then Goff else 1) + Goff * Vknee;
+        end IdealDiode;
+      
+      end Ideal;
+    
+      package Basic
+    
+        model TranslationalEMF "Electromotoric force (electric/mechanic transformer)"
+          parameter Real k = 1 "Transformation coefficient";
+          Real v "Voltage drop between the two pins";
+          Real i "Current flowing from positive to negative pin";
+          Real s "Position of flange relative to support";
+          Real vel "Velocity of flange relative to support";
+          Modelica.Electrical.Analog.Interfaces.PositivePin p;
+          Modelica.Electrical.Analog.Interfaces.NegativePin n;
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange;
+          Coselica.Mechanics.Translational.Interfaces.Support support "Support/housing";
+        equation 
+          v = p.v - n.v;
+          0 = p.i + n.i;
+          i = p.i;
+          s = flange.s - support.s;
+          vel = der(s);
+          k * vel = v;
+          flange.f =  -k * i;
+          flange.f + support.f = 0;
+        end TranslationalEMF;
+      
+        model TranslationalEMF0 "Electromotoric force (electric/mechanic transformer)"
+          parameter Real k = 1 "Transformation coefficient";
+          Real v "Voltage drop between the two pins";
+          Real i "Current flowing from positive to negative pin";
+          Real s "Position of flange relative to support";
+          Real vel "Velocity of flange relative to support";
+          Modelica.Electrical.Analog.Interfaces.PositivePin p;
+          Modelica.Electrical.Analog.Interfaces.NegativePin n;
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange;
+        equation 
+          v = p.v - n.v;
+          0 = p.i + n.i;
+          i = p.i;
+          s = flange.s;
+          vel = der(s);
+          k * vel = v;
+          flange.f =  -k * i;
+        end TranslationalEMF0;
+      
+        model EMF "Electromotoric force (electric/mechanic transformer)"
+          parameter Real k = 1 "Transformation coefficient";
+          Real v "Voltage drop between the two pins";
+          Real i "Current flowing from positive to negative pin";
+          Real phi "Angle of shaft flange with respect to support (= flange.phi - support.phi)";
+          Real w "Angular velocity of flange relative to support";
+          Modelica.Electrical.Analog.Interfaces.PositivePin p;
+          Modelica.Electrical.Analog.Interfaces.NegativePin n;
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange;
+          Coselica.Mechanics.Rotational.Interfaces.Support support "Support/housing of emf shaft";
+        equation 
+          v = p.v - n.v;
+          0 = p.i + n.i;
+          i = p.i;
+          phi = flange.phi - support.phi;
+          w = der(phi);
+          k * w = v;
+          flange.tau =  -k * i;
+          flange.tau + support.tau = 0;
+        end EMF;
+      
+        model EMF0 "Electromotoric force (electric/mechanic transformer)"
+          parameter Real k = 1 "Transformation coefficient";
+          Real v "Voltage drop between the two pins";
+          Real i "Current flowing from positive to negative pin";
+          Real phi "Angle of shaft flange with respect to support (= flange.phi - support.phi)";
+          Real w "Angular velocity of flange relative to support";
+          Modelica.Electrical.Analog.Interfaces.PositivePin p;
+          Modelica.Electrical.Analog.Interfaces.NegativePin n;
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange;
+        equation 
+          v = p.v - n.v;
+          0 = p.i + n.i;
+          i = p.i;
+          phi = flange.phi;
+          w = der(phi);
+          k * w = v;
+          flange.tau =  -k * i;
+        end EMF0;
+      
+      end Basic;
+    
+    end Analog;
+  
+  end Electrical;
+
   package Blocks
 
     package Sources
@@ -3216,18 +3864,50 @@ package Coselica
         parameter Real T_rising = rising "End time of rising phase within one period";
         parameter Real T_width = T_rising + width "End time of width phase within one period";
         parameter Real T_falling = T_width + falling "End time of falling phase within one period";
-        Real T0(start = startTime, fixed = true) "Start time of current period";
-        Real counter(start = nperiod, fixed = true) "Period counter";
+        discrete Real T0(start = startTime, fixed = true) "Start time of current period";
+        discrete Real counter(start = nperiod, fixed = true) "Period counter";
       equation 
-        der(T0) = 0;
-        der(counter) = 0;
         when time > T0 + period then
-            reinit(T0, time);
-          reinit(counter, counter - (if counter > 0 then 1 else 0));
+            T0 = time;
+          counter = max(0, counter - 1);
         
         end when;
         y.signal = offset + (if time < startTime or counter >  -1 and counter < 1 or time >= T0 + T_falling then 0 else if time < T0 + T_rising then ((time - T0) * amplitude) / T_rising else if time < T0 + T_width then amplitude else ((T0 + T_falling - time) * amplitude) / (T_falling - T_width));
       end Trapezoid;
+    
+      model SawTooth "Generate saw tooth signal of type Real"
+        parameter Real amplitude = 1 "Amplitude of saw tooth";
+        parameter Real period = 1 "Time for one period";
+        parameter Real offset = 0 "Offset of output signals";
+        parameter Real startTime = 0 "Output = offset for time < startTime";
+        extends Modelica.Blocks.Interfaces.SO;
+      protected 
+        discrete Real T0(start = startTime, fixed = true) "Start time of current period";
+      equation 
+        when time > T0 + period then
+            T0 = time;
+        
+        end when;
+        y.signal = offset + (if time < startTime then 0 else amplitude / period * (time - T0));
+      end SawTooth;
+    
+      model Pulse "Generate pulse signal of type Real"
+        parameter Real amplitude = 1 "Amplitude of pulse";
+        parameter Real width = 50 "Width of pulse in % of period";
+        parameter Real period = 1 "Time for one period";
+        parameter Real offset = 0 "Offset of output signals";
+        parameter Real startTime = 0 "Output = offset for time < startTime";
+        extends Modelica.Blocks.Interfaces.SO;
+      protected 
+        discrete Real T0(start = startTime, fixed = true) "Start time of current period";
+        Real T_width = (period * width) / 100;
+      equation 
+        when time > T0 + period then
+            T0 = time;
+        
+        end when;
+        y.signal = offset + (if time < startTime then 0 else if time >= T0 + T_width then 0 else amplitude);
+      end Pulse;
     
     end Sources;
   
@@ -3255,6 +3935,46 @@ package Coselica
     
     end Routing;
   
+    package Nonlinear
+  
+      model RateLimiter "Limit rate of change of signal"
+        extends Modelica.Blocks.Interfaces.SISO;
+        parameter Real sMax = 1 "Maximum slope";
+        parameter Real sMin =  -1 "Minimum slope";
+        parameter Real T = 0.0001 "Time constant (> 0)";
+        parameter Real y_start = 0 "Start value of output";
+      protected 
+        Real x "approximated rate";
+        Real yaux(start = y_start, fixed = true) "auxillary variable for initialization of output";
+      equation 
+        y.signal = yaux;
+        der(x) = (u.signal - y.signal) / T;
+        der(y.signal) = noEvent(if der(x) > sMax then sMax else if der(x) < sMin then sMin else der(x));
+      end RateLimiter;
+    
+      model Hysteresis "Switch output between two constants with hysteresis"
+        extends Modelica.Blocks.Interfaces.SISO;
+        parameter Real uOn = 1 "Switch on when u.signal >= uOn";
+        parameter Real uOff = 0 "Switch off when u.signal <= uOff";
+        parameter Real yOn = 1 "Output when switched on";
+        parameter Real yOff = 0 "Output when switched off";
+        parameter Real y_start = 0 "Start value of output";
+      protected 
+        discrete Real yd(start = y_start, fixed = true) "discrete state for output value (y.signal=yd)";
+      equation 
+        y.signal = yd;
+        when u.signal >= uOn then
+            yd = yOn;
+        
+        end when;
+        when u.signal <= uOff then
+            yd = yOff;
+        
+        end when;
+      end Hysteresis;
+    
+    end Nonlinear;
+  
     package Math
   
       model TwoOutputs "Change causality of output signals by defining that two output signals are identical (e.g. for inverse models)"
@@ -3279,6 +3999,19 @@ package Coselica
         y.signal = 2 * atan(u1.signal / (sqrt(u1.signal * u1.signal + u2.signal * u2.signal) + u2.signal));
       end Atan2;
     
+      model Add3 "Output the sum of the three inputs"
+        extends Modelica.Blocks.Interfaces.BlockIcon;
+        parameter Real k1 =  +1 "Gain of upper input";
+        parameter Real k2 =  +1 "Gain of middle input";
+        parameter Real k3 =  +1 "Gain of lower input";
+        input Modelica.Blocks.Interfaces.RealInput u1 "Connector 1 of Real input signals";
+        input Modelica.Blocks.Interfaces.RealInput u2 "Connector 2 of Real input signals";
+        input Modelica.Blocks.Interfaces.RealInput u3 "Connector 3 of Real input signals";
+        output Modelica.Blocks.Interfaces.RealOutput y "Connector of Real output signals";
+      equation 
+        y.signal = k1 * u1.signal + k2 * u2.signal + k3 * u3.signal;
+      end Add3;
+    
     end Math;
   
     package Interfaces
@@ -3301,6 +4034,1058 @@ package Coselica
   
   end Blocks;
 
+  package Constants "Mathematical constants and constants of nature"
+    //import SI = Modelica.SIunits;
+    //import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    //extends Modelica.Icons.Library2;
+    constant Real e = 2.71828182846;
+    constant Real pi = 3.14159265359;
+    constant Real D2R = pi / 180 "Degree to Radian";
+    constant Real R2D = 180 / pi "Radian to Degree";
+    constant Real eps = 1e-15 "Biggest number such that 1.0 + eps = 1.0";
+    constant Real small = 1e-60 "Smallest number such that small and -small are representable on the machine";
+    constant Real inf = 1e+60 "Biggest Real number such that inf and -inf are representable on the machine";
+    constant Integer Integer_inf = 1073741823 "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
+    constant Real c = 299792458 "Speed of light in vacuum";
+    constant Real g_n = 9.80665 "Standard acceleration of gravity on earth";
+    constant Real G = 6.6742e-11 "Newtonian constant of gravitation";
+    constant Real h = 6.6260693e-34 "Planck constant";
+    constant Real k = 1.3806505e-23 "Boltzmann constant";
+    constant Real R = 8.314472 "Molar gas constant";
+    constant Real sigma = 5.6704e-08 "Stefan-Boltzmann constant";
+    constant Real N_A = 6.0221415e+23 "Avogadro constant";
+    constant Real mue_0 = 4 * pi * 1e-07 "Magnetic constant";
+    constant Real epsilon_0 = 1 / (mue_0 * c * c) "Electric constant";
+    constant Real T_zero =  -273.15 "Absolute zero temperature";
+  end Constants;
+
 end Coselica;
 
 
+
+
+// wrapping models for scicos
+
+model CBI_RealOutput
+  extends Coselica.Blocks.Interfaces.RealOutput;
+end CBI_RealOutput;
+
+model CBI_RealInput
+  extends Coselica.Blocks.Interfaces.RealInput;
+end CBI_RealInput;
+
+model CBR_Multiplex2
+  extends Coselica.Blocks.Routing.Multiplex2;
+end CBR_Multiplex2;
+
+model CBR_DeMultiplex2
+  extends Coselica.Blocks.Routing.DeMultiplex2;
+end CBR_DeMultiplex2;
+
+model MBM_Gain
+  extends Modelica.Blocks.Math.Gain;
+end MBM_Gain;
+
+model MBM_Abs
+  extends Modelica.Blocks.Math.Abs;
+end MBM_Abs;
+
+model MBM_Sign
+  extends Modelica.Blocks.Math.Sign;
+end MBM_Sign;
+
+model MBM_Sqrt
+  extends Modelica.Blocks.Math.Sqrt;
+end MBM_Sqrt;
+
+model MBM_Sin
+  extends Modelica.Blocks.Math.Sin;
+end MBM_Sin;
+
+model MBM_Cos
+  extends Modelica.Blocks.Math.Cos;
+end MBM_Cos;
+
+model MBM_Tan
+  extends Modelica.Blocks.Math.Tan;
+end MBM_Tan;
+
+model MBM_Asin
+  extends Modelica.Blocks.Math.Asin;
+end MBM_Asin;
+
+model MBM_Acos
+  extends Modelica.Blocks.Math.Acos;
+end MBM_Acos;
+
+model MBM_Atan
+  extends Modelica.Blocks.Math.Atan;
+end MBM_Atan;
+
+model MBM_Sinh
+  extends Modelica.Blocks.Math.Sinh;
+end MBM_Sinh;
+
+model MBM_Cosh
+  extends Modelica.Blocks.Math.Cosh;
+end MBM_Cosh;
+
+model MBM_Tanh
+  extends Modelica.Blocks.Math.Tanh;
+end MBM_Tanh;
+
+model MBM_Exp
+  extends Modelica.Blocks.Math.Exp;
+end MBM_Exp;
+
+model MBM_Log
+  extends Modelica.Blocks.Math.Log;
+end MBM_Log;
+
+model MBM_Log10
+  extends Modelica.Blocks.Math.Log10;
+end MBM_Log10;
+
+model MBM_Add
+  extends Modelica.Blocks.Math.Add;
+end MBM_Add;
+
+model MBM_Product
+  extends Modelica.Blocks.Math.Product;
+end MBM_Product;
+
+model MBM_Division
+  extends Modelica.Blocks.Math.Division;
+end MBM_Division;
+
+model MBM_Max
+  extends Modelica.Blocks.Math.Max;
+end MBM_Max;
+
+model MBM_Min
+  extends Modelica.Blocks.Math.Min;
+end MBM_Min;
+
+model CBM_Atan2
+  extends Coselica.Blocks.Math.Atan2;
+end CBM_Atan2;
+
+model MBM_Feedback
+  extends Modelica.Blocks.Math.Feedback;
+end MBM_Feedback;
+
+model CBM_Add3
+  extends Coselica.Blocks.Math.Add3;
+end CBM_Add3;
+
+model CBM_TwoInputs
+  extends Coselica.Blocks.Math.TwoInputs;
+end CBM_TwoInputs;
+
+model CBM_TwoOutputs
+  extends Coselica.Blocks.Math.TwoOutputs;
+end CBM_TwoOutputs;
+
+model MBS_Clock
+  extends Modelica.Blocks.Sources.Clock;
+end MBS_Clock;
+
+model MBS_Constant
+  extends Modelica.Blocks.Sources.Constant;
+end MBS_Constant;
+
+model MBS_Step
+  extends Modelica.Blocks.Sources.Step;
+end MBS_Step;
+
+model MBS_Ramp
+  extends Modelica.Blocks.Sources.Ramp;
+end MBS_Ramp;
+
+model MBS_Sine
+  extends Modelica.Blocks.Sources.Sine;
+end MBS_Sine;
+
+model MBS_ExpSine
+  extends Modelica.Blocks.Sources.ExpSine;
+end MBS_ExpSine;
+
+model MBS_Exponentials
+  extends Modelica.Blocks.Sources.Exponentials;
+end MBS_Exponentials;
+
+model CBS_Pulse
+  extends Coselica.Blocks.Sources.Pulse;
+end CBS_Pulse;
+
+model CBS_SawTooth
+  extends Coselica.Blocks.Sources.SawTooth;
+end CBS_SawTooth;
+
+model CBS_Trapezoid
+  extends Coselica.Blocks.Sources.Trapezoid;
+end CBS_Trapezoid;
+
+model MBC_Integrator
+  extends Modelica.Blocks.Continuous.Integrator;
+end MBC_Integrator;
+
+model MBC_LimIntegrator
+  extends Modelica.Blocks.Continuous.LimIntegrator;
+end MBC_LimIntegrator;
+
+model MBC_Der
+  extends Modelica.Blocks.Continuous.Der;
+end MBC_Der;
+
+model MBC_Derivative
+  extends Modelica.Blocks.Continuous.Derivative;
+end MBC_Derivative;
+
+model MBC_FirstOrder
+  extends Modelica.Blocks.Continuous.FirstOrder;
+end MBC_FirstOrder;
+
+model MBC_SecondOrder
+  extends Modelica.Blocks.Continuous.SecondOrder;
+end MBC_SecondOrder;
+
+model MBC_PI
+  extends Modelica.Blocks.Continuous.PI;
+end MBC_PI;
+
+model MBC_PID
+  extends Modelica.Blocks.Continuous.PID;
+end MBC_PID;
+
+model MBC_LimPID
+  extends Modelica.Blocks.Continuous.LimPID;
+end MBC_LimPID;
+
+model MBN_Limiter
+  extends Modelica.Blocks.Nonlinear.Limiter;
+end MBN_Limiter;
+
+model MBN_DeadZone
+  extends Modelica.Blocks.Nonlinear.DeadZone;
+end MBN_DeadZone;
+
+model CBN_Hysteresis
+  extends Coselica.Blocks.Nonlinear.Hysteresis;
+end CBN_Hysteresis;
+
+model CBN_RateLimiter
+  extends Coselica.Blocks.Nonlinear.RateLimiter;
+end CBN_RateLimiter;
+
+model MEAB_Ground
+  extends Modelica.Electrical.Analog.Basic.Ground;
+end MEAB_Ground;
+
+model MEAB_Resistor
+  extends Modelica.Electrical.Analog.Basic.Resistor;
+end MEAB_Resistor;
+
+model MEAB_Capacitor
+  extends Modelica.Electrical.Analog.Basic.Capacitor;
+end MEAB_Capacitor;
+
+model MEAB_Inductor
+  extends Modelica.Electrical.Analog.Basic.Inductor;
+end MEAB_Inductor;
+
+model CEAB_EMF0
+  extends Coselica.Electrical.Analog.Basic.EMF0;
+end CEAB_EMF0;
+
+model CEAB_EMF
+  extends Coselica.Electrical.Analog.Basic.EMF;
+end CEAB_EMF;
+
+model CEAB_TranslationalEMF0
+  extends Coselica.Electrical.Analog.Basic.TranslationalEMF0;
+end CEAB_TranslationalEMF0;
+
+model CEAB_TranslationalEMF
+  extends Coselica.Electrical.Analog.Basic.TranslationalEMF;
+end CEAB_TranslationalEMF;
+
+model MEAB_VariableResistor
+  extends Modelica.Electrical.Analog.Basic.VariableResistor;
+end MEAB_VariableResistor;
+
+model MEAB_VariableCapacitor
+  extends Modelica.Electrical.Analog.Basic.VariableCapacitor;
+end MEAB_VariableCapacitor;
+
+model MEAB_VariableInductor
+  extends Modelica.Electrical.Analog.Basic.VariableInductor;
+end MEAB_VariableInductor;
+
+model MEAB_Transformer
+  extends Modelica.Electrical.Analog.Basic.Transformer;
+end MEAB_Transformer;
+
+model MEAB_Gyrator
+  extends Modelica.Electrical.Analog.Basic.Gyrator;
+end MEAB_Gyrator;
+
+model MEAB_VCV
+  extends Modelica.Electrical.Analog.Basic.VCV;
+end MEAB_VCV;
+
+model MEAB_VCC
+  extends Modelica.Electrical.Analog.Basic.VCC;
+end MEAB_VCC;
+
+model MEAB_CCV
+  extends Modelica.Electrical.Analog.Basic.CCV;
+end MEAB_CCV;
+
+model MEAB_CCC
+  extends Modelica.Electrical.Analog.Basic.CCC;
+end MEAB_CCC;
+
+model MEAB_OpAmp
+  extends Modelica.Electrical.Analog.Basic.OpAmp;
+end MEAB_OpAmp;
+
+model MEAB_HeatingResistor
+  extends Modelica.Electrical.Analog.Basic.HeatingResistor;
+end MEAB_HeatingResistor;
+
+model MEAS_PotentialSensor
+  extends Modelica.Electrical.Analog.Sensors.PotentialSensor;
+end MEAS_PotentialSensor;
+
+model MEAS_VoltageSensor
+  extends Modelica.Electrical.Analog.Sensors.VoltageSensor;
+end MEAS_VoltageSensor;
+
+model MEAS_CurrentSensor
+  extends Modelica.Electrical.Analog.Sensors.CurrentSensor;
+end MEAS_CurrentSensor;
+
+model CEAS_PowerSensor
+  extends Coselica.Electrical.Analog.Sensors.PowerSensor;
+end CEAS_PowerSensor;
+
+model MEAS_ConstantVoltage
+  extends Modelica.Electrical.Analog.Sources.ConstantVoltage;
+end MEAS_ConstantVoltage;
+
+model MEAS_SignalVoltage
+  extends Modelica.Electrical.Analog.Sources.SignalVoltage;
+end MEAS_SignalVoltage;
+
+model MEAS_ConstantCurrent
+  extends Modelica.Electrical.Analog.Sources.ConstantCurrent;
+end MEAS_ConstantCurrent;
+
+model MEAS_SignalCurrent
+  extends Modelica.Electrical.Analog.Sources.SignalCurrent;
+end MEAS_SignalCurrent;
+
+model MEAS_StepVoltage
+  extends Modelica.Electrical.Analog.Sources.StepVoltage;
+end MEAS_StepVoltage;
+
+model MEAS_StepCurrent
+  extends Modelica.Electrical.Analog.Sources.StepCurrent;
+end MEAS_StepCurrent;
+
+model MEAS_SineVoltage
+  extends Modelica.Electrical.Analog.Sources.SineVoltage;
+end MEAS_SineVoltage;
+
+model MEAS_SineCurrent
+  extends Modelica.Electrical.Analog.Sources.SineCurrent;
+end MEAS_SineCurrent;
+
+model MEAS_PulseVoltage
+  extends Modelica.Electrical.Analog.Sources.PulseVoltage;
+end MEAS_PulseVoltage;
+
+model MEAS_PulseCurrent
+  extends Modelica.Electrical.Analog.Sources.PulseCurrent;
+end MEAS_PulseCurrent;
+
+model MEAS_RampVoltage
+  extends Modelica.Electrical.Analog.Sources.RampVoltage;
+end MEAS_RampVoltage;
+
+model MEAS_RampCurrent
+  extends Modelica.Electrical.Analog.Sources.RampCurrent;
+end MEAS_RampCurrent;
+
+model MEAS_SawToothVoltage
+  extends Modelica.Electrical.Analog.Sources.SawToothVoltage;
+end MEAS_SawToothVoltage;
+
+model MEAS_SawToothCurrent
+  extends Modelica.Electrical.Analog.Sources.SawToothCurrent;
+end MEAS_SawToothCurrent;
+
+model CEAS_TrapezoidVoltage
+  extends Coselica.Electrical.Analog.Sources.TrapezoidVoltage;
+end CEAS_TrapezoidVoltage;
+
+model CEAS_TrapezoidCurrent
+  extends Coselica.Electrical.Analog.Sources.TrapezoidCurrent;
+end CEAS_TrapezoidCurrent;
+
+model MEAI_Idle
+  extends Modelica.Electrical.Analog.Ideal.Idle;
+end MEAI_Idle;
+
+model MEAI_Short
+  extends Modelica.Electrical.Analog.Ideal.Short;
+end MEAI_Short;
+
+model MEAI_IdealOpeningSwitch
+  extends Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch;
+end MEAI_IdealOpeningSwitch;
+
+model MEAI_IdealClosingSwitch
+  extends Modelica.Electrical.Analog.Ideal.IdealClosingSwitch;
+end MEAI_IdealClosingSwitch;
+
+model CEAI_IdealDiode
+  extends Coselica.Electrical.Analog.Ideal.IdealDiode;
+end CEAI_IdealDiode;
+
+model MEAI_IdealTransformer
+  extends Modelica.Electrical.Analog.Ideal.IdealTransformer;
+end MEAI_IdealTransformer;
+
+model MEAI_IdealGyrator
+  extends Modelica.Electrical.Analog.Ideal.IdealGyrator;
+end MEAI_IdealGyrator;
+
+model MEAS_Diode
+  extends Modelica.Electrical.Analog.Semiconductors.Diode;
+end MEAS_Diode;
+
+model CEAS_ZDiode
+  extends Coselica.Electrical.Analog.Semiconductors.ZDiode;
+end CEAS_ZDiode;
+
+model MEAS_NPN
+  extends Modelica.Electrical.Analog.Semiconductors.NPN;
+end MEAS_NPN;
+
+model MEAS_PNP
+  extends Modelica.Electrical.Analog.Semiconductors.PNP;
+end MEAS_PNP;
+
+model MEAS_NMOS
+  extends Modelica.Electrical.Analog.Semiconductors.NMOS;
+end MEAS_NMOS;
+
+model MEAS_PMOS
+  extends Modelica.Electrical.Analog.Semiconductors.PMOS;
+end MEAS_PMOS;
+
+model CEAS_Thyristor
+  extends Coselica.Electrical.Analog.Semiconductors.Thyristor;
+end CEAS_Thyristor;
+
+model MMT_Fixed
+  extends Modelica.Mechanics.Translational.Fixed;
+end MMT_Fixed;
+
+model CMTC_Free
+  extends Coselica.Mechanics.Translational.Components.Free;
+end CMTC_Free;
+
+model MMT_Rod
+  extends Modelica.Mechanics.Translational.Rod;
+end MMT_Rod;
+
+model MMT_Spring
+  extends Modelica.Mechanics.Translational.Spring;
+end MMT_Spring;
+
+model MMT_Damper
+  extends Modelica.Mechanics.Translational.Damper;
+end MMT_Damper;
+
+model MMT_SpringDamper
+  extends Modelica.Mechanics.Translational.SpringDamper;
+end MMT_SpringDamper;
+
+model CMTC_ElastoGap
+  extends Coselica.Mechanics.Translational.Components.ElastoGap;
+end CMTC_ElastoGap;
+
+model CMT_Stop
+  extends Coselica.Mechanics.Translational.Stop;
+end CMT_Stop;
+
+model CMT_MassWithFriction
+  extends Coselica.Mechanics.Translational.MassWithFriction;
+end CMT_MassWithFriction;
+
+model MMT_SlidingMass
+  extends Modelica.Mechanics.Translational.SlidingMass;
+end MMT_SlidingMass;
+
+model CMTS_Position0
+  extends Coselica.Mechanics.Translational.Sources.Position0;
+end CMTS_Position0;
+
+model CMTS_Speed0
+  extends Coselica.Mechanics.Translational.Sources.Speed0;
+end CMTS_Speed0;
+
+model CMTS_Accelerate0
+  extends Coselica.Mechanics.Translational.Sources.Accelerate0;
+end CMTS_Accelerate0;
+
+model CMTS_Force0
+  extends Coselica.Mechanics.Translational.Sources.Force0;
+end CMTS_Force0;
+
+model CMTS_Position
+  extends Coselica.Mechanics.Translational.Sources.Position;
+end CMTS_Position;
+
+model CMTS_Speed
+  extends Coselica.Mechanics.Translational.Sources.Speed;
+end CMTS_Speed;
+
+model CMTS_Accelerate
+  extends Coselica.Mechanics.Translational.Sources.Accelerate;
+end CMTS_Accelerate;
+
+model CMTS_Force
+  extends Coselica.Mechanics.Translational.Sources.Force;
+end CMTS_Force;
+
+model CMTS_Force2
+  extends Coselica.Mechanics.Translational.Sources.Force2;
+end CMTS_Force2;
+
+model CMTS_LinearSpeedDependen
+  extends Coselica.Mechanics.Translational.Sources.LinearSpeedDependentForce;
+end CMTS_LinearSpeedDependen;
+
+model CMTS_QuadraticSpeedDepen
+  extends Coselica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce;
+end CMTS_QuadraticSpeedDepen;
+
+model CMTS_ConstantForce
+  extends Coselica.Mechanics.Translational.Sources.ConstantForce;
+end CMTS_ConstantForce;
+
+model CMTS_ConstantSpeed
+  extends Coselica.Mechanics.Translational.Sources.ConstantSpeed;
+end CMTS_ConstantSpeed;
+
+model CMTS_ForceStep
+  extends Coselica.Mechanics.Translational.Sources.ForceStep;
+end CMTS_ForceStep;
+
+model CMTS_ForceSensor
+  extends Coselica.Mechanics.Translational.Sensors.ForceSensor;
+end CMTS_ForceSensor;
+
+model CMTS_PowerSensor
+  extends Coselica.Mechanics.Translational.Sensors.PowerSensor;
+end CMTS_PowerSensor;
+
+model CMTS_PositionSensor
+  extends Coselica.Mechanics.Translational.Sensors.PositionSensor;
+end CMTS_PositionSensor;
+
+model CMTS_SpeedSensor
+  extends Coselica.Mechanics.Translational.Sensors.SpeedSensor;
+end CMTS_SpeedSensor;
+
+model CMTS_AccSensor
+  extends Coselica.Mechanics.Translational.Sensors.AccSensor;
+end CMTS_AccSensor;
+
+model CMTS_RelPositionSensor
+  extends Coselica.Mechanics.Translational.Sensors.RelPositionSensor;
+end CMTS_RelPositionSensor;
+
+model CMTS_RelSpeedSensor
+  extends Coselica.Mechanics.Translational.Sensors.RelSpeedSensor;
+end CMTS_RelSpeedSensor;
+
+model CMTS_RelAccSensor
+  extends Coselica.Mechanics.Translational.Sensors.RelAccSensor;
+end CMTS_RelAccSensor;
+
+model MMR_Fixed
+  extends Modelica.Mechanics.Rotational.Fixed;
+end MMR_Fixed;
+
+model CMRC_Free
+  extends Coselica.Mechanics.Rotational.Components.Free;
+end CMRC_Free;
+
+model CMRC_Disc
+  extends Coselica.Mechanics.Rotational.Components.Disc;
+end CMRC_Disc;
+
+model MMR_Inertia
+  extends Modelica.Mechanics.Rotational.Inertia;
+end MMR_Inertia;
+
+model MMR_Spring
+  extends Modelica.Mechanics.Rotational.Spring;
+end MMR_Spring;
+
+model MMR_Damper
+  extends Modelica.Mechanics.Rotational.Damper;
+end MMR_Damper;
+
+model MMR_SpringDamper
+  extends Modelica.Mechanics.Rotational.SpringDamper;
+end MMR_SpringDamper;
+
+model MMR_IdealGear
+  extends Modelica.Mechanics.Rotational.IdealGear;
+end MMR_IdealGear;
+
+model MMR_ElastoBacklash
+  extends Modelica.Mechanics.Rotational.ElastoBacklash;
+end MMR_ElastoBacklash;
+
+model CMRC_ElastoBacklash
+  extends Coselica.Mechanics.Rotational.Components.ElastoBacklash;
+end CMRC_ElastoBacklash;
+
+model MMR_IdealGearR2T
+  extends Modelica.Mechanics.Rotational.IdealGearR2T;
+end MMR_IdealGearR2T;
+
+model MMR_IdealPlanetary
+  extends Modelica.Mechanics.Rotational.IdealPlanetary;
+end MMR_IdealPlanetary;
+
+model CMR_BearingFriction
+  extends Coselica.Mechanics.Rotational.BearingFriction;
+end CMR_BearingFriction;
+
+model CMR_OneWayClutch
+  extends Coselica.Mechanics.Rotational.OneWayClutch;
+end CMR_OneWayClutch;
+
+model CMR_Clutch
+  extends Coselica.Mechanics.Rotational.Clutch;
+end CMR_Clutch;
+
+model CMR_Brake
+  extends Coselica.Mechanics.Rotational.Brake;
+end CMR_Brake;
+
+model CMR_Freewheel
+  extends Coselica.Mechanics.Rotational.Freewheel;
+end CMR_Freewheel;
+
+model MMRS_TorqueSensor
+  extends Modelica.Mechanics.Rotational.Sensors.TorqueSensor;
+end MMRS_TorqueSensor;
+
+model CMRS_PowerSensor
+  extends Coselica.Mechanics.Rotational.Sensors.PowerSensor;
+end CMRS_PowerSensor;
+
+model MMRS_RelAngleSensor
+  extends Modelica.Mechanics.Rotational.Sensors.RelAngleSensor;
+end MMRS_RelAngleSensor;
+
+model MMRS_RelSpeedSensor
+  extends Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor;
+end MMRS_RelSpeedSensor;
+
+model MMRS_RelAccSensor
+  extends Modelica.Mechanics.Rotational.Sensors.RelAccSensor;
+end MMRS_RelAccSensor;
+
+model MMRS_AngleSensor
+  extends Modelica.Mechanics.Rotational.Sensors.AngleSensor;
+end MMRS_AngleSensor;
+
+model MMRS_SpeedSensor
+  extends Modelica.Mechanics.Rotational.Sensors.SpeedSensor;
+end MMRS_SpeedSensor;
+
+model MMRS_AccSensor
+  extends Modelica.Mechanics.Rotational.Sensors.AccSensor;
+end MMRS_AccSensor;
+
+model CMRS_Position0
+  extends Coselica.Mechanics.Rotational.Sources.Position0;
+end CMRS_Position0;
+
+model CMRS_Speed0
+  extends Coselica.Mechanics.Rotational.Sources.Speed0;
+end CMRS_Speed0;
+
+model CMRS_Accelerate0
+  extends Coselica.Mechanics.Rotational.Sources.Accelerate0;
+end CMRS_Accelerate0;
+
+model CMRS_Torque0
+  extends Coselica.Mechanics.Rotational.Sources.Torque0;
+end CMRS_Torque0;
+
+model CMRS_Position
+  extends Coselica.Mechanics.Rotational.Sources.Position;
+end CMRS_Position;
+
+model CMRS_Speed
+  extends Coselica.Mechanics.Rotational.Sources.Speed;
+end CMRS_Speed;
+
+model CMRS_Accelerate
+  extends Coselica.Mechanics.Rotational.Sources.Accelerate;
+end CMRS_Accelerate;
+
+model CMRS_Torque2
+  extends Coselica.Mechanics.Rotational.Sources.Torque2;
+end CMRS_Torque2;
+
+model CMRS_Torque
+  extends Coselica.Mechanics.Rotational.Sources.Torque;
+end CMRS_Torque;
+
+model CMRS_ConstantTorque
+  extends Coselica.Mechanics.Rotational.Sources.ConstantTorque;
+end CMRS_ConstantTorque;
+
+model CMRS_ConstantSpeed
+  extends Coselica.Mechanics.Rotational.Sources.ConstantSpeed;
+end CMRS_ConstantSpeed;
+
+model CMRS_TorqueStep
+  extends Coselica.Mechanics.Rotational.Sources.TorqueStep;
+end CMRS_TorqueStep;
+
+model CMRS_LinearSpeedDependen
+  extends Coselica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque;
+end CMRS_LinearSpeedDependen;
+
+model CMRS_QuadraticSpeedDepen
+  extends Coselica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque;
+end CMRS_QuadraticSpeedDepen;
+
+model CMP_World
+  extends Coselica.Mechanics.Planar.World;
+end CMP_World;
+
+model CMPP_Fixed
+  extends Coselica.Mechanics.Planar.Parts.Fixed;
+end CMPP_Fixed;
+
+model CMPP_FixedTranslation
+  extends Coselica.Mechanics.Planar.Parts.FixedTranslation;
+end CMPP_FixedTranslation;
+
+model CMPP_FixedRotation
+  extends Coselica.Mechanics.Planar.Parts.FixedRotation;
+end CMPP_FixedRotation;
+
+model CMPP_Body
+  extends Coselica.Mechanics.Planar.Parts.Body;
+end CMPP_Body;
+
+model CMPP_BodyShape
+  extends Coselica.Mechanics.Planar.Parts.BodyShape;
+end CMPP_BodyShape;
+
+model CMPP_PointMass
+  extends Coselica.Mechanics.Planar.Parts.PointMass;
+end CMPP_PointMass;
+
+model CMPJ_Revolute
+  extends Coselica.Mechanics.Planar.Joints.Revolute;
+end CMPJ_Revolute;
+
+model CMPJ_ActuatedRevolute
+  extends Coselica.Mechanics.Planar.Joints.ActuatedRevolute;
+end CMPJ_ActuatedRevolute;
+
+model CMPJ_Prismatic
+  extends Coselica.Mechanics.Planar.Joints.Prismatic;
+end CMPJ_Prismatic;
+
+model CMPJ_ActuatedPrismatic
+  extends Coselica.Mechanics.Planar.Joints.ActuatedPrismatic;
+end CMPJ_ActuatedPrismatic;
+
+model CMPJ_FreeMotion
+  extends Coselica.Mechanics.Planar.Joints.FreeMotion;
+end CMPJ_FreeMotion;
+
+model CMPJ_RollingWheel
+  extends Coselica.Mechanics.Planar.Joints.RollingWheel;
+end CMPJ_RollingWheel;
+
+model CMPJ_ActuatedRollingWhee
+  extends Coselica.Mechanics.Planar.Joints.ActuatedRollingWheel;
+end CMPJ_ActuatedRollingWhee;
+
+model CMPL_Revolute
+  extends Coselica.Mechanics.Planar.LoopJoints.Revolute;
+end CMPL_Revolute;
+
+model CMPL_ActuatedRevolute
+  extends Coselica.Mechanics.Planar.LoopJoints.ActuatedRevolute;
+end CMPL_ActuatedRevolute;
+
+model CMPL_Prismatic
+  extends Coselica.Mechanics.Planar.LoopJoints.Prismatic;
+end CMPL_Prismatic;
+
+model CMPL_ActuatedPrismatic
+  extends Coselica.Mechanics.Planar.LoopJoints.ActuatedPrismatic;
+end CMPL_ActuatedPrismatic;
+
+model CMPS_CutTorque
+  extends Coselica.Mechanics.Planar.Sensors.CutTorque;
+end CMPS_CutTorque;
+
+model CMPS_CutForce
+  extends Coselica.Mechanics.Planar.Sensors.CutForce;
+end CMPS_CutForce;
+
+model CMPS_CutForce2
+  extends Coselica.Mechanics.Planar.Sensors.CutForce2;
+end CMPS_CutForce2;
+
+model CMPS_Distance
+  extends Coselica.Mechanics.Planar.Sensors.Distance;
+end CMPS_Distance;
+
+model CMPS_RelPosition
+  extends Coselica.Mechanics.Planar.Sensors.RelPosition;
+end CMPS_RelPosition;
+
+model CMPS_RelVelocity
+  extends Coselica.Mechanics.Planar.Sensors.RelVelocity;
+end CMPS_RelVelocity;
+
+model CMPS_RelAcceleration
+  extends Coselica.Mechanics.Planar.Sensors.RelAcceleration;
+end CMPS_RelAcceleration;
+
+model CMPS_RelPosition2
+  extends Coselica.Mechanics.Planar.Sensors.RelPosition2;
+end CMPS_RelPosition2;
+
+model CMPS_RelVelocity2
+  extends Coselica.Mechanics.Planar.Sensors.RelVelocity2;
+end CMPS_RelVelocity2;
+
+model CMPS_RelAcceleration2
+  extends Coselica.Mechanics.Planar.Sensors.RelAcceleration2;
+end CMPS_RelAcceleration2;
+
+model CMPS_AbsPosition
+  extends Coselica.Mechanics.Planar.Sensors.AbsPosition;
+end CMPS_AbsPosition;
+
+model CMPS_AbsVelocity
+  extends Coselica.Mechanics.Planar.Sensors.AbsVelocity;
+end CMPS_AbsVelocity;
+
+model CMPS_AbsAcceleration
+  extends Coselica.Mechanics.Planar.Sensors.AbsAcceleration;
+end CMPS_AbsAcceleration;
+
+model CMPS_AbsPosition2
+  extends Coselica.Mechanics.Planar.Sensors.AbsPosition2;
+end CMPS_AbsPosition2;
+
+model CMPS_AbsVelocity2
+  extends Coselica.Mechanics.Planar.Sensors.AbsVelocity2;
+end CMPS_AbsVelocity2;
+
+model CMPS_AbsAcceleration2
+  extends Coselica.Mechanics.Planar.Sensors.AbsAcceleration2;
+end CMPS_AbsAcceleration2;
+
+model CMPS_Angle
+  extends Coselica.Mechanics.Planar.Sensors.Angle;
+end CMPS_Angle;
+
+model CMPS_RelAngularVelocity
+  extends Coselica.Mechanics.Planar.Sensors.RelAngularVelocity;
+end CMPS_RelAngularVelocity;
+
+model CMPS_RelAngularAccelerat
+  extends Coselica.Mechanics.Planar.Sensors.RelAngularAcceleration;
+end CMPS_RelAngularAccelerat;
+
+model CMPS_AbsAngle
+  extends Coselica.Mechanics.Planar.Sensors.AbsAngle;
+end CMPS_AbsAngle;
+
+model CMPS_AbsAngularVelocity
+  extends Coselica.Mechanics.Planar.Sensors.AbsAngularVelocity;
+end CMPS_AbsAngularVelocity;
+
+model CMPS_AbsAngularAccelerat
+  extends Coselica.Mechanics.Planar.Sensors.AbsAngularAcceleration;
+end CMPS_AbsAngularAccelerat;
+
+model CMPS_Power
+  extends Coselica.Mechanics.Planar.Sensors.Power;
+end CMPS_Power;
+
+model CMPF_WorldForce
+  extends Coselica.Mechanics.Planar.Forces.WorldForce;
+end CMPF_WorldForce;
+
+model CMPF_WorldTorque
+  extends Coselica.Mechanics.Planar.Forces.WorldTorque;
+end CMPF_WorldTorque;
+
+model CMPF_FrameForce
+  extends Coselica.Mechanics.Planar.Forces.FrameForce;
+end CMPF_FrameForce;
+
+model CMPF_LineForce
+  extends Coselica.Mechanics.Planar.Forces.LineForce;
+end CMPF_LineForce;
+
+model CMPF_LineForceWithMass
+  extends Coselica.Mechanics.Planar.Forces.LineForceWithMass;
+end CMPF_LineForceWithMass;
+
+model MTH_HeatCapacitor
+  extends Modelica.Thermal.HeatTransfer.HeatCapacitor;
+end MTH_HeatCapacitor;
+
+model MTH_ThermalConductor
+  extends Modelica.Thermal.HeatTransfer.ThermalConductor;
+end MTH_ThermalConductor;
+
+model MTH_BodyRadiation
+  extends Modelica.Thermal.HeatTransfer.BodyRadiation;
+end MTH_BodyRadiation;
+
+model MTH_Convection
+  extends Modelica.Thermal.HeatTransfer.Convection;
+end MTH_Convection;
+
+model MTH_FixedTemperature
+  extends Modelica.Thermal.HeatTransfer.FixedTemperature;
+end MTH_FixedTemperature;
+
+model MTHC_FixedTemperature
+  extends Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature;
+end MTHC_FixedTemperature;
+
+model MTH_FixedHeatFlow
+  extends Modelica.Thermal.HeatTransfer.FixedHeatFlow;
+end MTH_FixedHeatFlow;
+
+model MTH_PrescribedTemperatur
+  extends Modelica.Thermal.HeatTransfer.PrescribedTemperature;
+end MTH_PrescribedTemperatur;
+
+model MTHC_PrescribedTemperatu
+  extends Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature;
+end MTHC_PrescribedTemperatu;
+
+model MTH_PrescribedHeatFlow
+  extends Modelica.Thermal.HeatTransfer.PrescribedHeatFlow;
+end MTH_PrescribedHeatFlow;
+
+model MTH_TemperatureSensor
+  extends Modelica.Thermal.HeatTransfer.TemperatureSensor;
+end MTH_TemperatureSensor;
+
+model MTHC_TemperatureSensor
+  extends Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor;
+end MTHC_TemperatureSensor;
+
+model MTH_HeatFlowSensor
+  extends Modelica.Thermal.HeatTransfer.HeatFlowSensor;
+end MTH_HeatFlowSensor;
+
+model MTH_RelTemperatureSensor
+  extends Modelica.Thermal.HeatTransfer.RelTemperatureSensor;
+end MTH_RelTemperatureSensor;
+
+model MTHC_ToKelvin
+  extends Modelica.Thermal.HeatTransfer.Celsius.ToKelvin;
+end MTHC_ToKelvin;
+
+model MTHC_FromKelvin
+  extends Modelica.Thermal.HeatTransfer.Celsius.FromKelvin;
+end MTHC_FromKelvin;
+
+model MBS_Pulse
+  extends Modelica.Blocks.Sources.Pulse;
+end MBS_Pulse;
+
+model MBS_SawTooth
+  extends Modelica.Blocks.Sources.SawTooth;
+end MBS_SawTooth;
+
+model CMT_Position
+  extends Coselica.Mechanics.Translational.Position;
+end CMT_Position;
+
+model CMT_Speed
+  extends Coselica.Mechanics.Translational.Speed;
+end CMT_Speed;
+
+model MMT_Accelerate
+  extends Modelica.Mechanics.Translational.Accelerate;
+end MMT_Accelerate;
+
+model MMT_Force
+  extends Modelica.Mechanics.Translational.Force;
+end MMT_Force;
+
+model MEAB_EMF
+  extends Modelica.Electrical.Analog.Basic.EMF;
+end MEAB_EMF;
+
+model MMR_Torque2
+  extends Modelica.Mechanics.Rotational.Torque2;
+end MMR_Torque2;
+
+model MMR_Torque
+  extends Modelica.Mechanics.Rotational.Torque;
+end MMR_Torque;
+
+model MMR_Accelerate
+  extends Modelica.Mechanics.Rotational.Accelerate;
+end MMR_Accelerate;
+
+model CMR_Position
+  extends Coselica.Mechanics.Rotational.Position;
+end CMR_Position;
+
+model CMR_Speed
+  extends Coselica.Mechanics.Rotational.Speed;
+end CMR_Speed;
+
+model MMR_ConstantTorque
+  extends Modelica.Mechanics.Rotational.ConstantTorque;
+end MMR_ConstantTorque;
+
+model MMR_ConstantSpeed
+  extends Modelica.Mechanics.Rotational.ConstantSpeed;
+end MMR_ConstantSpeed;
+
+model MMR_TorqueStep
+  extends Modelica.Mechanics.Rotational.TorqueStep;
+end MMR_TorqueStep;
+
+model MMR_LinearSpeedDependent
+  extends Modelica.Mechanics.Rotational.LinearSpeedDependentTorque;
+end MMR_LinearSpeedDependent;
+
+model MMR_QuadraticSpeedDepend
+  extends Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque;
+end MMR_QuadraticSpeedDepend;
