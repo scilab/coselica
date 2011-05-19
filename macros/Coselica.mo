@@ -4153,18 +4153,18 @@ package Coselica
         model DotProduct "Outputs the dot product of two input signal vectors"
           extends Modelica.Blocks.Interfaces.BlockIcon;
           parameter Integer n = 1 "Dimension of input vectors.";
-          RealInput u1[n] "Connector 1 of Real input signals";
-          RealInput u2[n] "Connector 2 of Real input signals";
-          RealOutput y "Connector of Real output signal";
+          Modelica.Blocks.Interfaces.RealInput u1[n] "Connector 1 of Real input signals";
+          Modelica.Blocks.Interfaces.RealInput u2[n] "Connector 2 of Real input signals";
+          Modelica.Blocks.Interfaces.RealOutput y "Connector of Real output signal";
         equation
           y.signal = u1.signal * u2.signal;
         end DotProduct;
 
         model CrossProduct "Outputs the cross product of two input signal vectors of dimension 3"
           extends Modelica.Blocks.Interfaces.BlockIcon;
-          RealInput u1[3] "Connector 1 of Real input signals";
-          RealInput u2[3] "Connector 2 of Real input signals";
-          RealOutput y[3] "Connector of Real output signals";
+          Modelica.Blocks.Interfaces.RealInput u1[3] "Connector 1 of Real input signals";
+          Modelica.Blocks.Interfaces.RealInput u2[3] "Connector 2 of Real input signals";
+          Modelica.Blocks.Interfaces.RealOutput y[3] "Connector of Real output signals";
         equation
           y[1].signal = u1[2].signal * u2[3].signal - u1[3].signal * u2[2].signal;
           y[2].signal = u1[3].signal * u2[1].signal - u1[1].signal * u2[3].signal;
