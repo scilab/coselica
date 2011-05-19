@@ -43,7 +43,7 @@ f = gcf(); // to generate images
 // Build xcos palette
 // =============================================================================
 
-loadScicosLibs();
+loadXcosLibs();
 if fileinfo(toolbox_dir + filesep() + "images") == [] then
   mkdir(toolbox_dir + filesep() + "images");
 end
