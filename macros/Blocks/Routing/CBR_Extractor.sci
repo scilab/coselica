@@ -36,12 +36,10 @@ select job
     while %t do
       [ok,index,nin,exprs]=..
         getvalue(['';'CBR_Extractor';'';'Extract scalar signal out of signal vector';''],..
-        [' index [-] : Index of output signal (positive integer <= nin)',' nin [-] : Number of inputs'],..
-        list('vec',1,'vec',1),exprs);
+        [' index [-] : Index of output signal (positive integer <= nin)';' nin [-] : Number of inputs'],..
+        list('intvec',1,'intvec',1),exprs);
       if ~ok then break, end
-      model.equations.parameters(2)=list(index,nin)
-      index=double(index);
-      nin=double(nin);
+      model.equations.parameters(2)=list(int32(index),int32(nin))
       model.in=[nin];
       model.out=[1];
       graphics.exprs=exprs;
@@ -57,14 +55,12 @@ select job
     model.dep_ut=[%t %f];
     model.in=[nin];
     model.out=[1];
-    index=int32(1);
-    nin=int32(1);
     mo=modelica();
       mo.model='Coselica.Blocks.Routing.Extractor';
       mo.inputs=['u'];
       mo.outputs=['y'];
       mo.parameters=list(['index','nin'],..
-                         list(index,nin),..
+                         list(int32(index),int32(nin)),..
                          [0,0]);
     model.equations=mo;
     exprs=[strcat(sci2exp(index));strcat(sci2exp(nin))];
@@ -260,6 +256,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=['strokeColor=blue;fillColor=blue'];
     x.graphics.out_implicit=['I'];
-    x.graphics.out_style=['strokeColor=lbue'];
+    x.graphics.out_style=['strokeColor=blue'];
   end
 endfunction
