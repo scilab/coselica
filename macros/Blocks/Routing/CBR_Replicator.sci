@@ -33,16 +33,16 @@ select job
     model=arg1.model;
     while %t do
       [ok,nout,exprs]=..
-        getvalue(['';'CBR_Replicator';'';'Signal replicator';''],..
+        scicos_getvalue(['';'CBR_Replicator';'';'Signal replicator';''],..
         [' nout [-] : Number of outputs'],..
-        list('vec',1),exprs);
+        list('intvec',1),exprs);
       if ~ok then break, end
-      model.equations.parameters(2)=list(nout)
-      nout=double(nout);
+      model.equations.parameters(2)=list(int32(nout))
       model.in=[1];
       model.out=[nout];
       graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
+      x.graphics=graphics;
+      x.model=model;
       break
     end
   case 'define' then
@@ -53,13 +53,12 @@ select job
     model.dep_ut=[%t %f];
     model.in=[1];
     model.out=[nout];
-    nout=int32(1);
     mo=modelica();
       mo.model='Coselica.Blocks.Routing.Replicator';
       mo.inputs=['u'];
       mo.outputs=['y'];
       mo.parameters=list(['nout'],..
-                         list(nout),..
+                         list(int32(nout)),..
                          [0]);
     model.equations=mo;
     exprs=[strcat(sci2exp(nout))];

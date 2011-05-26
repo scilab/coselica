@@ -36,12 +36,10 @@ select job
     while %t do
       [ok,n1,n2,exprs]=..
         getvalue(['';'CBR_MultiplexVector2';'';'Multiplexer block for two input connectors';''],..
-        [' n1 [-] : dimension of input signal connector 1',' n2 [-] : dimension of input signal connector 2'],..
-        list('vec',1,'vec',1),exprs);
+        [' n1 [-] : dimension of input signal connector 1';' n2 [-] : dimension of input signal connector 2'],..
+        list('intvec',1,'intvec',1),exprs);
       if ~ok then break, end
-      model.equations.parameters(2)=list(n1,n2)
-      n1=double(n1);
-      n2=double(n2);
+      model.equations.parameters(2)=list(int32(n1), int32(n2))
       model.in=[n1;n2];
       model.out=[n1 + n2];
       graphics.exprs=exprs;
@@ -57,14 +55,12 @@ select job
     model.dep_ut=[%t %f];
     model.in=[n1;n2];
     model.out=[n1 + n2];
-    n1=int32(1);
-    n2=int32(1);
     mo=modelica();
       mo.model='Coselica.Blocks.Routing.MultiplexVector2';
       mo.inputs=['u1','u2'];
       mo.outputs=['y'];
       mo.parameters=list(['n1','n2'],..
-                         list(n1,n2),..
+                         list(int32(n1), int32(n2)),..
                          [0,0]);
     model.equations=mo;
     exprs=[strcat(sci2exp(n1));strcat(sci2exp(n2))];

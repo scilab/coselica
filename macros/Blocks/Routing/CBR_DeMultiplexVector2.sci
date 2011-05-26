@@ -35,13 +35,11 @@ select job
     model=arg1.model;
     while %t do
       [ok,n1,n2,exprs]=..
-        getvalue(['';'CBR_DeMultiplexVector2';'';'DeMultiplexer block for two output connectors';''],..
-        [' n1 [-] : dimension of output signal connector 1',' n2 [-] : dimension of output signal connector 2'],..
-        list('vec',1,'vec',1),exprs);
+        scicos_getvalue(['';'CBR_DeMultiplexVector2';'';'DeMultiplexer block for two output connectors';''],..
+        [' n1 [-] : dimension of output signal connector 1';' n2 [-] : dimension of output signal connector 2'],..
+        list('intvec',1,'intvec',1),exprs);
       if ~ok then break, end
-      model.equations.parameters(2)=list(n1,n2)
-      n1=double(n1);
-      n2=double(n2);
+      model.equations.parameters(2)=list(int32(n1),int32(n2))
       model.in=[n1 + n2];
       model.out=[n1;n2];
       graphics.exprs=exprs;
@@ -57,14 +55,12 @@ select job
     model.dep_ut=[%t %f];
     model.in=[n1 + n2];
     model.out=[n1;n2];
-    n1=int32(1);
-    n2=int32(1);
     mo=modelica();
       mo.model='Coselica.Blocks.Routing.DeMultiplexVector2';
       mo.inputs=['u'];
       mo.outputs=['y1','y2'];
       mo.parameters=list(['n1','n2'],..
-                         list(n1,n2),..
+                         list(int32(n1),int32(n2)),..
                          [0,0]);
     model.equations=mo;
     exprs=[strcat(sci2exp(n1));strcat(sci2exp(n2))];
@@ -147,6 +143,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=['strokeColor=blue;fillColor=blue'];
     x.graphics.out_implicit=['I','I'];
-    x.graphics.out_implicit=['strokeColor=blue';'strokeColor=blue'];
+    x.graphics.out_style=['strokeColor=blue';'strokeColor=blue'];
   end
 endfunction
