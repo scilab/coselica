@@ -22,9 +22,9 @@ function [x,y,typ] = _MEAI_OnePort_op( o )
   [orig,sz,orient]=(o.graphics.orig,o.graphics.sz,o.graphics.flip);
   
   if orient then
-    x=orig(1)+sz(1)+xf/40;
+    x=orig(1)+sz(1)+xf/15;
   else
-    x=orig(1)-xf/40;
+    x=orig(1)-xf/15;
   end
 
   y=orig(2)+sz(2)/2;

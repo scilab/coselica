@@ -1,5 +1,5 @@
 // Coselica Toolbox for Scicoslab
-// Copyright (C) 2009  Dirk Reusch, Kybernetik Dr. Reusch
+// Copyright (C) 2009, 2010  Dirk Reusch, Kybernetik Dr. Reusch
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ function [x,y,typ] = _MEAB_EMF_op( o )
   [orig,sz,orient]=(o.graphics.orig,o.graphics.sz,o.graphics.flip);
   
   x1=orig(1)+sz(1)/2;
-  y1=orig(2)-yf/40;
+  y1=orig(2)-yf/15;
   
   if orient then
     x2=orig(1)+sz(1)+xf/20;
