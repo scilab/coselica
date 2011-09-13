@@ -14,32 +14,51 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-function [x,y,typ]=CMPF_WorldTorque(job,arg1,arg2)
+function [x,y,typ]=CMPP_PointMass(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
   case 'plot' then
-    standard_draw(arg1,%f,_CMPF_WorldForce_dp);
+    m=arg1.graphics.exprs(1);
+    standard_draw(arg1,%f,_CMPP_PointMass_dp);
   case 'getinputs' then
-    [x,y,typ]=_CMPF_WorldForce_ip(arg1);
+    [x,y,typ]=_CMPP_PointMass_ip(arg1);
   case 'getoutputs' then
-    [x,y,typ]=_CMPF_WorldForce_op(arg1);
+    [x,y,typ]=_CMPP_PointMass_op(arg1);
   case 'getorigin' then
     [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
+    graphics=arg1.graphics;exprs=graphics.exprs;
+    model=arg1.model;
+    while %t do
+      [ok,m,exprs]=..
+        getvalue(['';'CMPP_PointMass';'';'Rigid body where body rotation and inertia is neglected (no states)';''],..
+        [' m [kg] : Mass of mass point (m > 0)'],..
+        list('vec',1),exprs);
+      if ~ok then break, end
+    model.in=[1];
+    model.out=[];
+      model.equations.parameters(2)=list(m)
+      graphics.exprs=exprs;
+      x.graphics=graphics;x.model=model;
+      break
+    end
   case 'define' then
-    exprs=[];
+    m=1;
+    exprs=[strcat(sci2exp(m))];
     model=scicos_model();
     model.sim='Coselica';
     model.blocktype='c';
     model.dep_ut=[%t %f];
     model.in=[1];
-    model.out=[1];
+    model.out=[];
     mo=modelica();
-      mo.model='Coselica.Mechanics.Planar.Forces.WorldTorque';
-      mo.inputs=['torque'];
-      mo.outputs=['frame_b'];
-      mo.parameters=list([],list(),[]);
+      mo.model='Coselica.Mechanics.Planar.Parts.PointMass';
+      mo.inputs=['frame_a'];
+      mo.outputs=[];
+      mo.parameters=list(['m'],..
+                         list(m),..
+                         [0]);
     model.equations=mo;
     gr_i=[
           'if orient then';
@@ -50,9 +69,9 @@ select job
           '  ww=-sz(1);hh=sz(2);';
           'end';
           'if orient then';
-          '  xstringb(orig(1)+sz(1)*-0.12,orig(2)+sz(2)*0.065,""""+model.label+"""",sz(1)*1.3,sz(2)*0.3,""fill"");';
+          '  xstringb(orig(1)+sz(1)*-0.145,orig(2)+sz(2)*-0.01,""m=""+string(m)+"""",sz(1)*1.305,sz(2)*0.23,""fill"");';
           'else';
-          '  xstringb(orig(1)+sz(1)*(1--0.12-1.3),orig(2)+sz(2)*0.065,""""+model.label+"""",sz(1)*1.3,sz(2)*0.3,""fill"");';
+          '  xstringb(orig(1)+sz(1)*(1--0.145-1.305),orig(2)+sz(2)*-0.01,""m=""+string(m)+"""",sz(1)*1.305,sz(2)*0.23,""fill"");';
           'end';
           'e=gce();';
           'e.visible=""on"";';
@@ -61,34 +80,32 @@ select job
           'e.font_foreground=color(0,0,0);';
           'e.fill_mode=""off"";';
           'if orient then';
-          '  xstringb(orig(1)+sz(1)*-0.015,orig(2)+sz(2)*0.935,""world"",sz(1)*0.815,sz(2)*0.2,""fill"");';
+          '  xstringb(orig(1)+sz(1)*-0.14,orig(2)+sz(2)*0.775,""""+model.label+"""",sz(1)*1.3,sz(2)*0.275,""fill"");';
           'else';
-          '  xstringb(orig(1)+sz(1)*(1--0.015-0.815),orig(2)+sz(2)*0.935,""world"",sz(1)*0.815,sz(2)*0.2,""fill"");';
+          '  xstringb(orig(1)+sz(1)*(1--0.14-1.3),orig(2)+sz(2)*0.775,""""+model.label+"""",sz(1)*1.3,sz(2)*0.275,""fill"");';
+          'end';
+          'e=gce();';
+          'e.visible=""on"";';
+          'e.foreground=color(0,0,255);';
+          'e.background=color(0,0,0);';
+          'e.font_foreground=color(0,0,0);';
+          'e.fill_mode=""off"";';
+          'if orient then';
+          '  xarc(orig(1)+sz(1)*0.25,orig(2)+sz(2)*0.75,sz(1)*0.5,sz(2)*0.5,0,360*64);';
+          'else';
+          '  xarc(orig(1)+sz(1)*(1-0.25-0.5),orig(2)+sz(2)*0.75,sz(1)*0.5,sz(2)*0.5,0,360*64);';
           'end';
           'e=gce();';
           'e.visible=""on"";';
           'e.foreground=color(0,0,0);';
-          'e.background=color(192,192,192);';
-          'e.font_foreground=color(192,192,192);';
-          'e.fill_mode=""off"";';
-          'xpoly(xx+ww*[0;0.03;0.07;0.13;0.175;0.24;0.325;0.39;0.46;0.535;0.595;0.66;0.72;0.76;0.79],yy+hh*[0.5;0.565;0.64;0.74;0.8;0.86;0.905;0.92;0.92;0.9;0.865;0.825;0.775;0.735;0.7]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.thickness=0.5;';
-          'e.line_style=1;';
-          'xpoly(xx+ww*[0.97;0.875;0.705;0.97],yy+hh*[0.5;0.795;0.62;0.5]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(0,0,0);';
+          'e.background=color(0,127,255);';
           'e.fill_mode=""on"";';
           'e.thickness=0.25;';
           'e.line_style=1;'
          ];
 
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E'];
-    x.graphics.out_implicit=['I'];
+    x.graphics.in_implicit=['I'];
+    x.graphics.out_implicit=[];
   end
 endfunction
