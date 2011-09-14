@@ -146,6 +146,8 @@ select job
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
-    x.graphics.out_implicit=['I','E'];
+    x.graphics.in_style=["shape=ellipse;fillColor=#C0C0C0;strokeColor=#C0C0C0"]
+    x.graphics.out_implicit=['I','I'];
+    x.graphics.out_style=["shape=ellipse;strokeColor=#C0C0C0"; "shape=triangle;fillColor=blue;strokeColor=blue"]
   end
 endfunction
