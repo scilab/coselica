@@ -90,10 +90,14 @@ function xpal = add_to_palette(xpal, currentPalRoot)
     export_to_hdf5(h5_instances(i), 'scs_m');
 
     // generate the gif file
-    generateBlockImage(scs_m, dirname(pal_icons(i)), interfaces(i), f, "gif", %t);
+    if ~isfile(pal_icons(i))
+      generateBlockImage(scs_m, dirname(pal_icons(i)), interfaces(i), f, "gif", %t);
+    end
 
     // generate the svg file
-    generateBlockImage(scs_m, dirname(graph_icons(i)), interfaces(i), f, "svg", %f);
+    if ~isfile(graph_icons(i))
+      generateBlockImage(scs_m, dirname(graph_icons(i)), interfaces(i), f, "svg", %f);
+    end
 
     // register to the palette.
     xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
@@ -105,7 +109,7 @@ endfunction
 ///////////////////////////////
 
 currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Continuous";
-xpal = xcosPal("Blocks continuous");
+xpal = xcosPal("Continuous");
 xpal = add_to_palette(xpal, currentPalRoot);
 
 xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_continuous.xpal');
@@ -115,7 +119,7 @@ xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_continuous.xpal');
 //////////////////////////////
 
 currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Nonlinear";
-xpal = xcosPal("Blocks nonlinear");
+xpal = xcosPal("Non linear");
 xpal = add_to_palette(xpal, currentPalRoot);
 
 xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_nonlinear.xpal');
@@ -125,7 +129,7 @@ xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_nonlinear.xpal');
 //////////////////////////////
 
 currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Interfaces";
-xpal = xcosPal("Blocks interface");
+xpal = xcosPal("Interface");
 xpal = add_to_palette(xpal, currentPalRoot);
 
 xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_interface.xpal');
@@ -135,7 +139,7 @@ xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_interface.xpal');
 /////////////////////////
 
 currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Math";
-xpal = xcosPal("Blocks math");
+xpal = xcosPal("Math");
 xpal = add_to_palette(xpal, currentPalRoot);
 
 xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_math.xpal');
@@ -145,7 +149,7 @@ xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_math.xpal');
 ////////////////////////////
 
 currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Routing";
-xpal = xcosPal("Blocks routing");
+xpal = xcosPal("Routing");
 xpal = add_to_palette(xpal, currentPalRoot);
 
 xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_routing.xpal');
@@ -155,7 +159,7 @@ xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_routing.xpal');
 ////////////////////////////
 
 currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Sources";
-xpal = xcosPal("Blocks sources");
+xpal = xcosPal("Sources");
 xpal = add_to_palette(xpal, currentPalRoot);
 
 xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_sources.xpal');
