@@ -49,12 +49,12 @@ loadXcosLibs();
 // load palette
 // =============================================================================
 
-xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_continuous.xpal', 'Coselica');
-xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_nonlinear.xpal',  'Coselica');
-xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_interface.xpal',  'Coselica');
-xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_math.xpal',       'Coselica');
-xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_routing.xpal',    'Coselica');
-xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_sources.xpal',    'Coselica');
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_continuous.xpal', ['Coselica', "Blocks"]);
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_nonlinear.xpal',  ['Coselica', "Blocks"]);
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_interface.xpal',  ['Coselica', "Blocks"]);
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_math.xpal',       ['Coselica', "Blocks"]);
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_routing.xpal',    ['Coselica', "Blocks"]);
+xcosPalAdd(root_tlbx + filesep() + 'coselica_blocks_sources.xpal',    ['Coselica', "Blocks"]);
 xcosPalAdd(root_tlbx + filesep() + 'coselica_thermal_heattransfert.xpal', 'Coselica');
 xcosPalAdd(root_tlbx + filesep() + 'coselica_electrical.xpal',        'Coselica');
 xcosPalAdd(root_tlbx + filesep() + 'coselica_mechanics_rotational.xpal', 'Coselica');
