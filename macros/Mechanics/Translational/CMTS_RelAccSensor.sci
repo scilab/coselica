@@ -189,6 +189,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.out_implicit=['I','I'];
     x.graphics.in_style=['fillColor=green;strokeColor=green'];
-    x.graphics.out_style=['fillColor=white;strokeColor=green', 'shape=triangle;fillColor=blue;strokeColor=blue'];
+    x.graphics.out_style=['fillColor=white;strokeColor=green';'shape=triangle;fillColor=blue;strokeColor=blue'];
 end
 endfunction
