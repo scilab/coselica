@@ -2,7 +2,7 @@ mechanics_pathB = get_absolute_file_path('buildmacros.sce');
 chdir(mechanics_pathB);
 
 // directories
-dirs=list('Translational','Rotational','Planar');
+dirs=['Translational','Rotational','Planar'];
 
 // gather information about blocks
 for d = dirs

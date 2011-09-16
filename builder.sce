@@ -14,9 +14,9 @@ toolbox_dir   = get_absolute_file_path("builder.sce");
 // =============================================================================
 
 try
-	v = getversion("scilab");
+v = getversion("scilab");
 catch
-	error(gettext("Scilab 5.2 or more is required."));
+error(gettext("Scilab 5.2 or more is required."));
 end
 
 if v(2) < 3 then
@@ -31,6 +31,114 @@ if ~with_module('development_tools') then
   error(msprintf(gettext('%s module not installed."),'development_tools'));
 end
 
+function tbx_build_blocks(module, names, blockpath)
+    // Build a default block instance
+    //
+    // Calling Sequence
+    //   tbx_build_blocks(module, names)
+    //
+    // Parameters
+    // module: toolbox base directory
+    // names: list of block names (sci file name without extension)
+
+    if argn(2) <> [2 3] then
+        error(msprintf(gettext("%s: Wrong number of input arguments: %d to %d expected.\n"),"tbx_build_blocks",2,3));
+    end
+
+    // checking module argument
+    if type(module) <> 10 then
+        error(msprintf(gettext("%s: Wrong type for input argument #%d: A string expected.\n"),"tbx_build_blocks",1));
+    end
+    if size(module,"*") <> 1 then
+        error(msprintf(gettext("%s: Wrong size for input argument #%d: A string expected.\n"),"tbx_build_blocks",1));
+    end
+    if ~isdir(module) then
+        error(msprintf(gettext("%s: The directory ''%s'' doesn''t exist or is not read accessible.\n"),"tbx_build_blocks",module));
+    end
+
+    // checking names argument
+    if type(names) <> 10 then
+        error(msprintf(gettext("%s: Wrong type for input argument #%d: A string expected.\n"),"tbx_build_blocks",2));
+    end
+
+    if exists("blockpath", "local")
+      sciFilePath = blockpath + filesep();
+    else
+      sciFilePath = module + filesep() + "macros" + filesep();
+    end
+
+
+    mprintf(gettext("Building blocks...\n"));
+
+    // load Xcos libraries when not already loaded.
+    if ~exists("scicos_diagram") then loadXcosLibs(); end
+
+    sciFiles = pathconvert(sciFilePath) + names + ".sci";
+    h5Files = pathconvert(module + "/images/h5/") + names + ".h5";
+    gif_tlbx = pathconvert(module + "/images/gif");
+    gifFiles = pathconvert(module + "/images/gif/") + names + ".gif";
+    svg_tlbx = pathconvert(module + "/images/svg");
+    svgFiles = pathconvert(module + "/images/svg/") + names + ".svg";
+    handle = [];
+    for i=1:size(names, "*")
+        // load the interface function
+        exec(sciFiles(i), -1);
+
+        // export the instance
+        execstr(msprintf("scs_m = %s (''define'');", names(i)));
+        if ~export_to_hdf5(h5Files(i), "scs_m") then
+            error(msprintf(gettext("%s: Unable to export %s to %s.\n"),"tbx_build_blocks",names(i), h5Files(i)));
+        end
+
+        block = scs_m;
+        // export a gif file if it doesn't exist
+        if ~isfile(gifFiles(i)) then
+          handle = gcf();
+          if ~generateBlockImage(block, gif_tlbx, names(i), handle, "gif", %t) then
+            error(msprintf(gettext("%s: Unable to export %s to %s.\n"),"tbx_build_blocks",names(i), gifFiles(i)));
+          end
+        end
+
+        // export an svg file if it doesn't exist
+        if ~isfile(svgFiles(i)) then
+         handle = gcf();
+         if ~generateBlockImage(block, svg_tlbx, names(i), handle, "svg", %f) then
+           error(msprintf(gettext("%s: Unable to export %s to %s.\n"),"tbx_build_blocks",names(i), svgFiles(i)));
+         end
+        end
+    end
+    if (~isempty(handle))
+      delete(handle);
+    end
+endfunction
+
+function tbx_build_pal(toolbox_dir, name, file_name, interfaces)
+  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".h5";
+  pal_icons = toolbox_dir + filesep() + "images/gif/" + interfaces + ".gif";
+  graph_icons = toolbox_dir + filesep() + "images/svg/" + interfaces + ".svg";
+
+  xpal = xcosPal(name);
+
+  for i=1:size(interfaces,1)
+     // register to the palette.
+    xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
+  end
+  xcosPalExport(xpal, toolbox_dir + filesep() + file_name);
+endfunction
+// Build xcos palette
+// =============================================================================
+
+loadXcosLibs();
+pathToCreate = toolbox_dir + filesep() + "images" + [ ""
+                    filesep() + "h5"
+                    filesep() + "gif"
+                    filesep() + "svg"]
+for i = 1:size(pathToCreate, "*")
+  if (isdir(pathToCreate(i)) == %f)
+    mkdir(pathToCreate(i))
+  end
+end
+
 // Action
 // =============================================================================
 
@@ -38,185 +146,6 @@ tbx_builder_macros(toolbox_dir);
 tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
 tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 
-f = gcf(); // to generate images
-
-// Build xcos palette
-// =============================================================================
-
-loadXcosLibs();
-if fileinfo(toolbox_dir + filesep() + "images") == [] then
-  mkdir(toolbox_dir + filesep() + "images");
-end
-if fileinfo(toolbox_dir + filesep() + "images/h5") == [] then
-  mkdir(toolbox_dir + filesep() + "images/h5");
-end
-if fileinfo(toolbox_dir + filesep() + "images/gif") == [] then
-  mkdir(toolbox_dir + filesep() + "images/gif");
-end
-if fileinfo(toolbox_dir + filesep() + "images/svg") == [] then
-  mkdir(toolbox_dir + filesep() + "images/svg");
-end
-
-libraries = toolbox_dir + filesep() + [..
-"macros/Electrical";..
-"macros/Thermal/HeatTransfer";..
-"macros/Blocks/Math";..
-"macros/Blocks/Sources";..
-"macros/Blocks/Routing";..
-"macros/Blocks/Continuous";..
-"macros/Blocks/Interfaces";..
-"macros/Blocks/Nonlinear";..
-"macros/Mechanics/Translational";..
-"macros/Mechanics/Rotational";..
-"macros/Mechanics/Planar";..
-]';
-
-getd(libraries);
-
-
-// utility function to add all interface functions from a path to a palette.
-function xpal = add_to_palette(xpal, currentPalRoot)
-  interfaces = basename(ls(currentPalRoot + filesep() + "*.sci"));
-  valid_indexes = grep(interfaces, "/^[^_].*$/", 'r'); // remove the macros starting with an underscore.
-  interfaces = interfaces(valid_indexes);
-
-  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".h5";
-  pal_icons = toolbox_dir + filesep() + "images/gif/" + interfaces + ".gif";
-  graph_icons = toolbox_dir + filesep() + "images/svg/" + interfaces + ".svg";
-
-  for i=1:size(interfaces,1)
-    // generate the instance file
-    execstr("scs_m = " + interfaces(i) + '(''define'')');
-    export_to_hdf5(h5_instances(i), 'scs_m');
-
-    // generate the gif file
-    if ~isfile(pal_icons(i))
-      generateBlockImage(scs_m, dirname(pal_icons(i)), interfaces(i), f, "gif", %t);
-    end
-
-    // generate the svg file
-    if ~isfile(graph_icons(i))
-      generateBlockImage(scs_m, dirname(graph_icons(i)), interfaces(i), f, "svg", %f);
-    end
-
-    // register to the palette.
-    xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
-  end
-endfunction
-
-///////////////////////////////
-// Blocks continuous palette //
-///////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Continuous";
-xpal = xcosPal("Continuous");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_continuous.xpal');
-
-//////////////////////////////
-// Blocks nonlinear palette //
-//////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Nonlinear";
-xpal = xcosPal("Non linear");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_nonlinear.xpal');
-
-//////////////////////////////
-// Blocks interface palette //
-//////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Interfaces";
-xpal = xcosPal("Interface");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_interface.xpal');
-
-/////////////////////////
-// Blocks math palette //
-/////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Math";
-xpal = xcosPal("Math");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_math.xpal');
-
-////////////////////////////
-// Blocks routing palette //
-////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Routing";
-xpal = xcosPal("Routing");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_routing.xpal');
-
-////////////////////////////
-// Blocks sources palette //
-////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Blocks/Sources";
-xpal = xcosPal("Sources");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_blocks_sources.xpal');
-
-//////////////////////////////////
-// Thermal HeatTransfer palette //
-//////////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Thermal/HeatTransfer";
-xpal = xcosPal("Thermal heat transfert");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_thermal_heattransfert.xpal');
-
-////////////////////////
-// Electrical palette //
-////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Electrical";
-xpal = xcosPal("Electrical");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_electrical.xpal');
-
-//////////////////////////////////
-// Mechanics rotational palette //
-//////////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Mechanics/Rotational";
-xpal = xcosPal("Mechanices rotational");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_mechanics_rotational.xpal');
-
-//////////////////////////////
-// Mechanics planar palette //
-//////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Mechanics/Planar";
-xpal = xcosPal("Mechanices planar");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_mechanics_planar.xpal');
-
-/////////////////////////////////////
-// Mechanics translational palette //
-/////////////////////////////////////
-
-currentPalRoot = toolbox_dir + filesep() + "macros/Mechanics/Translational";
-xpal = xcosPal("Mechanices translational");
-xpal = add_to_palette(xpal, currentPalRoot);
-
-xcosPalExport(xpal, toolbox_dir + '/coselica_mechanics_translational.xpal');
-
-// Clean variables
-// =============================================================================
-delete(f);
-clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE xpal currentPalRoot add_to_palette;
+clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE;
 
 cd(original_dir);

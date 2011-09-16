@@ -1,7 +1,13 @@
-toolboxname = 'cos_blocks_interf';
-interfaces_pathB = get_absolute_file_path('buildmacros.sce');
+// This file is released under the 3-clause BSD license. See COPYING-BSD.
 
-disp('Building macros in ' + interfaces_pathB);
-genlib(toolboxname + 'lib', interfaces_pathB, %t);
+function buildmacros()
+  macros_path = get_absolute_file_path("buildmacros.sce");
+  tbx_build_macros(TOOLBOX_NAME+"_BI_", macros_path);
+  lib(macros_path);
+  blocks = ["CBI_RealInput"
+            "CBI_RealOutput"]
+  tbx_build_blocks(toolbox_dir, blocks, macros_path);
+endfunction
 
-clear interfaces_pathB toolboxname
+buildmacros();
+clear buildmacros; // remove buildmacros on stack

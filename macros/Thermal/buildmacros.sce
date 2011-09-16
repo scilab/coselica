@@ -2,7 +2,7 @@ thermal_pathB = get_absolute_file_path('buildmacros.sce');
 chdir(thermal_pathB);
 
 // directories
-dirs=list('HeatTransfer');
+dirs=['HeatTransfer'];
 
 // gather information about blocks
 for d = dirs

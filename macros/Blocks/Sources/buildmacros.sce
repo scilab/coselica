@@ -1,7 +1,9 @@
-toolboxname = 'cos_blocks_srcs';
-sources_pathB = get_absolute_file_path('buildmacros.sce');
+// This file is released under the 3-clause BSD license. See COPYING-BSD.
 
-disp('Building macros in ' + sources_pathB);
-genlib(toolboxname + 'lib', sources_pathB, %t);
+function buildmacros()
+  macros_path = get_absolute_file_path("buildmacros.sce");
+  tbx_build_macros(TOOLBOX_NAME+"_BS_", macros_path);
+endfunction
 
-clear sources_pathB toolboxname
+buildmacros();
+clear buildmacros; // remove buildmacros on stack
