@@ -150,11 +150,10 @@ select job
           'e.font_foreground=color(0,0,0);';
           'e.fill_mode=""off"";'
          ];
-
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=["shape=triangle;fillColor=blue;strokeColor=blue"];
     x.graphics.out_implicit=['I'];
     x.graphics.out_style=["shape=triangle;fillColor=blue;strokeColor=blue"];
-  end
+end
 endfunction
