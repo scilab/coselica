@@ -1,5 +1,5 @@
 // Coselica Toolbox for Scicoslab
-// Copyright (C) 2009  Dirk Reusch, Kybernetik Dr. Reusch
+// Copyright (C) 2009, 2010  Dirk Reusch, Kybernetik Dr. Reusch
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -22,9 +22,9 @@ function [x,y,typ] = _MMTI_Rigid_op( o )
   [orig,sz,orient]=(o.graphics.orig,o.graphics.sz,o.graphics.flip);
   
   if orient then
-    x=orig(1)+sz(1)+xf/20;
+    x=orig(1)+sz(1)+xf/10;
   else
-    x=orig(1)-xf/20;
+    x=orig(1)-xf/10;
   end
 
   y=orig(2)+sz(2)/2;
