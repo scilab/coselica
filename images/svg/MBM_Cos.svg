@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<title>Graphic window number 0</title>
+<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
+For: Scilab
+CreationDate: Fri Sep 16 15:16:35 2011</desc>
+<g>
+	<polygon fill="#C0C0C0" points="2.752,6.672 5.888,6.672 4.32,2.36 	"/>
+	<polyline fill="none" stroke="#C0C0C0" stroke-width="0.125" points="4.32,2.36 2.752,6.672 5.888,6.672 4.32,2.36 	"/>
+	<line fill="none" stroke="#C0C0C0" stroke-width="0.125" x1="4.32" y1="35.68" x2="4.32" y2="6.672"/>
+	<line fill="none" stroke="#C0C0C0" stroke-width="0.125" x1="2.36" y1="20" x2="33.328" y2="20"/>
+	<polygon fill="#C0C0C0" points="33.328,21.568 37.641,20 33.328,18.432 	"/>
+	<polyline fill="none" stroke="#C0C0C0" stroke-width="0.125" points="37.641,20 33.328,18.432 33.328,21.568 37.641,20 	"/>
+	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="4.32,4.32 5.417,4.692 6.535,5.829 7.632,7.652 8.887,10.455 
+		10.475,14.787 14.257,26.37 15.668,30.133 16.923,32.799 18.021,34.465 19.134,35.445 20.237,35.66 21.339,35.111 22.45,33.838 
+		23.547,31.877 24.802,28.957 26.39,24.508 29.859,13.865 31.27,10.063 32.524,7.338 33.622,5.614 34.739,4.594 35.68,4.32 	"/>
+	<text transform="matrix(1 0 0 1 15 10)" fill="#C0C0C0" font-family="'ArialMT'" font-size="6">cos</text>
+</g>
+</svg>

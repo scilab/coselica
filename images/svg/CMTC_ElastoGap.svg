@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<title>Graphic window number 0</title>
+<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
+For: Scilab
+CreationDate: Fri Sep 16 15:14:47 2011</desc>
+<g>
+	<line fill="none" stroke="#007F00" stroke-width="0.125" x1="0.792" y1="20" x2="10.592" y2="20"/>
+	<line fill="none" stroke="#000000" stroke-width="0.5" x1="10.592" y1="13.336" x2="10.592" y2="29.016"/>
+	<line fill="none" stroke="#000000" stroke-width="0.125" x1="21.568" y1="12.16" x2="21.568" y2="19.608"/>
+	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="19.608,20 27.448,20 27.448,11.376 19.608,11.376 	"/>
+	<line fill="none" stroke="#000000" stroke-width="0.125" x1="27.448" y1="15.688" x2="34.111" y2="15.688"/>
+	<line fill="none" stroke="#000000" stroke-width="0.5" x1="17.648" y1="27.448" x2="17.648" y2="16.08"/>
+	<line fill="none" stroke="#000000" stroke-width="0.125" x1="17.648" y1="15.688" x2="21.568" y2="15.688"/>
+	<line fill="none" stroke="#000000" stroke-width="0.125" x1="17.648" y1="27.448" x2="19.608" y2="27.448"/>
+	<line fill="none" stroke="#007F00" stroke-width="0.125" x1="34.111" y1="20" x2="39.208" y2="20"/>
+	<line fill="none" stroke="#000000" stroke-width="0.125" x1="34.111" y1="15.688" x2="34.111" y2="28.232"/>
+	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="19.608,27.448 21.96,25.488 24.312,29.408 27.448,25.488 
+		29.8,29.408 32.544,25.488 34.111,27.84 	"/>
+	<polygon fill="#C0C0C0" points="21.568,11.376 21.568,20 27.448,20 	"/>
+	<polygon fill="#C0C0C0" points="21.568,11.376 27.448,20 27.448,11.376 	"/>
+	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="21.568,11.376 21.568,20 27.448,20 27.448,11.376 
+		21.568,11.376 	"/>
+	<line fill="none" stroke="#000000" stroke-width="0.125" x1="8.24" y1="37.641" x2="23.92" y2="37.641"/>
+	<polygon fill="#808080" points="23.92,39.6 29.8,37.641 23.92,35.68 	"/>
+	<polyline fill="none" stroke="#808080" stroke-width="0.125" points="29.8,37.641 23.92,35.68 23.92,39.6 29.8,37.641 	"/>
+</g>
+</svg>

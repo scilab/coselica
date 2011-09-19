@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="40px" height="40px" viewBox="0 0 40 40"
+     style="stroke:none">
+<title>Graphic window number 0</title>
+<desc>
+Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
+For: Scilab
+CreationDate: Fri Sep 16 15:15:10 2011
+</desc>
+<defs>
+</defs>
+<polygon fill="#ffffff" points="0,0 40,0 40,40 0,40"/>
+<g>
+<polygon fill="#ffffff" points="0.399902,39.6001 0.399902,0.399902 0.399902,0.399902"/>
+<polygon fill="#ffffff" points="0.399902,39.6001 0.399902,0.399902 0.399902,39.6001"/>
+<polygon fill="#ffffff" points="0.399902,39.6001 39.6001,39.6001 39.6001,39.6001"/>
+<polygon fill="#ffffff" points="0.399902,39.6001 39.6001,39.6001 0.399902,39.6001"/>
+<polygon fill="#ffffff" points="0.399902,39.6001 39.6001,39.6001 39.6001,0.399902"/>
+<polygon fill="#ffffff" points="0.399902,39.6001 39.6001,0.399902 0.399902,0.399902"/>
+<polygon fill="#c0c0c0" points="16.0801,18.04 16.0801,21.96 23.9199,21.96"/>
+<polygon fill="#c0c0c0" points="16.0801,18.04 23.9199,21.96 23.9199,18.04"/>
+<polyline fill="none" stroke="#000000" stroke-width="0.125" points="16.0801,18.04 16.0801,21.96 23.9199,21.96 23.9199,18.04 16.0801,18.04"/>
+<polygon fill="#ff7f00" points="0.399902,8.24023 0.399902,31.7598 16.0801,31.7598"/>
+<polygon fill="#ff7f00" points="0.399902,8.24023 16.0801,31.7598 16.0801,8.24023"/>
+<polyline fill="none" stroke="#000000" stroke-width="0.125" points="0.399902,8.24023 0.399902,31.7598 16.0801,31.7598 16.0801,8.24023 0.399902,8.24023"/>
+<polygon fill="#ff7f00" points="23.9199,8.24023 23.9199,31.7598 39.6001,31.7598"/>
+<polygon fill="#ff7f00" points="23.9199,8.24023 39.6001,31.7598 39.6001,8.24023"/>
+<polyline fill="none" stroke="#000000" stroke-width="0.125" points="23.9199,8.24023 23.9199,31.7598 39.6001,31.7598 39.6001,8.24023 23.9199,8.24023"/>
+<polyline fill="none" stroke="#000000" stroke-width="0.125" points="0.399902,8.43604 0.399902,31.7598 16.0801,31.7598 16.0801,8.43604 0.399902,8.43604"/>
+<polyline fill="none" stroke="#000000" stroke-width="0.125" points="23.9199,8.24023 23.9199,31.7598 39.6001,31.7598 39.6001,8.24023 23.9199,8.24023"/>
+<text fill="#808080" style="stroke:none" x="5" y="21" transform="rotate(0, 5, 21)" font-size="2" font-family="SansSerif" font-style="normal" font-weight="normal">a</text>
+<text fill="#808080" style="stroke:none" x="33" y="22" transform="rotate(0, 33, 22)" font-size="2" font-family="SansSerif" font-style="normal" font-weight="normal">b</text>
+</g>
+</svg>

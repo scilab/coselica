@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<title>Graphic window number 0</title>
+<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
+For: Scilab
+CreationDate: Fri Sep 16 15:16:36 2011</desc>
+<g>
+	<line fill="none" stroke="#C0C0C0" stroke-width="0.125" x1="20" y1="35.68" x2="20" y2="6.672"/>
+	<polygon fill="#C0C0C0" points="18.432,6.672 21.568,6.672 20,2.36 	"/>
+	<polyline fill="none" stroke="#C0C0C0" stroke-width="0.125" points="20,2.36 18.432,6.672 21.568,6.672 20,2.36 	"/>
+	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="4.32,35.68 13.924,35.269 18.818,34.504 22.137,33.406 
+		24.645,31.956 26.703,30.113 28.428,27.898 29.859,25.449 31.113,22.646 32.211,19.563 33.151,16.354 34.111,12.513 34.896,8.71 
+		35.68,4.32 	"/>
+	<line fill="none" stroke="#C0C0C0" stroke-width="0.125" x1="2.36" y1="35.758" x2="33.328" y2="35.758"/>
+	<polygon fill="#C0C0C0" points="33.328,37.326 37.641,35.758 33.328,34.189 	"/>
+	<polyline fill="none" stroke="#C0C0C0" stroke-width="0.125" points="37.641,35.758 33.328,34.189 33.328,37.326 37.641,35.758 	
+		"/>
+	<text transform="matrix(1 0 0 1 5 18)" fill="#C0C0C0" font-family="'ArialMT'" font-size="5">exp</text>
+</g>
+</svg>
