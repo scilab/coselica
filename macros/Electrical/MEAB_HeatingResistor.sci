@@ -129,6 +129,8 @@ select job
 
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I','I'];
+    x.graphics.in_style=["fillColor=blue;strokeColor=blue";"fillColor=red;strokeColor=red"]
     x.graphics.out_implicit=['I'];
+    x.graphics.out_style=["strokeColor=blue"]
   end
 endfunction
