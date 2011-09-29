@@ -35,7 +35,7 @@ select job
     while %t do
       [ok,stepTorque,offsetTorque,startTime,exprs]=..
         getvalue(['';'CMRS_TorqueStep';'';'Constant torque, not dependent on speed';''],..
-        [' stepTorque [N.m] : Height of torque step (if negative, torque is acting as load)',' offsetTorque [N.m] : Offset of torque',' startTime [s] : Torque = offset for time < startTime'],..
+        [' stepTorque [N.m] : Height of torque step (if negative, torque is acting as load)';' offsetTorque [N.m] : Offset of torque';' startTime [s] : Torque = offset for time < startTime'],..
         list('vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(stepTorque,offsetTorque,startTime)
