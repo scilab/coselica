@@ -1,0 +1,90 @@
+// ============================================================================
+// Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+// Copyright (C) 2011 - DIGITEO - Bruno JOFRET
+//
+//  This file is distributed under the same license as the Scilab package.
+// ============================================================================
+//
+// <-- ENGLISH IMPOSED -->
+//
+// <-- Short Description -->
+// Blocks must have valid dimensions for their settings.
+// Some dimensions were not coherents between theirs "set" and "define" method.
+sources_blocks = ["MEAS_SignalVoltage"
+                  "MEAS_ConstantVoltage"
+                  "MEAS_StepVoltage"
+                  "MEAS_RampVoltage"
+                  "MEAS_SineVoltage"
+                  "MEAS_PulseVoltage"
+                  "MEAS_SawToothVoltage"
+                  "CEAS_TrapezoidVoltage"
+                  "MEAS_SignalCurrent"
+                  "MEAS_ConstantCurrent"
+                  "MEAS_StepCurrent"
+                  "MEAS_RampCurrent"
+                  "MEAS_SineCurrent"
+                  "MEAS_PulseCurrent"
+                  "MEAS_SawToothCurrent"
+                  "CEAS_TrapezoidCurrent"
+                 ];
+basic_blocks = ["MEAB_Ground"
+                "MEAB_Resistor"
+                "MEAB_HeatingResistor"
+                "MEAB_Capacitor"
+                "MEAB_Inductor"
+                "MEAB_Transformer"
+                "MEAB_Gyrator"
+                "CEAB_EMF0"
+                "CEAB_EMF"
+                "CEAB_TranslationalEMF0"
+                "CEAB_TranslationalEMF"
+                "MEAB_VCV"
+                "MEAB_VCC"
+                "MEAB_CCV"
+                "MEAB_VCC"
+                "MEAB_OpAmp"
+                "MEAB_VariableResistor"
+                "MEAB_VariableCapacitor"
+                "MEAB_VariableInductor"
+               ];
+ideal_blocks = ["CEAI_IdealDiode"
+                "MEAI_IdealTransformer"
+                "MEAI_IdealGyrator"
+                "MEAI_Idle"
+                "MEAI_Short"
+                "MEAI_IdealOpeningSwitch"
+                "MEAI_IdealClosingSwitch"
+               ];
+semiconductors_blocks = ["MEAS_Diode"
+                    "CEAS_ZDiode"
+                    "MEAS_PMOS"
+                    "MEAS_NMOS"
+                    "MEAS_NPN"
+                    "MEAS_PNP"
+                    "CEAS_Thyristor"
+                   ];
+sensors_blocks = ["MEAS_PotentialSensor"
+                  "MEAS_VoltageSensor"
+                  "MEAS_CurrentSensor"
+                  "CEAS_PowerSensor"
+                 ];
+blocks = [sources_blocks
+          basic_blocks
+          ideal_blocks
+          semiconductors_blocks
+          sensors_blocks
+         ];
+notTested = [];
+for j = 1:size(blocks,"*")
+    interfunction = blocks(j);
+// Not tested blocks (Xcos customs)
+    if or(interfunction == notTested) then
+        continue;
+    end
+    [status, message] = xcosValidateBlockSet(blocks(j));
+    if status == %f
+        disp("Error on block "+blocks(j));
+        disp(message);
+    end
+    assert_checktrue(status);
+end

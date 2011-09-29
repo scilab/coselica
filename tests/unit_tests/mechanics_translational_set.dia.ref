@@ -1,0 +1,69 @@
+// ============================================================================
+// Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+// Copyright (C) 2011 - DIGITEO - Bruno JOFRET
+//
+//  This file is distributed under the same license as the Scilab package.
+// ============================================================================
+//
+// <-- ENGLISH IMPOSED -->
+//
+// <-- Short Description -->
+// Blocks must have valid dimensions for their settings.
+// Some dimensions were not coherents between theirs "set" and "define" method.
+sources_blocks = ["CMTS_Position0"
+                  "CMTS_Speed0"
+                  "CMTS_Accelerate0"
+                  "CMTS_Force0"
+                  "CMTS_Position"
+                  "CMTS_Speed"
+                  "CMTS_Accelerate"
+                  "CMTS_Force"
+                  "CMTS_Force2"
+                  "CMTS_ConstantForce"
+                  "CMTS_ConstantSpeed"
+                  "CMTS_ForceStep"
+                  "CMTS_LinearSpeedDependen"
+                  "CMTS_QuadraticSpeedDepen"
+                 ];
+components_blocks = ["MMT_Fixed"
+                    "CMTC_Free"
+                    "CMTC_Mass"
+                    "CMTC_MassWithWeight"
+                    "MMT_Rod"
+                    "MMT_Spring"
+                    "MMT_Damper"
+                    "MMT_SpringDamper"
+                    "CMTC_ElastoGap"
+                    "CMT_MassWithFriction"
+                    "CMT_Stop"
+                    "CMTC_Pulley"
+                    "CMTC_ActuatedPulley"
+                    "CMTC_Lever"
+                    ];
+sensors_blocks = ["CMTS_PositionSensor"
+                  "CMTS_SpeedSensor"
+                  "CMTS_AccSensor"
+                  "CMTS_RelPositionSensor"
+                  "CMTS_RelSpeedSensor"
+                  "CMTS_RelAccSensor"
+                  "CMTS_ForceSensor"
+                  "CMTS_PowerSensor"
+                 ];
+blocks = [sources_blocks
+          components_blocks
+          sensors_blocks
+         ];
+notTested = [];
+for j = 1:size(blocks,"*")
+    interfunction = blocks(j);
+// Not tested blocks (Xcos customs)
+    if or(interfunction == notTested) then
+        continue;
+    end
+    [status, message] = xcosValidateBlockSet(blocks(j));
+    if status == %f
+        disp("Error on block "+blocks(j));
+        disp(message);
+    end
+    assert_checktrue(status);
+end
