@@ -110,5 +110,6 @@ select job
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=[];
     x.graphics.out_implicit=['I'];
+    x.graphics.out_style=[ThermalOutputStyle()];
   end
 endfunction

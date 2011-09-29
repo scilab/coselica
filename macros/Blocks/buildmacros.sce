@@ -4,6 +4,9 @@ chdir(blocks_pathB);
 // directories
 dirs = ['Interfaces','Routing','Math','Sources','Continuous','Nonlinear'];
 
+// Load Utils
+getd(blocks_pathB+".."+filesep()+"Utils");
+
 // gather information about blocks
 for d = dirs
   if isdir( d ) then

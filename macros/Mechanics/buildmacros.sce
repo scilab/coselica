@@ -4,6 +4,9 @@ chdir(mechanics_pathB);
 // directories
 dirs=['Translational','Rotational','Planar'];
 
+// Load Utils
+getd(mechanics_pathB+".."+filesep()+"Utils");
+
 // gather information about blocks
 for d = dirs
   if isdir( d ) then

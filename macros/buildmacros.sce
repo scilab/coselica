@@ -2,7 +2,7 @@ pathB = get_absolute_file_path('buildmacros.sce');
 chdir(pathB);
 
 // directories
-dirs=list('Electrical','Mechanics','Thermal','Blocks');
+dirs=['Utils', 'Electrical','Mechanics','Thermal','Blocks'];
 
 // gather information about blocks
 for d = dirs

@@ -154,7 +154,9 @@ select job
           'e.fill_mode=""off"";';...
          ];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','E'];
+    x.graphics.in_implicit=['I','I'];
+    x.graphics.in_style=[RotInputStyle() ; RealInputStyle()];
     x.graphics.out_implicit=['I'];
+    x.graphics.out_style=[RotOutputStyle()];
   end
 endfunction

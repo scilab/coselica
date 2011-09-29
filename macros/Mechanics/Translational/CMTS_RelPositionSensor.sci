@@ -187,8 +187,8 @@ select job
 
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
+    x.graphics.in_style=[TransInputStyle()];
     x.graphics.out_implicit=['I','I'];
-    x.graphics.in_style=['fillColor=green;strokeColor=green'];
-    x.graphics.out_style=['fillColor=white;strokeColor=green', 'shape=triangle;fillColor=blue;strokeColor=blue'];
+    x.graphics.out_style=[TransOutputStyle(); RealOutputStyle()];
 end
 endfunction

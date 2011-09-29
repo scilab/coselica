@@ -4,6 +4,9 @@ chdir(thermal_pathB);
 // directories
 dirs=['HeatTransfer'];
 
+// Load Utils
+getd(thermal_pathB+".."+filesep()+"Utils");
+
 // gather information about blocks
 for d = dirs
   if isdir( d ) then
