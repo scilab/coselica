@@ -35,7 +35,7 @@ select job
     while %t do
       [ok,f_nominal,ForceDirection,v_nominal,exprs]=..
         getvalue(['';'CMTS_LinearSpeedDependen';'';'Linear dependency of force versus speed';''],..
-        [' f_nominal [N] : Nominal force (if negative, force is acting as load)',' ForceDirection [-] : Same direction of force in both directions of movement (1=yes,0=no)',' v_nominal [m/s] : Nominal speed (> 0)'],..
+        [' f_nominal [N] : Nominal force (if negative, force is acting as load)';' ForceDirection [-] : Same direction of force in both directions of movement (1=yes,0=no)';' v_nominal [m/s] : Nominal speed (> 0)'],..
         list('vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(f_nominal,ForceDirection,v_nominal)

@@ -35,7 +35,7 @@ select job
     while %t do
       [ok,L1,L2,L,exprs]=..
         getvalue(['';'CMTC_Lever';'';'Lever assuming small angle deviation (without mass and inertia; geometric constraint)';''],..
-        [' L1 [m] : Length of arm 1 (>0)',' L2 [m] : Length of arm 2 (>0)',' L [m] : Geometric constraint L=(L2*s1+L1*s2)/(L1+L2)-s'],..
+        [' L1 [m] : Length of arm 1 (>0)';' L2 [m] : Length of arm 2 (>0)';' L [m] : Geometric constraint L=(L2*s1+L1*s2)/(L1+L2)-s'],..
         list('vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(L1,L2,L)

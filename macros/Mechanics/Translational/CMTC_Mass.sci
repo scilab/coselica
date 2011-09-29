@@ -37,7 +37,7 @@ select job
     while %t do
       [ok,m,initType,s_start,v_start,L,exprs]=..
         getvalue(['';'CMTC_Mass';'';'Sliding mass with inertia';''],..
-        [' m [kg] : Mass of the sliding mass',' initType [-] : Type of initial value for [s,v] (0=guess,1=fixed)',' s_start [m] : Initial value for absolute position of center of mass',' v_start [m/s] : Initial value for absolute velocity of mass',' L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)'],..
+        [' m [kg] : Mass of the sliding mass';' initType [-] : Type of initial value for [s,v] (0=guess,1=fixed)';' s_start [m] : Initial value for absolute position of center of mass';' v_start [m/s] : Initial value for absolute velocity of mass';' L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)'],..
         list('vec',1,'vec',2,'vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(m,initType,s_start,v_start,L)

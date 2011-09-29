@@ -35,7 +35,7 @@ select job
     while %t do
       [ok,stepForce,offsetForce,startTime,exprs]=..
         getvalue(['';'CMTS_ForceStep';'';'Constant force, not dependent on speed';''],..
-        [' stepForce [N] : Height of force step (if negative, force is acting as load)',' offsetForce [N] : Offset of force',' startTime [s] : Force = offset for time < startTime'],..
+        [' stepForce [N] : Height of force step (if negative, force is acting as load)';' offsetForce [N] : Offset of force';' startTime [s] : Force = offset for time < startTime'],..
         list('vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(stepForce,offsetForce,startTime)
