@@ -35,7 +35,7 @@ select job
     while %t do
       [ok,m,lengthFraction,s_small,exprs]=..
         getvalue(['';'CMPF_LineForceWithMass';'';'General line force component with a point mass on the connection line';''],..
-        [' m [kg] : Mass of point mass (> 0) on the connetion line between the origin of frame_a and the origin of frame_b',' lengthFraction [1] : Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b',' s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero'],..
+        [' m [kg] : Mass of point mass (> 0) on the connetion line between the origin of frame_a and the origin of frame_b';' lengthFraction [1] : Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b';' s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero'],..
         list('vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
     model.in=[1;1];

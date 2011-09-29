@@ -34,7 +34,7 @@ select job
     while %t do
       [ok,radius,n,exprs]=..
         getvalue(['';'CMPJ_ActuatedRollingWhee';'';'Joint that describes an ideal actuated rolling wheel (1 non-holonomic constraint, no states)';''],..
-        [' radius [m] : Radius of wheel',' n [-] : Wheel axis resolved in frame_a'],..
+        [' radius [m] : Radius of wheel';' n [-] : Wheel axis resolved in frame_a'],..
         list('vec',1,'vec',2),exprs);
       if ~ok then break, end
     model.in=[1;1];
