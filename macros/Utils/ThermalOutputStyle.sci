@@ -10,5 +10,5 @@
 //
 //
 function out = ThermalOutputStyle()
-    out="strokeColor=red"
+    out="strokeColor=#B22222"
 endfunction

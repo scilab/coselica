@@ -11,5 +11,5 @@
 //
 
 function out = TransInputStyle()
-    out = "fillColor=green;strokeColor=green"
+    out = "fillColor=#228B22;strokeColor=#228B22"
 endfunction

@@ -11,5 +11,5 @@
 //
 
 function out = ThermalInputStyle()
-    out="fillColor=red;strokeColor=red"
+    out="fillColor=#B22222;strokeColor=#B22222"
 endfunction
