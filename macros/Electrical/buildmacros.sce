@@ -79,6 +79,8 @@ function buildblocks()
   tbx_build_pal(toolbox_dir, "Sensors", "CoselicaElectricalSensors.xpal", sensors_blocks)
 endfunction
 
+// Load Utils
+getd(get_absolute_file_path("buildmacros.sce")+".."+filesep()+"Utils");
 
 buildmacros();
 getd(get_absolute_file_path("buildmacros.sce"));
