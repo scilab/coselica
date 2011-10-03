@@ -121,7 +121,7 @@ function tbx_build_pal(toolbox_dir, name, file_name, interfaces)
 
   for i=1:size(interfaces,1)
      // register to the palette.
-    xpal = xcosPalAddBlock(xpal, h5_instances(i), [], graph_icons(i));
+    xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
   end
   xcosPalExport(xpal, toolbox_dir + filesep() + file_name);
 endfunction
