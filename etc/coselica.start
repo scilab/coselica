@@ -80,5 +80,13 @@ xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarParts.xpal',         
 
 %MODELICA_USER_LIBS = root_tlbx + filesep() + 'macros';
 
+// Load demos
+// =============================================================================
+if or(getscilabmode() == ["NW";"STD"]) then
+    mprintf("\tLoad demos\n");
+    pathdemos = pathconvert(root_tlbx+"/demos/coselica.dem.gateway.sce", %F, %T);
+    add_demo("Coselica", pathdemos);
+end
+
 clear root_tlbx;
 clear etc_tlbx;
