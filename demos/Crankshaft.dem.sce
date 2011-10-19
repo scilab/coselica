@@ -11,4 +11,4 @@
 //
 
 demopath = get_absolute_file_path("Crankshaft.dem.sce");
-xcos(demopath+filesep()+".."+filesep()+"examples"+filesep()+"Connecting_RodCPGE.xcos")
+xcos(demopath+filesep()+".."+filesep()+"examples"+filesep()+"Crankshaft_Anim.xcos")

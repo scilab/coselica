@@ -11,4 +11,4 @@
 //
 
 demopath = get_absolute_file_path("SevenPendulumWithFriction.dem.sce");
-xcos(demopath+filesep()+".."+filesep()+"examples"+filesep()+"SevenFrictionPendulumCPGE.xcos")
+xcos(demopath+filesep()+".."+filesep()+"examples"+filesep()+"SevenFrictionPendulum_Anim.xcos")
