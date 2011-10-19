@@ -21,6 +21,7 @@ function buildblocks()
                    "CMPJ_ActuatedRevolute"
                    "CMPJ_RollingWheel"
                    "CMPJ_ActuatedRollingWhee"
+                   "CMPJ_ActuatedPrismatic"
                   ]
   loopjoints_blocks = ["CMPL_Prismatic"
                     "CMPL_Revolute"

@@ -38,7 +38,7 @@ select job
     while %t do
       [ok,n,s_offset,initType,s_start,v_start,a_start,exprs]=..
         getvalue(['';'CMPJ_ActuatedPrismatic';'';'Actuated prismatic joint (1 translational degree-of-freedom, 2 states)';''],..
-        [' n [-] : Axis of translation resolved in frame_a (= same as in frame_b)',' s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)',' initType [-] : Type of initial value for [s,v,a] (0=guess,1=fixed)',' s_start [m] : Initial value of distance s',' v_start [m/s] : Initial value of relative velocity v = der(s)',' a_start [m/s2] : Initial value of relative acceleration a = der(v)'],..
+        [' n [-] : Axis of translation resolved in frame_a (= same as in frame_b)';' s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)';' initType [-] : Type of initial value for [s,v,a] (0=guess,1=fixed)';' s_start [m] : Initial value of distance s';' v_start [m/s] : Initial value of relative velocity v = der(s)';' a_start [m/s2] : Initial value of relative acceleration a = der(v)'],..
         list('vec',2,'vec',1,'vec',3,'vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
     model.in=[1;1];
@@ -198,8 +198,8 @@ select job
 
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[PlanInputStyle() ; RotInputStyle()];
+    x.graphics.in_style=[PlanInputStyle() ; TransInputStyle()];
     x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[PlanOutputStyle() ; RotOutputStyle()];
+    x.graphics.out_style=[PlanOutputStyle() ; TransOutputStyle()];
   end
 endfunction

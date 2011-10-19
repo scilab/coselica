@@ -140,5 +140,6 @@ select job
     x.graphics.in_implicit=[];
     x.graphics.out_implicit=['I'];
     x.graphics.out_style=["shape=triangle;fillColor=blue;strokeColor=blue"];
+    x.graphics.style=["blockWithLabel;verticalLabelPosition=bottom;displayedLabel=%s"]
   end
 endfunction
