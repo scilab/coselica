@@ -108,6 +108,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[PlanInputStyle()];
     x.graphics.out_implicit=[];
-    x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;displayedLabel=<br><br>m=%s"]
+    x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=<br><br>m = %s Kg"]
   end
 endfunction
