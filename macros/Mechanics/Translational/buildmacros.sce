@@ -45,6 +45,7 @@ function buildblocks()
                     "CMTS_RelAccSensor"
                     "CMTS_ForceSensor"
                     "CMTS_PowerSensor"
+                    "CMTS_GenSensor"
                    ]
   blocks = [sources_blocks
             components_blocks
