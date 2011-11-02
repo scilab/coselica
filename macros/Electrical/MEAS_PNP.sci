@@ -161,6 +161,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[ElecInputStyle()];
     x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[ElecOutputStyle();ElecOutputStyle()];
+    x.graphics.out_style=[ElecOutputStyle(), ElecOutputStyle()];
   end
 endfunction
