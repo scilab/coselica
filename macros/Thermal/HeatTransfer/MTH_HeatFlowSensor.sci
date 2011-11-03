@@ -149,6 +149,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[ThermalInputStyle()];
     x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[ThermalOutputStyle() ; RealOutputStyle()];
+    x.graphics.out_style=[ThermalOutputStyle(), RealOutputStyle()];
   end
 endfunction
