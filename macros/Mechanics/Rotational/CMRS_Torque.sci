@@ -135,6 +135,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[RealInputStyle()];
     x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[RotOutputStyle() ; RotOutputStyle()];
+    x.graphics.out_style=[RotOutputStyle(), RotOutputStyle()];
   end
 endfunction
