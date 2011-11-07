@@ -177,6 +177,6 @@ select job
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[TransInputStyle()];
     x.graphics.out_implicit=['I','I','I'];
-    x.graphics.out_style=[TransOutputStyle() ; TransOutputStyle() ; RotOutputStyle()];
+    x.graphics.out_style=[TransOutputStyle(), TransOutputStyle(), RotOutputStyle()];
   end
 endfunction
