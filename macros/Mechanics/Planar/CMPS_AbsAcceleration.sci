@@ -156,7 +156,7 @@ select job
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[PlanInputStyle()];
-    x.graphics.out_implicit=['E'];
+    x.graphics.out_implicit=['I'];
     x.graphics.out_style=[RealOutputStyle()];
   end
 endfunction
