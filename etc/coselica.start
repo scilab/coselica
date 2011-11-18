@@ -89,5 +89,9 @@ if or(getscilabmode() == ["NW";"STD"]) then
     add_demo("Coselica", pathdemos);
 end
 
+// Update modelica library path
+mprintf("\tLoad Modelica Equations\n");
+%MODELICA_USER_LIBS($+1) = root_tlbx+"/macros";
+
 clear root_tlbx;
 clear etc_tlbx;
