@@ -1,4 +1,5 @@
-// Coselica Toolbox for Scicoslab
+// Coselica Toolbox for Xcos
+// Copyright (C) 2011 - DIGITEO - Bruno JOFRET
 // Copyright (C) 2009, 2010  Dirk Reusch, Kybernetik Dr. Reusch
 //
 // This program is free software: you can redistribute it and/or modify

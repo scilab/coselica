@@ -1,77 +1,14 @@
-Coselica Toolbox for ScicosLab (Version 0.4.2)
-==============================================
+Coselica Toolbox (Version 0.4.3)
+=================================
 
-Coselica Toolbox provides about 200 basic Sci[cos] Mod[elica] blocks for
+Coselica Toolbox provides about 200 basic Xcos Modelica blocks for
 modeling and simulation of electrical (analog), mechanical (1D-translational,
-1D-rotational, and 2D-planar) and thermodynamical (0/1D-heattransfer) systems
-in ScicosLab. Almost all of these blocks have been derived from the Modelica
+1D-rotational, and 2D-planar) and thermodynamical (0/1D-heattransfer) systems.
+Almost all of these blocks have been derived from the Modelica
 Standard Library 2.2.
 
 WARNING: This toolbox is in an early stage of development! It is incomplete,
 undocumented, not well tested and it may contain numerous and severe bugs!
 
-Author:   Dirk Reusch, Kybernetik Dr. Reusch
-Download: http://www.kybdr.de/software
-
-Requirements
-============
-
-- Linux/Windows
-- ScicosLab 4.3
-
-Installation
-============
-
-To Install this toolbox:
-
-We Suppose here that <PATH> stands for  the path of the directory
-containing this readme.txt file.
-
-- On Unix/Linux systems
-     * Administrator
-        Has to execute, once and for all, the following instruction 
-        within Scilab:
-        exec <PATH>/builder.sce 
-        This operation requires a C compiler and permission to
-        write in 
-        - <PATH>/sci_gateway to generate Makefile *.o, toto.a  files 
-        - <PATH>/macros to generate *.bin, names and lib files
-     * User
-        Should execute the following instruction within Scilab:
-        exec <PATH>/loader.sce 
-        before using the toolbox, he  can also put it  in his
-        .scilab startup file for automatic loading.
-
-- On Windows systems
-     * Administrator
-        Has to execute, once and for all, the following instruction 
-        within Scilab:
-        exec <PATH>\builder.sce 
-        This operation requires VisualC++ compiler and permission to
-        write in 
-         - <PATH>\src to generate Makefile *.obj, *.dll, ... files 
-         - <PATH>\macros to generate *.bin, names and lib files 
-     * User
-        Should execute the following instruction within Scilab:
-        exec <PATH>\loader.sce
-        before using the toolbox, he  can also put it  in his
-        .scilab startup file for automatic loading.
-
-Contents
-========
-README             : this file
-COPYING            : license GPLv3
-loader.sce         : installation script
-builder.sce        : script for buliding library
-sci_gateway        : directory of C interfacing routines
-macros             : directory of Scilab macros
-     *.sci         : source versions
-     *.bin         : precompiled binary versions (generated)
-     names         : table of functions (generated)
-     lib           : scilab library binary save (generated)
-help               : directory for help.
-     *.xml         : XML-source of help pages
-     *.htm         : compiled HTML-pages (generated)
-     whatis.htm    : short function descriptions (generated)
-demos              : directory of examples
-     *.sce         : example Scilab scripts
+Authors:  Dirk Reusch, Kybernetik Dr. Reusch
+          Bruno JOFRET <bruno.jofret@scilab.org>

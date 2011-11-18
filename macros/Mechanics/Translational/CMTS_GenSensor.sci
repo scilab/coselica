@@ -1,5 +1,6 @@
 //
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+// Copyright (C) 2011 - DIGITEO - Bruno JOFRET
 // Copyright (C) 2011-2011 - DIGITEO - Bruno JOFRET
 //
 // This file must be used under the terms of the CeCILL.
