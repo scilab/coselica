@@ -72,11 +72,6 @@ function buildblocks()
             sensors_blocks
            ]
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Sources", "CoselicaElectricalSources.xpal", sources_blocks)
-  tbx_build_pal(toolbox_dir, "Basic", "CoselicaElectricalBasic.xpal", basic_blocks)
-  tbx_build_pal(toolbox_dir, "Ideal", "CoselicaElectricalIdeal.xpal", ideal_blocks)
-  tbx_build_pal(toolbox_dir, "Semi-conductors", "CoselicaElectricalSemiconductors.xpal", semiconductors_blocks)
-  tbx_build_pal(toolbox_dir, "Sensors", "CoselicaElectricalSensors.xpal", sensors_blocks)
 endfunction
 
 // Load Utils

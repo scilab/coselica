@@ -9,8 +9,6 @@ function buildblocks()
             "CBR_MultiplexVector2"
             "CBR_Replicator"]
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Routing", "CoselicaBlocksRouting.xpal", blocks)
-
 endfunction
 
 buildblocks();

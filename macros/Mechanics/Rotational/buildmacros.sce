@@ -54,9 +54,6 @@ function buildblocks()
             sensors_blocks
            ]
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Sources", "CoselicaMechanicsRotationalSources.xpal", sources_blocks)
-  tbx_build_pal(toolbox_dir, "Components", "CoselicaMechanicsRotationalComponents.xpal", components_blocks)
-  tbx_build_pal(toolbox_dir, "Sensors", "CoselicaMechanicsRotationalSensors.xpal", sensors_blocks)
 endfunction
 
 buildmacros();

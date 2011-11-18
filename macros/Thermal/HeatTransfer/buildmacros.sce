@@ -33,10 +33,6 @@ function buildblocks()
             sensors_blocks
            ]
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Sources", "CoselicaHeatTransfertSources.xpal", sources_blocks)
-  tbx_build_pal(toolbox_dir, "Components", "CoselicaHeatTransfertComponents.xpal", components_blocks)
-  tbx_build_pal(toolbox_dir, "Celsius", "CoselicaHeatTransfertCelsius.xpal", celsius_blocks)
-  tbx_build_pal(toolbox_dir, "Sensors", "CoselicaHeatTransfertSensors.xpal", sensors_blocks)
 endfunction
 
 buildmacros();

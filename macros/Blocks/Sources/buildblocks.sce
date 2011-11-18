@@ -16,7 +16,6 @@ function buildblocks()
             "MBS_Step"]
 
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Sources", "CoselicaBlocksSources.xpal", blocks)
 endfunction
 
 buildblocks();

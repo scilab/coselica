@@ -69,13 +69,6 @@ function buildblocks()
             relativesensors_blocks
            ]
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Sources", "CoselicaMechanicsPlanarSources.xpal", sources_blocks)
-  tbx_build_pal(toolbox_dir, "Forces", "CoselicaMechanicsPlanarForces.xpal", forces_blocks)
-  tbx_build_pal(toolbox_dir, "Joints", "CoselicaMechanicsPlanarJoints.xpal", joints_blocks)
-  tbx_build_pal(toolbox_dir, "Loop Joints", "CoselicaMechanicsPlanarLoopJoints.xpal", loopjoints_blocks)
-  tbx_build_pal(toolbox_dir, "Parts", "CoselicaMechanicsPlanarParts.xpal", parts_blocks)
-  tbx_build_pal(toolbox_dir, "Absolute Sensors", "CoselicaMechanicsPlanarAbsoluteSensors.xpal", absolutesensors_blocks)
-  tbx_build_pal(toolbox_dir, "Relative Sensors", "CoselicaMechanicsPlanarRelativeSensors.xpal", relativesensors_blocks)
 endfunction
 
 buildmacros();

@@ -112,19 +112,6 @@ function tbx_build_blocks(module, names, blockpath)
     end
 endfunction
 
-function tbx_build_pal(toolbox_dir, name, file_name, interfaces)
-  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".h5";
-  pal_icons = toolbox_dir + filesep() + "images/gif/" + interfaces + ".gif";
-  graph_icons = toolbox_dir + filesep() + "images/svg/" + interfaces + ".svg";
-
-  xpal = xcosPal(name);
-
-  for i=1:size(interfaces,1)
-     // register to the palette.
-    xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
-  end
-  xcosPalExport(xpal, toolbox_dir + filesep() + file_name);
-endfunction
 // Build xcos palette
 // =============================================================================
 

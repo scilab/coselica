@@ -35,7 +35,6 @@ function buildblocks()
             "MBM_Tanh"]
 
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Math", "CoselicaBlocksMath.xpal", blocks)
 endfunction
 
 buildblocks();

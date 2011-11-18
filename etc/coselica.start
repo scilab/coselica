@@ -48,35 +48,36 @@ loadXcosLibs();
 
 // load palette
 // =============================================================================
+function xpal = tbx_build_pal(toolbox_dir, name, interfaces)
+  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".h5";
+  pal_icons = toolbox_dir + filesep() + "images/gif/" + interfaces + ".gif";
+  graph_icons = toolbox_dir + filesep() + "images/svg/" + interfaces + ".svg";
 
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaBlocksSources.xpal',                    ['Coselica', "Blocks"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaBlocksContinuous.xpal',                 ['Coselica', "Blocks"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaBlocksNonlinear.xpal',                  ['Coselica', "Blocks"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaBlocksInterfaces.xpal',                 ['Coselica', "Blocks"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaBlocksMath.xpal',                       ['Coselica', "Blocks"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaBlocksRouting.xpal',                    ['Coselica', "Blocks"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaElectricalSources.xpal',                ['Coselica', "Electrical"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaElectricalSensors.xpal',                ['Coselica', "Electrical"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaElectricalBasic.xpal',                  ['Coselica', "Electrical"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaElectricalIdeal.xpal',                  ['Coselica', "Electrical"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaElectricalSemiconductors.xpal',         ['Coselica', "Electrical"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaHeatTransfertSources.xpal',             ['Coselica', "Heat Transfert"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaHeatTransfertSensors.xpal',             ['Coselica', "Heat Transfert"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaHeatTransfertComponents.xpal',          ['Coselica', "Heat Transfert"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaHeatTransfertCelsius.xpal',             ['Coselica', "Heat Transfert"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsTranslationalSources.xpal',    ['Coselica', "Mechanics", "Translational"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsTranslationalSensors.xpal',    ['Coselica', "Mechanics", "Translational"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsTranslationalComponents.xpal', ['Coselica', "Mechanics", "Translational"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsRotationalSources.xpal',       ['Coselica', "Mechanics", "Rotational"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsRotationalSensors.xpal',       ['Coselica', "Mechanics", "Rotational"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsRotationalComponents.xpal',    ['Coselica', "Mechanics", "Rotational"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarSources.xpal',           ['Coselica', "Mechanics", "Planar"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarAbsoluteSensors.xpal',           ['Coselica', "Mechanics", "Planar", "Sensors"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarRelativeSensors.xpal',           ['Coselica', "Mechanics", "Planar", "Sensors"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarForces.xpal',            ['Coselica', "Mechanics", "Planar"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarJoints.xpal',            ['Coselica', "Mechanics", "Planar"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarLoopJoints.xpal',       ['Coselica', "Mechanics", "Planar"]);
-xcosPalAdd(root_tlbx + filesep() + 'CoselicaMechanicsPlanarParts.xpal',            ['Coselica', "Mechanics", "Planar"]);
+  xpal = xcosPal(name);
+
+  for i=1:size(interfaces,1)
+     // register to the palette.
+    xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
+  end
+endfunction
+
+mprintf("\tLoad palette: Coselica - Blocks\n");
+exec(etc_tlbx+"blocks.sce", -1);
+
+mprintf("\tLoad palette: Coselica - Electrical\n");
+exec(etc_tlbx+"electrical.sce", -1);
+
+mprintf("\tLoad palette: Coselica - Heat transfer\n");
+exec(etc_tlbx+"thermal_heattransfer.sce", -1);
+
+mprintf("\tLoad palette: Coselica - Mechanics/Translational\n");
+exec(etc_tlbx+"mechanics_translational.sce", -1);
+
+mprintf("\tLoad palette: Coselica - Mechanics/Rotational\n");
+exec(etc_tlbx+"mechanics_rotational.sce", -1);
+
+mprintf("\tLoad palette: Coselica - Mechanics/Planar\n");
+exec(etc_tlbx+"mechanics_planar.sce", -1);
 
 %MODELICA_USER_LIBS = root_tlbx + filesep() + 'macros';
 

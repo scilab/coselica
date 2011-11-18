@@ -7,7 +7,6 @@ function buildblocks()
             "MBN_DeadZone"
             "MBN_Limiter"]
   tbx_build_blocks(toolbox_dir, blocks, macros_path);
-  tbx_build_pal(toolbox_dir, "Nonlinear", "CoselicaBlocksNonlinear.xpal", blocks)
 endfunction
 
 buildblocks();
