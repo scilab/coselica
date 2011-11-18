@@ -91,7 +91,8 @@ end
 
 // Update modelica library path
 mprintf("\tLoad Modelica Equations\n");
-%MODELICA_USER_LIBS($+1) = root_tlbx+"/macros";
+global %MODELICA_USER_LIBS;
+%MODELICA_USER_LIBS = [%MODELICA_USER_LIBS ; root_tlbx+"/macros"];
 
 clear root_tlbx;
 clear etc_tlbx;
