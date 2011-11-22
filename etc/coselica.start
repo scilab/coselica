@@ -16,7 +16,8 @@ root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 //Load  functions library
 // =============================================================================
 mprintf("\tLoad macros\n");
-
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Utils/";
+cos_utils_lib = lib(pathmacros);
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Continuous/";
 cos_blocks_contlib = lib(pathmacros);
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Nonlinear/";
@@ -91,6 +92,10 @@ end
 
 // Update modelica library path
 mprintf("\tLoad Modelica Equations\n");
+
+// Display version
+mprintf("\tCoselica Version: "+getCoselicaVersion());
+
 global %MODELICA_USER_LIBS;
 %MODELICA_USER_LIBS = [%MODELICA_USER_LIBS ; root_tlbx+"/macros"];
 
