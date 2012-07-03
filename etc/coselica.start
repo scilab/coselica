@@ -80,8 +80,6 @@ exec(etc_tlbx+"mechanics_rotational.sce", -1);
 mprintf("\tLoad palette: Coselica - Mechanics/Planar\n");
 exec(etc_tlbx+"mechanics_planar.sce", -1);
 
-%MODELICA_USER_LIBS = root_tlbx + filesep() + 'macros';
-
 // Load demos
 // =============================================================================
 if or(getscilabmode() == ["NW";"STD"]) then

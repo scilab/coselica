@@ -28,6 +28,8 @@ blocks = [sources_blocks
 toolbox_dir = get_absolute_file_path("thermal_heattransfer.sce")+".."
 xpal = tbx_build_pal(toolbox_dir, "Sources", sources_blocks)
 xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
+xpal = tbx_build_pal(toolbox_dir, "Components", sources_blocks)
+xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
 xpal = tbx_build_pal(toolbox_dir, "Celsius", celsius_blocks)
 xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
 xpal = tbx_build_pal(toolbox_dir, "Sensors", sensors_blocks)
