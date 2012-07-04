@@ -1,5 +1,6 @@
 // This file is released under the 3-clause BSD license. See COPYING-BSD.
 
+function runMe()
 toolbox_dir = get_absolute_file_path("mechanics_rotational.sce") + "..";
 components_blocks = [ "MMR_Fixed"
                     "CMRC_Free"
@@ -49,3 +50,8 @@ xpal = tbx_build_pal(toolbox_dir, "Components", components_blocks)
 xcosPalAdd(xpal, ['Coselica', "Mechanics", "Rotational"]);
 xpal = tbx_build_pal(toolbox_dir, "Sensors", sensors_blocks)
 xcosPalAdd(xpal, ['Coselica', "Mechanics", "Rotational"]);
+
+endfunction
+
+runMe();
+clear runMe;

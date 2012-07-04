@@ -93,16 +93,14 @@ function tbx_build_blocks(module, names, blockpath)
         block = scs_m;
         // export a gif file if it doesn't exist
         if ~isfile(gifFiles(i)) then
-          handle = gcf();
-          if ~generateBlockImage(block, gif_tlbx, names(i), handle, "gif", %t) then
+          if ~generateBlockImage(block, gif_tlbx, names(i), "gif", %t) then
             error(msprintf(gettext("%s: Unable to export %s to %s.\n"),"tbx_build_blocks",names(i), gifFiles(i)));
           end
         end
 
         // export an svg file if it doesn't exist
         if ~isfile(svgFiles(i)) then
-         handle = gcf();
-         if ~generateBlockImage(block, svg_tlbx, names(i), handle, "svg", %f) then
+         if ~generateBlockImage(block, svg_tlbx, names(i), "svg", %f) then
            error(msprintf(gettext("%s: Unable to export %s to %s.\n"),"tbx_build_blocks",names(i), svgFiles(i)));
          end
         end
