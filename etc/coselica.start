@@ -86,6 +86,7 @@ if or(getscilabmode() == ["NW";"STD"]) then
     mprintf("\tLoad demos\n");
     pathdemos = pathconvert(root_tlbx+"/demos/coselica.dem.gateway.sce", %F, %T);
     add_demo("Coselica", pathdemos);
+    clear pathdemos;
 end
 
 // Update modelica library path
@@ -99,3 +100,5 @@ global %MODELICA_USER_LIBS;
 
 clear root_tlbx;
 clear etc_tlbx;
+clear %MODELICA_USER_LIBS;
+
