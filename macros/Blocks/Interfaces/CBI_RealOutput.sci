@@ -42,35 +42,7 @@ select job
       mo.outputs=['y'];
       mo.parameters=list([],list(),[]);
     model.equations=mo;
-    gr_i=[
-          'if orient then';
-          '  xx=orig(1);yy=orig(2);';
-          '  ww=sz(1);hh=sz(2);';
-          'else';
-          '  xx=orig(1)+sz(1);yy=orig(2);';
-          '  ww=-sz(1);hh=sz(2);';
-          'end';
-          'xpoly(xx+ww*[0;1;0;0],yy+hh*[1;0.5;0;1]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,191);';
-          'e.background=color(255,255,255);';
-          'e.fill_mode=""on"";';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'if orient then';
-          '  xstringb(orig(1)+sz(1)*-0.25,orig(2)+sz(2)*1,""""+model.label+"""",sz(1)*1.5,sz(2)*0.2,""fill"");';
-          'else';
-          '  xstringb(orig(1)+sz(1)*(1--0.25-1.5),orig(2)+sz(2)*1,""""+model.label+"""",sz(1)*1.5,sz(2)*0.2,""fill"");';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(0,0,255);';
-          'e.font_foreground=color(0,0,255);';
-          'e.fill_mode=""off"";'
-         ];
-
+    gr_i=[];
     x=standard_define([2/3 2/3],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[RealInputStyle();]

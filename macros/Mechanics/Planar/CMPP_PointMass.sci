@@ -61,50 +61,7 @@ select job
                          list(m),..
                          [0]);
     model.equations=mo;
-    gr_i=[
-          'if orient then';
-          '  xx=orig(1);yy=orig(2);';
-          '  ww=sz(1);hh=sz(2);';
-          'else';
-          '  xx=orig(1)+sz(1);yy=orig(2);';
-          '  ww=-sz(1);hh=sz(2);';
-          'end';
-          'if orient then';
-          '  xstringb(orig(1)+sz(1)*-0.145,orig(2)+sz(2)*-0.01,""m=""+string(m)+"""",sz(1)*1.305,sz(2)*0.23,""fill"");';
-          'else';
-          '  xstringb(orig(1)+sz(1)*(1--0.145-1.305),orig(2)+sz(2)*-0.01,""m=""+string(m)+"""",sz(1)*1.305,sz(2)*0.23,""fill"");';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(0,0,0);';
-          'e.font_foreground=color(0,0,0);';
-          'e.fill_mode=""off"";';
-          'if orient then';
-          '  xstringb(orig(1)+sz(1)*-0.14,orig(2)+sz(2)*0.775,""""+model.label+"""",sz(1)*1.3,sz(2)*0.275,""fill"");';
-          'else';
-          '  xstringb(orig(1)+sz(1)*(1--0.14-1.3),orig(2)+sz(2)*0.775,""""+model.label+"""",sz(1)*1.3,sz(2)*0.275,""fill"");';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,255);';
-          'e.background=color(0,0,0);';
-          'e.font_foreground=color(0,0,0);';
-          'e.fill_mode=""off"";';
-          'if orient then';
-          '  xarc(orig(1)+sz(1)*0.25,orig(2)+sz(2)*0.75,sz(1)*0.5,sz(2)*0.5,0,360*64);';
-          'else';
-          '  xarc(orig(1)+sz(1)*(1-0.25-0.5),orig(2)+sz(2)*0.75,sz(1)*0.5,sz(2)*0.5,0,360*64);';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(0,127,255);';
-          'e.fill_mode=""on"";';
-          'e.thickness=0.25;';
-          'e.line_style=1;'
-         ];
-
+    gr_i=[];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[PlanInputStyle()];
