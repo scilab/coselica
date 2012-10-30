@@ -50,7 +50,7 @@ loadXcosLibs();
 // load palette
 // =============================================================================
 function xpal = tbx_build_pal(toolbox_dir, name, interfaces)
-  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".h5";
+  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".sod";
   pal_icons = toolbox_dir + filesep() + "images/gif/" + interfaces + ".gif";
   graph_icons = toolbox_dir + filesep() + "images/svg/" + interfaces + ".svg";
 
