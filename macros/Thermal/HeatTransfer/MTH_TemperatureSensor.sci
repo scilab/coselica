@@ -43,7 +43,7 @@ select job
     model.in=ones(size(mo.inputs,'*'),1);
     model.out=ones(size(mo.outputs,'*'),1);
     exprs=string([]);
-    gr_i=[""];
+    gr_i=[];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[ThermalInputStyle()];

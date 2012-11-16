@@ -18,16 +18,6 @@
 function [x,y,typ]=MBM_Add(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    k1=arg1.graphics.exprs(1);
-    k2=arg1.graphics.exprs(2);
-    standard_draw(arg1,%f,_MBI_SI2SO_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MBI_SI2SO_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MBI_SI2SO_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
     graphics=arg1.graphics;exprs=graphics.exprs;
@@ -43,6 +33,16 @@ select job
       model.out=[1];
       graphics.exprs=exprs;
       x.graphics=graphics;x.model=model;
+      in_label=[]
+      vect_k=[k1,k2];
+      for i=1:2
+          if vect_k(i)>0 then
+              in_label=[in_label;"+"]
+          else
+              in_label=[in_label;"-"]
+          end
+      end
+      x.graphics.in_label=in_label;
       break
     end
   case 'define' then
@@ -65,8 +65,9 @@ select job
     exprs=[strcat(sci2exp(k1));strcat(sci2exp(k2))];
     gr_i=[];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
+    x.graphics.in_implicit=['I', 'I'];
     x.graphics.in_style=[RealInputStyle(), RealInputStyle()];
+    x.graphics.in_label=["+", "+"]
     x.graphics.out_implicit=['I'];
     x.graphics.out_style=[RealOutputStyle()];
   end
