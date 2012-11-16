@@ -18,17 +18,6 @@
 function [x,y,typ]=CBM_Add3(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    k1=arg1.graphics.exprs(1);
-    k2=arg1.graphics.exprs(2);
-    k3=arg1.graphics.exprs(3);
-    standard_draw(arg1,%f,_CBM_Add3_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CBM_Add3_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CBM_Add3_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
     graphics=arg1.graphics;exprs=graphics.exprs;
@@ -43,7 +32,18 @@ select job
       model.in=[1;1;1];
       model.out=[1];
       graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
+      x.graphics=graphics;
+      x.model=model;
+      in_label=[];
+      vect_k=[k1,k2,k3];
+      for i=1:3
+          if vect_k(i)>0 then
+              in_label=[in_label;"+"]
+          else
+              in_label=[in_label;"-"]
+          end
+      end
+      x.graphics.in_label=in_label;
       break
     end
   case 'define' then
@@ -69,6 +69,7 @@ select job
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I','I','I'];
     x.graphics.in_style=[RealInputStyle(), RealInputStyle(), RealInputStyle()];
+    x.graphics.in_label=["+";"+";"+"]
     x.graphics.out_implicit=['I'];
     x.graphics.out_style=[RealOutputStyle()];
   end
