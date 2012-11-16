@@ -2,7 +2,9 @@
 
 function runMe()
     sources_blocks = ["MTH_FixedTemperature"
+                      "MTHC_FixedTemperature"
                       "MTH_PrescribedTemperatur"
+                      "MTHC_PrescribedTemperatu"
                       "MTH_FixedHeatFlow"
                       "MTH_PrescribedHeatFlow"
                      ]
@@ -13,11 +15,9 @@ function runMe()
                         ]
     celsius_blocks = ["MTHC_ToKelvin"
                       "MTHC_FromKelvin"
-                      "MTHC_FixedTemperature"
-                      "MTHC_PrescribedTemperatu"
-                      "MTHC_TemperatureSensor"
                      ]
     sensors_blocks = ["MTH_TemperatureSensor"
+                      "MTHC_TemperatureSensor"
                       "MTH_RelTemperatureSensor"
                       "MTH_HeatFlowSensor"
                      ]
@@ -31,7 +31,7 @@ function runMe()
     xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
     xpal = tbx_build_pal(toolbox_dir, "Components", components_blocks)
     xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
-    xpal = tbx_build_pal(toolbox_dir, "Celsius", celsius_blocks)
+    xpal = tbx_build_pal(toolbox_dir, "Conversion", celsius_blocks)
     xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
     xpal = tbx_build_pal(toolbox_dir, "Sensors", sensors_blocks)
     xcosPalAdd(xpal, ['Coselica', "Heat Transfer"]);
