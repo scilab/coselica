@@ -7,7 +7,8 @@ endfunction
 
 function buildblocks()
   macros_path = get_absolute_file_path("buildmacros.sce");
-  sources_blocks = ["CMTS_Position0"
+  sources_blocks = ["CMTS_ImposedKinematic"
+                    "CMTS_Position0"
                     "CMTS_Speed0"
                     "CMTS_Accelerate0"
                     "CMTS_Force0"
@@ -46,6 +47,7 @@ function buildblocks()
                     "CMTS_ForceSensor"
                     "CMTS_PowerSensor"
                     "CMTS_GenSensor"
+                    "CMTS_GenRelSensor"
                    ]
   blocks = [sources_blocks
             components_blocks

@@ -20,7 +20,8 @@ components_blocks = [ "MMR_Fixed"
                     "CMRC_IdealDifferential"
                     "MMR_IdealGearR2T"
                     ]
-sources_blocks = ["CMRS_Position0"
+sources_blocks = ["CMRS_ImposedKinematic"
+                  "CMRS_Position0"
                   "CMRS_Speed0"
                   "CMRS_Accelerate0"
                   "CMRS_Torque0"
@@ -43,6 +44,8 @@ sensors_blocks = ["MMRS_AngleSensor"
                   "MMRS_RelAccSensor"
                   "MMRS_TorqueSensor"
                   "CMRS_PowerSensor"
+                  "CMRS_GenSensor"
+                  "CMRS_GenRelSensor"
                  ]
 xpal = tbx_build_pal(toolbox_dir, "Sources", sources_blocks)
 xcosPalAdd(xpal, ['Coselica', "Mechanics", "Rotational"]);

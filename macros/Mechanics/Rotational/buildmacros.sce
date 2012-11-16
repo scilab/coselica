@@ -25,7 +25,9 @@ function buildblocks()
                     "CMRC_IdealDifferential"
                     "MMR_IdealGearR2T"
                    ]
-  sources_blocks = ["CMRS_Position0"
+  sources_blocks = [
+                    "CMRS_ImposedKinematic"
+                    "CMRS_Position0"
                     "CMRS_Speed0"
                     "CMRS_Accelerate0"
                     "CMRS_Torque0"
@@ -48,6 +50,8 @@ function buildblocks()
                     "MMRS_RelAccSensor"
                     "MMRS_TorqueSensor"
                     "CMRS_PowerSensor"
+                    "CMRS_GenSensor"
+                    "CMRS_GenRelSensor"
                    ]
   blocks = [sources_blocks
             components_blocks

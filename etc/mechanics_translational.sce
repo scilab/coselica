@@ -2,7 +2,8 @@
 
 function runMe()
     toolbox_dir = get_absolute_file_path("mechanics_translational.sce") + "..";
-    sources_blocks = ["CMTS_Position0"
+    sources_blocks = ["CMTS_ImposedKinematic"
+                      "CMTS_Position0"
                       "CMTS_Speed0"
                       "CMTS_Accelerate0"
                       "CMTS_Force0"
@@ -41,6 +42,7 @@ function runMe()
                       "CMTS_ForceSensor"
                       "CMTS_PowerSensor"
                       "CMTS_GenSensor"
+                      "CMTS_GenRelSensor"
                      ]
     xpal = tbx_build_pal(toolbox_dir, "Sources", sources_blocks)
     xcosPalAdd(xpal, ['Coselica', "Mechanics", "Translational"]);
