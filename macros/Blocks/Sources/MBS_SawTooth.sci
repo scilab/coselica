@@ -18,18 +18,6 @@
 function [x,y,typ]=MBS_SawTooth(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    amplitude=arg1.graphics.exprs(1);
-    period=arg1.graphics.exprs(2);
-    offset=arg1.graphics.exprs(3);
-    startTime=arg1.graphics.exprs(4);
-    standard_draw(arg1,%f,_MBI_SO_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MBI_SO_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MBI_SO_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
     graphics=arg1.graphics;exprs=graphics.exprs;

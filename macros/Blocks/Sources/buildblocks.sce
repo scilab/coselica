@@ -2,9 +2,7 @@
 
 function buildblocks()
   macros_path = get_absolute_file_path("buildblocks.sce");
-  blocks = ["CBS_Pulse"
-            "CBS_SawTooth"
-            "CBS_Trapezoid"
+  blocks = ["CBS_Trapezoid"
             "MBS_Clock"
             "MBS_Constant"
             "MBS_ExpSine"

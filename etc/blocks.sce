@@ -2,18 +2,17 @@
 function runMe()
     toolbox_dir = get_absolute_file_path("blocks.sce")+".."
 // Sources
-    blocks = ["CBS_Pulse"
-              "CBS_SawTooth"
+    blocks = ["MBS_Constant"
+              "MBS_Step"
+              "MBS_Ramp"
+              "MBS_Sine"
+              "MBS_Pulse"
               "CBS_Trapezoid"
-              "MBS_Clock"
-              "MBS_Constant"
               "MBS_ExpSine"
               "MBS_Exponentials"
-              "MBS_Pulse"
-              "MBS_Ramp"
               "MBS_SawTooth"
-              "MBS_Sine"
-              "MBS_Step"]
+              "MBS_Clock"
+]
 
     xpal = tbx_build_pal(toolbox_dir, "Sources", blocks)
     xcosPalAdd(xpal, ['Coselica', "Blocks"]);

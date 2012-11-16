@@ -4007,42 +4007,6 @@ package Coselica
         y.signal = offset + (if time < startTime or counter >  -1 and counter < 1 or time >= T0 + T_falling then 0 else if time < T0 + T_rising then ((time - T0) * amplitude) / T_rising else if time < T0 + T_width then amplitude else ((T0 + T_falling - time) * amplitude) / (T_falling - T_width));
       end Trapezoid;
 
-      model SawTooth "Generate saw tooth signal of type Real"
-        parameter Real amplitude = 1 "Amplitude of saw tooth";
-        parameter Real period = 1 "Time for one period";
-        parameter Real offset = 0 "Offset of output signals";
-        parameter Real startTime = 0 "Output = offset for time < startTime";
-        extends Modelica.Blocks.Interfaces.SO;
-      protected
-        discrete Real T0(start = startTime, fixed = true) "Start time of current period";
-      equation
-        when time > T0 + period then
-            T0 = time;
-
-        end when;
-        y.signal = offset + (if time < startTime then 0 else amplitude / period * (time - T0));
-      end SawTooth;
-
-      model Pulse "Generate pulse signal of type Real"
-        parameter Real amplitude = 1 "Amplitude of pulse";
-        parameter Real width = 50 "Width of pulse in % of period";
-        parameter Real period = 1 "Time for one period";
-        parameter Real offset = 0 "Offset of output signals";
-        parameter Real startTime = 0 "Output = offset for time < startTime";
-        extends Modelica.Blocks.Interfaces.SO;
-      protected
-        discrete Real T0(start = startTime, fixed = true) "Start time of current period";
-        Real T_width = (period * width) / 100;
-      equation
-        when time > T0 + period then
-            T0 = time;
-
-        end when;
-        y.signal = offset + (if time < startTime then 0 else if time >= T0 + T_width then 0 else amplitude);
-      end Pulse;
-
-    end Sources;
-
     package Routing
 
       model Replicator "Signal replicator"
@@ -4474,14 +4438,6 @@ end MBS_ExpSine;
 model MBS_Exponentials
   extends Modelica.Blocks.Sources.Exponentials;
 end MBS_Exponentials;
-
-model CBS_Pulse
-  extends Coselica.Blocks.Sources.Pulse;
-end CBS_Pulse;
-
-model CBS_SawTooth
-  extends Coselica.Blocks.Sources.SawTooth;
-end CBS_SawTooth;
 
 model CBS_Trapezoid
   extends Coselica.Blocks.Sources.Trapezoid;
