@@ -3781,7 +3781,7 @@ package Coselica
           extends Modelica.Electrical.Analog.Interfaces.VoltageSource;
           Coselica.Blocks.Sources.Trapezoid signalSource(amplitude = V, rising = rising, width = width, falling = falling, period = period, nperiod = nperiod);
         equation
-          v = signalSource.y;
+          v = signalSource.y.signal;
         end TrapezoidVoltage;
 
         model TrapezoidCurrent "Trapezoidal current source"
@@ -3794,7 +3794,7 @@ package Coselica
           extends Modelica.Electrical.Analog.Interfaces.CurrentSource;
           Coselica.Blocks.Sources.Trapezoid signalSource(amplitude = I, rising = rising, width = width, falling = falling, period = period, nperiod = nperiod);
         equation
-          i = signalSource.y;
+          i = signalSource.y.signal;
         end TrapezoidCurrent;
 
       end Sources;
@@ -4001,8 +4001,7 @@ package Coselica
       equation
         when time > T0 + period then
             T0 = time;
-          counter = max(0, counter - 1);
-
+            counter = if counter<0 then 10000 else max(0, counter - 1);
         end when;
         y.signal = offset + (if time < startTime or counter >  -1 and counter < 1 or time >= T0 + T_falling then 0 else if time < T0 + T_rising then ((time - T0) * amplitude) / T_rising else if time < T0 + T_width then amplitude else ((T0 + T_falling - time) * amplitude) / (T_falling - T_width));
       end Trapezoid;
