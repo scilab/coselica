@@ -1196,6 +1196,13 @@ package Modelica
           v = R.signal * i;
         end VariableResistor;
 
+        model VariableConductor "Ideal linear electrical conductor with variable conductance"
+          extends Interfaces.OnePort;
+          Modelica.Blocks.Interfaces.RealInput G;
+        equation
+          i = G.signal * v;
+        end VariableConductor;
+
         model VariableInductor "Ideal linear electrical inductor with variable inductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput L;
@@ -1234,6 +1241,13 @@ package Modelica
         equation
           R * i = v;
         end Resistor;
+
+        model Conductor "Ideal linear electrical conductor"
+          extends Interfaces.OnePort;
+          parameter Real G = 1 "Conductance";
+        equation
+          i = G * v;
+        end Conductor;
 
         model OpAmp "Simple nonideal model of an OpAmp with limitation"
           parameter Real Slope = 1 "Slope of the out.v/vin characteristic at vin=0";

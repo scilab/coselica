@@ -26,6 +26,7 @@ function buildblocks()
                    ]
   basic_blocks = ["MEAB_Ground"
                   "MEAB_Resistor"
+                  "MEAB_Conductor"
                   "MEAB_HeatingResistor"
                   "MEAB_Capacitor"
                   "MEAB_Inductor"
@@ -38,9 +39,10 @@ function buildblocks()
                   "MEAB_VCV"
                   "MEAB_VCC"
                   "MEAB_CCV"
-                  "MEAB_VCC"
+                  "MEAB_CCC"
                   "MEAB_OpAmp"
                   "MEAB_VariableResistor"
+                  "MEAB_VariableConductor"                  
                   "MEAB_VariableCapacitor"
                   "MEAB_VariableInductor"
                  ]
