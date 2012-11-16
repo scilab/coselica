@@ -43,7 +43,7 @@ select job
       mo.parameters=list([],list(),[]);
     model.equations=mo;
     gr_i=[];
-    x=standard_define([2/3 2/3],model,exprs,list(gr_i,0));
+    x=standard_define([1 1],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I'];
     x.graphics.in_style=[RealInputStyle();]
     x.graphics.out_implicit=['E'];
