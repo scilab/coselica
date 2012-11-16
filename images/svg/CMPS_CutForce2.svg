@@ -8,24 +8,24 @@
 For: Scilab
 CreationDate: Fri Sep 16 15:15:13 2011</desc>
 <g>
-	<path fill="none" stroke="#0000BF" stroke-width="0.125" d="M31.76,31.76"/>
+	<path fill="none" stroke="#0000BF" stroke-width="1.125"  d="M31.76,31.76"/>
 	<polygon fill="#FFFFFF" points="6.28,16.08 6.28,31.76 33.721,31.76 	"/>
 	<polygon fill="#FFFFFF" points="6.28,16.08 33.721,31.76 33.721,16.08 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="6.28,16.08 6.28,31.76 33.721,31.76 33.721,16.08 6.28,16.08 
+	<polyline fill="none" stroke="#000000" stroke-width="1.125"  points="6.28,16.08 6.28,31.76 33.721,31.76 33.721,16.08 6.28,16.08 
 			"/>
 	<polygon points="18.04,23.137 21.96,23.137 20,27.84 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="20,27.84 18.04,23.137 21.96,23.137 20,27.84 	"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="20" y1="20" x2="20" y2="23.137"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="6.28" y1="20" x2="20" y2="20"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="10.2" y1="27.84" x2="10.2" y2="31.76"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="14.12" y1="27.84" x2="14.12" y2="31.76"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="18.04" y1="27.84" x2="18.04" y2="31.76"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="21.96" y1="27.84" x2="21.96" y2="31.76"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="25.88" y1="27.84" x2="25.88" y2="31.76"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="29.8" y1="27.84" x2="29.8" y2="31.76"/>
-	<line fill="none" stroke="#0000BF" stroke-width="0.125" x1="4.32" y1="39.6" x2="4.32" y2="20"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="6.28" y1="20" x2="2.36" y2="20"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="33.721" y1="20" x2="37.641" y2="20"/>
-	<path fill="none" stroke="#FFFF00" stroke-width="0.125" d="M35.68,20.196"/>
+	<polyline fill="none" stroke="#000000" stroke-width="1.125"  points="20,27.84 18.04,23.137 21.96,23.137 20,27.84 	"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="20" y1="20" x2="20" y2="23.137"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="6.28" y1="20" x2="20" y2="20"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="10.2" y1="27.84" x2="10.2" y2="31.76"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="14.12" y1="27.84" x2="14.12" y2="31.76"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="18.04" y1="27.84" x2="18.04" y2="31.76"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="21.96" y1="27.84" x2="21.96" y2="31.76"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="25.88" y1="27.84" x2="25.88" y2="31.76"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="29.8" y1="27.84" x2="29.8" y2="31.76"/>
+	<line fill="none" stroke="#0000BF" stroke-width="1.125"  x1="4.32" y1="39.6" x2="4.32" y2="20"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="6.28" y1="20" x2="2.36" y2="20"/>
+	<line fill="none" stroke="#000000" stroke-width="1.125"  x1="33.721" y1="20" x2="37.641" y2="20"/>
+	<path fill="none" stroke="#FFFF00" stroke-width="1.125"  d="M35.68,20.196"/>
 </g>
 </svg>

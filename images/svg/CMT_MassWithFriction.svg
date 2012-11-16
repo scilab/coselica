@@ -3,23 +3,14 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:14:48 2011</desc>
 <g>
-	<polygon fill="#808080" points="23.92,39.6 29.8,37.641 23.92,35.68 	"/>
-	<polyline fill="none" stroke="#808080" stroke-width="0.125" points="29.8,37.641 23.92,35.68 23.92,39.6 29.8,37.641 	"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="8.24" y1="37.641" x2="23.92" y2="37.641"/>
-	<polygon fill="#FFFFFF" points="14.12,14.12 14.12,26.859 26.859,26.859 	"/>
-	<polygon fill="#FFFFFF" points="14.12,14.12 26.859,26.859 26.859,14.12 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="14.12,14.12 14.12,26.859 26.859,26.859 26.859,14.12 
-		14.12,14.12 	"/>
-	<line fill="none" stroke="#00BF00" stroke-width="0.125" x1="2.36" y1="20" x2="14.12" y2="20"/>
-	<polygon fill="#C0C0C0" points="6.28,28.82 6.28,31.76 34.504,31.76 	"/>
-	<polygon fill="#C0C0C0" points="6.28,28.82 34.504,31.76 34.504,28.82 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="6.28,28.82 6.28,31.76 34.504,31.76 34.504,28.82 6.28,28.82 
-			"/>
-	<line fill="none" stroke="#00BF00" stroke-width="0.125" x1="26.859" y1="20" x2="37.641" y2="20"/>
+	<g>
+		<polygon fill="#1A171B" points="11.142,35.236 20.851,35.236 19.555,38.291 28.191,34.645 19.555,31 20.851,34.053 11.142,34.053 
+					"/>
+	</g>
 </g>
+<rect x="6" y="25.667" fill="#C0C0C0" stroke="#000000" width="28.125" height="2.916"/>
+<line fill="none" stroke="#00BF00" x1="2.334" y1="16.875" x2="13.542" y2="16.875"/>
+<line fill="none" stroke="#00BF00" x1="26.584" y1="16.917" x2="37.792" y2="16.917"/>
+<rect x="13.625" y="10.875" fill="none" stroke="#000000" width="13.042" height="12.792"/>
 </svg>

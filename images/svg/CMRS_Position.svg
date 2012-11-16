@@ -3,24 +3,16 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:14:54 2011</desc>
-<g>
-	<polygon fill="#C0C0C0" points="0.4,16.08 0.4,23.92 39.6,23.92 	"/>
-	<polygon fill="#C0C0C0" points="0.4,16.08 39.6,23.92 39.6,16.08 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="0.4,16.08 0.4,23.92 39.6,23.92 39.6,16.08 0.4,16.08 	"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="14.12" y1="26.271" x2="25.88" y2="26.271"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="20" y1="9.808" x2="20" y2="13.728"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="14.316" y1="13.728" x2="25.88" y2="13.728"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="20" y1="26.271" x2="20" y2="39.6"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="25.88" y1="28.232" x2="23.92" y2="30.191"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="25.88" y1="26.271" x2="21.96" y2="30.191"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="23.92" y1="26.271" x2="20" y2="30.191"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="21.96" y1="26.271" x2="18.04" y2="30.191"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="20" y1="26.271" x2="16.08" y2="30.191"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="18.04" y1="26.271" x2="14.12" y2="30.191"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="16.08" y1="26.271" x2="14.12" y2="28.232"/>
-</g>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="14.12" y1="26.271" x2="25.88" y2="26.271"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="20" y1="9.808" x2="20" y2="13.728"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="14.316" y1="13.728" x2="25.88" y2="13.728"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="20" y1="26.271" x2="20" y2="39.6"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="25.88" y1="28.232" x2="23.92" y2="30.191"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="25.88" y1="26.271" x2="21.96" y2="30.191"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="23.92" y1="26.271" x2="20" y2="30.191"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="21.96" y1="26.271" x2="18.04" y2="30.191"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="20" y1="26.271" x2="16.08" y2="30.191"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="18.04" y1="26.271" x2="14.12" y2="30.191"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="16.08" y1="26.271" x2="14.12" y2="28.232"/>
+<rect x="0.531" y="15.906" fill="#C0C0C0" stroke="#000000" width="38.938" height="7.812"/>
 </svg>

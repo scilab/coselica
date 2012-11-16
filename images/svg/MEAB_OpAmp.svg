@@ -3,24 +3,16 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:14:34 2011</desc>
-<g>
-	<path fill="#0000FF" d="M40,10.6"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="2.36" y1="0" x2="2.36" y2="40"/>
-	<polygon fill="#FFFFFF" points="8.24,33.721 31.76,20 8.24,6.28 	"/>
-	<polyline fill="none" stroke="#0000FF" stroke-width="0.125" points="31.76,20 8.24,6.28 8.24,33.721 31.76,20 	"/>
-	<polyline fill="none" stroke="#0000FF" stroke-width="0.125" points="11.18,21.96 16.08,21.96 17.256,21.764 17.844,21.372 
-		18.236,18.628 18.824,18.236 20,18.04 23.92,18.04 	"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="20" y1="13.14" x2="20" y2="4.32"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="20" y1="26.859" x2="20" y2="35.68"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="2.36" y1="10.2" x2="8.24" y2="10.2"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="2.36" y1="29.8" x2="8.24" y2="29.8"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="31.76" y1="20" x2="37.641" y2="20"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="10.592" y1="13.728" x2="14.512" y2="13.728"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="12.356" y1="23.92" x2="12.356" y2="28.036"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="10.2" y1="26.076" x2="14.512" y2="26.076"/>
-</g>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="2.36" y1="0" x2="2.36" y2="40"/>
+<polyline fill="none" stroke="#0000FF" stroke-width="1.125" points="31.76,20 8.24,6.28 8.24,33.721 31.76,20 "/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="20" y1="13.14" x2="20" y2="4.32"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="20" y1="26.859" x2="20" y2="35.68"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="2.36" y1="10.2" x2="8.24" y2="10.2"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="2.36" y1="29.8" x2="8.24" y2="29.8"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="31.76" y1="20" x2="37.641" y2="20"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="10.592" y1="13.728" x2="14.512" y2="13.728"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="12.356" y1="23.92" x2="12.356" y2="28.036"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="10.2" y1="26.076" x2="14.512" y2="26.076"/>
+<path fill="none" stroke="#2700FD" d="M10.177,21.511c0,0,5.51,0.802,6.338-0.261c0.594-1.141,0.438-2.938,1.078-3.438
+	c0.881-0.688,4.084-0.177,5.167-0.177"/>
 </svg>

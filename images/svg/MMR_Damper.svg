@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:14:58 2011</desc>
-<g>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="2.36" y1="20" x2="8.24" y2="20"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="8.24" y1="25.88" x2="8.24" y2="14.12"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="8.24" y1="25.88" x2="31.76" y2="25.88"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="8.24" y1="14.12" x2="31.76" y2="14.12"/>
-	<polygon fill="#C0C0C0" points="8.24,14.12 8.24,25.88 25.88,25.88 	"/>
-	<polygon fill="#C0C0C0" points="8.24,14.12 25.88,25.88 25.88,14.12 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="8.24,14.12 8.24,25.88 25.88,25.88 25.88,14.12 8.24,14.12 	
-		"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="25.88" y1="20" x2="37.641" y2="20"/>
-	<text transform="matrix(1 0 0 1 11 38)" font-family="'ArialMT'" font-size="8">d=0</text>
-</g>
+<svg version="1.1"
+	 id="Calque_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="MMR_Damper.svg" inkscape:version="0.48.2 r9819"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<line id="line9" fill="none" stroke="#000000" stroke-width="1.125" x1="2.36" y1="20" x2="8.24" y2="20"/>
+<line id="line9_1_" fill="none" stroke="#000000" stroke-width="1.125" x1="25.735" y1="14.094" x2="31.812" y2="14.094"/>
+<line id="line9_2_" fill="none" stroke="#000000" stroke-width="1.125" x1="25.673" y1="25.844" x2="31.75" y2="25.844"/>
+<line id="line23" fill="none" stroke="#000000" stroke-width="1.125" x1="25.88" y1="20" x2="37.641" y2="20"/>
+<rect x="8.312" y="14.094" fill="#C0C0C0" stroke="#000000" stroke-width="1.125" width="17.562" height="11.75"/>
 </svg>

@@ -3,30 +3,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:15:08 2011</desc>
-<g>
-	<polygon fill="#C0C0C0" points="29.8,23.92 37.641,20 29.8,16.08 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="37.641,20 29.8,16.08 29.8,23.92 37.641,20 	"/>
-	<polygon fill="#C0C0C0" points="29.604,12.16 35.092,14.512 33.523,8.632 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="33.523,8.632 29.604,12.16 35.092,14.512 33.523,8.632 	"/>
-	<polygon fill="#C0C0C0" points="2.36,19.02 2.36,20.98 6.28,20.98 	"/>
-	<polygon fill="#C0C0C0" points="2.36,19.02 6.28,20.98 6.28,19.02 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="2.36,19.02 2.36,20.98 6.28,20.98 6.28,19.02 2.36,19.02 	"/>
-	<polygon fill="#C0C0C0" points="25.88,19.02 25.88,20.98 29.8,20.98 	"/>
-	<polygon fill="#C0C0C0" points="25.88,19.02 29.8,20.98 29.8,19.02 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="25.88,19.02 25.88,20.98 29.8,20.98 29.8,19.02 25.88,19.02 	
-		"/>
-	<polygon fill="#C0C0C0" points="18.236,19.02 18.236,20.98 22.156,20.98 	"/>
-	<polygon fill="#C0C0C0" points="18.236,19.02 22.156,20.98 22.156,19.02 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="18.236,19.02 18.236,20.98 22.156,20.98 22.156,19.02 
-		18.236,19.02 	"/>
-	<polygon fill="#C0C0C0" points="10.2,19.02 10.2,20.98 14.12,20.98 	"/>
-	<polygon fill="#C0C0C0" points="10.2,19.02 14.12,20.98 14.12,19.02 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="10.2,19.02 10.2,20.98 14.12,20.98 14.12,19.02 10.2,19.02 	
-		"/>
-</g>
-<path fill="none" stroke="#A0A0A0" stroke-width="0.25" d="M3.144,13.924c0,0,12.498-24.332,28.323-3.44"/>
+<polygon fill="#C0C0C0" stroke="#1A171B" points="29.008,24.045 36.849,20.125 29.008,16.205 "/>
+<path fill="none" stroke="#A0A0A0" d="M2.353,14.049c0,0,12.498-24.332,28.322-3.44"/>
+<rect x="3.5" y="18.916" fill="#C0C0C0" stroke="#1A171B" width="4.208" height="2.375"/>
+<rect x="10.479" y="18.979" fill="#C0C0C0" stroke="#1A171B" width="4.208" height="2.375"/>
+<rect x="17.312" y="18.958" fill="#C0C0C0" stroke="#1A171B" width="4.209" height="2.376"/>
+<rect x="24.312" y="18.938" fill="#C0C0C0" stroke="#1A171B" width="4.209" height="2.375"/>
+<polygon fill="#C0C0C0" stroke="#1A171B" points="28.812,12.285 34.301,14.637 32.732,8.757 "/>
 </svg>

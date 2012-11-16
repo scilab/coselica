@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:14:38 2011</desc>
-<g>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="37.641" y1="40" x2="37.641" y2="0"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="2.36" y1="0" x2="2.36" y2="40"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="2.36" y1="0" x2="2.36" y2="40"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="18.04" y1="12.16" x2="18.04" y2="27.84"/>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="18.04" y1="20" x2="2.36" y2="20"/>
-	<polyline fill="none" stroke="#0000FF" stroke-width="0.125" points="37.836,10.2 25.88,10.2 18.04,18.04 	"/>
-	<polyline fill="none" stroke="#0000FF" stroke-width="0.125" points="18.04,21.96 25.88,29.8 37.836,29.8 	"/>
-	<polygon fill="#0000FF" points="23.137,28.624 25.88,29.8 24.704,27.057 	"/>
-	<polyline fill="none" stroke="#0000FF" stroke-width="0.125" points="25.88,29.8 24.704,27.057 23.137,28.624 25.88,29.8 	"/>
-</g>
+<svg version="1.1"
+	 id="Calque_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="MEAS_NPN.svg" inkscape:version="0.48.2 r9819"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<line id="line3847" fill="none" stroke="#0000FF" stroke-width="1.125" x1="18.04" y1="12.16" x2="18.04" y2="27.84"/>
+<line id="line3849" fill="none" stroke="#0000FF" stroke-width="1.125" x1="18.04" y1="20" x2="2.36" y2="20"/>
+<polyline id="polyline3851" fill="none" stroke="#0000FF" stroke-width="1.125" points="37.836,10.2 25.88,10.2 18.04,18.04 "/>
+<polyline id="polyline3853" fill="none" stroke="#0000FF" stroke-width="1.125" points="18.04,21.96 25.88,29.8 37.836,29.8 "/>
+<path id="path3874" sodipodi:ry="12.966102" sodipodi:rx="12.627119" sodipodi:cy="20.423729" sodipodi:cx="21.101694" sodipodi:type="arc" fill="none" stroke="#0000FF" d="
+	M31.881,20.678c0,6.936-5.47,12.559-12.219,12.561c-6.748,0-12.22-5.621-12.22-12.557c0-0.002,0-0.002,0-0.004
+	C7.441,13.742,12.911,8.119,19.66,8.119c6.748-0.001,12.22,5.621,12.221,12.557V20.678z"/>
+<polygon fill="#0000FF" stroke="#0000FF" points="20.763,26.779 25.955,29.945 23.357,24.447 "/>
 </svg>

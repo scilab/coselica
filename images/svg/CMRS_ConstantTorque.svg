@@ -3,16 +3,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:14:55 2011</desc>
-<g>
-	<line fill="none" stroke="#0000FF" stroke-width="0.125" x1="0.792" y1="20" x2="39.6" y2="20"/>
-	<text transform="matrix(1 0 0 1 19 27)" font-family="'ArialMT'" font-size="2">1</text>
-</g>
-<polyline points="36.052,17.076 32.132,5.707 26.448,11.784 36.052,17.076 "/>
-<polyline points="6.75,38.949 10.083,34.246 7.338,33.07 6.75,38.949 "/>
-<path fill="none" stroke="#1A171B" stroke-width="0.125" d="M1.948,17.076c0,0,12.682-20.047,27.152-8.127"/>
-<path fill="none" stroke="#1A171B" stroke-width="0.125" d="M31.25,37.383c0,0-8.688-16.531-22.365-3.805"/>
+<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="0.958" y1="20" x2="39.042" y2="20"/>
+<polygon stroke="#000000" points="26.875,11.062 37.5,14.688 32.51,4.219 "/>
+<path fill="none" stroke="#000000" stroke-width="1.125" d="M3.189,16.062c0,0,12.683-20.048,27.152-8.128"/>
+<polygon stroke="#000000" points="8.663,34.585 13.514,32.144 10.437,29.614 "/>
+<path fill="none" stroke="#000000" stroke-width="1.125" d="M33.26,34.674c0,0-6.826-15.193-21.855-3.465"/>
 </svg>

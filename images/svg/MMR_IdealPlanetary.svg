@@ -3,49 +3,15 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:15:01 2011</desc>
-<g>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="#C0C0C0" d="M0.4,20"/>
-	<path fill="none" stroke="#000000" stroke-width="0.125" d="M39.6,20"/>
-	<polygon fill="#C0C0C0" points="21.96,0.4 21.96,39.6 29.8,39.6 	"/>
-	<polygon fill="#C0C0C0" points="21.96,0.4 29.8,39.6 29.8,0.4 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="21.96,0.4 21.96,39.6 29.8,39.6 29.8,0.4 21.96,0.4 	"/>
-	<polygon fill="#C0C0C0" points="10.2,3.34 10.2,11.18 18.04,11.18 	"/>
-	<polygon fill="#C0C0C0" points="10.2,3.34 18.04,11.18 18.04,3.34 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="10.2,3.34 10.2,11.18 18.04,11.18 18.04,3.34 10.2,3.34 	"/>
-	<polygon fill="#C0C0C0" points="10.2,14.12 10.2,25.88 18.04,25.88 	"/>
-	<polygon fill="#C0C0C0" points="10.2,14.12 18.04,25.88 18.04,14.12 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="10.2,14.12 10.2,25.88 18.04,25.88 18.04,14.12 10.2,14.12 	
-		"/>
-	<polygon fill="#C0C0C0" points="0.4,18.04 0.4,21.96 10.2,21.96 	"/>
-	<polygon fill="#C0C0C0" points="0.4,18.04 10.2,21.96 10.2,18.04 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="0.4,18.04 0.4,21.96 10.2,21.96 10.2,18.04 0.4,18.04 	"/>
-	<polygon fill="#C0C0C0" points="29.8,18.04 29.8,21.96 39.6,21.96 	"/>
-	<polygon fill="#C0C0C0" points="29.8,18.04 39.6,21.96 39.6,18.04 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="29.8,18.04 29.8,21.96 39.6,21.96 39.6,18.04 29.8,18.04 	"/>
-	<polygon fill="#C0C0C0" points="4.32,6.28 4.32,8.24 10.2,8.24 	"/>
-	<polygon fill="#C0C0C0" points="4.32,6.28 10.2,8.24 10.2,6.28 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="4.32,6.28 4.32,8.24 10.2,8.24 10.2,6.28 4.32,6.28 	"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="2.36" y1="12.16" x2="6.28" y2="12.16"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="4.32" y1="10.2" x2="8.24" y2="10.2"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="6.28" y1="10.2" x2="6.28" y2="12.16"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="4.32" y1="4.32" x2="8.436" y2="4.32"/>
-	<line fill="none" stroke="#000000" stroke-width="0.125" x1="6.28" y1="0.4" x2="6.28" y2="4.32"/>
-</g>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="2.36" y1="12.16" x2="6.28" y2="12.16"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="4.32" y1="10.2" x2="8.24" y2="10.2"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="6.28" y1="10.2" x2="6.28" y2="12.16"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="4.32" y1="4.32" x2="8.436" y2="4.32"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="6.28" y1="0.4" x2="6.28" y2="4.32"/>
+<rect x="29.85" y="18.053" fill="#C0C0C0" stroke="#000000" width="9.779" height="3.916"/>
+<rect x="0.441" y="18.053" fill="#C0C0C0" stroke="#000000" width="9.638" height="3.916"/>
+<rect x="10" y="14.125" fill="#C0C0C0" stroke="#000000" width="7.938" height="11.719"/>
+<rect x="10.219" y="3.312" fill="#C0C0C0" stroke="#000000" width="7.812" height="7.844"/>
+<rect x="22" y="0.441" fill="#C0C0C0" stroke="#000000" width="7.812" height="39.118"/>
+<rect x="4.25" y="6.344" fill="#C0C0C0" stroke="#000000" width="5.906" height="1.938"/>
 </svg>

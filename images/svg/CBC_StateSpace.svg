@@ -8,8 +8,8 @@
 For: Scilab
 CreationDate: Fri Sep 16 15:16:44 2011</desc>
 <g>
-	<line fill="none" stroke="#C0C0C0" stroke-width="0.125" x1="20" y1="37.641" x2="20" y2="2.36"/>
-	<line fill="none" stroke="#C0C0C0" stroke-width="0.125" x1="2.36" y1="20" x2="37.641" y2="20"/>
+	<line fill="none" stroke="#C0C0C0" stroke-width="1.125"  x1="20" y1="37.641" x2="20" y2="2.36"/>
+	<line fill="none" stroke="#C0C0C0" stroke-width="1.125"  x1="2.36" y1="20" x2="37.641" y2="20"/>
 	<text transform="matrix(1 0 0 1 5 16)" font-family="'ArialMT'" font-size="15">A</text>
 	<text transform="matrix(1 0 0 1 26 16)" font-family="'ArialMT'" font-size="15">B</text>
 	<text transform="matrix(1 0 0 1 6 36)" font-family="'ArialMT'" font-size="14">C</text>

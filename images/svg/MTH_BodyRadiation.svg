@@ -1,38 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Calque_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:16:25 2011</desc>
-<g>
-	<polygon fill="#C0C0C0" points="29.8,4.32 29.8,35.68 37.641,35.68 	"/>
-	<polygon fill="#C0C0C0" points="29.8,4.32 37.641,35.68 37.641,4.32 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="29.8,4.32 29.8,35.68 37.641,35.68 37.641,4.32 29.8,4.32 	
-		"/>
-	<polygon fill="#C0C0C0" points="2.36,4.32 2.36,35.68 10.2,35.68 	"/>
-	<polygon fill="#C0C0C0" points="2.36,4.32 10.2,35.68 10.2,4.32 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="2.36,4.32 2.36,35.68 10.2,35.68 10.2,4.32 2.36,4.32 	"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="18.04" x2="27.057" y2="18.04"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="18.04" x2="14.904" y2="16.864"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="18.04" x2="14.904" y2="19.216"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="21.96" x2="27.057" y2="21.96"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="25.096" y1="23.137" x2="27.057" y2="21.96"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="25.096" y1="20.784" x2="27.057" y2="21.96"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="25.88" x2="27.057" y2="25.88"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="25.88" x2="14.904" y2="24.704"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="25.88" x2="14.904" y2="27.057"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="12.944" y1="14.12" x2="27.057" y2="14.12"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="25.096" y1="15.296" x2="27.057" y2="14.12"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="25.096" y1="12.944" x2="27.057" y2="14.12"/>
-	<polygon fill="#BF0000" points="10.2,4.32 10.2,35.68 11.376,35.68 	"/>
-	<polygon fill="#BF0000" points="10.2,4.32 11.376,35.68 11.376,4.32 	"/>
-	<polyline fill="none" stroke="#BF0000" stroke-width="0.125" points="10.2,4.32 10.2,35.68 11.376,35.68 11.376,4.32 10.2,4.32 	
-		"/>
-	<polygon fill="#BF0000" points="28.82,4.32 28.82,35.68 29.8,35.68 	"/>
-	<polygon fill="#BF0000" points="28.82,4.32 29.8,35.68 29.8,4.32 	"/>
-	<polyline fill="none" stroke="#BF0000" stroke-width="0.125" points="28.82,4.32 28.82,35.68 29.8,35.68 29.8,4.32 28.82,4.32 	"/>
-</g>
+<rect x="2.375" y="4.208" fill="#C0C0C0" stroke="#000000" width="8.958" height="31.333"/>
+<rect x="28.708" y="4.208" fill="#C0C0C0" stroke="#000000" width="8.958" height="31.334"/>
+<polygon fill="#BF0000" points="24.137,12 27.259,14.08 24.137,16.16 "/>
+<polygon fill="#BF0000" points="24.262,19.958 27.384,22.039 24.262,24.119 "/>
+<polygon fill="#BF0000" points="15.717,28.036 12.595,25.956 15.717,23.876 "/>
+<polygon fill="#BF0000" points="15.592,20.161 12.47,18.081 15.592,16.001 "/>
+<rect x="9" y="4.207" fill="#BF0000" stroke="#BF0000" width="2.875" height="31.335"/>
+<rect x="28.209" y="4.207" fill="#BF0000" stroke="#BF0000" width="2.875" height="31.335"/>
+<line fill="none" stroke="#BF0000" stroke-width="1.125" x1="15" y1="18.04" x2="27.057" y2="18.04"/>
+<line fill="none" stroke="#BF0000" stroke-width="1.125" x1="12.944" y1="21.96" x2="25.167" y2="21.96"/>
+<line fill="none" stroke="#BF0000" stroke-width="1.125" x1="14.917" y1="25.88" x2="27.057" y2="25.88"/>
+<line fill="none" stroke="#BF0000" stroke-width="1.125" x1="12.944" y1="14.12" x2="25.084" y2="14.12"/>
 </svg>

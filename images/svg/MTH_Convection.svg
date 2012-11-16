@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Calque_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<title>Graphic window number 0</title>
-<desc>Creator: GL2PS 1.3.2, (C) 1999-2006 Christophe Geuzaine (geuz@geuz.org)
-For: Scilab
-CreationDate: Fri Sep 16 15:16:25 2011</desc>
 <g>
-	<polygon fill="#FFFFFF" points="7.848,4.32 7.848,35.68 39.208,35.68 	"/>
-	<polygon fill="#FFFFFF" points="7.848,4.32 39.208,35.68 39.208,4.32 	"/>
-	<polyline fill="none" stroke="#FFFFFF" stroke-width="0.125" points="7.848,4.32 7.848,35.68 39.208,35.68 39.208,4.32 7.848,4.32 
-			"/>
-	<polygon fill="#C0C0C0" points="2.36,4.32 2.36,35.68 8.24,35.68 	"/>
-	<polygon fill="#C0C0C0" points="2.36,4.32 8.24,35.68 8.24,4.32 	"/>
-	<polyline fill="none" stroke="#000000" stroke-width="0.125" points="2.36,4.32 2.36,35.68 8.24,35.68 8.24,4.32 2.36,4.32 	"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="39.6" y1="20" x2="39.6" y2="20"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="8.24" y1="16.08" x2="34.896" y2="16.08"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="8.24" y1="23.92" x2="34.896" y2="23.92"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="13.336" y1="4.32" x2="13.336" y2="35.68"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="21.176" y1="4.32" x2="21.176" y2="35.68"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="27.84" y1="4.32" x2="27.84" y2="35.68"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="34.896" y1="4.32" x2="34.896" y2="35.68"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="13.336" y1="35.68" x2="11.376" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="13.336" y1="35.68" x2="15.296" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="21.176" y1="35.68" x2="19.216" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="21.176" y1="35.68" x2="23.137" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="27.84" y1="35.68" x2="25.88" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="27.84" y1="35.68" x2="29.8" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="34.896" y1="35.68" x2="32.936" y2="31.76"/>
-	<line fill="none" stroke="#007FFF" stroke-width="0.125" x1="34.896" y1="35.68" x2="36.855" y2="31.76"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="30.977" y1="25.88" x2="34.896" y2="23.92"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="30.977" y1="21.96" x2="34.896" y2="23.92"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="30.977" y1="18.04" x2="34.896" y2="16.08"/>
-	<line fill="none" stroke="#BF0000" stroke-width="0.125" x1="30.977" y1="14.12" x2="34.896" y2="16.08"/>
+	<line fill="#007FFF" stroke="#007FFF" x1="35.273" y1="5.78" x2="35.273" y2="31.355"/>
+	<polygon fill="#007FFF" points="39,30.453 35.497,35.709 31.994,30.453 	"/>
+</g>
+<rect x="2.25" y="4.188" fill="#C0C0C0" stroke="#000000" width="5.875" height="31.5"/>
+<g>
+	<line fill="none" stroke="#BF0000" x1="8.291" y1="14.512" x2="33.866" y2="14.512"/>
+	<polygon fill="#BF0000" points="32.964,10.785 38.22,14.288 32.964,17.792 	"/>
+</g>
+<g>
+	<line fill="none" stroke="#BF0000" x1="8.209" y1="22.138" x2="33.784" y2="22.138"/>
+	<polygon fill="#BF0000" points="32.882,18.41 38.138,21.913 32.882,25.417 	"/>
+</g>
+<g>
+	<line fill="#007FFF" stroke="#007FFF" x1="13.154" y1="5.698" x2="13.154" y2="31.273"/>
+	<polygon fill="#007FFF" points="16.88,30.371 13.377,35.627 9.874,30.371 	"/>
+</g>
+<g>
+	<line fill="#007FFF" stroke="#007FFF" x1="20.653" y1="5.697" x2="20.653" y2="31.272"/>
+	<polygon fill="#007FFF" points="24.38,30.37 20.877,35.626 17.374,30.37 	"/>
+</g>
+<g>
+	<line fill="#007FFF" stroke="#007FFF" x1="27.987" y1="5.78" x2="27.987" y2="31.355"/>
+	<polygon fill="#007FFF" points="31.714,30.453 28.211,35.709 24.708,30.453 	"/>
 </g>
 </svg>
