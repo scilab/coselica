@@ -1,6 +1,7 @@
 //
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
 // Copyright (C) 2010-2010 - DIGITEO - Bruno JOFRET
+// Copyright (C) 2012-2012 - Scilab Enterprises - Bruno JOFRET
 //
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
@@ -18,6 +19,7 @@ function subdemolist = demo_gateway()
                  "Simple Pendulum"              , "SimplePendulum.dem.sce"
                  "Cart with Pendulum"           , "CartWithPendulum.dem.sce"
                  "Spyrograph"                   , "Spyrograph.dem.sce"
+                 "Radiation Heat Transfer"      , "HeatTransfer_Radiation.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
