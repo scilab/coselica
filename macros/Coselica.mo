@@ -744,7 +744,7 @@ package Modelica
           parameter Real V = 1 "Amplitude of saw tooth";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.VoltageSource;
-          Coselica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = V, period = period);
+          Modelica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = V, period = period);
         equation
           v = signalSource.y.signal;
         end SawToothVoltage;
@@ -753,7 +753,7 @@ package Modelica
           parameter Real I = 1 "Amplitude of saw tooth";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.CurrentSource;
-          Coselica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = I, period = period);
+          Modelica.Blocks.Sources.SawTooth signalSource(final offset = offset, final startTime = startTime, amplitude = I, period = period);
         equation
           i = signalSource.y.signal;
         end SawToothCurrent;
@@ -781,7 +781,7 @@ package Modelica
           parameter Real width = 50 "Width of pulse in % of period";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.VoltageSource;
-          Coselica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = V, width = width, period = period);
+          Modelica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = V, width = width, period = period);
         equation
           v = signalSource.y.signal;
         end PulseVoltage;
@@ -791,7 +791,7 @@ package Modelica
           parameter Real width = 50 "Width of pulse in % of period";
           parameter Real period = 1 "Time for one period";
           extends Interfaces.CurrentSource;
-          Coselica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = I, width = width, period = period);
+          Modelica.Blocks.Sources.Pulse signalSource(final offset = offset, final startTime = startTime, amplitude = I, width = width, period = period);
         equation
           i = signalSource.y.signal;
         end PulseCurrent;
@@ -4006,6 +4006,7 @@ package Coselica
         end when;
         y.signal = offset + (if time < startTime or counter >  -1 and counter < 1 or time >= T0 + T_falling then 0 else if time < T0 + T_rising then ((time - T0) * amplitude) / T_rising else if time < T0 + T_width then amplitude else ((T0 + T_falling - time) * amplitude) / (T_falling - T_width));
       end Trapezoid;
+    end Sources;
 
     package Routing
 
