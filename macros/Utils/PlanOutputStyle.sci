@@ -11,5 +11,5 @@
 //
 
 function out = PlanOutputStyle()
-    out = "strokeColor=#666666"
+    out = "fillColor=white;strokeColor=#666666"
 endfunction

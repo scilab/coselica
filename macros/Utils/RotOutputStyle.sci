@@ -11,5 +11,5 @@
 //
 
 function out = RotOutputStyle()
-    out = "shape=ellipse;strokeColor=#666666"
+    out = "fillColor=white;shape=ellipse;strokeColor=#666666"
 endfunction

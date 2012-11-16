@@ -11,5 +11,5 @@
 //
 
 function out = TransOutputStyle()
-    out = "strokeColor=#228B22"
+    out = "fillColor=white;strokeColor=#228B22"
 endfunction

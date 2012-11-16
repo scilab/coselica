@@ -11,5 +11,5 @@
 //
 
 function out = ElecOutputStyle()
-    out = "strokeColor=blue"
+    out = "fillColor=white;strokeColor=blue"
 endfunction
