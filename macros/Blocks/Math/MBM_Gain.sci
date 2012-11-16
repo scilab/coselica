@@ -18,15 +18,6 @@
 function [x,y,typ]=MBM_Gain(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    k=arg1.graphics.exprs(1);
-    standard_draw(arg1,%f,_MBI_SISO_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MBI_SISO_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MBI_SISO_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
     graphics=arg1.graphics;exprs=graphics.exprs;
@@ -67,5 +58,6 @@ select job
     x.graphics.in_style=[RealInputStyle()];
     x.graphics.out_implicit=['I'];
     x.graphics.out_style=[RealOutputStyle()];
+    x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=middle;displayedLabel=%s"]
   end
 endfunction
