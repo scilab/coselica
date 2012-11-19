@@ -57,6 +57,6 @@ function [x,y,typ]=MEAS_ConstantVoltage(job,arg1,arg2)
       x.graphics.in_style=[ElecInputStyle()];
       x.graphics.out_implicit=['I'];
       x.graphics.out_style=[ElecOutputStyle()];
-      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;displayedLabel=%s V"]
+      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=%s V"]
     end
 endfunction
