@@ -18,6 +18,7 @@ function subdemolist = demo_gateway()
                  "4 Bars"                       , "Fourbars.dem.sce"
                  "Simple Pendulum"              , "SimplePendulum.dem.sce"
                  "Cart with Pendulum"           , "CartWithPendulum.dem.sce"
+                 "Translation Forced Movement"  , "TranslationForcedMovement.dem.sce"
                  "Spyrograph"                   , "Spyrograph.dem.sce"
                  "Radiation Heat Transfer"      , "HeatTransfer_Radiation.dem.sce"
                 ];
