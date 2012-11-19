@@ -16,62 +16,50 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CBMV_Add(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    k1=arg1.graphics.exprs(1);
-    k2=arg1.graphics.exprs(2);
-    n=arg1.graphics.exprs(3);
-    n=strcat(sci2exp(double(evstr(n))));
-    standard_draw(arg1,%f,_MBI_SI2SO_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MBI_SI2SO_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MBI_SI2SO_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,k1,k2,n,exprs]=..
-        getvalue(['';'CBMV_Add';'';'Outputs the addition of two input signal vectors';''],..
-        [' k1 [-] : Gain of upper input';' k2 [-] : Gain of lower input';' n [-] : Dimension of input and output vectors.'],..
-        list('vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(k1,k2,n)
-      n=double(n);
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,k1,k2,n,exprs]=..
+              getvalue(['';'CBMV_Add';'';'Outputs the addition of two input signal vectors';''],..
+                       [' k1 [-] : Gain of upper input';' k2 [-] : Gain of lower input';' n [-] : Dimension of input and output vectors.'],..
+                       list('vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(k1,k2,n)
+          n=double(n);
+          model.in=[n;n];
+          model.out=[n];
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      k1=1;
+      k2=1;
+      n=1;
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
       model.in=[n;n];
       model.out=[n];
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    k1=1;
-    k2=1;
-    n=1;
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[n;n];
-    model.out=[n];
-    mo=modelica();
+      mo=modelica();
       mo.model='Coselica.Blocks.Math.Vectors.Add';
       mo.inputs=['u1','u2'];
       mo.outputs=['y'];
       mo.parameters=list(['k1','k2','n'],..
                          list(k1,k2,n),..
                          [0,0,0]);
-    model.equations=mo;
-    exprs=[strcat(sci2exp(k1));strcat(sci2exp(k2));strcat(sci2exp(n))];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[RealInputStyle(), RealInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-  end
+      model.equations=mo;
+      exprs=[strcat(sci2exp(k1));strcat(sci2exp(k2));strcat(sci2exp(n))];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[RealInputStyle(), RealInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+    end
 endfunction

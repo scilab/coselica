@@ -16,61 +16,61 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CBM_Add3(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,k1,k2,k3,exprs]=..
-        getvalue(['';'CBM_Add3';'';'Output the sum of the three inputs';''],..
-        [' k1 [-] : Gain of upper input';' k2 [-] : Gain of middle input';' k3 [-] : Gain of lower input'],..
-        list('vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(k1,k2,k3)
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,k1,k2,k3,exprs]=..
+              getvalue(['';'CBM_Add3';'';'Output the sum of the three inputs';''],..
+                       [' k1 [-] : Gain of upper input';' k2 [-] : Gain of middle input';' k3 [-] : Gain of lower input'],..
+                       list('vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(k1,k2,k3)
+          model.in=[1;1;1];
+          model.out=[1];
+          graphics.exprs=exprs;
+          x.graphics=graphics;
+          x.model=model;
+          in_label=[];
+          vect_k=[k1,k2,k3];
+          for i=1:3
+              if vect_k(i)>0 then
+                  in_label=[in_label;"+"]
+              else
+                  in_label=[in_label;"-"]
+              end
+          end
+          x.graphics.in_label=in_label;
+          break
+      end
+     case 'define' then
+      k1=1;
+      k2=1;
+      k3=1;
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
       model.in=[1;1;1];
       model.out=[1];
-      graphics.exprs=exprs;
-      x.graphics=graphics;
-      x.model=model;
-      in_label=[];
-      vect_k=[k1,k2,k3];
-      for i=1:3
-          if vect_k(i)>0 then
-              in_label=[in_label;"+"]
-          else
-              in_label=[in_label;"-"]
-          end
-      end
-      x.graphics.in_label=in_label;
-      break
-    end
-  case 'define' then
-    k1=1;
-    k2=1;
-    k3=1;
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1;1;1];
-    model.out=[1];
-    mo=modelica();
+      mo=modelica();
       mo.model='Coselica.Blocks.Math.Add3';
       mo.inputs=['u1','u2','u3'];
       mo.outputs=['y'];
       mo.parameters=list(['k1','k2','k3'],..
                          list(k1,k2,k3),..
                          [0,0,0]);
-    model.equations=mo;
-    exprs=[strcat(sci2exp(k1));strcat(sci2exp(k2));strcat(sci2exp(k3))];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I','I'];
-    x.graphics.in_style=[RealInputStyle(), RealInputStyle(), RealInputStyle()];
-    x.graphics.in_label=["+","+","+"]
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-  end
+      model.equations=mo;
+      exprs=[strcat(sci2exp(k1));strcat(sci2exp(k2));strcat(sci2exp(k3))];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I','I'];
+      x.graphics.in_style=[RealInputStyle(), RealInputStyle(), RealInputStyle()];
+      x.graphics.in_label=["+","+","+"]
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+    end
 endfunction
