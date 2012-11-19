@@ -54,8 +54,8 @@ select job
     model.dep_ut=[%t %f];
     mo=modelica();
       mo.model='Modelica.Electrical.Analog.Basic.HeatingResistor';
-      mo.inputs=['p','heatPort'];
-      mo.outputs=['n'];
+      mo.inputs=['p','n'];
+      mo.outputs=['heatPort'];
       mo.parameters=list(['R_ref','T_ref','alpha'],...
                          list(R_ref,T_ref,alpha),...
                          [0,0,0]);
@@ -66,8 +66,8 @@ select job
     gr_i=[];
     x=standard_define([2 2],model,exprs,list(gr_i,0));
     x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[ElecInputStyle(), ThermalInputStyle()];
+    x.graphics.in_style=[ElecInputStyle(), ElecOutputStyle()];
     x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[ElecOutputStyle()];
+    x.graphics.out_style=[ThermalInputStyle()];
   end
 endfunction
