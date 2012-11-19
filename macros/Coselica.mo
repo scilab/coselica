@@ -588,6 +588,15 @@ package Modelica
         end if;
       end IdealGearR2T;
 
+      model IdealGearR2T0 "Gearbox transforming rotational into translational motion"
+        parameter Real ratio = 1 "transmission ratio (flange_a.phi/flange_b.s)";
+        Interfaces.Flange_a flange_a;
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b;
+      equation
+        flange_a.phi = ratio * (flange_b.s );
+        0 = ratio * flange_a.tau + flange_b.f;
+      end IdealGearR2T0;
+
       model IdealGear "Ideal gear without inertia"
         extends Interfaces.TwoFlangesAndBearing;
         parameter Real ratio = 1 "Transmission ratio (flange_a.phi/flange_b.phi)";
@@ -595,6 +604,15 @@ package Modelica
         phi_a = ratio * phi_b;
         0 = ratio * flange_a.tau + flange_b.tau;
       end IdealGear;
+
+      model IdealGear0 "Ideal gear without inertia and fixed frame"
+        Interfaces.Flange_a flange_a;
+        Interfaces.Flange_b flange_b;
+        parameter Real ratio = 1 "Transmission ratio (flange_a.phi/flange_b.phi)";
+      equation
+        flange_a.phi = ratio * flange_b.phi;
+        0 = ratio * flange_a.tau + flange_b.tau;
+      end IdealGear0;
 
       model Fixed "Flange fixed in housing at a given angle"
         parameter Real phi0 = 0 "Fixed offset angle of housing";
@@ -1052,6 +1070,296 @@ package Modelica
         equation
           i = if v / Vt > Maxexp then Ids * (exp(Maxexp) * (1 + v / Vt - Maxexp) - 1) + v / R else Ids * (exp(v / Vt) - 1) + v / R;
         end Diode;
+ 
+        
+         model HeatingDiode "Simple diode with heating port"
+           extends Modelica.Electrical.Analog.Interfaces.OnePort;
+           parameter Real Ids = 1e-006 "Saturation current";
+           parameter Real Maxexp = 15 "Max. exponent for linear continuation";
+           parameter Real R = 100000000.0 "Parallel ohmic resistance";
+           parameter Real EG = 1.11 "activation energy";
+           parameter Real N = 1 "Emission coefficient";
+           parameter Real TNOM = 300.15 "Parameter measurement temperature";
+           parameter Real XTI = 3 "Temperature exponent of saturation current";
+           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort;
+           Real vt_t "Temperature voltage";
+           Real id "diode current";
+         protected
+           Real k = 1.380662e-023 "Boltzmann constant, J/K";
+           Real q = 1.6021892e-019 "Electron charge, As";
+           Real htemp "auxiliary temperature";
+           Real aux;
+           Real auxp;
+           Real maxexp = exp(Maxexp);
+         equation
+           htemp = heatPort.T;
+           vt_t = (k * htemp) / q;
+           id = if v / vt_t > Maxexp then (exp(Maxexp) * (1 + v / vt_t - Maxexp) - 1) else (exp(v / vt_t) - 1) ;
+           //id = exlin(v / (N * vt_t), Maxexp) - 1;
+           aux = ((htemp / TNOM - 1) * EG) / (N * vt_t);
+           auxp = exp(aux);
+           i = Ids * id * (htemp / TNOM)^(XTI / N) * auxp + v / R;
+           heatPort.Q_flow =  -i * v;
+         end HeatingDiode;
+
+         model HeatingNMOS "Simple MOS Transistor with heating port"
+           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" ;
+           Modelica.Electrical.Analog.Interfaces.Pin G "Gate" ;
+           Modelica.Electrical.Analog.Interfaces.Pin S "Source" ;
+           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" ;
+           parameter Real W = 2e-005 "Width";
+           parameter Real L = 6e-006 "Length";
+           parameter Real Beta = 4.1e-005 "Transconductance parameter";
+           parameter Real Vt = 0.8 "Zero bias threshold voltage";
+           parameter Real K2 = 1.144 "Bulk threshold parameter";
+           parameter Real K5 = 0.7311 "Reduction of pinch-off region";
+           parameter Real dW = -2.5e-006 "narrowing of channel";
+           parameter Real dL = -1.5e-006 "shortening of channel";
+           parameter Real RDS = 10000000.0 "Drain-Source-Resistance";
+           parameter Real Tnom = 300.15 "Parameter measurement temperature";
+           parameter Real kvt = -0.00696 "fitting parameter for Vt";
+           parameter Real kk2 = 0.0006 "fitting parameter for K22";
+           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort;
+         protected
+           Real v;
+           Real uds;
+           Real ubs;
+           Real ugst;
+           Real ud;
+           Real us;
+           Real id;
+           Real gds;
+           Real beta_t;
+           Real vt_t;
+           Real k2_t;
+           Real T_heatPort "auxiliary temperature";
+         equation
+           T_heatPort = heatPort.T;
+           gds = if RDS < 1e-020 and RDS > -1e-020 then 1e+020 else 1 / RDS;
+           v = (beta_t * (W + dW)) / (L + dL);
+           ud = if D.v < S.v then S.v else D.v;
+           us =  if D.v < S.v then D.v else S.v;
+           uds = ud - us;
+           ubs = if B.v > us then 0 else B.v - us;
+           ugst = (G.v - us - vt_t + k2_t * ubs) * K5;
+           id = if ugst <= 0 then uds * gds else if ugst > uds then v * uds * (ugst - uds / 2) + uds * gds else (v * ugst * ugst) / 2 + uds * gds;
+           beta_t = Beta * (T_heatPort / Tnom)^(-1.5);
+           vt_t = Vt * (1 + (T_heatPort - Tnom) * kvt);
+           k2_t = K2 * (1 + (T_heatPort - Tnom) * kk2);
+           G.i = 0;
+           D.i =  if D.v < S.v then -id else id;
+           S.i =  if D.v < S.v then id else -id;
+           B.i = 0;
+           heatPort.Q_flow =  -D.i * (D.v - S.v);
+         end HeatingNMOS;
+
+         model HeatingNPN "Simple NPN BJT according to Ebers-Moll with heating port"
+           parameter Real Bf = 50 "Forward beta";
+           parameter Real Br = 0.1 "Reverse beta";
+           parameter Real Is = 1e-016 "Transport saturation current";
+           parameter Real Vak = 0.02 "Early voltage (inverse), 1/Volt";
+           parameter Real Tauf = 1.2e-010 "Ideal forward transit time";
+           parameter Real Taur = 5e-009 "Ideal reverse transit time";
+           parameter Real Ccs = 1e-012 "Collector-substrat(ground) cap.";
+           parameter Real Cje = 4e-013 "Base-emitter zero bias depletion cap.";
+           parameter Real Cjc = 5e-013 "Base-coll. zero bias depletion cap.";
+           parameter Real Phie = 0.8 "Base-emitter diffusion voltage";
+           parameter Real Me = 0.4 "Base-emitter gradation exponent";
+           parameter Real Phic = 0.8 "Base-collector diffusion voltage";
+           parameter Real Mc = 0.333 "Base-collector gradation exponent";
+           parameter Real Gbc = 1e-015 "Base-collector conductance";
+           parameter Real Gbe = 1e-015 "Base-emitter conductance";
+           parameter Real EMin = -100 "if x < EMin, the exp(x) function is linearized";
+           parameter Real EMax = 40 "if x > EMax, the exp(x) function is linearized";
+           parameter Real Tnom = 300.15 "Parameter measurement temperature";
+           parameter Real XTI = 3 "Temperature exponent for effect on Is";
+           parameter Real XTB = 0 "Forward and reverse beta temperature exponent";
+           parameter Real EG = 1.11 "Energy gap for temperature effect on Is";
+           parameter Real NF = 1.0 "Forward current emission coefficient";
+           parameter Real NR = 1.0 "Reverse current emission coefficient";
+           parameter Real K = 1.3806226e-023 "Boltzmann's constant";
+           parameter Real q = 1.6021918e-019 "Elementary electronic charge";
+           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort;
+           Real vbc;
+           Real vbe;
+           Real qbk;
+           Real ibc;
+           Real ibe;
+           Real cbc;
+           Real cbe;
+           Real ExMin;
+           Real ExMax;
+           Real Capcje;
+           Real Capcjc;
+           Real is_t;
+           Real br_t;
+           Real bf_t;
+           Real vt_t;
+           Real hexp;
+           Real htempexp;
+           Real T_heatPort "auxiliary temperature";           
+           function pow "Just a helper function for x^y"
+            input Real x;
+            input Real y;
+            Real z;
+           algorithm
+            z := x ^ y;
+           end pow;
+         public
+           Modelica.Electrical.Analog.Interfaces.Pin C "Collector" ;
+           Modelica.Electrical.Analog.Interfaces.Pin B "Base" ;
+           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" ;
+         equation
+           T_heatPort = heatPort.T;
+           ExMin = exp(EMin);
+           ExMax = exp(EMax);
+           vbc = B.v - C.v;
+           vbe = B.v - E.v;
+           qbk = 1 - vbc * Vak;
+           hexp = ((T_heatPort / Tnom - 1) * EG) / vt_t;
+           htempexp = if hexp < EMin then ExMin * (hexp - EMin + 1) else if hexp > EMax then ExMax * (hexp - EMax + 1) else exp(hexp);
+           is_t = Is * (T_heatPort / Tnom)^(XTI) * htempexp;
+           br_t = Br * (T_heatPort / Tnom)^(XTB);
+           bf_t = Bf * (T_heatPort / Tnom)^(XTB);
+           vt_t = K / q * T_heatPort;
+           ibc = if vbc / (NR * vt_t) < EMin then is_t * (ExMin * (vbc / (NR * vt_t) - EMin + 1) - 1) + vbc * Gbc else if vbc / (NR * vt_t) > EMax then is_t * (ExMax * (vbc / (NR * vt_t) - EMax + 1) - 1) + vbc * Gbc else is_t * (exp(vbc / (NR * vt_t)) - 1) + vbc * Gbc;
+           ibe = if vbe / (NF * vt_t) < EMin then is_t * (ExMin * (vbe / (NF * vt_t) - EMin + 1) - 1) + vbe * Gbe else if vbe / (NF * vt_t) > EMax then is_t * (ExMax * (vbe / (NF * vt_t) - EMax + 1) - 1) + vbe * Gbe else is_t * (exp(vbe / (NF * vt_t)) - 1) + vbe * Gbe;
+           Capcjc = if vbc / Phic > 0 then Cjc * (1 + (Mc * vbc) / Phic) else Cjc * (1 - vbc / Phic)^(-Mc);
+           Capcje =  if vbe / Phie > 0 then Cje * (1 + (Me * vbe) / Phie) else Cje * (1 - vbe / Phie)^(-Me);
+           cbc = if vbc / (NR * vt_t) < EMin then (Taur * is_t) / (NR * vt_t) * ExMin * (vbc / (NR * vt_t) - EMin + 1) + Capcjc else if vbc / (NR * vt_t) > EMax then (Taur * is_t) / (NR * vt_t) * ExMax * (vbc / (NR * vt_t) - EMax + 1) + Capcjc else (Taur * is_t) / (NR * vt_t) * exp(vbc / (NR * vt_t)) + Capcjc;
+           cbe =  if vbe / (NF * vt_t) < EMin then (Tauf * is_t) / (NF * vt_t) * ExMin * (vbe / (NF * vt_t) - EMin + 1) + Capcje else if vbe / (NF * vt_t) > EMax then (Tauf * is_t) / (NF * vt_t) * ExMax * (vbe / (NF * vt_t) - EMax + 1) + Capcje else (Tauf * is_t) / (NF * vt_t) * exp(vbe / (NF * vt_t)) + Capcje;
+           C.i = (ibe - ibc) * qbk - ibc / br_t - cbc * der(vbc) + Ccs * der(C.v);
+           B.i = ibe / bf_t + ibc / br_t + cbc * der(vbc) + cbe * der(vbe);
+           E.i = -B.i - C.i + Ccs * der(C.v);
+           heatPort.Q_flow =  -((vbc * ibc) / br_t + (vbe * ibe) / bf_t + (ibe - ibc) * qbk * (C.v - E.v));
+         end HeatingNPN;
+  
+         model HeatingPMOS "Simple PMOS Transistor with heating port"
+           Modelica.Electrical.Analog.Interfaces.Pin D "Drain";
+           Modelica.Electrical.Analog.Interfaces.Pin G "Gate";
+           Modelica.Electrical.Analog.Interfaces.Pin S "Source";
+           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk";
+           parameter Real W = 2e-005 "Width";
+           parameter Real L = 6e-006 "Length";
+           parameter Real Beta = 1.05e-005 "Transconductance parameter";
+           parameter Real Vt = -1.0 "Zero bias threshold voltage";
+           parameter Real K2 = 0.41 "Bulk threshold parameter";
+           parameter Real K5 = 0.839 "Reduction of pinch-off region";
+           parameter Real dW = -2.5e-006 "Narrowing of channel";
+           parameter Real dL = -2.1e-006 "Shortening of channel";
+           parameter Real RDS = 10000000.0 "Drain-Source-Resistance";
+           parameter Real Tnom = 300.15 "Parameter measurement temperature";
+           parameter Real kvt = -0.0029 "fitting parameter for Vt";
+           parameter Real kk2 = 0.00062 "fitting parameter for Kk2";
+           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort;
+         protected
+           Real v;
+           Real uds;
+           Real ubs;
+           Real ugst;
+           Real ud;
+           Real us;
+           Real id;
+           Real gds;
+           Real beta_t;
+           Real vt_t;
+           Real k2_t;      
+           Real T_heatPort "auxiliary temperature";         
+         equation
+           T_heatPort = heatPort.T;
+           gds = if RDS < 1e-020 and RDS > -1e-020 then 1e+020 else 1 / RDS;
+           v = (beta_t * (W + dW)) / (L + dL);
+           ud = if D.v > S.v then S.v else D.v;
+           us =  if D.v > S.v then D.v else S.v;
+           uds = ud - us;
+           ubs =  if B.v < us then 0 else B.v - us;
+           ugst = (G.v - us - vt_t + k2_t * ubs) * K5;
+           id =  if ugst >= 0 then uds * gds else if ugst < uds then -v * uds * (ugst - uds / 2) + uds * gds else -(v * ugst * ugst) / 2 + uds * gds;
+           beta_t = Beta * (T_heatPort / Tnom)^(-1.5);
+           vt_t = Vt * (1 + (T_heatPort - Tnom) * kvt);
+           k2_t = K2 * (1 + (T_heatPort - Tnom) * kk2);
+           G.i = 0;
+           D.i =  if D.v > S.v then -id else id;
+           S.i =  if D.v > S.v then id else -id;
+           B.i = 0;
+           heatPort.Q_flow =  -D.i * (D.v - S.v);
+         end HeatingPMOS;
+  
+         model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
+           parameter Real Bf = 50 "Forward beta";
+           parameter Real Br = 0.1 "Reverse beta";
+           parameter Real Is = 1e-016 "Transport saturation current";
+           parameter Real Vak = 0.02 "Early voltage (inverse), 1/Volt";
+           parameter Real Tauf = 1.2e-010 "Ideal forward transit time";
+           parameter Real Taur = 5e-009 "Ideal reverse transit time";
+           parameter Real Ccs = 1e-012 "Collector-substrat(ground) cap.";
+           parameter Real Cje = 4e-013 "Base-emitter zero bias depletion cap.";
+           parameter Real Cjc = 5e-013 "Base-coll. zero bias depletion cap.";
+           parameter Real Phie = 0.8 "Base-emitter diffusion voltage";
+           parameter Real Me = 0.4 "Base-emitter gradation exponent";
+           parameter Real Phic = 0.8 "Base-collector diffusion voltage";
+           parameter Real Mc = 0.333 "Base-collector gradation exponent";
+           parameter Real Gbc = 1e-015 "Base-collector conductance";
+           parameter Real Gbe = 1e-015 "Base-emitter conductance";
+           parameter Real EMin = -100 "if x < EMin, the exp(x) function is linearized";
+           parameter Real EMax = 40 "if x > EMax, the exp(x) function is linearized";
+           parameter Real Tnom = 300.15 "Parameter measurement temperature";
+           parameter Real XTI = 3 "Temperature exponent for effect on Is";
+           parameter Real XTB = 0 "Forward and reverse beta temperature exponent";
+           parameter Real EG = 1.11 "Energy gap for temperature effect on Is";
+           parameter Real NF = 1.0 "Forward current emission coefficient";
+           parameter Real NR = 1.0 "Reverse current emission coefficient";
+           Real K = 1.3806226e-023 "Boltzmann s constant";
+           Real q = 1.6021918e-019 "Elementary electronic charge";
+           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort;
+         protected
+           Real vcb;
+           Real veb;
+           Real qbk;
+           Real icb;
+           Real ieb;
+           Real ccb;
+           Real ceb;
+           Real ExMin;
+           Real ExMax;
+           Real Capcje;
+           Real Capcjc;
+           Real is_t;
+           Real br_t;
+           Real bf_t;
+           Real vt_t;
+           Real hexp;
+           Real htempexp;
+           Real T_heatPort "auxiliary temperature";                    
+         public
+           Modelica.Electrical.Analog.Interfaces.Pin C "Collector" ;
+           Modelica.Electrical.Analog.Interfaces.Pin B "Base" ;
+           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" ;
+         equation
+           T_heatPort = heatPort.T;
+           ExMin = exp(EMin);
+           ExMax = exp(EMax);
+           vcb = C.v - B.v;
+           veb = E.v - B.v;
+           qbk = 1 - vcb * Vak;
+           hexp = ((T_heatPort / Tnom - 1) * EG) / vt_t;
+           htempexp =  if hexp < EMin then ExMin * (hexp - EMin + 1) else if hexp > EMax then ExMax * (hexp - EMax + 1) else exp(hexp);
+           is_t = Is * (T_heatPort / Tnom)^(XTI) * htempexp;
+           br_t = Br * (T_heatPort / Tnom)^(XTB);
+           bf_t = Bf * (T_heatPort / Tnom)^(XTB);
+           vt_t = K / q * T_heatPort;
+           icb =  if vcb / (NR * vt_t) < EMin then is_t * (ExMin * (vcb / (NR * vt_t) - EMin + 1) - 1) + vcb * Gbc else if vcb / (NR * vt_t) > EMax then is_t * (ExMax * (vcb / (NR * vt_t) - EMax + 1) - 1) + vcb * Gbc else is_t * (exp(vcb / (NR * vt_t)) - 1) + vcb * Gbc;
+           ieb =  if veb / (NF * vt_t) < EMin then is_t * (ExMin * (veb / (NF * vt_t) - EMin + 1) - 1) + veb * Gbe else if veb / (NF * vt_t) > EMax then is_t * (ExMax * (veb / (NF * vt_t) - EMax + 1) - 1) + veb * Gbe else is_t * (exp(veb / (NF * vt_t)) - 1) + veb * Gbe;
+           Capcjc =  if vcb / Phic > 0 then Cjc * (1 + (Mc * vcb) / Phic) else Cjc * (1 - vcb / Phic)^(-Mc);
+           Capcje =  if veb / Phie > 0 then Cje * (1 + (Me * veb) / Phie) else Cje * (1 - veb / Phie)^(-Me);
+           ccb =  if vcb / (NR * vt_t) < EMin then (Taur * is_t) / (NR * vt_t) * ExMin * (vcb / (NR * vt_t) - EMin + 1) + Capcjc else if vcb / (NR * vt_t) > EMax then (Taur * is_t) / (NR * vt_t) * ExMax * (vcb / (NR * vt_t) - EMax + 1) + Capcjc else (Taur * is_t) / (NR * vt_t) * exp(vcb / (NR * vt_t)) + Capcjc;
+           ceb =  if veb / (NF * vt_t) < EMin then (Tauf * is_t) / (NF * vt_t) * ExMin * (veb / (NF * vt_t) - EMin + 1) + Capcje else if veb / (NF * vt_t) > EMax then (Tauf * is_t) / (NF * vt_t) * ExMax * (veb / (NF * vt_t) - EMax + 1) + Capcje else (Tauf * is_t) / (NF * vt_t) * exp(veb / (NF * vt_t)) + Capcje;
+           C.i = icb / br_t + ccb * der(vcb) + Ccs * der(C.v) + (icb - ieb) * qbk;
+           B.i = -ieb / bf_t - icb / br_t - ceb * der(veb) - ccb * der(vcb);
+           E.i = -B.i - C.i + Ccs * der(C.v);
+           heatPort.Q_flow =  -((vcb * icb) / br_t + (veb * ieb) / bf_t + (icb - ieb) * qbk * (C.v - E.v));
+         end HeatingPNP;
+
 
       end Semiconductors;
 
@@ -1113,6 +1421,18 @@ package Modelica
           parameter Real startTime = 0 "Time offset";
         end CurrentSource;
 
+      partial model ConditionalHeatPort "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
+        parameter Boolean useHeatPort = false "=true, if HeatPort is enabled" ;
+        parameter Real T = 293.15 "Fixed device temperature if useHeatPort = false" ;
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start = T) = T_heatPort, Q_flow = -LossPower) ;
+        Real LossPower "Loss power leaving component via HeatPort";
+        Real T_heatPort "Temperature of HeatPort";
+      equation
+        if not useHeatPort then
+          T_heatPort = T;
+        end if;
+      end ConditionalHeatPort;
+
       end Interfaces;
 
       package Ideal
@@ -1168,6 +1488,107 @@ package Modelica
           v = s * (if (control.signal > 0.0) then Ron else 1);
           i = s * (if (control.signal > 0.0) then 1 else Goff);
         end IdealClosingSwitch;
+
+        model IdealCommutSwitch "Ideal commuting switch"
+          parameter Real Ron = 1e-005 "Closed switch resistance";
+          parameter Real Goff = 1e-005 "Opened switch conductance";
+          Interfaces.PositivePin p ;
+          Interfaces.NegativePin n2 ;
+          Interfaces.NegativePin n1 ;
+          Modelica.Blocks.Interfaces.RealInput control "true => p--n2 connected, false => p--n1 connected" ;  
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort ;
+        protected
+          Real s1 ;
+          Real s2 "Auxiliary variables";
+        equation
+          0 = p.i + n2.i + n1.i;
+          p.v - n1.v = s1  * (if control.signal>0.0 then 1 else Ron);
+          n1.i = -s1  * (if control.signal>0.0 then Goff else 1);
+          p.v - n2.v = s2  * (if control.signal>0.0 then Ron else 1);
+          n2.i = -s2  * (if control.signal>0.0 then 1 else Goff);
+          LossPower = p.i * p.v + n1.i * n1.v + n2.i * n2.v;
+        end IdealCommutSwitch;
+
+         model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
+           Real v1 "Voltage drop over the left port";
+           Real v2 "Voltage drop over the right port";
+           Real i1 "Current flowing from pos. to neg. pin of the left port";
+           Real i2 "Current flowing from pos. to neg. pin of the right port";
+           Interfaces.PositivePin p1 "Positive pin of the left port" ;
+           Interfaces.NegativePin n1 "Negative pin of the left port" ;
+           Interfaces.PositivePin p2 "Positive pin of the right port" ;
+           Interfaces.NegativePin n2 "Negative pin of the right port" ;
+         equation
+           v1 = p1.v - n1.v;
+           v2 = p2.v - n2.v;
+           0 = p1.i + n1.i;
+           0 = p2.i + n2.i;
+           i1 = p1.i;
+           i2 = p2.i;
+           v1 = 0;
+           i1 = 0;
+         end IdealOpAmp;
+         
+        model IdealOpAmp3Pin "Ideal operational amplifier (norator-nullator pair), but 3 pins"
+          Interfaces.PositivePin in_p "Positive pin of the input port" ;
+          Interfaces.NegativePin in_n "Negative pin of the input port" ;
+          Interfaces.PositivePin out "Output pin" ;
+        equation
+          in_p.v = in_n.v;
+          in_p.i = 0;
+          in_n.i = 0;
+        end IdealOpAmp3Pin;
+         
+          model IdealOpAmpLimited "Ideal operational amplifier with limitation"
+           Interfaces.PositivePin in_p "Positive pin of the input port" ;
+           Interfaces.NegativePin in_n "Negative pin of the input port" ;
+           Interfaces.PositivePin out "Output pin" ;
+           Interfaces.PositivePin VMax "Positive output voltage limitation" ;
+           Interfaces.NegativePin VMin "Negative output voltage limitation" ;
+           Real vin "input voltage";
+         protected
+           Real s "Auxiliary variable";
+         equation
+           in_p.i = 0;
+           in_n.i = 0;
+           VMax.i = 0;
+           VMin.i = 0;
+           vin = in_p.v - in_n.v;
+           in_p.v - in_n.v = noEvent( if s < -1 then s + 1 else if s > 1 then s - 1 else 0);
+           out.v = noEvent( if s < -1 then VMin.v else if s > 1 then VMax.v else ((VMax.v - VMin.v) * s) / 2 + (VMax.v + VMin.v) / 2);
+         end IdealOpAmpLimited;
+
+
+         model CloserWithArc "Ideal closing switch with simple arc model"
+           extends Modelica.Electrical.Analog.Interfaces.OnePort;
+           parameter Real Ron = 1e-005 "Closed switch resistance";
+           parameter Real Goff = 1e-005 "Opened switch conductance";
+           parameter Real V0 = 30 "Initial arc voltage";
+           parameter Real dVdt = 10000.0 "Arc voltage slope";
+           parameter Real Vmax = 60 "Max. arc voltage";
+           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T = 293.15);
+           Modelica.Blocks.Interfaces.RealInput control "true => p--n connected, false => switch open";
+         protected
+           Boolean on = control.signal>0.0;
+           Boolean off = not on;
+           discrete Real tSwitch;
+           Boolean quenched;
+         equation
+           when (off and not pre(off)) then
+               tSwitch = time;
+           end when;
+           quenched = off and (abs(i) <= abs(v) * Goff or pre(quenched));
+           if on then
+             v = Ron * i;
+           else
+             if quenched then
+               i = Goff * v;
+             else
+               v = min(Vmax, V0 + dVdt * (time - tSwitch)) * sign(i);
+             end if;
+           end if;
+           LossPower = v * i;
+         end CloserWithArc;
 
       end Ideal;
 
@@ -1278,6 +1699,24 @@ package Modelica
           L * der(i) = v;
         end Inductor;
 
+        model SaturatingInductor "Simple model of an inductor with saturation"
+           extends Interfaces.OnePort;
+           parameter Real Lnom = 1 "Nominal inductance at Nominal current";
+           parameter Real Inom = 1 "Nominal current";
+           parameter Real Lzer = 2 * Lnom "Inductance near current=0";
+           parameter Real Linf = Lnom / 2 "Inductance at large currents";
+           Real Lact = Lzer;
+           Real Psi;
+        protected
+           parameter Real Ipar = Inom / 10;
+        initial equation
+             Lnom - Linf = ((Lzer - Linf) * Ipar) / Inom * (Coselica.Constants.pi / 2 - atan(Ipar / Inom));
+        equation
+             ((Lact - Linf) * i) / Ipar = (Lzer - Linf) * noEvent(atan(i / Ipar));
+             Psi = Lact * i;
+             v = der(Psi);
+        end SaturatingInductor;
+           
         model HeatingResistor "Temperature dependent electrical resistor"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           parameter Real R_ref = 1 "Resistance at temperature T_ref";
