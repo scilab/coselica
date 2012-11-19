@@ -16,60 +16,48 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CBN_RateLimiter(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    sMax=arg1.graphics.exprs(1);
-    sMin=arg1.graphics.exprs(2);
-    T=arg1.graphics.exprs(3);
-    y_start=arg1.graphics.exprs(4);
-    standard_draw(arg1,%f,_MBI_SISO_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MBI_SISO_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MBI_SISO_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,sMax,sMin,T,y_start,exprs]=...
-        getvalue(['';'CBN_RateLimiter';'';'Limit rate of change of signal';''],...
-        [' sMax [-] : Maximum slope';' sMin [-] : Minimum slope';' T [s] : Time constant (> 0)';' y_start [-] : Start value of output'],...
-        list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(sMax,sMin,T,y_start)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    model=scicos_model();
-    sMax=1;
-    sMin=-1;
-    T=0.0001;
-    y_start=0;
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,sMax,sMin,T,y_start,exprs]=...
+              getvalue(['';'CBN_RateLimiter';'';'Limit rate of change of signal';''],...
+                       [' sMax [-] : Maximum slope';' sMin [-] : Minimum slope';' T [s] : Time constant (> 0)';' y_start [-] : Start value of output'],...
+                       list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(sMax,sMin,T,y_start)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      model=scicos_model();
+      sMax=1;
+      sMin=-1;
+      T=0.0001;
+      y_start=0;
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='Coselica.Blocks.Nonlinear.RateLimiter';
       mo.inputs=['u'];
       mo.outputs=['y'];
       mo.parameters=list(['sMax','sMin','T','y_start'],...
                          list(sMax,sMin,T,y_start),...
                          [0,0,0,0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(sMax);sci2exp(sMin);sci2exp(T);sci2exp(y_start)];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RealInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(sMax);sci2exp(sMin);sci2exp(T);sci2exp(y_start)];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RealInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+    end
 endfunction
