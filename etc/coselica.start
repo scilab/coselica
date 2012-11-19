@@ -32,6 +32,8 @@ pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Blocks/Sources/"
 cos_blocks_srcslib = lib(pathmacros);
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Thermal/HeatTransfer/";
 cos_thermal_heattlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Hydraulic/HydraulicTransfer/";
+cos_hydraulic_lib = lib(pathmacros);
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Electrical/";
 cos_eleclib = lib(pathmacros);
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Mechanics/Rotational/";
@@ -40,6 +42,10 @@ pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Mechanics/Planar
 cos_mech_planlib = lib(pathmacros);
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Mechanics/Translational/";
 cos_mech_translib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Components/Actuators";
+cos_compactlib = lib(pathmacros);
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep() + "Components/PreActuators";
+cos_comppreactlib = lib(pathmacros);
 
 clear pathmacros;
 
@@ -71,6 +77,9 @@ exec(etc_tlbx+"electrical.sce", -1);
 mprintf("\tLoad palette: Coselica - Heat transfer\n");
 exec(etc_tlbx+"thermal_heattransfer.sce", -1);
 
+mprintf("\tLoad palette: Coselica - Hydraulic transfer\n");
+exec(etc_tlbx+"hydraulic_hydraulictransfer.sce", -1);
+
 mprintf("\tLoad palette: Coselica - Mechanics/Translational\n");
 exec(etc_tlbx+"mechanics_translational.sce", -1);
 
@@ -79,6 +88,9 @@ exec(etc_tlbx+"mechanics_rotational.sce", -1);
 
 mprintf("\tLoad palette: Coselica - Mechanics/Planar\n");
 exec(etc_tlbx+"mechanics_planar.sce", -1);
+
+mprintf("\tLoad palette: Coselica - Components\n");
+exec(etc_tlbx+"components.sce", -1);
 
 // Load demos
 // =============================================================================
