@@ -16,58 +16,48 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CBR_Replicator(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    nout=arg1.graphics.exprs(1);
-    nout=strcat(sci2exp(double(evstr(nout))));
-    standard_draw(arg1,%f,_MBI_SISO_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MBI_SISO_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MBI_SISO_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,nout,exprs]=..
-        scicos_getvalue(['';'CBR_Replicator';'';'Signal replicator';''],..
-        [' nout [-] : Number of outputs'],..
-        list('intvec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(int32(nout))
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,nout,exprs]=..
+              scicos_getvalue(['';'CBR_Replicator';'';'Signal replicator';''],..
+                              [' nout [-] : Number of outputs'],..
+                              list('intvec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(int32(nout))
+          model.in=[1];
+          model.out=[nout];
+          graphics.exprs=exprs;
+          x.graphics=graphics;
+          x.model=model;
+          break
+      end
+     case 'define' then
+      nout=1;
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
       model.in=[1];
       model.out=[nout];
-      graphics.exprs=exprs;
-      x.graphics=graphics;
-      x.model=model;
-      break
-    end
-  case 'define' then
-    nout=1;
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1];
-    model.out=[nout];
-    mo=modelica();
+      mo=modelica();
       mo.model='Coselica.Blocks.Routing.Replicator';
       mo.inputs=['u'];
       mo.outputs=['y'];
       mo.parameters=list(['nout'],..
                          list(int32(nout)),..
                          [0]);
-    model.equations=mo;
-    exprs=[strcat(sci2exp(nout))];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RealInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-  end
+      model.equations=mo;
+      exprs=[strcat(sci2exp(nout))];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RealInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+    end
 endfunction
