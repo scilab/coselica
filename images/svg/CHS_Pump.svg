@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="Calque_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="CHS_Pump.svg" inkscape:version="0.48.2 r9819"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<polyline fill="#00FFFF" stroke="#00005C" stroke-width="0.9545" points="15.519,34.145 15.519,37.479 25.019,37.479 25.019,34.145 
+	"/>
+<polyline fill="#00FFFF" stroke="#00005C" stroke-width="0.9545" points="1.833,14.834 9.104,14.834 9.104,25.021 1.833,25.021 "/>
+<polyline fill="#00FFFF" stroke="#00005C" stroke-width="0.9545" points="38,14.875 30.728,14.875 30.728,25.062 38,25.062 "/>
+<path id="path2987" sodipodi:ry="10.847458" sodipodi:rx="11.949153" sodipodi:cy="21.186441" sodipodi:cx="22.966103" sodipodi:type="arc" fill="#00FFFF" stroke="#00005C" stroke-width="0.9545" d="
+	M32.21,19.953c0,6.577-5.35,11.907-11.948,11.907c-6.6,0.002-11.95-5.328-11.95-11.905c0-0.001,0-0.002,0-0.002
+	C8.31,13.376,13.66,8.045,20.26,8.044c6.599,0,11.949,5.33,11.95,11.906C32.21,19.951,32.21,19.952,32.21,19.953z"/>
+<polygon fill="#1A171B" points="13.249,13.667 13.249,26.875 30.125,20.017 "/>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="Calque_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="MEAS_HeatingNPN.svg" inkscape:version="0.48.2 r9819"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<line id="line3847" fill="none" stroke="#0000FF" stroke-width="1.125" x1="17.942" y1="8.838" x2="17.942" y2="24.518"/>
+<line id="line3849" fill="none" stroke="#0000FF" stroke-width="1.125" x1="17.942" y1="16.678" x2="2.262" y2="16.678"/>
+<polyline id="polyline3851" fill="none" stroke="#0000FF" stroke-width="1.125" points="37.738,6.878 25.782,6.878 17.942,14.718 
+	"/>
+<polygon id="polygon3855" fill="#0000FF" stroke="#0000FF" points="26.366,27.248 25.048,24.171 23.29,25.93 "/>
+<path id="path3874" sodipodi:ry="12.966102" sodipodi:rx="12.627119" sodipodi:cy="20.423729" sodipodi:cx="21.101694" sodipodi:type="arc" fill="none" stroke="#0000FF" d="
+	M31.782,17.356c0.001,6.935-5.469,12.558-12.218,12.56c-6.748,0-12.22-5.621-12.221-12.558c0,0,0-0.001,0-0.002
+	c-0.001-6.936,5.47-12.559,12.218-12.56c6.749-0.001,12.221,5.621,12.221,12.557C31.782,17.354,31.782,17.355,31.782,17.356z"/>
+<path id="path3936" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" fill="none" stroke="#D20000" stroke-width="0.7497" d="
+	M15.183,31.439c-3.176,2.506,5.615,3.203-1.187,6.098"/>
+<path id="path3936-5" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" fill="none" stroke="#D20000" stroke-width="0.7497" d="
+	M19.449,31.344c-3.177,2.506,5.615,3.204-1.187,6.098"/>
+<path id="path3936-2" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" fill="none" stroke="#D20000" stroke-width="0.7497" d="
+	M23.855,31.439c-3.176,2.506,5.615,3.203-1.187,6.098"/>
+<polyline fill="none" stroke="#0000FF" stroke-width="1.125" points="17.958,18.917 26.719,27.678 37.77,27.678 "/>
+</svg>
