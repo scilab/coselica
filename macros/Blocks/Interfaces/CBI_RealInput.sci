@@ -1,4 +1,5 @@
 // Coselica Toolbox for Xcos
+// Copyright (C) 2012 - Scilab Enterprises - Bruno JOFRET
 // Copyright (C) 2011 - DIGITEO - Bruno JOFRET
 // Copyright (C) 2009-2011  Dirk Reusch, Kybernetik Dr. Reusch
 //
@@ -16,36 +17,26 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CBI_RealInput(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    standard_draw(arg1,%f,_CBI_RealInput_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CBI_RealInput_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CBI_RealInput_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-  case 'define' then
-    exprs=[];
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1];
-    model.out=[1];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'define' then
+      exprs=[];
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      model.in=[1];
+      model.out=[1];
+      mo=modelica();
       mo.model='Coselica.Blocks.Interfaces.RealInput';
       mo.inputs=['u'];
       mo.outputs=['y'];
       mo.parameters=list([],list(),[]);
-    model.equations=mo;
-    gr_i=[];
-    x=standard_define([1 1],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['E'];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-  end
+      model.equations=mo;
+      gr_i=[];
+      x=standard_define([1 1],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['E'];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+    end
 endfunction
