@@ -59,5 +59,6 @@ function [x,y,typ]=MTH_FixedHeatFlow(job,arg1,arg2)
       x.graphics.in_implicit=[];
       x.graphics.out_implicit=['I'];
       x.graphics.out_style=[ThermalOutputStyle()];
+      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Q flow = %s"]
     end
 endfunction
