@@ -18,14 +18,6 @@
 function [x,y,typ]=MTH_HeatFlowSensor(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    standard_draw(arg1,%f,_MTH_HeatFlowSensor_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MTH_HeatFlowSensor_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MTH_HeatFlowSensor_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
   case 'define' then

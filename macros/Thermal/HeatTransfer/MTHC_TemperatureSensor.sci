@@ -16,38 +16,30 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=MTHC_TemperatureSensor(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    standard_draw(arg1,%f,_MTH_TempSensor_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MTH_TempSensor_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MTH_TempSensor_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-  case 'define' then
-    model=scicos_model();
-    model.rpar=[];
-    model.sim='MTHC_TemperatureSensor';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+     case 'define' then
+      model=scicos_model();
+      model.rpar=[];
+      model.sim='MTHC_TemperatureSensor';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='MTHC_TemperatureSensor';
       mo.inputs=['port'];
       mo.outputs=['T'];
       mo.parameters=list([],list(),[]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=string([]);
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[ThermalInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=string([]);
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[ThermalInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+    end
 endfunction
