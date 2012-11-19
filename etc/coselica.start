@@ -77,8 +77,8 @@ exec(etc_tlbx+"electrical.sce", -1);
 mprintf("\tLoad palette: Coselica - Heat transfer\n");
 exec(etc_tlbx+"thermal_heattransfer.sce", -1);
 
-mprintf("\tLoad palette: Coselica - Hydraulic transfer\n");
-exec(etc_tlbx+"hydraulic_hydraulictransfer.sce", -1);
+//mprintf("\tLoad palette: Coselica - Hydraulic transfer\n");
+//exec(etc_tlbx+"hydraulic_hydraulictransfer.sce", -1);
 
 mprintf("\tLoad palette: Coselica - Mechanics/Translational\n");
 exec(etc_tlbx+"mechanics_translational.sce", -1);
