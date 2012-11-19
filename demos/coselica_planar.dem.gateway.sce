@@ -11,13 +11,13 @@
 //
 //
 function subdemolist = demo_gateway()
-  demopath = get_absolute_file_path("coselica.dem.gateway.sce");
+  demopath = get_absolute_file_path("coselica_planar.dem.gateway.sce");
 
-  subdemolist = ["Planar Mechanics"             ,"coselica_planar.dem.gateway.sce";
-                 "Rotational Mechanics"         ,"coselica_rotational.dem.gateway.sce";
-                 "Translational Mechanics"      ,"coselica_translational.dem.gateway.sce";
-                 "Heat Transfert"               ,"coselica_thermal.dem.gateway.sce";
-                 "Electrical"                   ,"coselica_electrical.dem.gateway.sce";
+  subdemolist = ["Crankshaft"                   , "Crankshaft.dem.sce"
+                 "4 Bars"                       , "Fourbars.dem.sce"
+                 "Simple Pendulum"              , "SimplePendulum.dem.sce"
+                 "Cart with Pendulum"           , "CartWithPendulum.dem.sce"
+                 "Spyrograph"                   , "Spyrograph.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
