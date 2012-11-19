@@ -1070,8 +1070,8 @@ package Modelica
         equation
           i = if v / Vt > Maxexp then Ids * (exp(Maxexp) * (1 + v / Vt - Maxexp) - 1) + v / R else Ids * (exp(v / Vt) - 1) + v / R;
         end Diode;
- 
-        
+
+
          model HeatingDiode "Simple diode with heating port"
            extends Modelica.Electrical.Analog.Interfaces.OnePort;
            parameter Real Ids = 1e-006 "Saturation current";
@@ -1197,7 +1197,7 @@ package Modelica
            Real vt_t;
            Real hexp;
            Real htempexp;
-           Real T_heatPort "auxiliary temperature";           
+           Real T_heatPort "auxiliary temperature";
            function pow "Just a helper function for x^y"
             input Real x;
             input Real y;
@@ -1233,7 +1233,7 @@ package Modelica
            E.i = -B.i - C.i + Ccs * der(C.v);
            heatPort.Q_flow =  -((vbc * ibc) / br_t + (vbe * ibe) / bf_t + (ibe - ibc) * qbk * (C.v - E.v));
          end HeatingNPN;
-  
+
          model HeatingPMOS "Simple PMOS Transistor with heating port"
            Modelica.Electrical.Analog.Interfaces.Pin D "Drain";
            Modelica.Electrical.Analog.Interfaces.Pin G "Gate";
@@ -1263,8 +1263,8 @@ package Modelica
            Real gds;
            Real beta_t;
            Real vt_t;
-           Real k2_t;      
-           Real T_heatPort "auxiliary temperature";         
+           Real k2_t;
+           Real T_heatPort "auxiliary temperature";
          equation
            T_heatPort = heatPort.T;
            gds = if RDS < 1e-020 and RDS > -1e-020 then 1e+020 else 1 / RDS;
@@ -1284,7 +1284,7 @@ package Modelica
            B.i = 0;
            heatPort.Q_flow =  -D.i * (D.v - S.v);
          end HeatingPMOS;
-  
+
          model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
            parameter Real Bf = 50 "Forward beta";
            parameter Real Br = 0.1 "Reverse beta";
@@ -1330,7 +1330,7 @@ package Modelica
            Real vt_t;
            Real hexp;
            Real htempexp;
-           Real T_heatPort "auxiliary temperature";                    
+           Real T_heatPort "auxiliary temperature";
          public
            Modelica.Electrical.Analog.Interfaces.Pin C "Collector" ;
            Modelica.Electrical.Analog.Interfaces.Pin B "Base" ;
@@ -1495,7 +1495,7 @@ package Modelica
           Interfaces.PositivePin p ;
           Interfaces.NegativePin n2 ;
           Interfaces.NegativePin n1 ;
-          Modelica.Blocks.Interfaces.RealInput control "true => p--n2 connected, false => p--n1 connected" ;  
+          Modelica.Blocks.Interfaces.RealInput control "true => p--n2 connected, false => p--n1 connected" ;
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort ;
         protected
           Real s1 ;
@@ -1528,7 +1528,7 @@ package Modelica
            v1 = 0;
            i1 = 0;
          end IdealOpAmp;
-         
+
         model IdealOpAmp3Pin "Ideal operational amplifier (norator-nullator pair), but 3 pins"
           Interfaces.PositivePin in_p "Positive pin of the input port" ;
           Interfaces.NegativePin in_n "Negative pin of the input port" ;
@@ -1538,7 +1538,7 @@ package Modelica
           in_p.i = 0;
           in_n.i = 0;
         end IdealOpAmp3Pin;
-         
+
           model IdealOpAmpLimited "Ideal operational amplifier with limitation"
            Interfaces.PositivePin in_p "Positive pin of the input port" ;
            Interfaces.NegativePin in_n "Negative pin of the input port" ;
@@ -1716,7 +1716,7 @@ package Modelica
              Psi = Lact * i;
              v = der(Psi);
         end SaturatingInductor;
-           
+
         model HeatingResistor "Temperature dependent electrical resistor"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           parameter Real R_ref = 1 "Resistance at temperature T_ref";
@@ -1792,9 +1792,423 @@ package Modelica
 
       end Basic;
 
-    end Analog;
+   end Analog;
 
-  end Electrical;
+   package Machines
+
+     package Interfaces
+
+       connector SpacePhasor "Connector for Space Phasors"
+         Real v_[2] "1=real, 2=imaginary part";
+         flow Real i_[2] "1=real, 2=imaginary part";
+       end SpacePhasor;
+
+       //          partial model PartialBasicMachine "Partial model for all machines"
+       //            constant Real pi = Coselica.Constants.pi;
+       //            parameter Real Jr "rotor s moment of inertia";
+       //            parameter Real Js(start = Jr) "stator  moment of inertia" ;
+       //            output Real phiMechanical = flange.phi - internalSupport.phi "mechanical angle of rotor against stator";
+       //            output Real wMechanical = der(phiMechanical) "mechanical angular velocity of rotor against stator";
+       //            output Real tauElectrical = inertiaRotor.flange_a.tau "electromagnetic torque";
+       //            output Real tauShaft = -flange.tau "shaft torque";
+       //            Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "shaft" ;
+       //            Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J = Jr) ;
+       //            Modelica.Mechanics.Rotational.Interfaces.Flange_a support "support at which the reaction torque is acting" ;
+       //            Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J = Js) ;
+       //            //Modelica.Mechanics.Rotational.Components.Fixed fixed if not useSupport ;
+       ////          protected
+       ////            Mechanics.Rotational.Interfaces.Support internalSupport ;
+       //          equation
+       //            connect(inertiaRotor.flange_b,flange) ;
+       //            connect(inertiaStator.flange_b,support) ;
+       //            connect(internalSupport,inertiaStator.flange_a) ;
+       //            connect(internalSupport,fixed.flange) ;
+       //          end PartialBasicMachine;
+       //
+       //          partial model PartialBasicDCMachine "Partial model for DC machine"
+       //            extends PartialBasicMachine(Jr(start = 0.15));
+       //            parameter Real VaNominal(start = 100) "nominal armature voltage" ;
+       //            parameter Real IaNominal(start = 100) "nominal armature current" ;
+       //            parameter Real wNominal(start = (1425 * 2 * pi) / 60) "nominal speed" ;
+       //            parameter Real Ra(start = 0.05) "warm armature resistance" ;
+       //            parameter Real La(start = 0.0015) "armature inductance" ;
+       //            parameter Real turnsRatio "ratio of armature turns over number of turns of the excitation winding";
+       //            output Real va = pin_ap.v - pin_an.v "armature voltage";
+       //            output Real ia = pin_ap.i "armature current";
+       //            Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap "positive armature pin" ;
+       //            Modelica.Electrical.Analog.Interfaces.NegativePin pin_an "negative armature pin" );
+       //            Modelica.Electrical.Analog.Basic.Resistor ra(final R = Ra) ;
+       //            Modelica.Electrical.Analog.Basic.Inductor la(final L = La) ;
+       //          equation
+       //            connect(la.p,ra.n) ;
+       //            connect(pin_ap,ra.p) ;
+       //          end PartialBasicDCMachine;
+
+     end Interfaces;
+
+     package Components
+
+       partial model PartialAirGap "Partial airgap model"
+         parameter Real m = 3 "number of phases";
+         parameter Real p = 1 "number of pole pairs";
+         output Real tauElectrical;
+         Real gamma "Rotor displacement angle";
+         Real i_ss[2] "Stator current space phasor with respect to the stator fixed frame";
+         Real i_sr[2] "Stator current space phasor with respect to the rotor fixed frame";
+         Real i_rs[2] "Rotor current space phasor with respect to the stator fixed frame";
+         Real i_rr[2] "Rotor current space phasor with respect to the rotor fixed frame";
+         Real psi_ms[2] "Magnetizing flux phasor with respect to the stator fixed frame";
+         Real psi_mr[2] "Magnetizing flux phasor with respect to the rotor fixed frame";
+         Real RotationMatrix[2,2] "matrix of rotation from rotor to stator";
+       public
+         Modelica.Mechanics.Rotational.Interfaces.Flange_a flange ;
+         Modelica.Mechanics.Rotational.Interfaces.Flange_a support "support at which the reaction torque is acting" ;
+         Modelica.Electrical.Machines.Interfaces.SpacePhasor spacePhasor_s ;
+         Modelica.Electrical.Machines.Interfaces.SpacePhasor spacePhasor_r ;
+       equation
+         gamma = p * (flange.phi - support.phi);
+         RotationMatrix = {{0+cos(gamma),0-sin(gamma)},{0+sin(gamma),0+cos(gamma)}};
+         i_ss = spacePhasor_s.i_;
+         i_ss = RotationMatrix * i_sr;
+         i_rr = spacePhasor_r.i_;
+         i_rs = RotationMatrix * i_rr;
+         spacePhasor_s.v_ = der(psi_ms);
+         spacePhasor_r.v_ = der(psi_mr);
+         tauElectrical = m / 2.0 * p * (spacePhasor_s.i_[2] * psi_ms[1] - spacePhasor_s.i_[1] * psi_ms[2]);
+         flange.tau = -tauElectrical;
+         support.tau = tauElectrical;
+       end PartialAirGap;
+
+       partial model PartialAirGapDC "Partial airgap model of a DC machine"
+         parameter Real turnsRatio "ratio of armature turns over number of turns of the excitation winding";
+         Real w "Angluar velocity";
+         Real vei "Voltage drop across field excitation inductance";
+         Real ie "Excitation current";
+         Real psi_e "Excitation flux";
+         Real vai "Induced armature voltage";
+         Real ia "Armature current";
+         output Real tauElectrical;
+         Modelica.Mechanics.Rotational.Interfaces.Flange_a flange ;
+         Modelica.Mechanics.Rotational.Interfaces.Flange_a support "support at which the reaction torque is acting" ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pin_an ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en ;
+       equation
+         vai = pin_ap.v - pin_an.v;
+         ia = 0+pin_ap.i;
+         ia = 0-pin_an.i;
+         vei = pin_ep.v - pin_en.v;
+         ie = 0+pin_ep.i;
+         ie = 0-pin_en.i;
+         vei = der(psi_e);
+         w = der(flange.phi) - der(support.phi);
+         vai = turnsRatio * psi_e * w;
+         tauElectrical = turnsRatio * psi_e * ia;
+         flange.tau = -tauElectrical;
+         support.tau = tauElectrical;
+       end PartialAirGapDC;
+
+       model AirGapDC "Linear airgap model of a DC machine"
+         extends PartialAirGapDC;
+         parameter Real Le "excitation inductance";
+       equation
+         psi_e = Le * ie;
+       end AirGapDC;
+
+       model AirGapR "Airgap in rotor-fixed coordinate system"
+         parameter Real Lmd "main field inductance d-axis";
+         parameter Real Lmq "main field inductance q-axis";
+         extends PartialAirGap;
+         Real i_mr[2] "Magnetizing current space phasor with respect to the rotor fixed frame";
+       protected
+         Real L[2,2] = {{Lmd,0},{0,Lmq}} "inductance matrix";
+       equation
+         i_mr = i_sr + i_rr;
+         psi_mr = L * i_mr;
+         psi_ms = RotationMatrix * psi_mr;
+       end AirGapR;
+
+       model AirGapS "Airgap in stator-fixed coordinate system"
+         parameter Real Lm "main field inductance";
+         extends PartialAirGap;
+         Real i_ms[2] "Magnetizing current space phasor with respect to the stator fixed frame";
+       protected
+         Real L[2,2] = {{Lm,0},{0,Lm}} "inductance matrix";
+       equation
+         i_ms = i_ss + i_rs;
+         psi_ms = L * i_ms;
+         psi_mr = transpose(RotationMatrix) * psi_ms;
+         //TODO : use of Modelica Class like transpose
+       end AirGapS;
+
+       model DamperCage "Damper Cage"
+         parameter Real Lrsigmad "stray inductance in d-axis per phase translated to stator";
+         parameter Real Lrsigmaq "stray inductance in q-axis per phase translated to stator";
+         parameter Real Rrd "warm resistance in d-axis per phase translated to stator";
+         parameter Real Rrq "warm resistance in q-axis per phase translated to stator";
+         Modelica.Electrical.Machines.Interfaces.SpacePhasor spacePhasor_r ;
+       equation
+         spacePhasor_r.v_[1] = Rrd * spacePhasor_r.i_[1] + Lrsigmad * der(spacePhasor_r.i_[1]);
+         spacePhasor_r.v_[2] = Rrq * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
+       end DamperCage;
+
+       model ElectricalExcitation "Electrical excitation"
+         parameter Real turnsRatio(start = 1) "stator current / excitation current";
+         Real ie "excitation current";
+         Real ve "excitation voltage";
+         Modelica.Electrical.Machines.Interfaces.SpacePhasor spacePhasor_r ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en ;
+       equation
+         pin_ep.i + pin_en.i = 0;
+         ie = 0+pin_ep.i;
+         ve = pin_ep.v - pin_en.v;
+         spacePhasor_r.i_ = {-ie * turnsRatio,0};
+         ve = (spacePhasor_r.v_[1] * turnsRatio * 3) / 2;
+       end ElectricalExcitation;
+
+//           partial model PartialCore "Partial model of transformer core with 3 windings"
+//             parameter Integer m = 3 "number of phases";
+//             parameter Real n12(start = 1) "turns ratio 1:2";
+//             parameter Real n13(start = 1) "turns ratio 1:3";
+//             Real v1[m] = plug_p1.pin.v - plug_n1.pin.v;
+//             Real i1[m] = plug_p1.pin.i;
+//             Real v2[m] = plug_p2.pin.v - plug_n2.pin.v;
+//             Real i2[m] = plug_p2.pin.i;
+//             Real v3[m] = plug_p3.pin.v - plug_n3.pin.v;
+//             Real i3[m] = plug_p3.pin.i;
+//             Real im[m] = i1 + i2 / n12 + i3 / n13 "Magnetizing current";
+//             Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p1 ;
+//             Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n1 ;
+//             Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p2 ;
+//             Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n2 ;
+//             Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p3 ;
+//             Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n3 ;
+//           equation
+//             plug_p1.pin.i + plug_n1.pin.i = zeros(m);
+//             plug_p2.pin.i + plug_n2.pin.i = zeros(m);
+//             plug_p3.pin.i + plug_n3.pin.i = zeros(m);
+//           end PartialCore;
+//
+//           model IdealCore "Ideal transformer with 3 windings"
+//             extends PartialCore;
+//           equation
+//             im = zeros(m);
+//             v1 = n12 * v2;
+//             v1 = n13 * v3;
+//           end IdealCore;
+
+       model PermanentMagnet "Permanent magnet excitation"
+         parameter Real Ie "equivalent excitation current";
+         Modelica.Electrical.Machines.Interfaces.SpacePhasor spacePhasor_r ;
+       equation
+         spacePhasor_r.i_ = {-Ie,0};
+       end PermanentMagnet;
+
+       model SquirrelCage "Squirrel Cage"
+         parameter Real Lrsigma "rotor stray inductance per phase translated to stator";
+         parameter Real Rr "warm rotor resistance per phase translated to stator";
+         Modelica.Electrical.Machines.Interfaces.SpacePhasor spacePhasor_r ;
+       equation
+         spacePhasor_r.v_ = Rr * spacePhasor_r.i_ + Lrsigma * der(spacePhasor_r.i_);
+       end SquirrelCage;
+
+       model DCmotor0 "DCmotor with fixed stator"
+         parameter Real R(start=0.05) "resistance";
+         parameter Real L(start=0.001) "inductance";
+         parameter Real k(start=0.64) "constant fcem";
+         parameter Real Jrotor(start=0.15) "Rotor Inertial Momentum";
+         Modelica.Electrical.Analog.Basic.Inductor inductor1(L = L) ;
+         Modelica.Electrical.Analog.Basic.Resistor resistor1(R = R) ;
+         Coselica.Electrical.Analog.Basic.EMF emf(k = k) ;
+         Modelica.Mechanics.Rotational.Inertia Jr(J = Jrotor) ;
+         Modelica.Mechanics.Rotational.Interfaces.Flange_b rotor ;
+         Modelica.Electrical.Analog.Interfaces.Pin p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin n ;
+         Modelica.Mechanics.Rotational.Fixed fixed1 ;
+       equation
+         connect(emf.support,fixed1.flange_b) ;
+         connect(resistor1.p,p) ;
+         connect(emf.n,n) ;
+         connect(rotor,Jr.flange_b) ;
+         connect(resistor1.n,inductor1.p) ;
+         connect(inductor1.n,emf.p) ;
+         connect(emf.flange,Jr.flange_a) ;
+       end DCmotor0;
+
+       model DCmotor "DCmotor with free stator (without inertia)"
+         parameter Real R(start=0.05) "resistance";
+         parameter Real L(start=0.001) "inductance";
+         parameter Real k(start=0.64) "constant fcem";
+         parameter Real Jrotor(start=0.15) "Rotor Inertial Momentum";
+         Modelica.Electrical.Analog.Basic.Inductor inductor1(L = L) ;
+         Modelica.Electrical.Analog.Basic.Resistor resistor1(R = R) ;
+         Coselica.Electrical.Analog.Basic.EMF emf(k = k) ;
+         Modelica.Mechanics.Rotational.Inertia Jr(J = Jrotor) ;
+         Modelica.Mechanics.Rotational.Interfaces.Flange_b rotor ;
+         Modelica.Mechanics.Rotational.Interfaces.Flange_a stator ;
+         Modelica.Electrical.Analog.Interfaces.Pin p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin n ;
+       equation
+         connect(emf.support,stator) ;
+         connect(resistor1.p,p) ;
+         connect(emf.n,n) ;
+         connect(rotor,Jr.flange_b) ;
+         connect(resistor1.n,inductor1.p) ;
+         connect(inductor1.n,emf.p) ;
+         connect(emf.flange,Jr.flange_a) ;
+       end DCmotor;
+
+       model PWM "Pulse Wave Modulation"
+         Real amplitude = 1 "Amplitude of pulse";
+         parameter Real nb_bits = 8 "Number of bites for describing duty cycle";
+         parameter Real frequency = 1 "Frequency of signal";
+         Real period = 1/frequency;
+         parameter Real startTime = 0 "Output = offset for time < startTime";
+         Real T_width ;
+         Real width ;
+         extends Modelica.Blocks.Interfaces.SISO;
+       protected
+         discrete Real T0(start = startTime, fixed = true) "Start time of current period";
+       equation
+         when time > T0 + period then
+           T0 = time;
+         end when;
+         width=100*u.signal/2^nb_bits;
+         T_width=width/(100*frequency);
+         y.signal =  (if time < startTime then 0 elseif time >= T0 + T_width then 0 else amplitude);
+       end PWM;
+
+
+       model Q1driver
+         parameter Real width(start=50) "rapport cyclique en pourcentage";
+         parameter Real period (start=0.0002) "period of pulse signal";
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pout_p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pout_n ;
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch1 ;
+         Modelica.Blocks.Sources.Pulse pulse1(period = period, width = width) ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pin_n ;
+       equation
+         connect(idealdiode1.p,pin_n) ;
+         connect(pout_n,pin_n) ;
+         connect(pout_p,idealdiode1.n) ;
+         connect(idealclosingswitch1.n,idealdiode1.n) ;
+         connect(pin_p,idealclosingswitch1.p) ;
+         connect(pulse1.y,idealclosingswitch1.control);
+       end Q1driver;
+
+       model Q4driver
+         parameter Real U(start=12) "Supply voltage (V) ";
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch1 ;
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch2 ;
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch3 ;
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch4 ;
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode2 ;
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode3 ;
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode4 ;
+         Modelica.Electrical.Analog.Basic.Ground ground1 ;
+         Modelica.Electrical.Analog.Sources.ConstantVoltage constantvoltage1(v = U) ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin n ;
+         Modelica.Blocks.Interfaces.RealInput com1 ;
+         Modelica.Blocks.Interfaces.RealInput com2 ;
+       equation
+         connect(idealclosingswitch4.control,com2) ;
+         connect(idealclosingswitch3.control,com1) ;
+         connect(idealdiode1.p,n) ;
+         connect(idealdiode2.p,p) ;
+         connect(idealclosingswitch2.n,constantvoltage1.n) ;
+         connect(constantvoltage1.n,idealclosingswitch1.n) ;
+         connect(constantvoltage1.p,ground1.p) ;
+         connect(ground1.p,idealdiode4.p) ;
+         connect(ground1.p,idealdiode3.p) ;
+         connect(idealclosingswitch4.p,idealdiode4.p) ;
+         connect(idealclosingswitch4.n,idealdiode4.n) ;
+         connect(idealclosingswitch3.n,idealdiode3.n) ;
+         connect(idealclosingswitch3.p,idealdiode3.p) ;
+         connect(idealdiode2.p,idealclosingswitch4.n) ;
+         connect(idealclosingswitch2.n,idealdiode2.n) ;
+         connect(idealclosingswitch2.p,idealdiode2.p) ;
+         connect(idealdiode1.p,idealclosingswitch3.n) ;
+         connect(idealclosingswitch1.n,idealdiode1.n) ;
+         connect(idealclosingswitch1.p,idealdiode1.p) ;
+         connect(idealclosingswitch1.control,idealclosingswitch4.control) ;
+         connect(idealclosingswitch3.control,idealclosingswitch2.control) ;
+       end Q4driver;
+
+       //
+       //         model Q4driver
+       //           parameter Real U(start=12) "Supply voltage (V) ";
+       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
+       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch1 ;
+       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode2 ;
+       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch2 ;
+       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode3 ;
+       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode4 ;
+       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch3 ;
+       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch4 ;
+       //           Modelica.Electrical.Analog.Interfaces.PositivePin p ;
+       //           Modelica.Electrical.Analog.Interfaces.NegativePin n ;
+       //           Modelica.Electrical.Analog.Sources.ConstantVoltage constantvoltage1 (v=U);
+       //           Modelica.Electrical.Analog.Basic.Ground ground1 ;
+       //           Modelica.Blocks.Interfaces.RealInput com1 "input signal for left switchs";
+       //           Modelica.Blocks.Interfaces.RealInput com2 "input signal for right switchs";
+       //         equation
+       //           connect(ground1.p,idealdiode4.p) ;
+       //           connect(ground1.p,idealdiode3.p) ;
+       //           connect(constantvoltage1.p,ground1.p) ;
+       //           connect(controlledidealclosingswitch1.control,controlledidealclosingswitch4.control) ;
+       //           connect(controlledidealclosingswitch3.control,controlledidealclosingswitch2.control) ;
+       //           connect(idealdiode4.n,idealdiode2.p) ;
+       //           connect(n,idealdiode4.n) ;
+       //           connect(idealdiode3.n,p) ;
+       //           connect(idealdiode3.n,idealdiode1.p) ;
+       //           connect(constantvoltage1.n,controlledidealclosingswitch2.n) ;
+       //           connect(constantvoltage1.n,idealdiode1.n) ;
+       //           connect(controlledidealclosingswitch3.n,idealdiode3.n) ;
+       //           connect(controlledidealclosingswitch4.n,idealdiode4.n) ;
+       //           connect(idealdiode2.n,controlledidealclosingswitch2.n) ;
+       //           connect(idealdiode1.n,controlledidealclosingswitch1.n) ;
+       //           connect(controlledidealclosingswitch4.p,idealdiode4.p) ;
+       //           connect(controlledidealclosingswitch3.p,idealdiode3.p) ;
+       //           connect(controlledidealclosingswitch2.p,idealdiode2.p) ;
+       //           connect(controlledidealclosingswitch1.p,idealdiode1.p) ;
+       //           connect(com1,controlledidealclosingswitch3.control) ;
+       //           connect(com2,controlledidealclosingswitch1.control) ;
+       //         end Q4driver;
+       //
+
+
+       //         model DC_PermanentMagnet "Permanent magnet DC machine"
+       //           extends Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine(final turnsRatio = (VaNominal - Ra * IaNominal) / (wNominal * Le * IeNominal));
+       //           Components.AirGapDC airGapDC(final turnsRatio = turnsRatio, final Le = Le) ;
+       //         protected
+       //           constant Real Le = 1 "total field excitation inductance";
+       //           constant Real IeNominal = 1 "equivalent excitation current";
+       //         public
+       //           Modelica.Electrical.Analog.Basic.Ground eGround ;
+       //           Modelica.Electrical.Analog.Sources.ConstantCurrent ie(I = IeNominal) ;
+       //         equation
+       //           //assert(VaNominal > Ra * IaNominal, "VaNominal has to be > Ra*IaNominal");
+       //           connect(eGround.p,ie.p) ;
+       //           connect(airGapDC.pin_ep,ie.n) ;
+       //           connect(airGapDC.pin_en,eGround.p) ;
+       //           connect(airGapDC.pin_ap,la.n) ;
+       //           connect(airGapDC.pin_an,pin_an) ;
+       //           connect(airGapDC.support,internalSupport) ;
+       //           connect(airGapDC.flange,inertiaRotor.flange_a) ;
+       //         end DC_PermanentMagnet;
+
+
+     end Components;
+
+   end Machines;
+
+ end Electrical;
 
   package Blocks
 
