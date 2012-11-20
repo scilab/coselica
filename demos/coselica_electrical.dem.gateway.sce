@@ -14,6 +14,7 @@ function subdemolist = demo_gateway()
   demopath = get_absolute_file_path("coselica_electrical.dem.gateway.sce");
 
   subdemolist = ["Colpitts Oscillator"          , "ColpittsOscillator.dem.sce"
+                 "Variable Inductor"            , "VariableInductor.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
