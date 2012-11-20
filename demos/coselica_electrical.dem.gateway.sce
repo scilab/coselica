@@ -15,6 +15,7 @@ function subdemolist = demo_gateway()
 
   subdemolist = ["Colpitts Oscillator"          , "ColpittsOscillator.dem.sce"
                  "Variable Inductor"            , "VariableInductor.dem.sce"
+                 "Heating Rectifier"            , "HeatingRectifier.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);

@@ -14,6 +14,7 @@ function subdemolist = demo_gateway()
   demopath = get_absolute_file_path("coselica_thermal.dem.gateway.sce");
 
   subdemolist = ["Radiation Heat Transfer"      , "HeatTransfer_Radiation.dem.sce"
+                 "Heating Rectifier"            , "HeatingRectifier.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
