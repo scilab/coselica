@@ -15,6 +15,7 @@ function subdemolist = demo_gateway()
 
   subdemolist = ["Elasto Backlash"              , "ElastoBacklash.dem.sce";
                  "Bearing Friction"             , "BearingFriction.dem.sce";
+                 "One Way Clutch"               , "OneWayClutch.dem.sce";
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
