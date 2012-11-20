@@ -16,37 +16,29 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMRS_Torque0(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    standard_draw(arg1,%f,_CMRS_Position0_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CMRS_Position0_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CMRS_Position0_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-  case 'define' then
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1];
-    model.out=[1];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+     case 'define' then
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      model.in=[1];
+      model.out=[1];
+      mo=modelica();
       mo.model='Coselica.Mechanics.Rotational.Sources.Torque0';
       mo.inputs=['tau'];
       mo.outputs=['flange_b'];
       mo.parameters=list([],list(),[]);
-    model.equations=mo;
-    exprs=[];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RealInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RotOutputStyle()];
-  end
+      model.equations=mo;
+      exprs=[];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RealInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RotOutputStyle()];
+    end
 endfunction

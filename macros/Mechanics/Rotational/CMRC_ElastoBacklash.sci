@@ -16,60 +16,48 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMRC_ElastoBacklash(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    c=arg1.graphics.exprs(1);
-    d=arg1.graphics.exprs(2);
-    b=arg1.graphics.exprs(3);
-    phi_rel0=arg1.graphics.exprs(4);
-    standard_draw(arg1,%f,_MMRI_Rigid_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MMRI_Rigid_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MMRI_Rigid_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,c,d,b,phi_rel0,exprs]=...
-        getvalue(['';'CMRC_ElastoBacklash';'';'Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)';''],...
-        [' c [N.m/rad] : Spring constant (c > 0 required)';' d [N.m.s/rad] : Damping constant (d >= 0)';' b [rad] : Total backlash (b >= 0)';' phi_rel0 [rad] : Unstretched spring angle'],...
-        list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(c,d,b,phi_rel0)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    model=scicos_model();
-    c=100000;
-    d=0;
-    b=0;
-    phi_rel0=0;
-    model.sim='CMRC_ElastoBacklash';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,c,d,b,phi_rel0,exprs]=...
+              getvalue(['';'CMRC_ElastoBacklash';'';'Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)';''],...
+                       [' c [N.m/rad] : Spring constant (c > 0 required)';' d [N.m.s/rad] : Damping constant (d >= 0)';' b [rad] : Total backlash (b >= 0)';' phi_rel0 [rad] : Unstretched spring angle'],...
+                       list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(c,d,b,phi_rel0)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      model=scicos_model();
+      c=100000;
+      d=0;
+      b=0;
+      phi_rel0=0;
+      model.sim='CMRC_ElastoBacklash';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='CMRC_ElastoBacklash';
       mo.inputs=['flange_a'];
       mo.outputs=['flange_b'];
       mo.parameters=list(['c','d','b','phi_rel0'],...
                          list(c,d,b,phi_rel0),...
                          [0,0,0,0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(c);sci2exp(d);sci2exp(b);sci2exp(phi_rel0)];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RotInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RotOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(c);sci2exp(d);sci2exp(b);sci2exp(phi_rel0)];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RotInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RotOutputStyle()];
+    end
 endfunction

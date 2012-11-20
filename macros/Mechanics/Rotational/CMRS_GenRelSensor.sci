@@ -14,14 +14,6 @@
 function [x,y,typ]=CMRS_GenRelSensor(job,arg1,arg2)
     x=[];y=[];typ=[];
     select job
-     case 'plot' then
-//      standard_draw(arg1,%f,_CMTS_PositionSensor_dp);
-     case 'getinputs' then
-//      [x,y,typ]=_CMTS_PositionSensor_ip(arg1);
-     case 'getoutputs' then
-//      [x,y,typ]=_CMTS_PositionSensor_op(arg1);
-     case 'getorigin' then
-//      [x,y]=standard_origin(arg1);
      case 'set' then
       x=arg1;
       graphics=x.graphics;
@@ -46,22 +38,22 @@ function [x,y,typ]=CMRS_GenRelSensor(job,arg1,arg2)
                case 0
                 mo.model='MMRS_RelAngleSensor';
                 mo.outputs=['flange_b','phi_rel'];
-                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Position<br><br>"]
+                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Position"]
                case 1
                 mo.model='MMRS_RelSpeedSensor';
                 mo.outputs=['flange_b','w_rel'];
-                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Speed<br><br>"]
+                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Speed"]
                case 2
                 mo.model='MMRS_RelAccSensor';
                 mo.outputs=['flange_b','a_rel'];
-                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Acceleration<br><br>"]
+                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=;displayedLabel=Acceleration"]
               end
               mo.parameters=list([],list(),[]);
               model.equations=mo;
               model.in=ones(size(mo.inputs,'*'),1);
               model.out=ones(size(mo.outputs,'*'),1);
               graphics.exprs = exprs;
-              graphics.style=style; 
+              graphics.style=style;
               x.model = model;
               x.graphics = graphics;
               break
@@ -86,6 +78,6 @@ function [x,y,typ]=CMRS_GenRelSensor(job,arg1,arg2)
     x.graphics.in_style = [RotInputStyle()];
     x.graphics.out_implicit=['I','I'];
     x.graphics.out_style = [RotOutputStyle(), RealOutputStyle()];
-      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Position"]
+      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Position"]
     end
 endfunction

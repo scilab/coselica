@@ -33,21 +33,21 @@ function [x,y,typ]=CMRS_GenSensor(job,arg1,arg2)
               mo=modelica();
               mo.inputs=['flange_a'];
               select value
-               case 0           
-                mo.model='MMRS_AngleSensor';                
+               case 0
+                mo.model='MMRS_AngleSensor';
                 mo.outputs=['phi'];
-                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Position<br><br>"]
+                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Position"]
                case 1
                 mo.model='MMRS_SpeedSensor';
                 mo.outputs=['w'];
-                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Speed<br><br>"]
+                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Speed"]
                case 2
                 mo.model='MMRS_AccSensor';
                 mo.outputs=['a'];
-                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Acceleration<br><br>"]
+                style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Acceleration"]
               end
               mo.parameters=list([],list(),[]);
-              model.equations=mo;              
+              model.equations=mo;
               graphics.exprs = exprs;
               graphics.style=style;
               x.model = model;
@@ -70,10 +70,10 @@ function [x,y,typ]=CMRS_GenSensor(job,arg1,arg2)
       model.equations=mo;
       exprs=['0'];
       x=standard_define([2, 2],model,exprs,list([], 0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RotInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=-3;displayedLabel=Position"]
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RotInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Position"]
     end
 endfunction

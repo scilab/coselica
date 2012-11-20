@@ -16,37 +16,29 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMR_Freewheel(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    standard_draw(arg1,%f,_MMRI_Rigid_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MMRI_Rigid_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MMRI_Rigid_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-  case 'define' then
-    model=scicos_model();
-    model.sim='CMR_Freewheel';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+     case 'define' then
+      model=scicos_model();
+      model.sim='CMR_Freewheel';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='CMR_Freewheel';
       mo.inputs=['flange_a'];
       mo.outputs=['flange_b'];
       mo.parameters=list([],list(),[]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RotInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RotOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RotInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RotOutputStyle()];
+    end
 endfunction

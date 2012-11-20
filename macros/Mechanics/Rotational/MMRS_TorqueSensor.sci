@@ -18,14 +18,6 @@
 function [x,y,typ]=MMRS_TorqueSensor(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
-   case 'plot' then
-    standard_draw(arg1,%f,_MMRS_TorqueSensor_dp);
-   case 'getinputs' then
-    [x,y,typ]=_MMRS_TorqueSensor_ip(arg1);
-   case 'getoutputs' then
-    [x,y,typ]=_MMRS_TorqueSensor_op(arg1);
-   case 'getorigin' then
-    [x,y]=standard_origin(arg1);
    case 'set' then
     x=arg1;
    case 'define' then
@@ -48,5 +40,6 @@ function [x,y,typ]=MMRS_TorqueSensor(job,arg1,arg2)
     x.graphics.in_style=[RotInputStyle()];
     x.graphics.out_implicit=['I','I'];
     x.graphics.out_style=[RotOutputStyle(), RealOutputStyle()];
+    x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=bottom;spacing=0;displayedLabel=Torque"]
   end
 endfunction

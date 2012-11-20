@@ -16,54 +16,45 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=MMR_IdealGear(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    ratio=arg1.graphics.exprs(1);
-    standard_draw(arg1,%f,_MMR_IdealGear_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MMR_IdealGear_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MMR_IdealGear_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,ratio,exprs]=...
-        getvalue(['';'MMR_IdealGear';'';'Ideal gear without inertia';''],...
-        [' ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)'],...
-        list('vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(ratio)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    model=scicos_model();
-    ratio=1;
-    model.sim='MMR_IdealGear';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,ratio,exprs]=...
+              getvalue(['';'MMR_IdealGear';'';'Ideal gear without inertia';''],...
+                       [' ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)'],...
+                       list('vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(ratio)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      model=scicos_model();
+      ratio=1;
+      model.sim='MMR_IdealGear';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='MMR_IdealGear';
       mo.inputs=['flange_a'];
       mo.outputs=['flange_b','bearing'];
       mo.parameters=list(['ratio'],...
                          list(ratio),...
                          [0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(ratio)];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[RotInputStyle()];
-    x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[RotOutputStyle(), RotOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(ratio)];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RotInputStyle()];
+      x.graphics.out_implicit=['I','I'];
+      x.graphics.out_style=[RotOutputStyle(), RotOutputStyle()];
+    end
 endfunction
