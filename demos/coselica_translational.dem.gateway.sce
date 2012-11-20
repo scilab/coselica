@@ -15,6 +15,7 @@ function subdemolist = demo_gateway()
 
   subdemolist = ["Translation Forced Movement"     , "TranslationForcedMovement.dem.sce"
                  "Mass and Spring without Friction", "MassWithoutFriction.dem.sce"
+                 "Stick-slip Oscillation"          , "StickSlipOscillation.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
