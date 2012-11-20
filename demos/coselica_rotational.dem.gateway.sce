@@ -14,6 +14,7 @@ function subdemolist = demo_gateway()
   demopath = get_absolute_file_path("coselica_rotational.dem.gateway.sce");
 
   subdemolist = ["Elasto Backlash"              , "ElastoBacklash.dem.sce";
+                 "Bearing Friction"             , "BearingFriction.dem.sce";
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
