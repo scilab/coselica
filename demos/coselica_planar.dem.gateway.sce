@@ -18,6 +18,7 @@ function subdemolist = demo_gateway()
                  "Simple Pendulum"              , "SimplePendulum.dem.sce"
                  "Cart with Pendulum"           , "CartWithPendulum.dem.sce"
                  "Spyrograph"                   , "Spyrograph.dem.sce"
+                 "7 Element pendulum"           , "SevenPendulumWithFriction.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
