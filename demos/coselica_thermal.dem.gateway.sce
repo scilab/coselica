@@ -15,6 +15,7 @@ function subdemolist = demo_gateway()
 
   subdemolist = ["Radiation Heat Transfer"      , "HeatTransfer_Radiation.dem.sce"
                  "Heating Rectifier"            , "HeatingRectifier.dem.sce"
+                 "Controlled Temperature"       , "ControlledTemperature.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
