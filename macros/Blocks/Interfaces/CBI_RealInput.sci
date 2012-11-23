@@ -19,6 +19,8 @@
 function [x,y,typ]=CBI_RealInput(job,arg1,arg2)
     x=[];y=[];typ=[];
     select job
+     case 'set' then
+      x=arg1;
      case 'define' then
       exprs=[];
       model=scicos_model();
