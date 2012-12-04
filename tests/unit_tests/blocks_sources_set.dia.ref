@@ -10,9 +10,7 @@
 // <-- Short Description -->
 // Blocks must have valid dimensions for their settings.
 // Some dimensions were not coherents between theirs "set" and "define" method.
-blocks = ["CBS_Pulse"
-          "CBS_SawTooth"
-          "CBS_Trapezoid"
+blocks = ["CBS_Trapezoid"
           "MBS_Clock"
           "MBS_Constant"
           "MBS_ExpSine"
