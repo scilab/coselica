@@ -16,59 +16,48 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMTS_ForceStep(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    stepForce=arg1.graphics.exprs(1);
-    offsetForce=arg1.graphics.exprs(2);
-    startTime=arg1.graphics.exprs(3);
-    standard_draw(arg1,%f,_CMTS_ConstantForce_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CMTS_ConstantForce_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CMTS_ConstantForce_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,stepForce,offsetForce,startTime,exprs]=..
-        getvalue(['';'CMTS_ForceStep';'';'Constant force, not dependent on speed';''],..
-        [' stepForce [N] : Height of force step (if negative, force is acting as load)';' offsetForce [N] : Offset of force';' startTime [s] : Force = offset for time < startTime'],..
-        list('vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(stepForce,offsetForce,startTime)
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,stepForce,offsetForce,startTime,exprs]=..
+              getvalue(['';'CMTS_ForceStep';'';'Constant force, not dependent on speed';''],..
+                       [' stepForce [N] : Height of force step (if negative, force is acting as load)';' offsetForce [N] : Offset of force';' startTime [s] : Force = offset for time < startTime'],..
+                       list('vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(stepForce,offsetForce,startTime)
+          model.in=[];
+          model.out=[1;1];
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      stepForce=1;
+      offsetForce=0;
+      startTime=0;
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
       model.in=[];
       model.out=[1;1];
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    stepForce=1;
-    offsetForce=0;
-    startTime=0;
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[];
-    model.out=[1;1];
-    mo=modelica();
+      mo=modelica();
       mo.model='Coselica.Mechanics.Translational.Sources.ForceStep';
       mo.inputs=[];
       mo.outputs=['flange','support'];
       mo.parameters=list(['stepForce','offsetForce','startTime'],..
                          list(stepForce,offsetForce,startTime),..
                          [0,0,0]);
-    model.equations=mo;
-    exprs=[strcat(sci2exp(stepForce));strcat(sci2exp(offsetForce));strcat(sci2exp(startTime))];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=[];
-    x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[TransOutputStyle(), TransOutputStyle()];
-  end
+      model.equations=mo;
+      exprs=[strcat(sci2exp(stepForce));strcat(sci2exp(offsetForce));strcat(sci2exp(startTime))];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=[];
+      x.graphics.out_implicit=['I','I'];
+      x.graphics.out_style=[TransOutputStyle(), TransOutputStyle()];
+    end
 endfunction

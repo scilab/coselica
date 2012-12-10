@@ -13,14 +13,6 @@
 function [x,y,typ]=CMTS_GenRelSensor(job,arg1,arg2)
     x=[];y=[];typ=[];
     select job
-     case 'plot' then
-      standard_draw(arg1,%f,_CMTS_PositionSensor_dp);
-     case 'getinputs' then
-      [x,y,typ]=_CMTS_PositionSensor_ip(arg1);
-     case 'getoutputs' then
-      [x,y,typ]=_CMTS_PositionSensor_op(arg1);
-     case 'getorigin' then
-      [x,y]=standard_origin(arg1);
      case 'set' then
       x=arg1;
       graphics=x.graphics;

@@ -18,14 +18,6 @@
 function [x,y,typ]=CMTC_Free(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    standard_draw(arg1,%f,_CMTC_Free_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CMTC_Free_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CMTC_Free_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
   case 'define' then

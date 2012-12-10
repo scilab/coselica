@@ -18,17 +18,6 @@
 function [x,y,typ]=CMTC_ElastoGap(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
-  case 'plot' then
-    c=arg1.graphics.exprs(1);
-    d=arg1.graphics.exprs(2);
-    s_rel0=arg1.graphics.exprs(3);
-    standard_draw(arg1,%f,_MMTI_Rigid_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MMTI_Rigid_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MMTI_Rigid_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
   case 'set' then
     x=arg1;
     graphics=arg1.graphics;exprs=graphics.exprs;
