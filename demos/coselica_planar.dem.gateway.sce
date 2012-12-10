@@ -13,12 +13,13 @@
 function subdemolist = demo_gateway()
   demopath = get_absolute_file_path("coselica_planar.dem.gateway.sce");
 
-  subdemolist = ["Crankshaft"                   , "Crankshaft.dem.sce"
-                 "4 Bars"                       , "Fourbars.dem.sce"
-                 "Simple Pendulum"              , "SimplePendulum.dem.sce"
-                 "Cart with Pendulum"           , "CartWithPendulum.dem.sce"
-                 "Spyrograph"                   , "Spyrograph.dem.sce"
-                 "7 Element pendulum"           , "SevenPendulumWithFriction.dem.sce"
+  subdemolist = ["Crankshaft"                         , "Crankshaft.dem.sce"
+                 "4 Bars"                             , "Fourbars.dem.sce"
+                 "Simple Pendulum"                    , "SimplePendulum.dem.sce"
+                 "Cart with Pendulum"                 , "CartWithPendulum.dem.sce"
+                 "Spyrograph"                         , "Spyrograph.dem.sce"
+                 "7 Element pendulum"                 , "SevenPendulumWithFriction.dem.sce"
+                 "Projectile Motion with Air Friction", "ProjectileMotionWithAirFriction.dem.sce"
                 ];
 
   subdemolist(:,2) = demopath + subdemolist(:,2);
