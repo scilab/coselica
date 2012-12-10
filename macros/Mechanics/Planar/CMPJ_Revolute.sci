@@ -16,64 +16,51 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMPJ_Revolute(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    phi_offset=arg1.graphics.exprs(1);
-    initType=arg1.graphics.exprs(2);
-    phi_start=arg1.graphics.exprs(3);
-    w_start=arg1.graphics.exprs(4);
-    z_start=arg1.graphics.exprs(5);
-    standard_draw(arg1,%f,_CMPI_TwoFrames_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CMPI_TwoFrames_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CMPI_TwoFrames_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,phi_offset,initType,phi_start,w_start,z_start,exprs]=..
-        getvalue(['';'CMPJ_Revolute';'';'Revolute joint (1 rotational degree-of-freedom, 2 states)';''],..
-        [' phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)';' initType [-] : Type of initial value for [phi,w,z] (0=guess,1=fixed)';' phi_start [rad] : Initial value of rotation angle phi';' w_start [rad/s] : Initial value of relative angular velocity w = der(phi)';' z_start [rad/s2] : Initial value of relative angular acceleration z = der(w)'],..
-        list('vec',1,'vec',3,'vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-    model.in=[1];
-    model.out=[1];
-      model.equations.parameters(2)=list(phi_offset,initType,phi_start,w_start,z_start)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    phi_offset=0;
-    initType=[0,0,0];
-    phi_start=0;
-    w_start=0;
-    z_start=0;
-    exprs=[strcat(sci2exp(phi_offset));strcat(sci2exp(initType));strcat(sci2exp(phi_start));strcat(sci2exp(w_start));strcat(sci2exp(z_start))];
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1];
-    model.out=[1];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,phi_offset,initType,phi_start,w_start,z_start,exprs]=..
+              getvalue(['';'CMPJ_Revolute';'';'Revolute joint (1 rotational degree-of-freedom, 2 states)';''],..
+                       [' phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)';' initType [-] : Type of initial value for [phi,w,z] (0=guess,1=fixed)';' phi_start [rad] : Initial value of rotation angle phi';' w_start [rad/s] : Initial value of relative angular velocity w = der(phi)';' z_start [rad/s2] : Initial value of relative angular acceleration z = der(w)'],..
+                       list('vec',1,'vec',3,'vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.in=[1];
+          model.out=[1];
+          model.equations.parameters(2)=list(phi_offset,initType,phi_start,w_start,z_start)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      phi_offset=0;
+      initType=[0,0,0];
+      phi_start=0;
+      w_start=0;
+      z_start=0;
+      exprs=[strcat(sci2exp(phi_offset));strcat(sci2exp(initType));strcat(sci2exp(phi_start));strcat(sci2exp(w_start));strcat(sci2exp(z_start))];
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      model.in=[1];
+      model.out=[1];
+      mo=modelica();
       mo.model='Coselica.Mechanics.Planar.Joints.Revolute';
       mo.inputs=['frame_a'];
       mo.outputs=['frame_b'];
       mo.parameters=list(['phi_offset','initType','phi_start','w_start','z_start'],..
                          list(phi_offset,initType,phi_start,w_start,z_start),..
                          [0,0,0,0,0]);
-    model.equations=mo;
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[PlanInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[PlanOutputStyle()];
-  end
+      model.equations=mo;
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[PlanInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[PlanOutputStyle()];
+    end
 endfunction

@@ -16,60 +16,49 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMPF_LineForceWithMass(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    m=arg1.graphics.exprs(1);
-    lengthFraction=arg1.graphics.exprs(2);
-    s_small=arg1.graphics.exprs(3);
-    standard_draw(arg1,%f,_CMPF_LineForce_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CMPF_LineForce_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CMPF_LineForce_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,m,lengthFraction,s_small,exprs]=..
-        getvalue(['';'CMPF_LineForceWithMass';'';'General line force component with a point mass on the connection line';''],..
-        [' m [kg] : Mass of point mass (> 0) on the connetion line between the origin of frame_a and the origin of frame_b';' lengthFraction [1] : Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b';' s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero'],..
-        list('vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-    model.in=[1;1];
-    model.out=[1;1];
-      model.equations.parameters(2)=list(m,lengthFraction,s_small)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    m=1;
-    lengthFraction=0.5;
-    s_small=1.000D-10;
-    exprs=[strcat(sci2exp(m));strcat(sci2exp(lengthFraction));strcat(sci2exp(s_small))];
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1;1];
-    model.out=[1;1];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,m,lengthFraction,s_small,exprs]=..
+              getvalue(['';'CMPF_LineForceWithMass';'';'General line force component with a point mass on the connection line';''],..
+                       [' m [kg] : Mass of point mass (> 0) on the connetion line between the origin of frame_a and the origin of frame_b';' lengthFraction [1] : Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b';' s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero'],..
+                       list('vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.in=[1;1];
+          model.out=[1;1];
+          model.equations.parameters(2)=list(m,lengthFraction,s_small)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      m=1;
+      lengthFraction=0.5;
+      s_small=1.000D-10;
+      exprs=[strcat(sci2exp(m));strcat(sci2exp(lengthFraction));strcat(sci2exp(s_small))];
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      model.in=[1;1];
+      model.out=[1;1];
+      mo=modelica();
       mo.model='Coselica.Mechanics.Planar.Forces.LineForceWithMass';
       mo.inputs=['frame_a','flange_a'];
       mo.outputs=['frame_b','flange_b'];
       mo.parameters=list(['m','lengthFraction','s_small'],..
                          list(m,lengthFraction,s_small),..
                          [0,0,0]);
-    model.equations=mo;
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[PlanInputStyle(), TransInputStyle()];
-    x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[PlanOutputStyle(), TransOutputStyle()];
-  end
+      model.equations=mo;
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[PlanInputStyle(), TransInputStyle()];
+      x.graphics.out_implicit=['I','I'];
+      x.graphics.out_style=[PlanOutputStyle(), TransOutputStyle()];
+    end
 endfunction

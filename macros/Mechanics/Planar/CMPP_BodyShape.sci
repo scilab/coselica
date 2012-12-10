@@ -18,25 +18,6 @@
 function [x,y,typ]=CMPP_BodyShape(job,arg1,arg2)
     x=[];y=[];typ=[];
     select job
-     case 'plot' then
-      r=arg1.graphics.exprs(1);
-      r_CM=arg1.graphics.exprs(2);
-      m=arg1.graphics.exprs(3);
-      I=arg1.graphics.exprs(4);
-      initType=arg1.graphics.exprs(5);
-      r_0_start=arg1.graphics.exprs(6);
-      v_0_start=arg1.graphics.exprs(7);
-      a_0_start=arg1.graphics.exprs(8);
-      phi_start=arg1.graphics.exprs(9);
-      w_start=arg1.graphics.exprs(10);
-      z_start=arg1.graphics.exprs(11);
-      standard_draw(arg1,%f,_CMPI_TwoFrames_dp);
-     case 'getinputs' then
-      [x,y,typ]=_CMPI_TwoFrames_ip(arg1);
-     case 'getoutputs' then
-      [x,y,typ]=_CMPI_TwoFrames_op(arg1);
-     case 'getorigin' then
-      [x,y]=standard_origin(arg1);
      case 'set' then
       x=arg1;
       graphics=arg1.graphics;exprs=graphics.exprs;

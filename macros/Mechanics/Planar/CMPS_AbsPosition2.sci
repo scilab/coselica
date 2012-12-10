@@ -16,30 +16,30 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CMPS_AbsPosition2(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'set' then
-    x=arg1;
-  case 'define' then
-    exprs=[];
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    model.in=[1;1];
-    model.out=[2];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+     case 'define' then
+      exprs=[];
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      model.in=[1;1];
+      model.out=[2];
+      mo=modelica();
       mo.model='Coselica.Mechanics.Planar.Sensors.AbsPosition2';
       mo.inputs=['frame_a','frame_resolve'];
       mo.outputs=['y'];
       mo.parameters=list([],list(),[]);
-    model.equations=mo;
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[PlanInputStyle(), PlanInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[RealOutputStyle()];
-    x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=0;displayedLabel=Position"];
-  end
+      model.equations=mo;
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[PlanInputStyle(), PlanInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[RealOutputStyle()];
+      x.graphics.style=["blockWithLabel;verticalLabelPosition=middle;verticalAlign=top;spacing=0;displayedLabel=Position"];
+    end
 endfunction
