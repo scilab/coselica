@@ -16,37 +16,29 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=MEAS_SignalVoltage(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    standard_draw(arg1,%f,_MEAS_SignalVoltage_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MEAS_SignalVoltage_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MEAS_SignalVoltage_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-  case 'define' then
-    model=scicos_model();
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+     case 'define' then
+      model=scicos_model();
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='Modelica.Electrical.Analog.Sources.SignalVoltage';
       mo.inputs=['p','v'];
       mo.outputs=['n'];
       mo.parameters=list([],list(),[]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[ElecInputStyle(), RealInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[ElecOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[ElecInputStyle(), RealInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[ElecOutputStyle()];
+    end
 endfunction

@@ -16,76 +16,56 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=CEAS_Thyristor(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    VDRM=arg1.graphics.exprs(1);
-    VRRM=arg1.graphics.exprs(2);
-    IDRM=arg1.graphics.exprs(3);
-    VTM=arg1.graphics.exprs(4);
-    IH=arg1.graphics.exprs(5);
-    ITM=arg1.graphics.exprs(6);
-    VGT=arg1.graphics.exprs(7);
-    IGT=arg1.graphics.exprs(8);
-    TON=arg1.graphics.exprs(9);
-    TOFF=arg1.graphics.exprs(10);
-    Vt=arg1.graphics.exprs(11);
-    Nbv=arg1.graphics.exprs(12);
-    standard_draw(arg1,%f,_CEAS_Thyristor_dp);
-  case 'getinputs' then
-    [x,y,typ]=_CEAS_Thyristor_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_CEAS_Thyristor_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,VDRM,VRRM,IDRM,VTM,IH,ITM,VGT,IGT,TON,TOFF,Vt,Nbv,exprs]=...
-        getvalue(['';'CEAS_Thyristor';'';'Simple Thyristor Model';''],...
-        [' VDRM [V] : Forward breakthrough voltage (>= 0)';' VRRM [V] : Reverse breakthrough voltage (>= 0)';' IDRM [A] : Saturation current';' VTM [V] : Conducting voltage';' IH [A] : Holding current';' ITM [A] : Conducting current';' VGT [V] : Gate trigger voltage';' IGT [A] : Gate trigger current';' TON [s] : Switch on time';' TOFF [s] : Switch off time';' Vt [V] : Voltage equivalent of temperature (kT/qn)';' Nbv [-] : Reverse Breakthrough emission coefficient'],...
-        list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(VDRM,VRRM,IDRM,VTM,IH,ITM,VGT,IGT,TON,TOFF,Vt,Nbv)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    model=scicos_model();
-    VDRM=100;
-    VRRM=100;
-    IDRM=0.1;
-    VTM=1.7;
-    IH=0.006;
-    ITM=25;
-    VGT=0.7;
-    IGT=0.005;
-    TON=0.000001;
-    TOFF=0.000015;
-    Vt=0.04;
-    Nbv=0.74;
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,VDRM,VRRM,IDRM,VTM,IH,ITM,VGT,IGT,TON,TOFF,Vt,Nbv,exprs]=...
+              getvalue(['';'CEAS_Thyristor';'';'Simple Thyristor Model';''],...
+                       [' VDRM [V] : Forward breakthrough voltage (>= 0)';' VRRM [V] : Reverse breakthrough voltage (>= 0)';' IDRM [A] : Saturation current';' VTM [V] : Conducting voltage';' IH [A] : Holding current';' ITM [A] : Conducting current';' VGT [V] : Gate trigger voltage';' IGT [A] : Gate trigger current';' TON [s] : Switch on time';' TOFF [s] : Switch off time';' Vt [V] : Voltage equivalent of temperature (kT/qn)';' Nbv [-] : Reverse Breakthrough emission coefficient'],...
+                       list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(VDRM,VRRM,IDRM,VTM,IH,ITM,VGT,IGT,TON,TOFF,Vt,Nbv)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      model=scicos_model();
+      VDRM=100;
+      VRRM=100;
+      IDRM=0.1;
+      VTM=1.7;
+      IH=0.006;
+      ITM=25;
+      VGT=0.7;
+      IGT=0.005;
+      TON=0.000001;
+      TOFF=0.000015;
+      Vt=0.04;
+      Nbv=0.74;
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='Coselica.Electrical.Analog.Semiconductors.Thyristor';
       mo.inputs=['Anode','Gate'];
       mo.outputs=['Cathode'];
       mo.parameters=list(['VDRM','VRRM','IDRM','VTM','IH','ITM','VGT','IGT','TON','TOFF','Vt','Nbv'],...
                          list(VDRM,VRRM,IDRM,VTM,IH,ITM,VGT,IGT,TON,TOFF,Vt,Nbv),...
                          [0,0,0,0,0,0,0,0,0,0,0,0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(VDRM);sci2exp(VRRM);sci2exp(IDRM);sci2exp(VTM);sci2exp(IH);sci2exp(ITM);sci2exp(VGT);sci2exp(IGT);sci2exp(TON);sci2exp(TOFF);sci2exp(Vt);sci2exp(Nbv)];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[ElecInputStyle(), ElecInputStyle() ];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[ElecOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(VDRM);sci2exp(VRRM);sci2exp(IDRM);sci2exp(VTM);sci2exp(IH);sci2exp(ITM);sci2exp(VGT);sci2exp(IGT);sci2exp(TON);sci2exp(TOFF);sci2exp(Vt);sci2exp(Nbv)];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[ElecInputStyle(), ElecInputStyle() ];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[ElecOutputStyle()];
+    end
 endfunction

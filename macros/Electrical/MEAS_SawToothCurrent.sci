@@ -16,60 +16,48 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=MEAS_SawToothCurrent(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    I=arg1.graphics.exprs(1);
-    period=arg1.graphics.exprs(2);
-    offset=arg1.graphics.exprs(3);
-    startTime=arg1.graphics.exprs(4);
-    standard_draw(arg1,%f,_MEAI_OnePort_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MEAI_OnePort_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MEAI_OnePort_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,I,period,offset,startTime,exprs]=...
-        getvalue(['';'MEAS_SawToothCurrent';'';'Saw tooth current source';''],...
-        [' I [A] : Amplitude of saw tooth';' period [s] : Time for one period';' offset [A] : Current offset';' startTime [s] : Time offset'],...
-        list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(I,period,offset,startTime)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    model=scicos_model();
-    I=1;
-    period=1;
-    offset=0;
-    startTime=0;
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,I,period,offset,startTime,exprs]=...
+              getvalue(['';'MEAS_SawToothCurrent';'';'Saw tooth current source';''],...
+                       [' I [A] : Amplitude of saw tooth';' period [s] : Time for one period';' offset [A] : Current offset';' startTime [s] : Time offset'],...
+                       list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(I,period,offset,startTime)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      model=scicos_model();
+      I=1;
+      period=1;
+      offset=0;
+      startTime=0;
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='Modelica.Electrical.Analog.Sources.SawToothCurrent';
       mo.inputs=['p'];
       mo.outputs=['n'];
       mo.parameters=list(['I','period','offset','startTime'],...
                          list(I,period,offset,startTime),...
                          [0,0,0,0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(I);sci2exp(period);sci2exp(offset);sci2exp(startTime)];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I'];
-    x.graphics.in_style=[ElecInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[ElecOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(I);sci2exp(period);sci2exp(offset);sci2exp(startTime)];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[ElecInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[ElecOutputStyle()];
+    end
 endfunction

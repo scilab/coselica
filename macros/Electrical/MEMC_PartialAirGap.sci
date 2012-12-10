@@ -11,54 +11,54 @@
 //
 
 function [x,y,typ]=MEMC_PartialAirGap(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,m,p,exprs]=...
-        getvalue(['';'MEMC_PartialAirGap';'';'Partial airgap model';''],...
-        [' m : Number of phases';'p : Number of pole pairs (minimum 1)'],...
-        list('vec',1,'vec',1),exprs);
-      mess=[];
-      if ~ok then break, end
-      if p < 1 then
-          mess=[mess;_('Number of pole must be greater than 1')];
-          ok=%f
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,m,p,exprs]=...
+              getvalue(['';'MEMC_PartialAirGap';'';'Partial airgap model';''],...
+                       [' m : Number of phases';'p : Number of pole pairs (minimum 1)'],...
+                       list('vec',1,'vec',1),exprs);
+          mess=[];
+          if ~ok then break, end
+          if p < 1 then
+              mess=[mess;_('Number of pole must be greater than 1')];
+              ok=%f
+          end
+          if ok then
+              model.equations.parameters(2)=list(m,p)
+              graphics.exprs=exprs;
+              x.graphics=graphics;x.model=model;
+              break
+          else
+              message(mess);
+          end
       end
-      if ok then
-         model.equations.parameters(2)=list(m,p)
-         graphics.exprs=exprs;
-         x.graphics=graphics;x.model=model;
-         break
-     else
-         message(mess);
-      end
-    end
-  case 'define' then
-    model=scicos_model();
-    m=3; p=1;
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+     case 'define' then
+      model=scicos_model();
+      m=3; p=1;
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='Modelica.Electrical.Machines.Components.PartialAirGap';
       mo.inputs=['spacePhasor_s','support'];
       mo.outputs=['spacePhasor_r','flange'];
       mo.parameters=list(['m','p'],...
                          list(m,p),...
                          [0,0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(m);sci2exp(p)];
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(m);sci2exp(p)];
 
-    x=standard_define([2 2],model,exprs,[]);
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[ElecInputStyle(), RotInputStyle()];
-    x.graphics.out_implicit=['I','I'];
-    x.graphics.out_style=[ElecOutputStyle(), RotOutputStyle()];
-  end
+      x=standard_define([2 2],model,exprs,[]);
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[ElecInputStyle(), RotInputStyle()];
+      x.graphics.out_implicit=['I','I'];
+      x.graphics.out_style=[ElecOutputStyle(), RotOutputStyle()];
+    end
 endfunction

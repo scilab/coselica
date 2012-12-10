@@ -16,56 +16,46 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 function [x,y,typ]=MEAI_IdealOpeningSwitch(job,arg1,arg2)
-x=[];y=[];typ=[];
-select job
-  case 'plot' then
-    Ron=arg1.graphics.exprs(1);
-    Goff=arg1.graphics.exprs(2);
-    standard_draw(arg1,%f,_MEAI_Switch_dp);
-  case 'getinputs' then
-    [x,y,typ]=_MEAI_Switch_ip(arg1);
-  case 'getoutputs' then
-    [x,y,typ]=_MEAI_Switch_op(arg1);
-  case 'getorigin' then
-    [x,y]=standard_origin(arg1);
-  case 'set' then
-    x=arg1;
-    graphics=arg1.graphics;exprs=graphics.exprs;
-    model=arg1.model;
-    while %t do
-      [ok,Ron,Goff,exprs]=...
-        getvalue(['';'MEAI_IdealOpeningSwitch';'';'Ideal electrical opener';''],...
-        [' Ron [Ohm] : Closed switch resistance';' Goff [S] : Opened switch conductance'],...
-        list('vec',1,'vec',1),exprs);
-      if ~ok then break, end
-      model.equations.parameters(2)=list(Ron,Goff)
-      graphics.exprs=exprs;
-      x.graphics=graphics;x.model=model;
-      break
-    end
-  case 'define' then
-    model=scicos_model();
-    Ron=0.00001;
-    Goff=0.00001;
-    model.sim='Coselica';
-    model.blocktype='c';
-    model.dep_ut=[%t %f];
-    mo=modelica();
+    x=[];y=[];typ=[];
+    select job
+     case 'set' then
+      x=arg1;
+      graphics=arg1.graphics;exprs=graphics.exprs;
+      model=arg1.model;
+      while %t do
+          [ok,Ron,Goff,exprs]=...
+              getvalue(['';'MEAI_IdealOpeningSwitch';'';'Ideal electrical opener';''],...
+                       [' Ron [Ohm] : Closed switch resistance';' Goff [S] : Opened switch conductance'],...
+                       list('vec',1,'vec',1),exprs);
+          if ~ok then break, end
+          model.equations.parameters(2)=list(Ron,Goff)
+          graphics.exprs=exprs;
+          x.graphics=graphics;x.model=model;
+          break
+      end
+     case 'define' then
+      model=scicos_model();
+      Ron=0.00001;
+      Goff=0.00001;
+      model.sim='Coselica';
+      model.blocktype='c';
+      model.dep_ut=[%t %f];
+      mo=modelica();
       mo.model='Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch';
       mo.inputs=['p','control'];
       mo.outputs=['n'];
       mo.parameters=list(['Ron','Goff'],...
                          list(Ron,Goff),...
                          [0,0]);
-    model.equations=mo;
-    model.in=ones(size(mo.inputs,'*'),1);
-    model.out=ones(size(mo.outputs,'*'),1);
-    exprs=[sci2exp(Ron);sci2exp(Goff)];
-    gr_i=[];
-    x=standard_define([2 2],model,exprs,list(gr_i,0));
-    x.graphics.in_implicit=['I','I'];
-    x.graphics.in_style=[ElecInputStyle(), RealInputStyle()];
-    x.graphics.out_implicit=['I'];
-    x.graphics.out_style=[ElecOutputStyle()];
-  end
+      model.equations=mo;
+      model.in=ones(size(mo.inputs,'*'),1);
+      model.out=ones(size(mo.outputs,'*'),1);
+      exprs=[sci2exp(Ron);sci2exp(Goff)];
+      gr_i=[];
+      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x.graphics.in_implicit=['I','I'];
+      x.graphics.in_style=[ElecInputStyle(), RealInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[ElecOutputStyle()];
+    end
 endfunction
