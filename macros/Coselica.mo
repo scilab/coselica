@@ -4835,6 +4835,52 @@ package Coselica
 
     package Sources
 
+/*
+      model Trapezoid "Generate trapezoidal signal of type Real"
+        parameter Real amplitude[:] = {1} "Amplitude of trapezoid";
+        parameter Real rising[:] = {0} "Rising duration of trapezoid";
+        parameter Real width[:] = {0.5} "Width duration of trapezoid";
+        parameter Real falling[:] = {0} "Falling duration of trapezoid";
+        parameter Real period[:] = {1} "Time for one period";
+        parameter Real nperiod[:] =  {-1} "Number of periods (< 0 means infinite number of periods)";
+        parameter Real offset[:] = {0} "Offset of output signal";
+        parameter Real startTime[:] = {0} "Output = offset for time < startTime";
+        parameter Integer nout = max([size(amplitude, 1); size(rising, 1);
+                                             size(width, 1); size(falling, 1);
+                                             size(period, 1); size(nperiod, 1);
+                                             size(offset, 1); size(startTime, 1)]);
+          extends Modelica.Blocks.Interfaces.SO;
+      protected
+        parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout)*amplitude[1] else amplitude);
+        parameter Real T_rising[nout]=(if size(rising, 1) == 1 then ones(nout)*rising[1] else rising) "End time of rising phase within one period";
+        parameter Real T_width[nout]=T_rising + (if size(width, 1) == 1 then ones(nout)*width[1] else width) "End time of width phase within one period";
+        parameter Real T_falling[nout]=T_width + (if size(falling, 1) == 1 then ones(nout)*falling[1] else falling) "End time of falling phase within one period";
+        parameter Real p_period[nout]=(if size(period, 1) == 1 then ones(nout)*period[1] else period) "Duration of one period";
+        parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset);
+        parameter Real p_startTime[nout]=(if size(startTime, 1) == 1 then ones(nout)*startTime[1] else startTime);
+        discrete Real T0[nout](final start=p_startTime) "Start time of current period";
+        discrete Integer counter[nout](start=(if size(nperiod, 1) == 1 then ones(nout)*nperiod[1] else nperiod)) "Period counter";
+        discrete Integer counter2[nout](start=(if size(nperiod, 1) == 1 then ones(nout)*nperiod[1] else nperiod));
+      equation
+        for i in 1:nout loop
+          when (pre(counter2[i]) > 0 )
+          then
+            T0[i] = time;
+            counter2[i] = pre(counter[i]);
+            counter[i] = pre(counter[i]) - (if pre(counter[i]) > 0 then 1 else 0);
+          end when;
+          y.signal = p_offset[i] + (if (time < p_startTime[i] or
+                                                 counter2[i] == 0 or time >= T0[i] + T_falling[i])
+                                             then 0
+                                             else if (time < T0[i] + T_rising[i])
+                                             then (time - T0[i])*p_amplitude[i]/T_rising[i]
+                                             else if (time < T0[i] + T_width[i])
+                                             then p_amplitude[i]
+                                             else (T0[i] + T_falling[i] - time)*p_amplitude[i]/(T_falling[i] - T_width[i]));
+        end for;
+      end Trapezoid;
+*/
+
       model Trapezoid "Generate trapezoidal signal of type Real"
         parameter Real amplitude = 1 "Amplitude of trapezoid";
         parameter Real rising = 0 "Rising duration of trapezoid";
@@ -4849,14 +4895,22 @@ package Coselica
         parameter Real T_rising = rising "End time of rising phase within one period";
         parameter Real T_width = T_rising + width "End time of width phase within one period";
         parameter Real T_falling = T_width + falling "End time of falling phase within one period";
-        discrete Real T0(start = startTime, fixed = true) "Start time of current period";
+        //discrete Real T0 (start=startTime, fixed = true) "Start time of current period";
+        Real T0 (final start=startTime) "Start time of current period";
         discrete Real counter(start = nperiod, fixed = true) "Period counter";
       equation
+        der(T0)=0;
         when time > T0 + period then
-            T0 = time;
-            counter = if counter<0 then 10000 else max(0, counter - 1);
+          T0 = time;
+          counter = if counter < 0 then -1 else max(0, counter - 1);
         end when;
-        y.signal = offset + (if time < startTime or counter >  -1 and counter < 1 or time >= T0 + T_falling then 0 else if time < T0 + T_rising then ((time - T0) * amplitude) / T_rising else if time < T0 + T_width then amplitude else ((T0 + T_falling - time) * amplitude) / (T_falling - T_width));
+        y.signal = offset + (if time < startTime or counter >  -1 and counter < 1 or time >= T0 + T_falling
+                             then 0
+                             else if time < T0 + T_rising
+                             then ((time - T0) * amplitude) / T_rising
+                             else if time < T0 + T_width
+                             then amplitude
+                             else ((T0 + T_falling - time) * amplitude) / (T_falling - T_width));
       end Trapezoid;
     end Sources;
 

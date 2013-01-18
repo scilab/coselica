@@ -1,4 +1,5 @@
 // Coselica Toolbox for Xcos
+// Copyright (C) 2012 - Scilab Enterprises - Bruno JOFRET
 // Copyright (C) 2011 - DIGITEO - Bruno JOFRET
 // Copyright (C) 2009, 2010  Dirk Reusch, Kybernetik Dr. Reusch
 //
@@ -27,11 +28,48 @@ function [x,y,typ]=CBS_Trapezoid(job,arg1,arg2)
               scicos_getvalue(['';'CBS_Trapezoid';'';'Generate trapezoidal signal of type Real';''],...
                               [' amplitude [-] : Amplitude of trapezoid';' rising [s] : Rising duration of trapezoid';' width [s] : Width duration of trapezoid';' falling [s] : Falling duration of trapezoid';' period [s] : Time for one period';' nperiod [-] : Number of periods (< 0 means infinite number of periods)';' offset [-] : Offset of output signal';' startTime [s] : Output = offset for time < startTime'],...
                               list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
-          if ~ok then break, end
-          model.equations.parameters(2)=list(amplitude,rising,width,falling,period,nperiod,offset,startTime)
-          graphics.exprs=exprs;
-          x.graphics=graphics;x.model=model;
-          break
+          if ~ok then
+              break
+          end
+
+          // Check if all time values are positive.
+          if rising < 0 then
+               message(_("Rising duration of trapezoid must be positive."));
+               ok = %f;
+          end
+
+          if width < 0 then
+              message(_("Width duration of trapezoid must be positive."));
+              ok = %f;
+          end
+
+          if falling < 0 then
+              message(_("Falling duration of trapezoid must be positive."));
+              ok = %f;
+          end
+
+          if period < 0 then
+              message(_("Time for one period must be positive."));
+              ok = %f;
+          end
+
+          // Period time must be greater than Rising + Width + Falling
+          if period < rising + width + falling
+              message(_("Period must be greater than Rising + Width + Falling"));
+              ok = %f;
+          end
+
+          if int(nperiod) <> nperiod then
+              message(_("Numbre of periods must be an integer value."));
+              ok = %f;
+          end
+
+          if ok then
+              model.equations.parameters(2)=list(amplitude,rising,width,falling,period,nperiod,offset,startTime)
+              graphics.exprs=exprs;
+              x.graphics=graphics;x.model=model;
+              break
+          end
       end
      case 'define' then
       model=scicos_model();
