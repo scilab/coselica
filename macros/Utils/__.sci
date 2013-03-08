@@ -16,11 +16,20 @@ function trad = __(msg)
     //    return;
     //end
 
-    en_US_msg = ["hello"]
-    fr_FR_msg = ["bonjour"]
-    index = find(en_US_msg == msg);
+    global %coselicaMessages;
+    if isempty(%coselicaMessages)
+        thisLib = whereis("__");
+        [macrolist, path] = libraryinfo(thisLib);
+        %coselicaMessages = csvRead(path+strcat(["..", "..", "etc"]+filesep())+"messages.csv", "$$", [], "string")
+    end
+
+    index = find(%coselicaMessages(:, 1) == msg);
     if ~isempty(index) then
-        trad = fr_FR_msg(index);
+        if isempty(%coselicaMessages(index, 3)) then
+            trad = %coselicaMessages(index, 2);
+        else
+            trad = %coselicaMessages(index, 2:3)';
+        end
     else
         trad = msg
     end
