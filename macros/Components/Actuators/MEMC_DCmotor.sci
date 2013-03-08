@@ -33,17 +33,21 @@ select job
     model=arg1.model;
     while %t do
       [ok,R,L,k,Jrotor,fixedframe,exprs]=...
-        getvalue(['';'MEMC_DCmotor';'';'DC motor with permanent magnet';''],...
-        [' R (Ohm): resistance';' L (H) : inductance' ; 'k (Nm/A) : constant fcem'; ' Jrotor (kg.m^2): rotor inertial momentum'; ' Fixed frame (1 : Yes / 0 : No)'] ,...
+        getvalue(['MEMC_DCmotor';__('DC motor with permanent magnet')],...
+        [__('R [Ohm]: resistance');...
+         __('L [H] : inductance');...
+         __('k [Nm/A] : constant fcem');...
+         __('Jrotor [kg.m^2]: rotor inertial momentum');...
+         __('Fixed frame (1 : Yes / 0 : No)')] ,...
         list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
-      
+
             //test error syntax
       if fixedframe<>1 & fixedframe<>0 then
           message(_('Choose 1 or 0 in order to specify fixed frame or not'));
           ok = %f
       end
-      
+
       //no error
       if ok then
           graphics.exprs=exprs;
@@ -78,7 +82,7 @@ select job
                 x.graphics.in_implicit=['I','I'];
                 x.graphics.in_style=[ElecInputStyle(),ElecOutputStyle()];
                 x.graphics.out_implicit=['I','I'];
-                x.graphics.out_style=[RotOutputStyle(),RotInputStyle()];              
+                x.graphics.out_style=[RotOutputStyle(),RotInputStyle()];
           end
       end
 

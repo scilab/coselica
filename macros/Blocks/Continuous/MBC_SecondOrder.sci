@@ -25,8 +25,10 @@ function [x,y,typ]=MBC_SecondOrder(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,w,D,exprs]=..
-              getvalue(['';'MBC_SecondOrder';'';'Second order transfer function block (= 2 poles)';''],..
-                       [' k [-] : Gain';' w [-] : Angular frequency';' D [-] : Damping'],..
+              getvalue(['MBC_SecondOrder';__('Second order transfer function block (= 2 poles)')],..
+                       [__('k [-] : Gain');...
+                        __('w [-] : Angular frequency');...
+                        __('D [-] : Damping')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

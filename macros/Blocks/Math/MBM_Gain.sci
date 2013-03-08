@@ -25,8 +25,8 @@ function [x,y,typ]=MBM_Gain(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,exprs]=..
-              getvalue(['';'MBM_Gain';'';'Output the product of a gain value with the input signal';''],..
-                       [' k [-] : Gain value multiplied with input signal'],..
+              getvalue(['MBM_Gain';__('Output the product of a gain value with the input signal')],..
+                       [__('k [-] : Gain value multiplied with input signal')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(k)

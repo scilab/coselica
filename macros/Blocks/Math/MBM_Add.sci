@@ -24,8 +24,9 @@ function [x,y,typ]=MBM_Add(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k1,k2,exprs]=..
-              getvalue(['';'MBM_Add';'';'Output the sum of the two inputs';''],..
-                       [' k1 [-] : Gain of upper input';' k2 [-] : Gain of lower input'],..
+              getvalue(['MBM_Add';__('Output the sum of the two inputs')],..
+                       [__('k1 [-] : Gain of upper input');..
+                        __('k2 [-] : Gain of lower input')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(k1,k2)

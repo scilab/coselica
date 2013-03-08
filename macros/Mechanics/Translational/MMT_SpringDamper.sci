@@ -24,8 +24,10 @@ function [x,y,typ]=MMT_SpringDamper(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,s_rel0,c,d,exprs]=..
-              getvalue(['';'MMT_SpringDamper';'';'Linear 1D translational spring and damper in parallel';''],..
-                       [' s_rel0 [m] : unstretched spring length';' c [N/m] : spring constant';' d [N/(m/s)] : damping constant'],..
+              getvalue(['MMT_SpringDamper';__('Linear 1D translational spring and damper in parallel')],..
+                       [__('s_rel0 [m] : unstretched spring length');...
+                        __('c [N/m] : spring constant');...
+                        __('d [N/(m/s)] : damping constant')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(s_rel0,c,d)

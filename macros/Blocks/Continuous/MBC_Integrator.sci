@@ -25,8 +25,9 @@ function [x,y,typ]=MBC_Integrator(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,y_start,exprs]=..
-              getvalue(['';'MBC_Integrator';'';'Output the integral of the input signals';''],..
-                       [' k [-] : Integrator gains';' y_start [-] : Start values of integrators'],..
+              getvalue(['MBC_Integrator';__('Output the integral of the input signals')],..
+                       [__('k [-] : Integrator gains');...
+                        __('y_start [-] : Start values of integrators')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

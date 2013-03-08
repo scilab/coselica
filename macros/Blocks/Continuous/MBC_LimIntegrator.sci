@@ -25,8 +25,11 @@ function [x,y,typ]=MBC_LimIntegrator(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,outMax,outMin,y_start,exprs]=..
-              getvalue(['';'MBC_LimIntegrator';'';'Integrator with limited values of the outputs';''],..
-                       [' k [-] : Integrator gains';' outMax [-] : Upper limits of outputs';' outMin [-] : Lower limits of outputs';' y_start [-] : Start values of integrators'],..
+              getvalue(['MBC_LimIntegrator';__('Integrator with limited values of the outputs')],..
+                       [__('k [-] : Integrator gains');...
+                        __('outMax [-] : Upper limits of outputs');...
+                        __('outMin [-] : Lower limits of outputs');...
+                        __('y_start [-] : Start values of integrators')],..
                        list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

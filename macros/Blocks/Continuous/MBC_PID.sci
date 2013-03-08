@@ -25,8 +25,11 @@ function [x,y,typ]=MBC_PID(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,Ti,Td,Nd,exprs]=..
-              getvalue(['';'MBC_PID';'';'PID-controller in additive description form';''],..
-                       [' k [-] : Gain';' Ti [s] : Time Constant of Integrator';' Td [s] : Time Constant of Derivative block';' Nd [-] : The higher Nd, the more ideal the derivative block'],..
+              getvalue(['MBC_PID';__('PID-controller in additive description form')],..
+                       [__('k [-] : Gain');...
+                        __('Ti [s] : Time Constant of Integrator');...
+                        __('Td [s] : Time Constant of Derivative block');...
+                        __('Nd [-] : The higher Nd, the more ideal the derivative block')],..
                        list('vec',1,'vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

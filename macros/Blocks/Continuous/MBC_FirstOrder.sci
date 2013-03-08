@@ -25,8 +25,9 @@ function [x,y,typ]=MBC_FirstOrder(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,T,exprs]=..
-              getvalue(['';'MBC_FirstOrder';'';'First order transfer function block (= 1 pole)';''],..
-                       [' k [-] : Gain';' T [s] : Time Constant'],..
+              getvalue(['MBC_FirstOrder';__('First order transfer function block (= 1 pole)')],..
+                       [__('k [-] : Gain');...
+                        __('T [s] : Time Constant')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

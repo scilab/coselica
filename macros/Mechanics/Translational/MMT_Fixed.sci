@@ -24,8 +24,8 @@ function [x,y,typ]=MMT_Fixed(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,s0,exprs]=..
-              getvalue(['';'MMT_Fixed';'';'Fixed flange';''],..
-                       [' s0 [m] : fixed offset position of housing'],..
+              getvalue(['MMT_Fixed';__('Fixed flange')],..
+                       [__('s0 [m] : fixed offset position of housing')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(s0)

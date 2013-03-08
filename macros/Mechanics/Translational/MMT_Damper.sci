@@ -24,8 +24,8 @@ function [x,y,typ]=MMT_Damper(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,d,exprs]=..
-              getvalue(['';'MMT_Damper';'';'Linear 1D translational damper';''],..
-                       [' d [N/ (m/s)] : damping constant [N/ (m/s)]'],..
+              getvalue(['MMT_Damper';__('Linear 1D translational damper')],..
+                       [__('d [N/ (m/s)] : damping constant [N/ (m/s)]')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(d)
