@@ -1,0 +1,44 @@
+Ideal linear electrical inductor$$Ce bloc correspond à une inductance$$
+Temperature dependent electrical resistor$$Ce bloc correspond à une résistance chauffante.$$Le flux thermique est linéaire par rapport à la différence de température entre la température de la résistance et la température de référence
+R_ref [Ohm] : Resistance at temperature T_ref$$R_ref [Ohm] : Resistance à la temperature T_ref$$
+T_ref [K] : Reference temperature$$T_ref [K] : température de référence$$
+Ideal linear electrical resistor$$Ce bloc correspond à une simple résistance$$
+Ideal linear electrical capacitor with variable capacitance$$Ce bloc correspond à une capacité variable.$$La variation de capacité est donnée par le signal de commande.
+Cmin [F] : Minimal capacitance$$Cmin [F] : Capacité minimale$$
+Ideal linear electrical inductor with variable inductance$$Ce bloc correspond à une inductance variable.$$La variation d'inductance est donnée par le signal de commande.
+Lmin [H] : Minimal inductance$$Lmin [H] : inductance minimale$$
+Ideal electrical closer$$Ce bloc modélise un interrupteur normalement ouvert (aussi appelé interrupteur à fermeture) piloté par un signal de commande de fermeture$$Les paramètres de résistance lorsque l'interrupteur est fermé ou de conductance lorsque l'interrupteur est ouvert permettent d'éviter les singularités de courant/tension.
+Ideal electrical opener$$ Ce bloc modélise un interrupteur normalement fermé (aussi appelé interrupteur à ouverture) piloté par un signal de commande d'ouverture$$ Les paramètres de résistance lorsque l'interrupteur est fermé ou de conductance lorsque l'interrupteur est ouvert permettent d'éviter les singularités de courant/tension.
+Ron [Ohm] : Closed switch resistance$$Ron [Ohm] : résistance lorsque l'interrupteur est fermé$$
+Goff [S] : Opened switch conductance$$Goff [S] : conductance lorsque l'interrupteur est ouvert$$
+Ideal commuting switch$$Ce bloc correspond à un commutateur piloté par un signal de commande$$ Les paramètres de résistance lorsque l'interrupteur est fermé ou de conductance lorsque l'interrupteur est ouvert permettent d'éviter les singularités de courant/tension.
+1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange$$ Ce bloc modélise le décallage angulaire entre deux corps rigides en rotation$$
+deltaPhi [rad] : Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)$$ deltaPhi [rad] : Angle de rotation constant entre l'entrée et la sortie$$
+Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)$$ Ce composant modélise un jeu dans une liaison pivot combiné à un comportement de type ressort de torsion et viscosité.$$
+c [N.m/rad] : Spring constant (c > 0)$$ c [N.m/rad] : raideur de torsion (c > 0)$$
+d [N.m.s/rad] : Damping constant (d >= 0)$$ d [N.m.s/rad] : Coefficient de viscosité (d >= 0)$$
+b [rad] : Total backlash (b >= 0)$$ b [rad] : Jeu total (b >= 0)$$
+phi_rel0 [rad] : Unstretched spring angle$$phi_rel0 [rad] : Angle de torsion à vide$$
+Ideal differential gear without inertia$$ Ce bloc représente la cinématique uniquement d'un engrenage de type différentiel$$
+Choose physical quantity : (0) position, (1) speed, (2) acceleration$$ Choisir la grandeur physique à mesurer : (0) position, (1) vitesse, (2) acceleration$$
+Generic Relative Sensor$$ Capteur relatif générique$$
+Generic Sensor$$Capteur générique$$
+Physical quantity must be 0, 1 or 2$$ La grandeur physique doit etre 0, 1 ou 2$$
+Choose physical quantity to impose : (0) position, (1) speed, (2) acceleration$$ Choix du mouvement à imposer : (0) position, (1) vitesse, (2) acceleration$$
+Imposed Kinematic from fixed frame or not$$ Ce bloc permet d'imposer un mouvement entre un arbre et le bâti ou entre une partie mâle et partie femelle.$$
+Fixed frame (1 : Yes / 0 : No)$$ Partie femelle fixe (1 : Oui / 0 : Non)$$
+Tau_prop [N.m/(rad/s)] : Angular velocity dependent friction$$Tau_prop [N.m/(rad/s)] : coefficient de couple de frottement fonction de la vitesse angulaire$$
+Tau_Coulomb [N.m] : Constant fricton: Coulomb torque$$Tau_Coulomb [N.m] : Couple de frottement de type Coulomb$$
+Tau_Stribeck [N.m] : Stribeck effect$$Tau_Stribeck [N.m] : Couple de frottement de type Stribeck$$
+fexp [1/(rad/s)] : Exponential decay of Stribeck effect$$fexp [1/(rad/s)] : Constante de temps de l'effet Stribeck
+mode_start [-] : Initial sliding mode (-1=Backward, 0=Sticking, 1=Forward, 2=Free)$$mode_start [-] : Etat initial (-1=glissement en arrière,0=Adhérence,1=Glissement en avant,2=Libre)
+Linear 1D rotational damper$$Ce bloc modélise un comportement de type visqueux au niveau d''une liaison pivot.$$
+d [N.m.s/rad] : Damping constant$$d [N.m.s/rad] : Coefficient de viscosité$$
+b [rad] : Total backlash$$b [rad] : Jeu total$$
+Flange fixed in housing at a given angle$$Ce bloc modélise le bâti fixe. L'angle spécifié caractérise la référence des angles.$$
+phi0 [rad] : Fixed offset angle of housing$$phi0 [rad] : Offest angulaire du bâti$$
+Ideal gear without inertia$$Ce bloc modélise la cinématique d''un engrenage sans masse, ni raideur, ni viscosité$$
+ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)$$ratio [-] : rapport de transmission (entrée/sortie)
+Ideal planetary gear box$$Engrenage à train épicycloïdal parfait$$
+ratio [-] : number of ring_teeth/sun_teeth (e.g. ratio=100/50)$$ratio [-] : rapport entre le nombre de dents de la couronne sur le nombre de dents du pignon planétaire(e.g. ratio=100/50)$$
+J [kg.m2] : Moment of inertia$$J [kg.m2] : Moment d'inertie autour de l'axe$$
