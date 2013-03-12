@@ -24,8 +24,9 @@ function [x,y,typ]=CBR_MultiplexVector2(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,n1,n2,exprs]=..
-              getvalue(['';'CBR_MultiplexVector2';'';'Multiplexer block for two input connectors';''],..
-                       [' n1 [-] : dimension of input signal connector 1';' n2 [-] : dimension of input signal connector 2'],..
+              getvalue(['CBR_MultiplexVector2';__('Multiplexer block for two input connectors')],..
+                       [__('n1 [-] : dimension of input signal connector 1');...
+                        __('n2 [-] : dimension of input signal connector 2')],..
                        list('intvec',1,'intvec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(int32(n1), int32(n2))

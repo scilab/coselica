@@ -24,8 +24,8 @@ function [x,y,typ]=CMTS_ConstantForce(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,f_constant,exprs]=..
-              getvalue(['';'CMTS_ConstantForce';'';'Constant force, not dependent on speed';''],..
-                       [' f_constant [N] : Nominal force (if negative, force is acting as load)'],..
+              getvalue(['CMTS_ConstantForce';__('Constant force, not dependent on speed')],..
+                       [__('f_constant [N] : Nominal force (if negative, force is acting as load)')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(f_constant)

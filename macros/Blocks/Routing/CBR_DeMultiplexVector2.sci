@@ -24,8 +24,9 @@ function [x,y,typ]=CBR_DeMultiplexVector2(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,n1,n2,exprs]=..
-              scicos_getvalue(['';'CBR_DeMultiplexVector2';'';'DeMultiplexer block for two output connectors';''],..
-                              [' n1 [-] : dimension of output signal connector 1';' n2 [-] : dimension of output signal connector 2'],..
+              scicos_getvalue(['CBR_DeMultiplexVector2';__('DeMultiplexer block for two output connectors')],..
+                              [__('n1 [-] : dimension of output signal connector 1');...
+                    __('n2 [-] : dimension of output signal connector 2')],..
                               list('intvec',1,'intvec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(int32(n1),int32(n2))

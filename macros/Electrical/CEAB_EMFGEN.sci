@@ -19,15 +19,16 @@ function [x,y,typ]=CEAB_EMFGEN(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,fixedframe,exprs]=...
-              getvalue(['';'CEAB_EMFGEN';'';'Electromotoric force (electric/mechanic transformer)';''],...
-                       [' k [N.m/A] : Transformation coefficient' ; ' Fixed frame (1 : Yes / 0 : No)'],...
+              getvalue(['CEAB_EMFGEN';__('Electromotoric force (electric/mechanic transformer)')],...
+                       [__('k [N.m/A] : Transformation coefficient');...
+                        __('Fixed frame (1 : Yes / 0 : No)')],...
                        list('vec',1,'vec',1),exprs);
 
           if ~ok then break, end
 
           //test error syntax
           if fixedframe<>1 & fixedframe<>0 then
-              message(_('Choose 1 or 0 in order to specify fixed frame or not'));
+              message(__('Choose 1 or 0 in order to specify fixed frame or not'));
               ok = %f
           end
 

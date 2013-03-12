@@ -24,8 +24,9 @@ function [x,y,typ]=CBR_Extractor(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,index,nin,exprs]=..
-              getvalue(['';'CBR_Extractor';'';'Extract scalar signal out of signal vector';''],..
-                       [' index [-] : Index of output signal (positive integer <= nin)';' nin [-] : Number of inputs'],..
+              getvalue(['CBR_Extractor';__('Extract scalar signal out of signal vector')],..
+                       [__('index [-] : Index of output signal (positive integer <= nin)');...
+                        __('nin [-] : Number of inputs')],..
                        list('intvec',1,'intvec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(int32(index),int32(nin))

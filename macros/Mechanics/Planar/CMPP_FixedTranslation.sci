@@ -24,8 +24,8 @@ function [x,y,typ]=CMPP_FixedTranslation(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,r,exprs]=..
-              getvalue(['';'CMPP_FixedTranslation';'';'Fixed translation of frame_b with respect to frame_a';''],..
-                       [' r [m] : Vector from frame_a to frame_b resolved in frame_a'],..
+              getvalue(['CMPP_FixedTranslation';__('Fixed translation of frame_b with respect to frame_a')],..
+                       [__('r [m] : Vector from frame_a to frame_b resolved in frame_a')],..
                        list('vec',2),exprs);
           if ~ok then break, end
           model.in=[1];

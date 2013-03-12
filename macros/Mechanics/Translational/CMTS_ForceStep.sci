@@ -24,8 +24,10 @@ function [x,y,typ]=CMTS_ForceStep(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,stepForce,offsetForce,startTime,exprs]=..
-              getvalue(['';'CMTS_ForceStep';'';'Constant force, not dependent on speed';''],..
-                       [' stepForce [N] : Height of force step (if negative, force is acting as load)';' offsetForce [N] : Offset of force';' startTime [s] : Force = offset for time < startTime'],..
+              getvalue(['CMTS_ForceStep';__('Constant force, not dependent on speed')],..
+                       [__('stepForce [N] : Height of force step (if negative, force is acting as load)');...
+                        __('offsetForce [N] : Offset of force');...
+                        __('startTime [s] : Force = offset for time < startTime')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(stepForce,offsetForce,startTime)

@@ -24,8 +24,9 @@ function [x,y,typ]=CMPL_Prismatic(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,n,s_offset,exprs]=..
-              getvalue(['';'CMPL_Prismatic';'';'Prismatic joint used in loops (1 translational degree-of-freedom, no states)';''],..
-                       [' n [-] : Axis of translation resolved in frame_a (= same as in frame_b)';' s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)'],..
+              getvalue(['CMPL_Prismatic';__('Prismatic joint used in loops (1 translational degree-of-freedom, no states)')],..
+                       [__('n [-] : Axis of translation resolved in frame_a (= same as in frame_b)');...
+                        __('s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)')],..
                        list('vec',2,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

@@ -19,20 +19,22 @@ function [x,y,typ]=CMRS_ImposedKinematic(job,arg1,arg2)
       exprs=graphics.exprs;
       model=arg1.model;
       while %t do
-          [ok,value,fixedframe,exprs] = getvalue(['';'CMRS_ImposedKinematic';'';'Imposed Kinematic from fixed frame or not';''],..
-                                                 ['Choose physical quantity to imposed : (0) position, (1) speed, (2) acceleration'; ' Fixed frame (1 : Yes / 0 : No)'],..
-                                                 list('vec',1,'vec',1),exprs);
+          [ok,value,fixedframe,exprs] = ...
+              getvalue(['CMRS_ImposedKinematic';__('Imposed Kinematic from fixed frame or not')],..
+                       [__('Choose physical quantity to impose : (0) position, (1) speed, (2) acceleration');...
+                        __('Fixed frame (1 : Yes / 0 : No)')],..
+                       list('vec',1,'vec',1),exprs);
 
           if ~ok then break, end
 
           //test error syntax
           if fixedframe<>1 & fixedframe<>0 then
-              message(_('Choose 1 or 0 in order to specify fixed frame or not'));
+              message(__('Choose 1 or 0 in order to specify fixed frame or not'));
               ok = %f
           end
 
           if value<>0 & value<>1 & value<>2 then
-              message(_('Physical quantity must be 0, 1 or 2'));
+              message(__('Physical quantity must be 0, 1 or 2'));
               ok = %f
           end
 

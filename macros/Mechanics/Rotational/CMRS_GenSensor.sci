@@ -19,15 +19,15 @@ function [x,y,typ]=CMRS_GenSensor(job,arg1,arg2)
       exprs=graphics.exprs;
       model=x.model;
       while %t do
-          [ok,value,exprs] = getvalue(['Generic Sensor'],..
-                                      ['Choose physical quantity : (0) position, (1) speed, (2) acceleration'],..
+          [ok,value,exprs] = getvalue([__('Generic Sensor')],..
+                                      [__('Choose physical quantity : (0) position, (1) speed, (2) acceleration')],..
                                       list('vec',1),exprs);
           if ~ok then
               break
           end
           if value <> [0,1,2]
               ok = %f
-              _('Physical quantity must be 0, 1 or 2');
+              message(__('Physical quantity must be 0, 1 or 2'));
           end
           if ok
               mo=modelica();

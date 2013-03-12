@@ -24,8 +24,10 @@ select job
     model=arg1.model;
     while %t do
       [ok,c,d,s_rel0,exprs]=..
-        getvalue(['';'CMTC_ElastoGap';'';'1D translational spring damper combination with gap';''],..
-        [' c [N/m] : Spring constant (c >= 0)'; ' d [N.s/m] : Damping constant (d >= 0)'; ' s_rel0 [m] : Unstretched spring length'],..
+        getvalue(['CMTC_ElastoGap';__('1D translational spring damper combination with gap')],..
+        [__('c [N/m] : Spring constant (c >= 0)');...
+         __('d [N.s/m] : Damping constant (d >= 0)');...
+         __('s_rel0 [m] : Unstretched spring length')],..
         list('vec',1,'vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(c,d,s_rel0)

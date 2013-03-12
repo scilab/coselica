@@ -24,8 +24,10 @@ function [x,y,typ]=CMRS_LinearSpeedDependen(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,tau_nominal,TorqueDirection,w_nominal,exprs]=..
-              getvalue(['';'CMRS_LinearSpeedDependen';'';'Linear dependency of torque versus speed';''],..
-                       [' tau_nominal [N.m] : Nominal torque (if negative, torque is acting as load)';' TorqueDirection [-] : Same direction of torque in both directions of rotation (1=yes,0=no)';' w_nominal [rad/s] : Nominal speed (> 0)'],..
+              getvalue(['CMRS_LinearSpeedDependen';__('Linear dependency of torque versus speed')],..
+                       [__('tau_nominal [N.m] : Nominal torque (if negative, torque is acting as load)');...
+                        __('TorqueDirection [-] : Same direction of torque in both directions of rotation (1=yes,0=no)');...
+                        __('w_nominal [rad/s] : Nominal speed (> 0)')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(tau_nominal,TorqueDirection,w_nominal)

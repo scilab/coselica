@@ -24,8 +24,10 @@ function [x,y,typ]=CMRS_TorqueStep(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,stepTorque,offsetTorque,startTime,exprs]=..
-              getvalue(['';'CMRS_TorqueStep';'';'Constant torque, not dependent on speed';''],..
-                       [' stepTorque [N.m] : Height of torque step (if negative, torque is acting as load)';' offsetTorque [N.m] : Offset of torque';' startTime [s] : Torque = offset for time < startTime'],..
+              getvalue(['CMRS_TorqueStep';__('Constant torque, not dependent on speed')],..
+                       [__('stepTorque [N.m] : Height of torque step (if negative, torque is acting as load)');...
+                        __('offsetTorque [N.m] : Offset of torque');...
+                        __('startTime [s] : Torque = offset for time < startTime')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(stepTorque,offsetTorque,startTime)

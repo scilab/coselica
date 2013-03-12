@@ -24,8 +24,9 @@ function [x,y,typ]=CMPP_FixedRotation(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,r,angle,exprs]=..
-              getvalue(['';'CMPP_FixedRotation';'';'Fixed translation followed by a fixed rotation of frame_b with respect to frame_a';''],..
-                       [' r [m] : Vector from frame_a to frame_b resolved in frame_a';' angle [rad] : Angle to rotate frame_a into frame_b'],..
+              getvalue(['CMPP_FixedRotation';__('Fixed translation followed by a fixed rotation of frame_b with respect to frame_a')],..
+                       [__('r [m] : Vector from frame_a to frame_b resolved in frame_a');...
+                        __('angle [rad] : Angle to rotate frame_a into frame_b')],..
                        list('vec',2,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

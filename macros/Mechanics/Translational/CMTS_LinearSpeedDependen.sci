@@ -24,8 +24,10 @@ function [x,y,typ]=CMTS_LinearSpeedDependen(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,f_nominal,ForceDirection,v_nominal,exprs]=..
-              getvalue(['';'CMTS_LinearSpeedDependen';'';'Linear dependency of force versus speed';''],..
-                       [' f_nominal [N] : Nominal force (if negative, force is acting as load)';' ForceDirection [-] : Same direction of force in both directions of movement (1=yes,0=no)';' v_nominal [m/s] : Nominal speed (> 0)'],..
+              getvalue(['CMTS_LinearSpeedDependen';__('Linear dependency of force versus speed')],..
+                       [__('f_nominal [N] : Nominal force (if negative, force is acting as load)');...
+                        __('ForceDirection [-] : Same direction of force in both directions of movement (1=yes,0=no)');...
+                        __('v_nominal [m/s] : Nominal speed (> 0)')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(f_nominal,ForceDirection,v_nominal)

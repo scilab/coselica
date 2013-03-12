@@ -24,8 +24,9 @@ function [x,y,typ]=CBM_Sum(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k,nin,exprs]=..
-              getvalue(['';'CBM_Sum';'';'Output the sum of the elements of the input vector';''],..
-                       [' k [-] : Vector of sum coefficients (length nin)';' nin [-] : Number of inputs'],..
+              getvalue(['CBM_Sum';__('Output the sum of the elements of the input vector')],..
+                       [__('k [-] : Vector of sum coefficients (length nin)');...
+                        __('nin [-] : Number of inputs')],..
                        list('vec',-1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(k,nin)

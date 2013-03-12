@@ -33,8 +33,9 @@ select job
     model=arg1.model;
     while %t do
       [ok,Z,Q,exprs]=...
-        getvalue(['';'CHP_Junction';'';'Customer''s demand';''],...
-        [' Z [ft] : elevation';' Q [GPM] : load'],...
+        getvalue(['CHP_Junction';__('Customer''s demand')],...
+        [__('Z [ft] : elevation');...
+         __('Q [GPM] : load')],...
         list('vec',1,'vec',1),exprs);
       if ~ok then break, end
       model.equations.parameters(2)=list(Z,Q)
@@ -44,7 +45,7 @@ select job
     end
   case 'define' then
     model=scicos_model();
-    Z=150; Q=100; 
+    Z=150; Q=100;
     model.sim='Coselica';
     model.blocktype='c';
     model.dep_ut=[%t %f];

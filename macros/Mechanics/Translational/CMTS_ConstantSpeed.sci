@@ -24,8 +24,8 @@ function [x,y,typ]=CMTS_ConstantSpeed(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,v_fixed,exprs]=..
-              getvalue(['';'CMTS_ConstantSpeed';'';'Constant speed, not dependent on force';''],..
-                       [' v_fixed [m/s] : Fixed speed (if negative, force is acting as load)'],..
+              getvalue(['CMTS_ConstantSpeed';__('Constant speed, not dependent on force')],..
+                       [__('v_fixed [m/s] : Fixed speed (if negative, force is acting as load)')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(v_fixed)

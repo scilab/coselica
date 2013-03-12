@@ -25,8 +25,15 @@ function [x,y,typ]=CBS_Trapezoid(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,amplitude,rising,width,falling,period,nperiod,offset,startTime,exprs]=...
-              scicos_getvalue(['';'CBS_Trapezoid';'';'Generate trapezoidal signal of type Real';''],...
-                              [' amplitude [-] : Amplitude of trapezoid';' rising [s] : Rising duration of trapezoid';' width [s] : Width duration of trapezoid';' falling [s] : Falling duration of trapezoid';' period [s] : Time for one period';' nperiod [-] : Number of periods (< 0 means infinite number of periods)';' offset [-] : Offset of output signal';' startTime [s] : Output = offset for time < startTime'],...
+              scicos_getvalue(['CBS_Trapezoid';__('Generate trapezoidal signal of type Real')],...
+                              [__('amplitude [-] : Amplitude of trapezoid');...
+                    __('rising [s] : Rising duration of trapezoid');...
+                    __('width [s] : Width duration of trapezoid');...
+                    __('falling [s] : Falling duration of trapezoid');...
+                    __('period [s] : Time for one period');...
+                    __('nperiod [-] : Number of periods (< 0 means infinite number of periods)');...
+                    __('offset [-] : Offset of output signal');...
+                    __('startTime [s] : Output = offset for time < startTime')],...
                               list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
           if ~ok then
               break
@@ -34,33 +41,33 @@ function [x,y,typ]=CBS_Trapezoid(job,arg1,arg2)
 
           // Check if all time values are positive.
           if rising < 0 then
-               message(_("Rising duration of trapezoid must be positive."));
+               message(__("Rising duration of trapezoid must be positive."));
                ok = %f;
           end
 
           if width < 0 then
-              message(_("Width duration of trapezoid must be positive."));
+              message(__("Width duration of trapezoid must be positive."));
               ok = %f;
           end
 
           if falling < 0 then
-              message(_("Falling duration of trapezoid must be positive."));
+              message(__("Falling duration of trapezoid must be positive."));
               ok = %f;
           end
 
           if period < 0 then
-              message(_("Time for one period must be positive."));
+              message(__("Time for one period must be positive."));
               ok = %f;
           end
 
           // Period time must be greater than Rising + Width + Falling
           if period < rising + width + falling
-              message(_("Period must be greater than Rising + Width + Falling"));
+              message(__("Period must be greater than Rising + Width + Falling"));
               ok = %f;
           end
 
           if int(nperiod) <> nperiod then
-              message(_("Numbre of periods must be an integer value."));
+              message(__("Numbre of periods must be an integer value."));
               ok = %f;
           end
 

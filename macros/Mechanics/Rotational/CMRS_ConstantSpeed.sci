@@ -24,8 +24,8 @@ function [x,y,typ]=CMRS_ConstantSpeed(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,w_fixed,exprs]=..
-              getvalue(['';'CMRS_ConstantSpeed';'';'Constant speed, not dependent on torque';''],..
-                       [' w_fixed [rad/s] : Fixed speed'],..
+              getvalue(['CMRS_ConstantSpeed';__('Constant speed, not dependent on torque')],..
+                       [__('w_fixed [rad/s] : Fixed speed')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(w_fixed)

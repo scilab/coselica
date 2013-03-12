@@ -24,8 +24,9 @@ function [x,y,typ]=CMPJ_ActuatedRollingWhee(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,radius,n,exprs]=..
-              getvalue(['';'CMPJ_ActuatedRollingWhee';'';'Joint that describes an ideal actuated rolling wheel (1 non-holonomic constraint, no states)';''],..
-                       [' radius [m] : Radius of wheel';' n [-] : Wheel axis resolved in frame_a'],..
+              getvalue(['CMPJ_ActuatedRollingWhee';__('Joint that describes an ideal actuated rolling wheel (1 non-holonomic constraint, no states)')],..
+                       [__('radius [m] : Radius of wheel');...
+                        __('n [-] : Wheel axis resolved in frame_a')],..
                        list('vec',1,'vec',2),exprs);
           if ~ok then break, end
           model.in=[1;1];
@@ -53,117 +54,7 @@ function [x,y,typ]=CMPJ_ActuatedRollingWhee(job,arg1,arg2)
                          list(radius,n),..
                          [0,0]);
       model.equations=mo;
-      gr_i=[
-          'if orient then';
-          '  xx=orig(1);yy=orig(2);';
-          '  ww=sz(1);hh=sz(2);';
-          'else';
-          '  xx=orig(1)+sz(1);yy=orig(2);';
-          '  ww=-sz(1);hh=sz(2);';
-          'end';
-          'if orient then';
-          '  xrect(orig(1)+sz(1)*0,orig(2)+sz(2)*0.1,sz(1)*1,sz(2)*0.1);';
-          'else';
-          '  xrect(orig(1)+sz(1)*(1-0-1),orig(2)+sz(2)*0.1,sz(1)*1,sz(2)*0.1);';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(175,175,175);';
-          'e.fill_mode=""on"";';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'if orient then';
-          '  xarc(orig(1)+sz(1)*0.1,orig(2)+sz(2)*0.9,sz(1)*0.8,sz(2)*0.8,0,360*64);';
-          'else';
-          '  xarc(orig(1)+sz(1)*(1-0.1-0.8),orig(2)+sz(2)*0.9,sz(1)*0.8,sz(2)*0.8,0,360*64);';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(255,255,255);';
-          'e.fill_mode=""on"";';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'if orient then';
-          '  xrect(orig(1)+sz(1)*0.065,orig(2)+sz(2)*0.525,sz(1)*0.385,sz(2)*0.05);';
-          'else';
-          '  xrect(orig(1)+sz(1)*(1-0.065-0.385),orig(2)+sz(2)*0.525,sz(1)*0.385,sz(2)*0.05);';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(175,175,175);';
-          'e.fill_mode=""on"";';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'if orient then';
-          '  xarc(orig(1)+sz(1)*0.45,orig(2)+sz(2)*0.55,sz(1)*0.1,sz(2)*0.1,0,360*64);';
-          'else';
-          '  xarc(orig(1)+sz(1)*(1-0.45-0.1),orig(2)+sz(2)*0.55,sz(1)*0.1,sz(2)*0.1,0,360*64);';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(255,255,255);';
-          'e.fill_mode=""on"";';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'if orient then';
-          '  xstringb(orig(1)+sz(1)*-0.23,orig(2)+sz(2)*-0.24,""n=""+string(n)+"""",sz(1)*1.5,sz(2)*0.22,""fill"");';
-          'else';
-          '  xstringb(orig(1)+sz(1)*(1--0.23-1.5),orig(2)+sz(2)*-0.24,""n=""+string(n)+"""",sz(1)*1.5,sz(2)*0.22,""fill"");';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.background=color(0,0,0);';
-          'e.font_foreground=color(0,0,0);';
-          'e.fill_mode=""off"";';
-          'if orient then';
-          '  xstringb(orig(1)+sz(1)*0.55,orig(2)+sz(2)*0.92,""""+model.label+"""",sz(1)*1,sz(2)*0.2,""fill"");';
-          'else';
-          '  xstringb(orig(1)+sz(1)*(1-0.55-1),orig(2)+sz(2)*0.92,""""+model.label+"""",sz(1)*1,sz(2)*0.2,""fill"");';
-          'end';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,255);';
-          'e.background=color(0,0,0);';
-          'e.font_foreground=color(0,0,0);';
-          'e.fill_mode=""off"";';
-          'xpoly(xx+ww*[0.15;0.25],yy+hh*[0.555;0.555]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'xpoly(xx+ww*[0.15;0.25],yy+hh*[0.445;0.445]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'xpoly(xx+ww*[0.2;0.2],yy+hh*[0.555;0.95]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'xpoly(xx+ww*[0.5;0.5],yy+hh*[0.555;0.95]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.thickness=0.25;';
-          'e.line_style=1;';
-          'xpoly(xx+ww*[0.2;0.2],yy+hh*[0.4;0.445]);';
-          'e=gce();';
-          'e.visible=""on"";';
-          'e.foreground=color(0,0,0);';
-          'e.thickness=0.25;';
-          'e.line_style=1;'
-           ];
-
-      x=standard_define([2 2],model,exprs,list(gr_i,0));
+      x=standard_define([2 2],model,exprs,list([],0));
       x.graphics.in_implicit=['I','I'];
       x.graphics.in_style=[PlanInputStyle(), RotInputStyle()]
       x.graphics.out_implicit=['I'];

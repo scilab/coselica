@@ -24,8 +24,8 @@ function [x,y,typ]=CMPJ_RollingWheel(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,n,exprs]=..
-              getvalue(['';'CMPJ_RollingWheel';'';'Joint that describes an ideal rolling wheel (1 non-holonomic constraint, no states)';''],..
-                       [' n [-] : Wheel axis resolved in frame_a'],..
+              getvalue(['CMPJ_RollingWheel';__('Joint that describes an ideal rolling wheel (1 non-holonomic constraint, no states)')],..
+                       [__('n [-] : Wheel axis resolved in frame_a')],..
                        list('vec',2),exprs);
           if ~ok then break, end
           model.in=[1];

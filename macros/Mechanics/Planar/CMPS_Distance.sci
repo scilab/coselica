@@ -24,8 +24,8 @@ function [x,y,typ]=CMPS_Distance(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,s_small,exprs]=..
-              getvalue(['';'CMPS_Distance';'';'Measure the distance between the origins of two frame connectors';''],..
-                       [' s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero (s_small > 0)'],..
+              getvalue(['CMPS_Distance';__('Measure the distance between the origins of two frame connectors')],..
+                       [__('s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero (s_small > 0)')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

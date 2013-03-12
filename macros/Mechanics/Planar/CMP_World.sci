@@ -24,8 +24,9 @@ function [x,y,typ]=CMP_World(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,g,n,exprs]=..
-              getvalue(['';'CMP_World';'';'World coordinate system with uniform gravity field';''],..
-                       [' g [m/s2] : Constant gravity acceleration';' n [-] : Direction of gravity resolved in world frame (gravity = g*n/length(n))'],..
+              getvalue(['CMP_World';__('World coordinate system with uniform gravity field')],..
+                       [__('g [m/s2] : Constant gravity acceleration');...
+                        __('n [-] : Direction of gravity resolved in world frame (gravity = g*n/length(n))')],..
                        list('vec',1,'vec',2),exprs);
           if ~ok then break, end
           model.in=[];

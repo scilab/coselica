@@ -24,8 +24,8 @@ function [x,y,typ]=CMRC_IdealDifferential(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,ratio,exprs]=..
-              getvalue(['';'CMRC_IdealDifferential';'';'Ideal differential gear without inertia';''],..
-                       [' ratio [-] : Transmission ratio (2*flange_a.phi/(flange_left.phi+flange_right.phi))'],..
+              getvalue(['CMRC_IdealDifferential';__('Ideal differential gear without inertia')],..
+                       [__('ratio [-] : Transmission ratio (2*flange_a.phi/(flange_left.phi+flange_right.phi))')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(ratio)

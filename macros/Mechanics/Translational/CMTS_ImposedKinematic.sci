@@ -19,9 +19,11 @@ function [x,y,typ]=CMTS_ImposedKinematic(job,arg1,arg2)
       exprs=graphics.exprs;
       model=arg1.model;
       while %t do
-          [ok,value,fixedframe,exprs] = getvalue(['';'CMTS_ImposedKinematic';'';'Imposed Kinematic from fixed frame or not';''],..
-                                                 ['Choose physical quantity to imposed : (0) position, (1) speed, (2) acceleration'; ' Fixed frame (1 : Yes / 0 : No)'],..
-                                                 list('vec',1,'vec',1),exprs);
+          [ok,value,fixedframe,exprs] = ...
+              getvalue(['CMTS_ImposedKinematic';__('Imposed Kinematic from fixed frame or not')],..
+                       [__('Choose physical quantity to imposed : (0) position, (1) speed, (2) acceleration');...
+                        __('Fixed frame (1 : Yes / 0 : No)')],..
+                       list('vec',1,'vec',1),exprs);
 
           if ~ok then break, end
 

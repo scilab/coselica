@@ -24,8 +24,12 @@ function [x,y,typ]=CMPJ_Revolute(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,phi_offset,initType,phi_start,w_start,z_start,exprs]=..
-              getvalue(['';'CMPJ_Revolute';'';'Revolute joint (1 rotational degree-of-freedom, 2 states)';''],..
-                       [' phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)';' initType [-] : Type of initial value for [phi,w,z] (0=guess,1=fixed)';' phi_start [rad] : Initial value of rotation angle phi';' w_start [rad/s] : Initial value of relative angular velocity w = der(phi)';' z_start [rad/s2] : Initial value of relative angular acceleration z = der(w)'],..
+              getvalue(['CMPJ_Revolute';__('Revolute joint (1 rotational degree-of-freedom, 2 states)')],..
+                       [__('phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)');...
+                        __('initType [-] : Type of initial value for [phi,w,z] (0=guess,1=fixed)');...
+                        __('phi_start [rad] : Initial value of rotation angle phi');...
+                        __('w_start [rad/s] : Initial value of relative angular velocity w = der(phi)');...
+                        __('z_start [rad/s2] : Initial value of relative angular acceleration z = der(w)')],..
                        list('vec',1,'vec',3,'vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

@@ -24,8 +24,8 @@ function [x,y,typ]=CBR_Replicator(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,nout,exprs]=..
-              scicos_getvalue(['';'CBR_Replicator';'';'Signal replicator';''],..
-                              [' nout [-] : Number of outputs'],..
+              scicos_getvalue(['CBR_Replicator';__('Signal replicator')],..
+                              [__('nout [-] : Number of outputs')],..
                               list('intvec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(int32(nout))

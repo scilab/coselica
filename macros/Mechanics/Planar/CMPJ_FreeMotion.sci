@@ -24,14 +24,14 @@ function [x,y,typ]=CMPJ_FreeMotion(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,initType,r_rel_a_start,v_rel_a_start,a_rel_a_start,phi_rel_start,w_rel_start,z_rel_start,exprs]=..
-              getvalue(['';'CMPJ_FreeMotion';'';'Free motion joint (3 degrees-of-freedom, 6 states)';''],..
-                       [' initType [-] : Type of initial value for [r_rel_a,v_rel_a,a_rel_a,phi_rel,w_rel,z_rel] (0=guess,1=fixed)'; ..
-                        ' r_rel_a_start [m] : Initial values of r_rel_a (vector from origin of frame_a to origin of frame_b resolved in frame_a)'; ..
-                        ' v_rel_a_start [m/s] : Initial values of velocity v_rel_a = der(r_rel_a)'; ..
-                        ' a_rel_a_start [m/s2] : Initial values of acceleration a_rel_a = der(v_rel_a)';..
-                        ' phi_rel_start [rad] : Initial value of angle phi_rel to rotate frame_a into frame_b';..
-                        ' w_rel_start [rad/s] : Initial value of angular velocity w_rel = der(phi_rel) of frame_b with respect to frame_a'; ..
-                        ' z_rel_start [rad/s2] : Initial value of angular acceleration z_rel = der(w_rel) of frame_b with respect to frame_a'],..
+              getvalue(['CMPJ_FreeMotion';__('Free motion joint (3 degrees-of-freedom, 6 states)')],..
+                       [__('initType [-] : Type of initial value for [r_rel_a,v_rel_a,a_rel_a,phi_rel,w_rel,z_rel] (0=guess,1=fixed)'); ...
+                        __('r_rel_a_start [m] : Initial values of r_rel_a (vector from origin of frame_a to origin of frame_b resolved in frame_a)'); ...
+                        __('v_rel_a_start [m/s] : Initial values of velocity v_rel_a = der(r_rel_a)'); ...
+                        __('a_rel_a_start [m/s2] : Initial values of acceleration a_rel_a = der(v_rel_a)');...
+                        __('phi_rel_start [rad] : Initial value of angle phi_rel to rotate frame_a into frame_b');..
+                        __('w_rel_start [rad/s] : Initial value of angular velocity w_rel = der(phi_rel) of frame_b with respect to frame_a'); ..
+                        __('z_rel_start [rad/s2] : Initial value of angular acceleration z_rel = der(w_rel) of frame_b with respect to frame_a')],..
                        list('vec',6,'vec',2,'vec',2,'vec',2,'vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

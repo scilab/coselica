@@ -24,8 +24,10 @@ function [x,y,typ]=CBM_Add3(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,k1,k2,k3,exprs]=..
-              getvalue(['';'CBM_Add3';'';'Output the sum of the three inputs';''],..
-                       [' k1 [-] : Gain of upper input';' k2 [-] : Gain of middle input';' k3 [-] : Gain of lower input'],..
+              getvalue(['CBM_Add3';__('Output the sum of the three inputs')],..
+                       [__('k1 [-] : Gain of upper input');...
+                        __('k2 [-] : Gain of middle input');...
+                        __('k3 [-] : Gain of lower input')],..
                        list('vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(k1,k2,k3)

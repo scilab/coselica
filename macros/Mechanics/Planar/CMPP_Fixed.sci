@@ -24,8 +24,8 @@ function [x,y,typ]=CMPP_Fixed(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,r,exprs]=..
-              getvalue(['';'CMPP_Fixed';'';'Frame fixed in the world frame at a given position (used for closing loops)';''],..
-                       [' r [m] : Position vector from world frame to frame_b, resolved in world frame'],..
+              getvalue(['CMPP_Fixed';__('Frame fixed in the world frame at a given position (used for closing loops)')],..
+                       [__('r [m] : Position vector from world frame to frame_b, resolved in world frame')],..
                        list('vec',2),exprs);
           if ~ok then break, end
           model.in=[];

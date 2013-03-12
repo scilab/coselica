@@ -19,15 +19,15 @@ function [x,y,typ]=CMTS_GenRelSensor(job,arg1,arg2)
       exprs=graphics.exprs;
       model=x.model;
       while %t do
-          [ok,value,exprs] = getvalue(['Generic Relative Sensor'],..
-                                      ['Please choose physical quantity : (0) position, (1) speed, (2) acceleration'],..
+          [ok,value,exprs] = getvalue([__('Generic Relative Sensor')],..
+                                      [__('Please choose physical quantity : (0) position, (1) speed, (2) acceleration')],..
                                       list('vec',1),exprs);
           if ~ok then
               break
           end
           if value <> [0,1,2]
               ok = %f
-              message("Physical quantity must be 0, 1 or 2")
+              message(__("Physical quantity must be 0, 1 or 2"))
           end
           if ok
               select value

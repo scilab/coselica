@@ -24,8 +24,8 @@ function [x,y,typ]=CMPP_PointMass(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,m,exprs]=..
-              getvalue(['';'CMPP_PointMass';'';'Rigid body where body rotation and inertia is neglected (no states)';''],..
-                       [' m [kg] : Mass of mass point (m > 0)'],..
+              getvalue(['CMPP_PointMass';__('Rigid body where body rotation and inertia is neglected (no states)')],..
+                       [__('m [kg] : Mass of mass point (m > 0)')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

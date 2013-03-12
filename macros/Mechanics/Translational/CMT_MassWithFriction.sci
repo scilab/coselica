@@ -24,11 +24,14 @@ function [x,y,typ]=CMT_MassWithFriction(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,m,F_prop,F_Coulomb,F_Stribeck,fexp,mode_start,L,exprs]=..
-              getvalue(['';'CMT_MassWithFriction';'';'Sliding mass with Stribeck friction';''],..
-                       [' m [kg] : mass of the sliding mass'; ' F_prop [N/(m/s)] : velocity dependent friction'; ..
-                        ' F_Coulomb [N] : constant friction: Coulomb force'; ' F_Stribeck [N] : Stribeck effect'; ..
-                        ' fexp [1/(m/s)] : exponential decay of Stribeck effect'; ' mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)'; ..
-                        ' L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)'],..
+              getvalue(['CMT_MassWithFriction';__('Sliding mass with Stribeck friction')],..
+                       [__('m [kg] : mass of the sliding mass');...
+                        __('F_prop [N/(m/s)] : velocity dependent friction'); ...
+                        __('F_Coulomb [N] : constant friction: Coulomb force');...
+                        __('F_Stribeck [N] : Stribeck effect'); ...
+                        __('fexp [1/(m/s)] : exponential decay of Stribeck effect');...
+                        __('mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)'); ...
+                        __('L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)')],..
                        list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(m,F_prop,F_Coulomb,F_Stribeck,fexp,mode_start,L)

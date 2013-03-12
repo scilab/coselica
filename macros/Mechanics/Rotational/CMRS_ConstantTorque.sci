@@ -24,8 +24,8 @@ function [x,y,typ]=CMRS_ConstantTorque(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,tau_constant,exprs]=..
-              getvalue(['';'CMRS_ConstantTorque';'';'Constant torque, not dependent on speed';''],..
-                       [' tau_constant [N.m] : Constant torque (if negative, torque is acting as load)'],..
+              getvalue(['CMRS_ConstantTorque';__('Constant torque, not dependent on speed')],..
+                       [__('tau_constant [N.m] : Constant torque (if negative, torque is acting as load)')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(tau_constant)

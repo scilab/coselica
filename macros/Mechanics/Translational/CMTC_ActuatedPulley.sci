@@ -24,8 +24,9 @@ function [x,y,typ]=CMTC_ActuatedPulley(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,r,L,exprs]=..
-              getvalue(['';'CMTC_ActuatedPulley';'';'Actuated Pulley (without mass and inertia; geometric constraint)';''],..
-                       [' r [m] : Radius of pulley (>0)';' L [m] : Geometric constraint L=(s1+s2)/2-s'],..
+              getvalue(['CMTC_ActuatedPulley';__('Actuated Pulley (without mass and inertia; geometric constraint)')],..
+                       [__('r [m] : Radius of pulley (>0)');...
+                        __('L [m] : Geometric constraint L=(s1+s2)/2-s')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(r,L)

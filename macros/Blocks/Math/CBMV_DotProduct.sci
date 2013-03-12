@@ -24,8 +24,8 @@ function [x,y,typ]=CBMV_DotProduct(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,n,exprs]=..
-              getvalue(['';'CBMV_DotProduct';'';'Outputs the dot product of two input signal vectors';''],..
-                       [' n [-] : Dimension of input vectors.'],..
+              getvalue(['CBMV_DotProduct';__('Outputs the dot product of two input signal vectors')],..
+                       [__('n [-] : Dimension of input vectors.')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(n)

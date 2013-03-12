@@ -24,8 +24,8 @@ function [x,y,typ]=CMPF_LineForce(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,s_small,exprs]=..
-              getvalue(['';'CMPF_LineForce';'';'General line force component';''],..
-                       [' s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero'],..
+              getvalue(['CMPF_LineForce';__('General line force component')],..
+                       [__('s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero')],..
                        list('vec',1),exprs);
           if ~ok then break, end
           model.in=[1;1];
