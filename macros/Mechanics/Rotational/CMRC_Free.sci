@@ -20,6 +20,8 @@ function [x,y,typ]=CMRC_Free(job,arg1,arg2)
     select job
      case 'set' then
       x=arg1;
+      //messagebox(['Ce bloc doit être utilisé pour spécifier qu''une extrémité d''un arbre est libre (pas de couple appliqué).';'Il peut être omis si une quantité physique est mesurée sur l''arbre.'])
+ 
      case 'define' then
       model=scicos_model();
       model.sim='Coselica';

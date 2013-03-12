@@ -28,6 +28,7 @@ function runMe()
                     "MMT_SpringDamper"
                     "CMTC_ElastoGap"
                     "CMT_MassWithFriction"
+                    "MMT_SlidingMass"
                     "CMT_Stop"
                     "CMTC_Pulley"
                     "CMTC_ActuatedPulley"

@@ -42,3 +42,4 @@ ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)$$ratio [-] : rapport 
 Ideal planetary gear box$$Engrenage à train épicycloïdal parfait$$
 ratio [-] : number of ring_teeth/sun_teeth (e.g. ratio=100/50)$$ratio [-] : rapport entre le nombre de dents de la couronne sur le nombre de dents du pignon planétaire(e.g. ratio=100/50)$$
 J [kg.m2] : Moment of inertia$$J [kg.m2] : Moment d'inertie autour de l'axe$$
+Linear 1D rotational spring$$Ressort de torsion linéaire$$
