@@ -11,10 +11,10 @@
 //
 
 function trad = __(msg)
-    //if getlanguage() <> "fr_FR" then
-    //    trad = msg;
-    //    return;
-    //end
+    if getlanguage() <> "fr_FR" then
+        trad = _(msg);
+        return;
+    end
 
     global %coselicaMessages;
     if isempty(%coselicaMessages)
@@ -31,6 +31,6 @@ function trad = __(msg)
             trad = %coselicaMessages(index, 2:3)';
         end
     else
-        trad = msg
+        trad = _(msg);
     end
 endfunction
