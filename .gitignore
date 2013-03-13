@@ -9,3 +9,6 @@ loader.sce
 unloader.sce
 
 images/h5
+
+help/en_US/master_help.xml
+help/en_US/scilab_en_US_help
