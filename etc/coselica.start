@@ -92,6 +92,17 @@ exec(etc_tlbx+"mechanics_planar.sce", -1);
 mprintf("\tLoad palette: Coselica - Components\n");
 exec(etc_tlbx+"components.sce", -1);
 
+// Load and add help chapter
+// =============================================================================
+  if or(getscilabmode() == ["NW";"STD"]) then
+    mprintf("\tLoad help\n");
+    path_addchapter = pathconvert(root_tlbx+"/jar");
+    if ( isdir(path_addchapter) <> [] ) then
+      add_help_chapter("Coselica", path_addchapter, %F);
+    end
+  end
+
+
 // Load demos
 // =============================================================================
 if or(getscilabmode() == ["NW";"STD"]) then
