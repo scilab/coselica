@@ -1,0 +1,127 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMPL_ActuatedRevolute">
+<refnamediv>
+<refname>CMPL_ActuatedRevolute</refname>
+<refpurpose>CMPL_ActuatedRevolute Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/CMPL_ActuatedRevolute.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CMPL_ActuatedRevolute">
+<title>Description</title>
+<para>
+Actuated revolute joint used in loops (1 rotational degree-of-freedom, no states)
+</para>
+</refsection>
+<refsection id="Palette_CMPL_ActuatedRevolute">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Mechanics_Planar_pal">Mechanics_Planar - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gui/CMPL_ActuatedRevolute_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'frame_a'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Planar type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'bearing'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'frame_b'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Planar type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'axis'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'phi_offset'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CMPL_ActuatedRevolute">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CMPL_ActuatedRevolute.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Mechanics.Planar.LoopJoints.ActuatedRevolute in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

@@ -1,0 +1,76 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MTHC_ToKelvin">
+<refnamediv>
+<refname>MTHC_ToKelvin</refname>
+<refpurpose>MTHC_ToKelvin Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/MTHC_ToKelvin.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_MTHC_ToKelvin">
+<title>Description</title>
+</refsection>
+<refsection id="Palette_MTHC_ToKelvin">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'Celsius'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'Kelvin'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_MTHC_ToKelvin">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>MTHC_ToKelvin.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>MTHC_ToKelvin in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

@@ -1,0 +1,76 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MTHC_PrescribedTemperatu">
+<refnamediv>
+<refname>MTHC_PrescribedTemperatu</refname>
+<refpurpose>MTHC_PrescribedTemperatu Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/MTHC_PrescribedTemperatu.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_MTHC_PrescribedTemperatu">
+<title>Description</title>
+</refsection>
+<refsection id="Palette_MTHC_PrescribedTemperatu">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'T'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'port'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Thermal Heat Transfer type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_MTHC_PrescribedTemperatu">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>MTHC_PrescribedTemperatu.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>MTHC_PrescribedTemperatu in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

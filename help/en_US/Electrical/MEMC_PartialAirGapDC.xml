@@ -1,0 +1,143 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MEMC_PartialAirGapDC">
+<refnamediv>
+<refname>MEMC_PartialAirGapDC</refname>
+<refpurpose>MEMC_PartialAirGapDC Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gif/MEMC_PartialAirGapDC.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_MEMC_PartialAirGapDC">
+<title>Description</title>
+<para>
+Partial airgap model of a DC machine
+</para>
+</refsection>
+<refsection id="Palette_MEMC_PartialAirGapDC">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gui/MEMC_PartialAirGapDC_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">turnsRatio : ratio of armature turns over number of turns of the excitation winding</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'pin_ap'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'pin_ep'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'support'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'pin_an'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'pin_en'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'flange'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'turnsRatio'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 1
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_MEMC_PartialAirGapDC">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>MEMC_PartialAirGapDC.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Modelica.Electrical.Machines.Components.PartialAirGapDC in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

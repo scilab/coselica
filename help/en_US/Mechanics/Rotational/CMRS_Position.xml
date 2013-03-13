@@ -1,0 +1,84 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMRS_Position">
+<refnamediv>
+<refname>CMRS_Position</refname>
+<refpurpose>CMRS_Position Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/CMRS_Position.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CMRS_Position">
+<title>Description</title>
+</refsection>
+<refsection id="Palette_CMRS_Position">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'phi_ref'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'flange'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'support'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CMRS_Position">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CMRS_Position.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Mechanics.Rotational.Sources.Position in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

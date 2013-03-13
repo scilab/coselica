@@ -1,0 +1,126 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMPP_FixedRotation">
+<refnamediv>
+<refname>CMPP_FixedRotation</refname>
+<refpurpose>CMPP_FixedRotation Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/CMPP_FixedRotation.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CMPP_FixedRotation">
+<title>Description</title>
+<para>
+Fixed translation followed by a fixed rotation of frame_b with respect to frame_a
+</para>
+</refsection>
+<refsection id="Palette_CMPP_FixedRotation">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Mechanics_Planar_pal">Mechanics_Planar - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gui/CMPP_FixedRotation_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">r [m] : Vector from frame_a to frame_b resolved in frame_a</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 2. </para>
+<para> Default value : [0,0]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">angle [rad] : Angle to rotate frame_a into frame_b</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'frame_a'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Planar type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'frame_b'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Planar type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'r'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [0,0]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'angle'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CMPP_FixedRotation">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CMPP_FixedRotation.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Mechanics.Planar.Parts.FixedRotation in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

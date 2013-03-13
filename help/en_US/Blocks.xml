@@ -1,0 +1,459 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="Blocks_pal">
+<refnamediv>
+<refname>Blocks</refname>
+<refpurpose>Coselica Blocks palette</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<link linkend="MBS_Constant">
+<inlinemediaobject linkend="MBS_Constant">
+<imageobject linkend="MBS_Constant">
+<imagedata linkend="MBS_Constant" fileref="../../images/gif/MBS_Constant.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_Step">
+<inlinemediaobject linkend="MBS_Step">
+<imageobject linkend="MBS_Step">
+<imagedata linkend="MBS_Step" fileref="../../images/gif/MBS_Step.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_Ramp">
+<inlinemediaobject linkend="MBS_Ramp">
+<imageobject linkend="MBS_Ramp">
+<imagedata linkend="MBS_Ramp" fileref="../../images/gif/MBS_Ramp.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_Sine">
+<inlinemediaobject linkend="MBS_Sine">
+<imageobject linkend="MBS_Sine">
+<imagedata linkend="MBS_Sine" fileref="../../images/gif/MBS_Sine.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_Pulse">
+<inlinemediaobject linkend="MBS_Pulse">
+<imageobject linkend="MBS_Pulse">
+<imagedata linkend="MBS_Pulse" fileref="../../images/gif/MBS_Pulse.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBS_Trapezoid">
+<inlinemediaobject linkend="CBS_Trapezoid">
+<imageobject linkend="CBS_Trapezoid">
+<imagedata linkend="CBS_Trapezoid" fileref="../../images/gif/CBS_Trapezoid.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_ExpSine">
+<inlinemediaobject linkend="MBS_ExpSine">
+<imageobject linkend="MBS_ExpSine">
+<imagedata linkend="MBS_ExpSine" fileref="../../images/gif/MBS_ExpSine.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_Exponentials">
+<inlinemediaobject linkend="MBS_Exponentials">
+<imageobject linkend="MBS_Exponentials">
+<imagedata linkend="MBS_Exponentials" fileref="../../images/gif/MBS_Exponentials.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_SawTooth">
+<inlinemediaobject linkend="MBS_SawTooth">
+<imageobject linkend="MBS_SawTooth">
+<imagedata linkend="MBS_SawTooth" fileref="../../images/gif/MBS_SawTooth.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBS_Clock">
+<inlinemediaobject linkend="MBS_Clock">
+<imageobject linkend="MBS_Clock">
+<imagedata linkend="MBS_Clock" fileref="../../images/gif/MBS_Clock.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_Integrator">
+<inlinemediaobject linkend="MBC_Integrator">
+<imageobject linkend="MBC_Integrator">
+<imagedata linkend="MBC_Integrator" fileref="../../images/gif/MBC_Integrator.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_Der">
+<inlinemediaobject linkend="MBC_Der">
+<imageobject linkend="MBC_Der">
+<imagedata linkend="MBC_Der" fileref="../../images/gif/MBC_Der.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_FirstOrder">
+<inlinemediaobject linkend="MBC_FirstOrder">
+<imageobject linkend="MBC_FirstOrder">
+<imagedata linkend="MBC_FirstOrder" fileref="../../images/gif/MBC_FirstOrder.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_SecondOrder">
+<inlinemediaobject linkend="MBC_SecondOrder">
+<imageobject linkend="MBC_SecondOrder">
+<imagedata linkend="MBC_SecondOrder" fileref="../../images/gif/MBC_SecondOrder.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBC_TransferFunction">
+<inlinemediaobject linkend="CBC_TransferFunction">
+<imageobject linkend="CBC_TransferFunction">
+<imagedata linkend="CBC_TransferFunction" fileref="../../images/gif/CBC_TransferFunction.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_PI">
+<inlinemediaobject linkend="MBC_PI">
+<imageobject linkend="MBC_PI">
+<imagedata linkend="MBC_PI" fileref="../../images/gif/MBC_PI.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_Derivative">
+<inlinemediaobject linkend="MBC_Derivative">
+<imageobject linkend="MBC_Derivative">
+<imagedata linkend="MBC_Derivative" fileref="../../images/gif/MBC_Derivative.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_PID">
+<inlinemediaobject linkend="MBC_PID">
+<imageobject linkend="MBC_PID">
+<imagedata linkend="MBC_PID" fileref="../../images/gif/MBC_PID.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_LimIntegrator">
+<inlinemediaobject linkend="MBC_LimIntegrator">
+<imageobject linkend="MBC_LimIntegrator">
+<imagedata linkend="MBC_LimIntegrator" fileref="../../images/gif/MBC_LimIntegrator.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBC_LimPID">
+<inlinemediaobject linkend="MBC_LimPID">
+<imageobject linkend="MBC_LimPID">
+<imagedata linkend="MBC_LimPID" fileref="../../images/gif/MBC_LimPID.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBC_StateSpace">
+<inlinemediaobject linkend="CBC_StateSpace">
+<imageobject linkend="CBC_StateSpace">
+<imagedata linkend="CBC_StateSpace" fileref="../../images/gif/CBC_StateSpace.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBN_Hysteresis">
+<inlinemediaobject linkend="CBN_Hysteresis">
+<imageobject linkend="CBN_Hysteresis">
+<imagedata linkend="CBN_Hysteresis" fileref="../../images/gif/CBN_Hysteresis.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBN_RateLimiter">
+<inlinemediaobject linkend="CBN_RateLimiter">
+<imageobject linkend="CBN_RateLimiter">
+<imagedata linkend="CBN_RateLimiter" fileref="../../images/gif/CBN_RateLimiter.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBN_DeadZone">
+<inlinemediaobject linkend="MBN_DeadZone">
+<imageobject linkend="MBN_DeadZone">
+<imagedata linkend="MBN_DeadZone" fileref="../../images/gif/MBN_DeadZone.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBN_Limiter">
+<inlinemediaobject linkend="MBN_Limiter">
+<imageobject linkend="MBN_Limiter">
+<imagedata linkend="MBN_Limiter" fileref="../../images/gif/MBN_Limiter.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBI_RealInput">
+<inlinemediaobject linkend="CBI_RealInput">
+<imageobject linkend="CBI_RealInput">
+<imagedata linkend="CBI_RealInput" fileref="../../images/gif/CBI_RealInput.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBI_RealOutput">
+<inlinemediaobject linkend="CBI_RealOutput">
+<imageobject linkend="CBI_RealOutput">
+<imagedata linkend="CBI_RealOutput" fileref="../../images/gif/CBI_RealOutput.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Abs">
+<inlinemediaobject linkend="MBM_Abs">
+<imageobject linkend="MBM_Abs">
+<imagedata linkend="MBM_Abs" fileref="../../images/gif/MBM_Abs.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Acos">
+<inlinemediaobject linkend="MBM_Acos">
+<imageobject linkend="MBM_Acos">
+<imagedata linkend="MBM_Acos" fileref="../../images/gif/MBM_Acos.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Add">
+<inlinemediaobject linkend="MBM_Add">
+<imageobject linkend="MBM_Add">
+<imagedata linkend="MBM_Add" fileref="../../images/gif/MBM_Add.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBM_Add3">
+<inlinemediaobject linkend="CBM_Add3">
+<imageobject linkend="CBM_Add3">
+<imagedata linkend="CBM_Add3" fileref="../../images/gif/CBM_Add3.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Asin">
+<inlinemediaobject linkend="MBM_Asin">
+<imageobject linkend="MBM_Asin">
+<imagedata linkend="MBM_Asin" fileref="../../images/gif/MBM_Asin.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Atan">
+<inlinemediaobject linkend="MBM_Atan">
+<imageobject linkend="MBM_Atan">
+<imagedata linkend="MBM_Atan" fileref="../../images/gif/MBM_Atan.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Cos">
+<inlinemediaobject linkend="MBM_Cos">
+<imageobject linkend="MBM_Cos">
+<imagedata linkend="MBM_Cos" fileref="../../images/gif/MBM_Cos.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Cosh">
+<inlinemediaobject linkend="MBM_Cosh">
+<imageobject linkend="MBM_Cosh">
+<imagedata linkend="MBM_Cosh" fileref="../../images/gif/MBM_Cosh.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Division">
+<inlinemediaobject linkend="MBM_Division">
+<imageobject linkend="MBM_Division">
+<imagedata linkend="MBM_Division" fileref="../../images/gif/MBM_Division.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Exp">
+<inlinemediaobject linkend="MBM_Exp">
+<imageobject linkend="MBM_Exp">
+<imagedata linkend="MBM_Exp" fileref="../../images/gif/MBM_Exp.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Feedback">
+<inlinemediaobject linkend="MBM_Feedback">
+<imageobject linkend="MBM_Feedback">
+<imagedata linkend="MBM_Feedback" fileref="../../images/gif/MBM_Feedback.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Gain">
+<inlinemediaobject linkend="MBM_Gain">
+<imageobject linkend="MBM_Gain">
+<imagedata linkend="MBM_Gain" fileref="../../images/gif/MBM_Gain.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Log">
+<inlinemediaobject linkend="MBM_Log">
+<imageobject linkend="MBM_Log">
+<imagedata linkend="MBM_Log" fileref="../../images/gif/MBM_Log.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Log10">
+<inlinemediaobject linkend="MBM_Log10">
+<imageobject linkend="MBM_Log10">
+<imagedata linkend="MBM_Log10" fileref="../../images/gif/MBM_Log10.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Max">
+<inlinemediaobject linkend="MBM_Max">
+<imageobject linkend="MBM_Max">
+<imagedata linkend="MBM_Max" fileref="../../images/gif/MBM_Max.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Min">
+<inlinemediaobject linkend="MBM_Min">
+<imageobject linkend="MBM_Min">
+<imagedata linkend="MBM_Min" fileref="../../images/gif/MBM_Min.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Product">
+<inlinemediaobject linkend="MBM_Product">
+<imageobject linkend="MBM_Product">
+<imagedata linkend="MBM_Product" fileref="../../images/gif/MBM_Product.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Sign">
+<inlinemediaobject linkend="MBM_Sign">
+<imageobject linkend="MBM_Sign">
+<imagedata linkend="MBM_Sign" fileref="../../images/gif/MBM_Sign.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Sin">
+<inlinemediaobject linkend="MBM_Sin">
+<imageobject linkend="MBM_Sin">
+<imagedata linkend="MBM_Sin" fileref="../../images/gif/MBM_Sin.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Sinh">
+<inlinemediaobject linkend="MBM_Sinh">
+<imageobject linkend="MBM_Sinh">
+<imagedata linkend="MBM_Sinh" fileref="../../images/gif/MBM_Sinh.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Sqrt">
+<inlinemediaobject linkend="MBM_Sqrt">
+<imageobject linkend="MBM_Sqrt">
+<imagedata linkend="MBM_Sqrt" fileref="../../images/gif/MBM_Sqrt.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Tan">
+<inlinemediaobject linkend="MBM_Tan">
+<imageobject linkend="MBM_Tan">
+<imagedata linkend="MBM_Tan" fileref="../../images/gif/MBM_Tan.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MBM_Tanh">
+<inlinemediaobject linkend="MBM_Tanh">
+<imageobject linkend="MBM_Tanh">
+<imagedata linkend="MBM_Tanh" fileref="../../images/gif/MBM_Tanh.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBM_Atan2">
+<inlinemediaobject linkend="CBM_Atan2">
+<imageobject linkend="CBM_Atan2">
+<imagedata linkend="CBM_Atan2" fileref="../../images/gif/CBM_Atan2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBM_Sum">
+<inlinemediaobject linkend="CBM_Sum">
+<imageobject linkend="CBM_Sum">
+<imagedata linkend="CBM_Sum" fileref="../../images/gif/CBM_Sum.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBM_TwoInputs">
+<inlinemediaobject linkend="CBM_TwoInputs">
+<imageobject linkend="CBM_TwoInputs">
+<imagedata linkend="CBM_TwoInputs" fileref="../../images/gif/CBM_TwoInputs.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBM_TwoOutputs">
+<inlinemediaobject linkend="CBM_TwoOutputs">
+<imageobject linkend="CBM_TwoOutputs">
+<imagedata linkend="CBM_TwoOutputs" fileref="../../images/gif/CBM_TwoOutputs.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBMV_Add">
+<inlinemediaobject linkend="CBMV_Add">
+<imageobject linkend="CBMV_Add">
+<imagedata linkend="CBMV_Add" fileref="../../images/gif/CBMV_Add.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBMV_CrossProduct">
+<inlinemediaobject linkend="CBMV_CrossProduct">
+<imageobject linkend="CBMV_CrossProduct">
+<imagedata linkend="CBMV_CrossProduct" fileref="../../images/gif/CBMV_CrossProduct.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBMV_DotProduct">
+<inlinemediaobject linkend="CBMV_DotProduct">
+<imageobject linkend="CBMV_DotProduct">
+<imagedata linkend="CBMV_DotProduct" fileref="../../images/gif/CBMV_DotProduct.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBMV_ElementwiseProduct">
+<inlinemediaobject linkend="CBMV_ElementwiseProduct">
+<imageobject linkend="CBMV_ElementwiseProduct">
+<imagedata linkend="CBMV_ElementwiseProduct" fileref="../../images/gif/CBMV_ElementwiseProduct.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBR_DeMultiplex2">
+<inlinemediaobject linkend="CBR_DeMultiplex2">
+<imageobject linkend="CBR_DeMultiplex2">
+<imagedata linkend="CBR_DeMultiplex2" fileref="../../images/gif/CBR_DeMultiplex2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBR_DeMultiplexVector2">
+<inlinemediaobject linkend="CBR_DeMultiplexVector2">
+<imageobject linkend="CBR_DeMultiplexVector2">
+<imagedata linkend="CBR_DeMultiplexVector2" fileref="../../images/gif/CBR_DeMultiplexVector2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBR_Extractor">
+<inlinemediaobject linkend="CBR_Extractor">
+<imageobject linkend="CBR_Extractor">
+<imagedata linkend="CBR_Extractor" fileref="../../images/gif/CBR_Extractor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBR_Multiplex2">
+<inlinemediaobject linkend="CBR_Multiplex2">
+<imageobject linkend="CBR_Multiplex2">
+<imagedata linkend="CBR_Multiplex2" fileref="../../images/gif/CBR_Multiplex2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBR_MultiplexVector2">
+<inlinemediaobject linkend="CBR_MultiplexVector2">
+<imageobject linkend="CBR_MultiplexVector2">
+<imagedata linkend="CBR_MultiplexVector2" fileref="../../images/gif/CBR_MultiplexVector2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CBR_Replicator">
+<inlinemediaobject linkend="CBR_Replicator">
+<imageobject linkend="CBR_Replicator">
+<imagedata linkend="CBR_Replicator" fileref="../../images/gif/CBR_Replicator.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+</para>
+</refsection>
+</refentry>

@@ -1,0 +1,141 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CEAI_IdealDiode">
+<refnamediv>
+<refname>CEAI_IdealDiode</refname>
+<refpurpose>CEAI_IdealDiode Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gif/CEAI_IdealDiode.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CEAI_IdealDiode">
+<title>Description</title>
+<para>
+Ideal diode
+</para>
+</refsection>
+<refsection id="Palette_CEAI_IdealDiode">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gui/CEAI_IdealDiode_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Ron [Ohm] : Forward state-on differential resistance (closed diode resistance &gt;=0)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0.00001</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Goff [S] : Backward state-off conductance (opened diode conductance &gt;= 0)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0.00001</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Vknee [V] : Forward threshold voltage (&gt;= 0</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'p'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'n'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'Ron'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0.00001
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'Goff'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0.00001
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'Vknee'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CEAI_IdealDiode">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CEAI_IdealDiode.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Electrical.Analog.Ideal.IdealDiode in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

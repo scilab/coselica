@@ -1,0 +1,305 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="Mechanics_Rotational_pal">
+<refnamediv>
+<refname>Mechanics_Rotational</refname>
+<refpurpose>Coselica Mechanics_Rotational palette</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<link linkend="MMR_Fixed">
+<inlinemediaobject linkend="MMR_Fixed">
+<imageobject linkend="MMR_Fixed">
+<imagedata linkend="MMR_Fixed" fileref="../../images/gif/MMR_Fixed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRC_Free">
+<inlinemediaobject linkend="CMRC_Free">
+<imageobject linkend="CMRC_Free">
+<imagedata linkend="CMRC_Free" fileref="../../images/gif/CMRC_Free.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_Inertia">
+<inlinemediaobject linkend="MMR_Inertia">
+<imageobject linkend="MMR_Inertia">
+<imagedata linkend="MMR_Inertia" fileref="../../images/gif/MMR_Inertia.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRC_Disc">
+<inlinemediaobject linkend="CMRC_Disc">
+<imageobject linkend="CMRC_Disc">
+<imagedata linkend="CMRC_Disc" fileref="../../images/gif/CMRC_Disc.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_Spring">
+<inlinemediaobject linkend="MMR_Spring">
+<imageobject linkend="MMR_Spring">
+<imagedata linkend="MMR_Spring" fileref="../../images/gif/MMR_Spring.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_Damper">
+<inlinemediaobject linkend="MMR_Damper">
+<imageobject linkend="MMR_Damper">
+<imagedata linkend="MMR_Damper" fileref="../../images/gif/MMR_Damper.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_SpringDamper">
+<inlinemediaobject linkend="MMR_SpringDamper">
+<imageobject linkend="MMR_SpringDamper">
+<imagedata linkend="MMR_SpringDamper" fileref="../../images/gif/MMR_SpringDamper.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRC_ElastoBacklash">
+<inlinemediaobject linkend="CMRC_ElastoBacklash">
+<imageobject linkend="CMRC_ElastoBacklash">
+<imagedata linkend="CMRC_ElastoBacklash" fileref="../../images/gif/CMRC_ElastoBacklash.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMR_BearingFriction">
+<inlinemediaobject linkend="CMR_BearingFriction">
+<imageobject linkend="CMR_BearingFriction">
+<imagedata linkend="CMR_BearingFriction" fileref="../../images/gif/CMR_BearingFriction.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMR_Brake">
+<inlinemediaobject linkend="CMR_Brake">
+<imageobject linkend="CMR_Brake">
+<imagedata linkend="CMR_Brake" fileref="../../images/gif/CMR_Brake.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMR_Clutch">
+<inlinemediaobject linkend="CMR_Clutch">
+<imageobject linkend="CMR_Clutch">
+<imagedata linkend="CMR_Clutch" fileref="../../images/gif/CMR_Clutch.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMR_OneWayClutch">
+<inlinemediaobject linkend="CMR_OneWayClutch">
+<imageobject linkend="CMR_OneWayClutch">
+<imagedata linkend="CMR_OneWayClutch" fileref="../../images/gif/CMR_OneWayClutch.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMR_Freewheel">
+<inlinemediaobject linkend="CMR_Freewheel">
+<imageobject linkend="CMR_Freewheel">
+<imagedata linkend="CMR_Freewheel" fileref="../../images/gif/CMR_Freewheel.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_IdealGear">
+<inlinemediaobject linkend="MMR_IdealGear">
+<imageobject linkend="MMR_IdealGear">
+<imagedata linkend="MMR_IdealGear" fileref="../../images/gif/MMR_IdealGear.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_IdealPlanetary">
+<inlinemediaobject linkend="MMR_IdealPlanetary">
+<imageobject linkend="MMR_IdealPlanetary">
+<imagedata linkend="MMR_IdealPlanetary" fileref="../../images/gif/MMR_IdealPlanetary.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRC_IdealDifferential">
+<inlinemediaobject linkend="CMRC_IdealDifferential">
+<imageobject linkend="CMRC_IdealDifferential">
+<imagedata linkend="CMRC_IdealDifferential" fileref="../../images/gif/CMRC_IdealDifferential.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMR_IdealGearR2T">
+<inlinemediaobject linkend="MMR_IdealGearR2T">
+<imageobject linkend="MMR_IdealGearR2T">
+<imagedata linkend="MMR_IdealGearR2T" fileref="../../images/gif/MMR_IdealGearR2T.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_ImposedKinematic">
+<inlinemediaobject linkend="CMRS_ImposedKinematic">
+<imageobject linkend="CMRS_ImposedKinematic">
+<imagedata linkend="CMRS_ImposedKinematic" fileref="../../images/gif/CMRS_ImposedKinematic.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Position0">
+<inlinemediaobject linkend="CMRS_Position0">
+<imageobject linkend="CMRS_Position0">
+<imagedata linkend="CMRS_Position0" fileref="../../images/gif/CMRS_Position0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Speed0">
+<inlinemediaobject linkend="CMRS_Speed0">
+<imageobject linkend="CMRS_Speed0">
+<imagedata linkend="CMRS_Speed0" fileref="../../images/gif/CMRS_Speed0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Accelerate0">
+<inlinemediaobject linkend="CMRS_Accelerate0">
+<imageobject linkend="CMRS_Accelerate0">
+<imagedata linkend="CMRS_Accelerate0" fileref="../../images/gif/CMRS_Accelerate0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Torque0">
+<inlinemediaobject linkend="CMRS_Torque0">
+<imageobject linkend="CMRS_Torque0">
+<imagedata linkend="CMRS_Torque0" fileref="../../images/gif/CMRS_Torque0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Position">
+<inlinemediaobject linkend="CMRS_Position">
+<imageobject linkend="CMRS_Position">
+<imagedata linkend="CMRS_Position" fileref="../../images/gif/CMRS_Position.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Speed">
+<inlinemediaobject linkend="CMRS_Speed">
+<imageobject linkend="CMRS_Speed">
+<imagedata linkend="CMRS_Speed" fileref="../../images/gif/CMRS_Speed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Accelerate">
+<inlinemediaobject linkend="CMRS_Accelerate">
+<imageobject linkend="CMRS_Accelerate">
+<imagedata linkend="CMRS_Accelerate" fileref="../../images/gif/CMRS_Accelerate.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Torque">
+<inlinemediaobject linkend="CMRS_Torque">
+<imageobject linkend="CMRS_Torque">
+<imagedata linkend="CMRS_Torque" fileref="../../images/gif/CMRS_Torque.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_Torque2">
+<inlinemediaobject linkend="CMRS_Torque2">
+<imageobject linkend="CMRS_Torque2">
+<imagedata linkend="CMRS_Torque2" fileref="../../images/gif/CMRS_Torque2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_ConstantTorque">
+<inlinemediaobject linkend="CMRS_ConstantTorque">
+<imageobject linkend="CMRS_ConstantTorque">
+<imagedata linkend="CMRS_ConstantTorque" fileref="../../images/gif/CMRS_ConstantTorque.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_ConstantSpeed">
+<inlinemediaobject linkend="CMRS_ConstantSpeed">
+<imageobject linkend="CMRS_ConstantSpeed">
+<imagedata linkend="CMRS_ConstantSpeed" fileref="../../images/gif/CMRS_ConstantSpeed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_TorqueStep">
+<inlinemediaobject linkend="CMRS_TorqueStep">
+<imageobject linkend="CMRS_TorqueStep">
+<imagedata linkend="CMRS_TorqueStep" fileref="../../images/gif/CMRS_TorqueStep.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_LinearSpeedDependen">
+<inlinemediaobject linkend="CMRS_LinearSpeedDependen">
+<imageobject linkend="CMRS_LinearSpeedDependen">
+<imagedata linkend="CMRS_LinearSpeedDependen" fileref="../../images/gif/CMRS_LinearSpeedDependen.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_QuadraticSpeedDepen">
+<inlinemediaobject linkend="CMRS_QuadraticSpeedDepen">
+<imageobject linkend="CMRS_QuadraticSpeedDepen">
+<imagedata linkend="CMRS_QuadraticSpeedDepen" fileref="../../images/gif/CMRS_QuadraticSpeedDepen.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_AngleSensor">
+<inlinemediaobject linkend="MMRS_AngleSensor">
+<imageobject linkend="MMRS_AngleSensor">
+<imagedata linkend="MMRS_AngleSensor" fileref="../../images/gif/MMRS_AngleSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_SpeedSensor">
+<inlinemediaobject linkend="MMRS_SpeedSensor">
+<imageobject linkend="MMRS_SpeedSensor">
+<imagedata linkend="MMRS_SpeedSensor" fileref="../../images/gif/MMRS_SpeedSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_AccSensor">
+<inlinemediaobject linkend="MMRS_AccSensor">
+<imageobject linkend="MMRS_AccSensor">
+<imagedata linkend="MMRS_AccSensor" fileref="../../images/gif/MMRS_AccSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_RelAngleSensor">
+<inlinemediaobject linkend="MMRS_RelAngleSensor">
+<imageobject linkend="MMRS_RelAngleSensor">
+<imagedata linkend="MMRS_RelAngleSensor" fileref="../../images/gif/MMRS_RelAngleSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_RelSpeedSensor">
+<inlinemediaobject linkend="MMRS_RelSpeedSensor">
+<imageobject linkend="MMRS_RelSpeedSensor">
+<imagedata linkend="MMRS_RelSpeedSensor" fileref="../../images/gif/MMRS_RelSpeedSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_RelAccSensor">
+<inlinemediaobject linkend="MMRS_RelAccSensor">
+<imageobject linkend="MMRS_RelAccSensor">
+<imagedata linkend="MMRS_RelAccSensor" fileref="../../images/gif/MMRS_RelAccSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMRS_TorqueSensor">
+<inlinemediaobject linkend="MMRS_TorqueSensor">
+<imageobject linkend="MMRS_TorqueSensor">
+<imagedata linkend="MMRS_TorqueSensor" fileref="../../images/gif/MMRS_TorqueSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_PowerSensor">
+<inlinemediaobject linkend="CMRS_PowerSensor">
+<imageobject linkend="CMRS_PowerSensor">
+<imagedata linkend="CMRS_PowerSensor" fileref="../../images/gif/CMRS_PowerSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_GenSensor">
+<inlinemediaobject linkend="CMRS_GenSensor">
+<imageobject linkend="CMRS_GenSensor">
+<imagedata linkend="CMRS_GenSensor" fileref="../../images/gif/CMRS_GenSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMRS_GenRelSensor">
+<inlinemediaobject linkend="CMRS_GenRelSensor">
+<imageobject linkend="CMRS_GenRelSensor">
+<imagedata linkend="CMRS_GenRelSensor" fileref="../../images/gif/CMRS_GenRelSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+</para>
+</refsection>
+</refentry>

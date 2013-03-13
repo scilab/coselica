@@ -1,0 +1,158 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MBS_Sine">
+<refnamediv>
+<refname>MBS_Sine</refname>
+<refpurpose>MBS_Sine Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gif/MBS_Sine.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_MBS_Sine">
+<title>Description</title>
+<para>
+Generate sine signal
+</para>
+</refsection>
+<refsection id="Palette_MBS_Sine">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gui/MBS_Sine_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">amplitude [-] : Amplitude of sine wave</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">freqHz [Hz] : Frequency of sine wave</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">phase [rad] : Phase of sine wave</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">offset [-] : Offset of output signal</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">startTime [s] : Output = offset for time &lt; startTime</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'y'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'amplitude'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 1
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'freqHz'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 1
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'phase'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'offset'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'startTime'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_MBS_Sine">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>MBS_Sine.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>MBS_Sine in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

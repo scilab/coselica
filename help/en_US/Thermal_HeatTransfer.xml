@@ -1,0 +1,123 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="Thermal_HeatTransfer_pal">
+<refnamediv>
+<refname>Thermal_HeatTransfer</refname>
+<refpurpose>Coselica Thermal_HeatTransfer palette</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<link linkend="MTH_FixedTemperature">
+<inlinemediaobject linkend="MTH_FixedTemperature">
+<imageobject linkend="MTH_FixedTemperature">
+<imagedata linkend="MTH_FixedTemperature" fileref="../../images/gif/MTH_FixedTemperature.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTHC_FixedTemperature">
+<inlinemediaobject linkend="MTHC_FixedTemperature">
+<imageobject linkend="MTHC_FixedTemperature">
+<imagedata linkend="MTHC_FixedTemperature" fileref="../../images/gif/MTHC_FixedTemperature.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_PrescribedTemperatur">
+<inlinemediaobject linkend="MTH_PrescribedTemperatur">
+<imageobject linkend="MTH_PrescribedTemperatur">
+<imagedata linkend="MTH_PrescribedTemperatur" fileref="../../images/gif/MTH_PrescribedTemperatur.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTHC_PrescribedTemperatu">
+<inlinemediaobject linkend="MTHC_PrescribedTemperatu">
+<imageobject linkend="MTHC_PrescribedTemperatu">
+<imagedata linkend="MTHC_PrescribedTemperatu" fileref="../../images/gif/MTHC_PrescribedTemperatu.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_FixedHeatFlow">
+<inlinemediaobject linkend="MTH_FixedHeatFlow">
+<imageobject linkend="MTH_FixedHeatFlow">
+<imagedata linkend="MTH_FixedHeatFlow" fileref="../../images/gif/MTH_FixedHeatFlow.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_PrescribedHeatFlow">
+<inlinemediaobject linkend="MTH_PrescribedHeatFlow">
+<imageobject linkend="MTH_PrescribedHeatFlow">
+<imagedata linkend="MTH_PrescribedHeatFlow" fileref="../../images/gif/MTH_PrescribedHeatFlow.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_HeatCapacitor">
+<inlinemediaobject linkend="MTH_HeatCapacitor">
+<imageobject linkend="MTH_HeatCapacitor">
+<imagedata linkend="MTH_HeatCapacitor" fileref="../../images/gif/MTH_HeatCapacitor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_ThermalConductor">
+<inlinemediaobject linkend="MTH_ThermalConductor">
+<imageobject linkend="MTH_ThermalConductor">
+<imagedata linkend="MTH_ThermalConductor" fileref="../../images/gif/MTH_ThermalConductor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_Convection">
+<inlinemediaobject linkend="MTH_Convection">
+<imageobject linkend="MTH_Convection">
+<imagedata linkend="MTH_Convection" fileref="../../images/gif/MTH_Convection.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_BodyRadiation">
+<inlinemediaobject linkend="MTH_BodyRadiation">
+<imageobject linkend="MTH_BodyRadiation">
+<imagedata linkend="MTH_BodyRadiation" fileref="../../images/gif/MTH_BodyRadiation.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTHC_ToKelvin">
+<inlinemediaobject linkend="MTHC_ToKelvin">
+<imageobject linkend="MTHC_ToKelvin">
+<imagedata linkend="MTHC_ToKelvin" fileref="../../images/gif/MTHC_ToKelvin.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTHC_FromKelvin">
+<inlinemediaobject linkend="MTHC_FromKelvin">
+<imageobject linkend="MTHC_FromKelvin">
+<imagedata linkend="MTHC_FromKelvin" fileref="../../images/gif/MTHC_FromKelvin.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_TemperatureSensor">
+<inlinemediaobject linkend="MTH_TemperatureSensor">
+<imageobject linkend="MTH_TemperatureSensor">
+<imagedata linkend="MTH_TemperatureSensor" fileref="../../images/gif/MTH_TemperatureSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTHC_TemperatureSensor">
+<inlinemediaobject linkend="MTHC_TemperatureSensor">
+<imageobject linkend="MTHC_TemperatureSensor">
+<imagedata linkend="MTHC_TemperatureSensor" fileref="../../images/gif/MTHC_TemperatureSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_RelTemperatureSensor">
+<inlinemediaobject linkend="MTH_RelTemperatureSensor">
+<imageobject linkend="MTH_RelTemperatureSensor">
+<imagedata linkend="MTH_RelTemperatureSensor" fileref="../../images/gif/MTH_RelTemperatureSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MTH_HeatFlowSensor">
+<inlinemediaobject linkend="MTH_HeatFlowSensor">
+<imageobject linkend="MTH_HeatFlowSensor">
+<imagedata linkend="MTH_HeatFlowSensor" fileref="../../images/gif/MTH_HeatFlowSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+</para>
+</refsection>
+</refentry>

@@ -1,0 +1,202 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMPJ_ActuatedPrismatic">
+<refnamediv>
+<refname>CMPJ_ActuatedPrismatic</refname>
+<refpurpose>CMPJ_ActuatedPrismatic Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/CMPJ_ActuatedPrismatic.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CMPJ_ActuatedPrismatic">
+<title>Description</title>
+<para>
+Actuated prismatic joint (1 translational degree-of-freedom, 2 states)
+</para>
+</refsection>
+<refsection id="Palette_CMPJ_ActuatedPrismatic">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Mechanics_Planar_pal">Mechanics_Planar - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gui/CMPJ_ActuatedPrismatic_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">n [-] : Axis of translation resolved in frame_a (= same as in frame_b)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 2. </para>
+<para> Default value : [1,0]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">initType [-] : Type of initial value for [s,v,a] (0=guess,1=fixed)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 3. </para>
+<para> Default value : [0,0,0]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">s_start [m] : Initial value of distance s</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">v_start [m/s] : Initial value of relative velocity v = der(s)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">a_start [m/s2] : Initial value of relative acceleration a = der(v)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'frame_a'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Planar type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'bearing'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'frame_b'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Planar type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'axis'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'n'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [1,0]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 's_offset'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'initType'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [0,0,0]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 's_start'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'v_start'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'a_start'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CMPJ_ActuatedPrismatic">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CMPJ_ActuatedPrismatic.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Mechanics.Planar.Joints.ActuatedPrismatic in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

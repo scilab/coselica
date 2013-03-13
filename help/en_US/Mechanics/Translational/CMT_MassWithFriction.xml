@@ -1,0 +1,201 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMT_MassWithFriction">
+<refnamediv>
+<refname>CMT_MassWithFriction</refname>
+<refpurpose>CMT_MassWithFriction Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/CMT_MassWithFriction.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CMT_MassWithFriction">
+<title>Description</title>
+<para>
+Sliding mass with Stribeck friction
+</para>
+</refsection>
+<refsection id="Palette_CMT_MassWithFriction">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gui/CMT_MassWithFriction_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">m [kg] : mass of the sliding mass</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">F_prop [N/(m/s)] : velocity dependent friction</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">F_Coulomb [N] : constant friction: Coulomb force</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 5</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">F_Stribeck [N] : Stribeck effect</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 10</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">fexp [1/(m/s)] : exponential decay of Stribeck effect</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 2</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 0</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'flange_a'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'flange_b'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'm'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 1
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'F_prop'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 1
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'F_Coulomb'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 5
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'F_Stribeck'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 10
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'fexp'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 2
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'mode_start'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'L'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CMT_MassWithFriction">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CMT_MassWithFriction.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Mechanics.Translational.MassWithFriction in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

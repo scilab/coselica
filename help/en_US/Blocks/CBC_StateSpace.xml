@@ -1,0 +1,246 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CBC_StateSpace">
+<refnamediv>
+<refname>CBC_StateSpace</refname>
+<refpurpose>CBC_StateSpace Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gif/CBC_StateSpace.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CBC_StateSpace">
+<title>Description</title>
+<para>
+Linear state space system
+</para>
+</refsection>
+<refsection id="Palette_CBC_StateSpace">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../images/gui/CBC_StateSpace_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">nx [-] : Number of states</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 2</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">A [-] : Matrix A of state space model (e.g., A=[1, 0; 0, 1])</emphasis>
+</para>
+<para> Properties : Type 'mat' of size [-1,-1]. </para>
+<para> Default value : [1,0;0,1]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">B [-] : Matrix B of state space model (e.g., B=[1; 1])</emphasis>
+</para>
+<para> Properties : Type 'mat' of size [-1,-1]. </para>
+<para> Default value : [1;1]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">C [-] : Matrix C of state space model (e.g., C=[1, 1])</emphasis>
+</para>
+<para> Properties : Type 'mat' of size [-1,-1]. </para>
+<para> Default value : [1,1]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">D [-] : Matrix D of state space model</emphasis>
+</para>
+<para> Properties : Type 'mat' of size [-1,-1]. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">initType [-] : Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">x_start [-] : Initial or guess values of states</emphasis>
+</para>
+<para> Properties : Type 'vec' of size -1. </para>
+<para> Default value : [0,0]</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">y_start [-] : Initial values of outputs (remaining states are in steady state if possible)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size -1. </para>
+<para> Default value : 0</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">nin [-] : Number of inputs</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">nout [-] : Number of outputs</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Inputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'u'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'y'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Value type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'nx'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> int32(2)
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'A'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [1,0;0,1]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'B'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [1;1]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'C'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [1,1]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'D'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'initType'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> int32(1)
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'x_start'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> [0,0]
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'y_start'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 0
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'nin'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> int32(1)
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'nout'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> int32(1)
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CBC_StateSpace">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CBC_StateSpace.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Blocks.Continuous.StateSpace in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

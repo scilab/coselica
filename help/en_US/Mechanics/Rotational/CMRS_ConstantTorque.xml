@@ -1,0 +1,106 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMRS_ConstantTorque">
+<refnamediv>
+<refname>CMRS_ConstantTorque</refname>
+<refpurpose>CMRS_ConstantTorque Coselica block</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gif/CMRS_ConstantTorque.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+</refsection>
+<refsection id="Description_CMRS_ConstantTorque">
+<title>Description</title>
+<para>
+Constant torque, not dependent on speed
+</para>
+</refsection>
+<refsection id="Palette_CMRS_ConstantTorque">
+<title>Palette</title>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="../../../../images/gui/CMRS_ConstantTorque_gui.gif" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">tau_constant [N.m] : Constant torque (if negative, torque is acting as load)</emphasis>
+</para>
+<para> Properties : Type 'vec' of size 1. </para>
+<para> Default value : 1</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Defaultproperties_SineVoltage">
+<title>Block Model / Default properties</title>
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Outputs :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'flange'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold">Modelica variable name :</emphasis> 'support'
+</para>
+<para>
+<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Parameters :</emphasis></para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis role="bold">Modelica parameter name :</emphasis> 'tau_constant'
+</para>
+<para>
+<emphasis role="bold">Default value :</emphasis> 1
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Interfacingfunction_CMRS_ConstantTorque">
+<title>Interfacing function</title>
+<itemizedlist>
+<listitem>
+<para>CMRS_ConstantTorque.sci</para>
+</listitem>
+</itemizedlist>
+</refsection>
+<refsection id="Modelicamodel_SineVoltage">
+<title>Modelica model</title>
+<itemizedlist>
+<listitem>
+<para>Coselica.Mechanics.Rotational.Sources.ConstantTorque in COSELICA/macros/Coselica.mo file</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>

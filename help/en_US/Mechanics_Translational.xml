@@ -1,0 +1,291 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="Mechanics_Translational_pal">
+<refnamediv>
+<refname>Mechanics_Translational</refname>
+<refpurpose>Coselica Mechanics_Translational palette</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<link linkend="CMTS_ImposedKinematic">
+<inlinemediaobject linkend="CMTS_ImposedKinematic">
+<imageobject linkend="CMTS_ImposedKinematic">
+<imagedata linkend="CMTS_ImposedKinematic" fileref="../../images/gif/CMTS_ImposedKinematic.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Position0">
+<inlinemediaobject linkend="CMTS_Position0">
+<imageobject linkend="CMTS_Position0">
+<imagedata linkend="CMTS_Position0" fileref="../../images/gif/CMTS_Position0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Speed0">
+<inlinemediaobject linkend="CMTS_Speed0">
+<imageobject linkend="CMTS_Speed0">
+<imagedata linkend="CMTS_Speed0" fileref="../../images/gif/CMTS_Speed0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Accelerate0">
+<inlinemediaobject linkend="CMTS_Accelerate0">
+<imageobject linkend="CMTS_Accelerate0">
+<imagedata linkend="CMTS_Accelerate0" fileref="../../images/gif/CMTS_Accelerate0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Force0">
+<inlinemediaobject linkend="CMTS_Force0">
+<imageobject linkend="CMTS_Force0">
+<imagedata linkend="CMTS_Force0" fileref="../../images/gif/CMTS_Force0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Position">
+<inlinemediaobject linkend="CMTS_Position">
+<imageobject linkend="CMTS_Position">
+<imagedata linkend="CMTS_Position" fileref="../../images/gif/CMTS_Position.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Speed">
+<inlinemediaobject linkend="CMTS_Speed">
+<imageobject linkend="CMTS_Speed">
+<imagedata linkend="CMTS_Speed" fileref="../../images/gif/CMTS_Speed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Accelerate">
+<inlinemediaobject linkend="CMTS_Accelerate">
+<imageobject linkend="CMTS_Accelerate">
+<imagedata linkend="CMTS_Accelerate" fileref="../../images/gif/CMTS_Accelerate.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Force">
+<inlinemediaobject linkend="CMTS_Force">
+<imageobject linkend="CMTS_Force">
+<imagedata linkend="CMTS_Force" fileref="../../images/gif/CMTS_Force.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_Force2">
+<inlinemediaobject linkend="CMTS_Force2">
+<imageobject linkend="CMTS_Force2">
+<imagedata linkend="CMTS_Force2" fileref="../../images/gif/CMTS_Force2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_ConstantForce">
+<inlinemediaobject linkend="CMTS_ConstantForce">
+<imageobject linkend="CMTS_ConstantForce">
+<imagedata linkend="CMTS_ConstantForce" fileref="../../images/gif/CMTS_ConstantForce.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_ConstantSpeed">
+<inlinemediaobject linkend="CMTS_ConstantSpeed">
+<imageobject linkend="CMTS_ConstantSpeed">
+<imagedata linkend="CMTS_ConstantSpeed" fileref="../../images/gif/CMTS_ConstantSpeed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_ForceStep">
+<inlinemediaobject linkend="CMTS_ForceStep">
+<imageobject linkend="CMTS_ForceStep">
+<imagedata linkend="CMTS_ForceStep" fileref="../../images/gif/CMTS_ForceStep.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_LinearSpeedDependen">
+<inlinemediaobject linkend="CMTS_LinearSpeedDependen">
+<imageobject linkend="CMTS_LinearSpeedDependen">
+<imagedata linkend="CMTS_LinearSpeedDependen" fileref="../../images/gif/CMTS_LinearSpeedDependen.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_QuadraticSpeedDepen">
+<inlinemediaobject linkend="CMTS_QuadraticSpeedDepen">
+<imageobject linkend="CMTS_QuadraticSpeedDepen">
+<imagedata linkend="CMTS_QuadraticSpeedDepen" fileref="../../images/gif/CMTS_QuadraticSpeedDepen.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMT_Fixed">
+<inlinemediaobject linkend="MMT_Fixed">
+<imageobject linkend="MMT_Fixed">
+<imagedata linkend="MMT_Fixed" fileref="../../images/gif/MMT_Fixed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_Free">
+<inlinemediaobject linkend="CMTC_Free">
+<imageobject linkend="CMTC_Free">
+<imagedata linkend="CMTC_Free" fileref="../../images/gif/CMTC_Free.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_Mass">
+<inlinemediaobject linkend="CMTC_Mass">
+<imageobject linkend="CMTC_Mass">
+<imagedata linkend="CMTC_Mass" fileref="../../images/gif/CMTC_Mass.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_MassWithWeight">
+<inlinemediaobject linkend="CMTC_MassWithWeight">
+<imageobject linkend="CMTC_MassWithWeight">
+<imagedata linkend="CMTC_MassWithWeight" fileref="../../images/gif/CMTC_MassWithWeight.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMT_Rod">
+<inlinemediaobject linkend="MMT_Rod">
+<imageobject linkend="MMT_Rod">
+<imagedata linkend="MMT_Rod" fileref="../../images/gif/MMT_Rod.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMT_Spring">
+<inlinemediaobject linkend="MMT_Spring">
+<imageobject linkend="MMT_Spring">
+<imagedata linkend="MMT_Spring" fileref="../../images/gif/MMT_Spring.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMT_Damper">
+<inlinemediaobject linkend="MMT_Damper">
+<imageobject linkend="MMT_Damper">
+<imagedata linkend="MMT_Damper" fileref="../../images/gif/MMT_Damper.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMT_SpringDamper">
+<inlinemediaobject linkend="MMT_SpringDamper">
+<imageobject linkend="MMT_SpringDamper">
+<imagedata linkend="MMT_SpringDamper" fileref="../../images/gif/MMT_SpringDamper.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_ElastoGap">
+<inlinemediaobject linkend="CMTC_ElastoGap">
+<imageobject linkend="CMTC_ElastoGap">
+<imagedata linkend="CMTC_ElastoGap" fileref="../../images/gif/CMTC_ElastoGap.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMT_MassWithFriction">
+<inlinemediaobject linkend="CMT_MassWithFriction">
+<imageobject linkend="CMT_MassWithFriction">
+<imagedata linkend="CMT_MassWithFriction" fileref="../../images/gif/CMT_MassWithFriction.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MMT_SlidingMass">
+<inlinemediaobject linkend="MMT_SlidingMass">
+<imageobject linkend="MMT_SlidingMass">
+<imagedata linkend="MMT_SlidingMass" fileref="../../images/gif/MMT_SlidingMass.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMT_Stop">
+<inlinemediaobject linkend="CMT_Stop">
+<imageobject linkend="CMT_Stop">
+<imagedata linkend="CMT_Stop" fileref="../../images/gif/CMT_Stop.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_Pulley">
+<inlinemediaobject linkend="CMTC_Pulley">
+<imageobject linkend="CMTC_Pulley">
+<imagedata linkend="CMTC_Pulley" fileref="../../images/gif/CMTC_Pulley.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_ActuatedPulley">
+<inlinemediaobject linkend="CMTC_ActuatedPulley">
+<imageobject linkend="CMTC_ActuatedPulley">
+<imagedata linkend="CMTC_ActuatedPulley" fileref="../../images/gif/CMTC_ActuatedPulley.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTC_Lever">
+<inlinemediaobject linkend="CMTC_Lever">
+<imageobject linkend="CMTC_Lever">
+<imagedata linkend="CMTC_Lever" fileref="../../images/gif/CMTC_Lever.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_PositionSensor">
+<inlinemediaobject linkend="CMTS_PositionSensor">
+<imageobject linkend="CMTS_PositionSensor">
+<imagedata linkend="CMTS_PositionSensor" fileref="../../images/gif/CMTS_PositionSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_SpeedSensor">
+<inlinemediaobject linkend="CMTS_SpeedSensor">
+<imageobject linkend="CMTS_SpeedSensor">
+<imagedata linkend="CMTS_SpeedSensor" fileref="../../images/gif/CMTS_SpeedSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_AccSensor">
+<inlinemediaobject linkend="CMTS_AccSensor">
+<imageobject linkend="CMTS_AccSensor">
+<imagedata linkend="CMTS_AccSensor" fileref="../../images/gif/CMTS_AccSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_RelPositionSensor">
+<inlinemediaobject linkend="CMTS_RelPositionSensor">
+<imageobject linkend="CMTS_RelPositionSensor">
+<imagedata linkend="CMTS_RelPositionSensor" fileref="../../images/gif/CMTS_RelPositionSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_RelSpeedSensor">
+<inlinemediaobject linkend="CMTS_RelSpeedSensor">
+<imageobject linkend="CMTS_RelSpeedSensor">
+<imagedata linkend="CMTS_RelSpeedSensor" fileref="../../images/gif/CMTS_RelSpeedSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_RelAccSensor">
+<inlinemediaobject linkend="CMTS_RelAccSensor">
+<imageobject linkend="CMTS_RelAccSensor">
+<imagedata linkend="CMTS_RelAccSensor" fileref="../../images/gif/CMTS_RelAccSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_ForceSensor">
+<inlinemediaobject linkend="CMTS_ForceSensor">
+<imageobject linkend="CMTS_ForceSensor">
+<imagedata linkend="CMTS_ForceSensor" fileref="../../images/gif/CMTS_ForceSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_PowerSensor">
+<inlinemediaobject linkend="CMTS_PowerSensor">
+<imageobject linkend="CMTS_PowerSensor">
+<imagedata linkend="CMTS_PowerSensor" fileref="../../images/gif/CMTS_PowerSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_GenSensor">
+<inlinemediaobject linkend="CMTS_GenSensor">
+<imageobject linkend="CMTS_GenSensor">
+<imagedata linkend="CMTS_GenSensor" fileref="../../images/gif/CMTS_GenSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMTS_GenRelSensor">
+<inlinemediaobject linkend="CMTS_GenRelSensor">
+<imageobject linkend="CMTS_GenRelSensor">
+<imagedata linkend="CMTS_GenRelSensor" fileref="../../images/gif/CMTS_GenRelSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+</para>
+</refsection>
+</refentry>

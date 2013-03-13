@@ -1,0 +1,550 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="Electrical_pal">
+<refnamediv>
+<refname>Electrical</refname>
+<refpurpose>Coselica Electrical palette</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<link linkend="MEAS_SignalVoltage">
+<inlinemediaobject linkend="MEAS_SignalVoltage">
+<imageobject linkend="MEAS_SignalVoltage">
+<imagedata linkend="MEAS_SignalVoltage" fileref="../../images/gif/MEAS_SignalVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_ConstantVoltage">
+<inlinemediaobject linkend="MEAS_ConstantVoltage">
+<imageobject linkend="MEAS_ConstantVoltage">
+<imagedata linkend="MEAS_ConstantVoltage" fileref="../../images/gif/MEAS_ConstantVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_StepVoltage">
+<inlinemediaobject linkend="MEAS_StepVoltage">
+<imageobject linkend="MEAS_StepVoltage">
+<imagedata linkend="MEAS_StepVoltage" fileref="../../images/gif/MEAS_StepVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_RampVoltage">
+<inlinemediaobject linkend="MEAS_RampVoltage">
+<imageobject linkend="MEAS_RampVoltage">
+<imagedata linkend="MEAS_RampVoltage" fileref="../../images/gif/MEAS_RampVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_SineVoltage">
+<inlinemediaobject linkend="MEAS_SineVoltage">
+<imageobject linkend="MEAS_SineVoltage">
+<imagedata linkend="MEAS_SineVoltage" fileref="../../images/gif/MEAS_SineVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_PulseVoltage">
+<inlinemediaobject linkend="MEAS_PulseVoltage">
+<imageobject linkend="MEAS_PulseVoltage">
+<imagedata linkend="MEAS_PulseVoltage" fileref="../../images/gif/MEAS_PulseVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_SawToothVoltage">
+<inlinemediaobject linkend="MEAS_SawToothVoltage">
+<imageobject linkend="MEAS_SawToothVoltage">
+<imagedata linkend="MEAS_SawToothVoltage" fileref="../../images/gif/MEAS_SawToothVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAS_TrapezoidVoltage">
+<inlinemediaobject linkend="CEAS_TrapezoidVoltage">
+<imageobject linkend="CEAS_TrapezoidVoltage">
+<imagedata linkend="CEAS_TrapezoidVoltage" fileref="../../images/gif/CEAS_TrapezoidVoltage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_SignalCurrent">
+<inlinemediaobject linkend="MEAS_SignalCurrent">
+<imageobject linkend="MEAS_SignalCurrent">
+<imagedata linkend="MEAS_SignalCurrent" fileref="../../images/gif/MEAS_SignalCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_ConstantCurrent">
+<inlinemediaobject linkend="MEAS_ConstantCurrent">
+<imageobject linkend="MEAS_ConstantCurrent">
+<imagedata linkend="MEAS_ConstantCurrent" fileref="../../images/gif/MEAS_ConstantCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_StepCurrent">
+<inlinemediaobject linkend="MEAS_StepCurrent">
+<imageobject linkend="MEAS_StepCurrent">
+<imagedata linkend="MEAS_StepCurrent" fileref="../../images/gif/MEAS_StepCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_RampCurrent">
+<inlinemediaobject linkend="MEAS_RampCurrent">
+<imageobject linkend="MEAS_RampCurrent">
+<imagedata linkend="MEAS_RampCurrent" fileref="../../images/gif/MEAS_RampCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_SineCurrent">
+<inlinemediaobject linkend="MEAS_SineCurrent">
+<imageobject linkend="MEAS_SineCurrent">
+<imagedata linkend="MEAS_SineCurrent" fileref="../../images/gif/MEAS_SineCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_PulseCurrent">
+<inlinemediaobject linkend="MEAS_PulseCurrent">
+<imageobject linkend="MEAS_PulseCurrent">
+<imagedata linkend="MEAS_PulseCurrent" fileref="../../images/gif/MEAS_PulseCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_SawToothCurrent">
+<inlinemediaobject linkend="MEAS_SawToothCurrent">
+<imageobject linkend="MEAS_SawToothCurrent">
+<imagedata linkend="MEAS_SawToothCurrent" fileref="../../images/gif/MEAS_SawToothCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAS_TrapezoidCurrent">
+<inlinemediaobject linkend="CEAS_TrapezoidCurrent">
+<imageobject linkend="CEAS_TrapezoidCurrent">
+<imagedata linkend="CEAS_TrapezoidCurrent" fileref="../../images/gif/CEAS_TrapezoidCurrent.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Ground">
+<inlinemediaobject linkend="MEAB_Ground">
+<imageobject linkend="MEAB_Ground">
+<imagedata linkend="MEAB_Ground" fileref="../../images/gif/MEAB_Ground.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Resistor">
+<inlinemediaobject linkend="MEAB_Resistor">
+<imageobject linkend="MEAB_Resistor">
+<imagedata linkend="MEAB_Resistor" fileref="../../images/gif/MEAB_Resistor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Conductor">
+<inlinemediaobject linkend="MEAB_Conductor">
+<imageobject linkend="MEAB_Conductor">
+<imagedata linkend="MEAB_Conductor" fileref="../../images/gif/MEAB_Conductor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_HeatingResistor">
+<inlinemediaobject linkend="MEAB_HeatingResistor">
+<imageobject linkend="MEAB_HeatingResistor">
+<imagedata linkend="MEAB_HeatingResistor" fileref="../../images/gif/MEAB_HeatingResistor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Capacitor">
+<inlinemediaobject linkend="MEAB_Capacitor">
+<imageobject linkend="MEAB_Capacitor">
+<imagedata linkend="MEAB_Capacitor" fileref="../../images/gif/MEAB_Capacitor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Inductor">
+<inlinemediaobject linkend="MEAB_Inductor">
+<imageobject linkend="MEAB_Inductor">
+<imagedata linkend="MEAB_Inductor" fileref="../../images/gif/MEAB_Inductor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_SaturatingInductor">
+<inlinemediaobject linkend="MEAB_SaturatingInductor">
+<imageobject linkend="MEAB_SaturatingInductor">
+<imagedata linkend="MEAB_SaturatingInductor" fileref="../../images/gif/MEAB_SaturatingInductor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Transformer">
+<inlinemediaobject linkend="MEAB_Transformer">
+<imageobject linkend="MEAB_Transformer">
+<imagedata linkend="MEAB_Transformer" fileref="../../images/gif/MEAB_Transformer.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_Gyrator">
+<inlinemediaobject linkend="MEAB_Gyrator">
+<imageobject linkend="MEAB_Gyrator">
+<imagedata linkend="MEAB_Gyrator" fileref="../../images/gif/MEAB_Gyrator.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAB_EMFGEN">
+<inlinemediaobject linkend="CEAB_EMFGEN">
+<imageobject linkend="CEAB_EMFGEN">
+<imagedata linkend="CEAB_EMFGEN" fileref="../../images/gif/CEAB_EMFGEN.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAB_TranslationalEMFGEN">
+<inlinemediaobject linkend="CEAB_TranslationalEMFGEN">
+<imageobject linkend="CEAB_TranslationalEMFGEN">
+<imagedata linkend="CEAB_TranslationalEMFGEN" fileref="../../images/gif/CEAB_TranslationalEMFGEN.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAB_EMF0">
+<inlinemediaobject linkend="CEAB_EMF0">
+<imageobject linkend="CEAB_EMF0">
+<imagedata linkend="CEAB_EMF0" fileref="../../images/gif/CEAB_EMF0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAB_EMF">
+<inlinemediaobject linkend="CEAB_EMF">
+<imageobject linkend="CEAB_EMF">
+<imagedata linkend="CEAB_EMF" fileref="../../images/gif/CEAB_EMF.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAB_TranslationalEMF0">
+<inlinemediaobject linkend="CEAB_TranslationalEMF0">
+<imageobject linkend="CEAB_TranslationalEMF0">
+<imagedata linkend="CEAB_TranslationalEMF0" fileref="../../images/gif/CEAB_TranslationalEMF0.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAB_TranslationalEMF">
+<inlinemediaobject linkend="CEAB_TranslationalEMF">
+<imageobject linkend="CEAB_TranslationalEMF">
+<imagedata linkend="CEAB_TranslationalEMF" fileref="../../images/gif/CEAB_TranslationalEMF.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_VCV">
+<inlinemediaobject linkend="MEAB_VCV">
+<imageobject linkend="MEAB_VCV">
+<imagedata linkend="MEAB_VCV" fileref="../../images/gif/MEAB_VCV.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_VCC">
+<inlinemediaobject linkend="MEAB_VCC">
+<imageobject linkend="MEAB_VCC">
+<imagedata linkend="MEAB_VCC" fileref="../../images/gif/MEAB_VCC.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_CCV">
+<inlinemediaobject linkend="MEAB_CCV">
+<imageobject linkend="MEAB_CCV">
+<imagedata linkend="MEAB_CCV" fileref="../../images/gif/MEAB_CCV.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_CCC">
+<inlinemediaobject linkend="MEAB_CCC">
+<imageobject linkend="MEAB_CCC">
+<imagedata linkend="MEAB_CCC" fileref="../../images/gif/MEAB_CCC.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_OpAmp">
+<inlinemediaobject linkend="MEAB_OpAmp">
+<imageobject linkend="MEAB_OpAmp">
+<imagedata linkend="MEAB_OpAmp" fileref="../../images/gif/MEAB_OpAmp.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_VariableResistor">
+<inlinemediaobject linkend="MEAB_VariableResistor">
+<imageobject linkend="MEAB_VariableResistor">
+<imagedata linkend="MEAB_VariableResistor" fileref="../../images/gif/MEAB_VariableResistor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_VariableConductor">
+<inlinemediaobject linkend="MEAB_VariableConductor">
+<imageobject linkend="MEAB_VariableConductor">
+<imagedata linkend="MEAB_VariableConductor" fileref="../../images/gif/MEAB_VariableConductor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_VariableCapacitor">
+<inlinemediaobject linkend="MEAB_VariableCapacitor">
+<imageobject linkend="MEAB_VariableCapacitor">
+<imagedata linkend="MEAB_VariableCapacitor" fileref="../../images/gif/MEAB_VariableCapacitor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAB_VariableInductor">
+<inlinemediaobject linkend="MEAB_VariableInductor">
+<imageobject linkend="MEAB_VariableInductor">
+<imagedata linkend="MEAB_VariableInductor" fileref="../../images/gif/MEAB_VariableInductor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAI_IdealDiode">
+<inlinemediaobject linkend="CEAI_IdealDiode">
+<imageobject linkend="CEAI_IdealDiode">
+<imagedata linkend="CEAI_IdealDiode" fileref="../../images/gif/CEAI_IdealDiode.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealTransformer">
+<inlinemediaobject linkend="MEAI_IdealTransformer">
+<imageobject linkend="MEAI_IdealTransformer">
+<imagedata linkend="MEAI_IdealTransformer" fileref="../../images/gif/MEAI_IdealTransformer.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealGyrator">
+<inlinemediaobject linkend="MEAI_IdealGyrator">
+<imageobject linkend="MEAI_IdealGyrator">
+<imagedata linkend="MEAI_IdealGyrator" fileref="../../images/gif/MEAI_IdealGyrator.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_Idle">
+<inlinemediaobject linkend="MEAI_Idle">
+<imageobject linkend="MEAI_Idle">
+<imagedata linkend="MEAI_Idle" fileref="../../images/gif/MEAI_Idle.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_Short">
+<inlinemediaobject linkend="MEAI_Short">
+<imageobject linkend="MEAI_Short">
+<imagedata linkend="MEAI_Short" fileref="../../images/gif/MEAI_Short.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealOpeningSwitch">
+<inlinemediaobject linkend="MEAI_IdealOpeningSwitch">
+<imageobject linkend="MEAI_IdealOpeningSwitch">
+<imagedata linkend="MEAI_IdealOpeningSwitch" fileref="../../images/gif/MEAI_IdealOpeningSwitch.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealClosingSwitch">
+<inlinemediaobject linkend="MEAI_IdealClosingSwitch">
+<imageobject linkend="MEAI_IdealClosingSwitch">
+<imagedata linkend="MEAI_IdealClosingSwitch" fileref="../../images/gif/MEAI_IdealClosingSwitch.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealCommutSwitch">
+<inlinemediaobject linkend="MEAI_IdealCommutSwitch">
+<imageobject linkend="MEAI_IdealCommutSwitch">
+<imagedata linkend="MEAI_IdealCommutSwitch" fileref="../../images/gif/MEAI_IdealCommutSwitch.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealOpAmp">
+<inlinemediaobject linkend="MEAI_IdealOpAmp">
+<imageobject linkend="MEAI_IdealOpAmp">
+<imagedata linkend="MEAI_IdealOpAmp" fileref="../../images/gif/MEAI_IdealOpAmp.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealOpAmp3Pin">
+<inlinemediaobject linkend="MEAI_IdealOpAmp3Pin">
+<imageobject linkend="MEAI_IdealOpAmp3Pin">
+<imagedata linkend="MEAI_IdealOpAmp3Pin" fileref="../../images/gif/MEAI_IdealOpAmp3Pin.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_IdealOpAmpLimited">
+<inlinemediaobject linkend="MEAI_IdealOpAmpLimited">
+<imageobject linkend="MEAI_IdealOpAmpLimited">
+<imagedata linkend="MEAI_IdealOpAmpLimited" fileref="../../images/gif/MEAI_IdealOpAmpLimited.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAI_CloserWithArc">
+<inlinemediaobject linkend="MEAI_CloserWithArc">
+<imageobject linkend="MEAI_CloserWithArc">
+<imagedata linkend="MEAI_CloserWithArc" fileref="../../images/gif/MEAI_CloserWithArc.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_Diode">
+<inlinemediaobject linkend="MEAS_Diode">
+<imageobject linkend="MEAS_Diode">
+<imagedata linkend="MEAS_Diode" fileref="../../images/gif/MEAS_Diode.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAS_ZDiode">
+<inlinemediaobject linkend="CEAS_ZDiode">
+<imageobject linkend="CEAS_ZDiode">
+<imagedata linkend="CEAS_ZDiode" fileref="../../images/gif/CEAS_ZDiode.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_PMOS">
+<inlinemediaobject linkend="MEAS_PMOS">
+<imageobject linkend="MEAS_PMOS">
+<imagedata linkend="MEAS_PMOS" fileref="../../images/gif/MEAS_PMOS.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_NMOS">
+<inlinemediaobject linkend="MEAS_NMOS">
+<imageobject linkend="MEAS_NMOS">
+<imagedata linkend="MEAS_NMOS" fileref="../../images/gif/MEAS_NMOS.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_NPN">
+<inlinemediaobject linkend="MEAS_NPN">
+<imageobject linkend="MEAS_NPN">
+<imagedata linkend="MEAS_NPN" fileref="../../images/gif/MEAS_NPN.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_PNP">
+<inlinemediaobject linkend="MEAS_PNP">
+<imageobject linkend="MEAS_PNP">
+<imagedata linkend="MEAS_PNP" fileref="../../images/gif/MEAS_PNP.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAS_Thyristor">
+<inlinemediaobject linkend="CEAS_Thyristor">
+<imageobject linkend="CEAS_Thyristor">
+<imagedata linkend="CEAS_Thyristor" fileref="../../images/gif/CEAS_Thyristor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_HeatingDiode">
+<inlinemediaobject linkend="MEAS_HeatingDiode">
+<imageobject linkend="MEAS_HeatingDiode">
+<imagedata linkend="MEAS_HeatingDiode" fileref="../../images/gif/MEAS_HeatingDiode.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_HeatingPMOS">
+<inlinemediaobject linkend="MEAS_HeatingPMOS">
+<imageobject linkend="MEAS_HeatingPMOS">
+<imagedata linkend="MEAS_HeatingPMOS" fileref="../../images/gif/MEAS_HeatingPMOS.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_HeatingNMOS">
+<inlinemediaobject linkend="MEAS_HeatingNMOS">
+<imageobject linkend="MEAS_HeatingNMOS">
+<imagedata linkend="MEAS_HeatingNMOS" fileref="../../images/gif/MEAS_HeatingNMOS.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_HeatingNPN">
+<inlinemediaobject linkend="MEAS_HeatingNPN">
+<imageobject linkend="MEAS_HeatingNPN">
+<imagedata linkend="MEAS_HeatingNPN" fileref="../../images/gif/MEAS_HeatingNPN.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_HeatingPNP">
+<inlinemediaobject linkend="MEAS_HeatingPNP">
+<imageobject linkend="MEAS_HeatingPNP">
+<imagedata linkend="MEAS_HeatingPNP" fileref="../../images/gif/MEAS_HeatingPNP.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_PotentialSensor">
+<inlinemediaobject linkend="MEAS_PotentialSensor">
+<imageobject linkend="MEAS_PotentialSensor">
+<imagedata linkend="MEAS_PotentialSensor" fileref="../../images/gif/MEAS_PotentialSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_VoltageSensor">
+<inlinemediaobject linkend="MEAS_VoltageSensor">
+<imageobject linkend="MEAS_VoltageSensor">
+<imagedata linkend="MEAS_VoltageSensor" fileref="../../images/gif/MEAS_VoltageSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEAS_CurrentSensor">
+<inlinemediaobject linkend="MEAS_CurrentSensor">
+<imageobject linkend="MEAS_CurrentSensor">
+<imagedata linkend="MEAS_CurrentSensor" fileref="../../images/gif/MEAS_CurrentSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CEAS_PowerSensor">
+<inlinemediaobject linkend="CEAS_PowerSensor">
+<imageobject linkend="CEAS_PowerSensor">
+<imagedata linkend="CEAS_PowerSensor" fileref="../../images/gif/CEAS_PowerSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_PartialAirGapDC">
+<inlinemediaobject linkend="MEMC_PartialAirGapDC">
+<imageobject linkend="MEMC_PartialAirGapDC">
+<imagedata linkend="MEMC_PartialAirGapDC" fileref="../../images/gif/MEMC_PartialAirGapDC.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_PartialAirGap">
+<inlinemediaobject linkend="MEMC_PartialAirGap">
+<imageobject linkend="MEMC_PartialAirGap">
+<imagedata linkend="MEMC_PartialAirGap" fileref="../../images/gif/MEMC_PartialAirGap.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_AirGapDC">
+<inlinemediaobject linkend="MEMC_AirGapDC">
+<imageobject linkend="MEMC_AirGapDC">
+<imagedata linkend="MEMC_AirGapDC" fileref="../../images/gif/MEMC_AirGapDC.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_AirGapR">
+<inlinemediaobject linkend="MEMC_AirGapR">
+<imageobject linkend="MEMC_AirGapR">
+<imagedata linkend="MEMC_AirGapR" fileref="../../images/gif/MEMC_AirGapR.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_AirGapS">
+<inlinemediaobject linkend="MEMC_AirGapS">
+<imageobject linkend="MEMC_AirGapS">
+<imagedata linkend="MEMC_AirGapS" fileref="../../images/gif/MEMC_AirGapS.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_DamperCage">
+<inlinemediaobject linkend="MEMC_DamperCage">
+<imageobject linkend="MEMC_DamperCage">
+<imagedata linkend="MEMC_DamperCage" fileref="../../images/gif/MEMC_DamperCage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_SquirrelCage">
+<inlinemediaobject linkend="MEMC_SquirrelCage">
+<imageobject linkend="MEMC_SquirrelCage">
+<imagedata linkend="MEMC_SquirrelCage" fileref="../../images/gif/MEMC_SquirrelCage.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_PermanentMagnet">
+<inlinemediaobject linkend="MEMC_PermanentMagnet">
+<imageobject linkend="MEMC_PermanentMagnet">
+<imagedata linkend="MEMC_PermanentMagnet" fileref="../../images/gif/MEMC_PermanentMagnet.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="MEMC_ElectricExcitation">
+<inlinemediaobject linkend="MEMC_ElectricExcitation">
+<imageobject linkend="MEMC_ElectricExcitation">
+<imagedata linkend="MEMC_ElectricExcitation" fileref="../../images/gif/MEMC_ElectricExcitation.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+</para>
+</refsection>
+</refentry>

@@ -1,0 +1,347 @@
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="Mechanics_Planar_pal">
+<refnamediv>
+<refname>Mechanics_Planar</refname>
+<refpurpose>Coselica Mechanics_Planar palette</refpurpose>
+</refnamediv>
+<refsection>
+<title>Block Screenshot</title>
+<para>
+<link linkend="CMP_World">
+<inlinemediaobject linkend="CMP_World">
+<imageobject linkend="CMP_World">
+<imagedata linkend="CMP_World" fileref="../../images/gif/CMP_World.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPF_WorldForce">
+<inlinemediaobject linkend="CMPF_WorldForce">
+<imageobject linkend="CMPF_WorldForce">
+<imagedata linkend="CMPF_WorldForce" fileref="../../images/gif/CMPF_WorldForce.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPF_WorldTorque">
+<inlinemediaobject linkend="CMPF_WorldTorque">
+<imageobject linkend="CMPF_WorldTorque">
+<imagedata linkend="CMPF_WorldTorque" fileref="../../images/gif/CMPF_WorldTorque.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPF_FrameForce">
+<inlinemediaobject linkend="CMPF_FrameForce">
+<imageobject linkend="CMPF_FrameForce">
+<imagedata linkend="CMPF_FrameForce" fileref="../../images/gif/CMPF_FrameForce.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPF_LineForce">
+<inlinemediaobject linkend="CMPF_LineForce">
+<imageobject linkend="CMPF_LineForce">
+<imagedata linkend="CMPF_LineForce" fileref="../../images/gif/CMPF_LineForce.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPF_LineForceWithMass">
+<inlinemediaobject linkend="CMPF_LineForceWithMass">
+<imageobject linkend="CMPF_LineForceWithMass">
+<imagedata linkend="CMPF_LineForceWithMass" fileref="../../images/gif/CMPF_LineForceWithMass.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_FreeMotion">
+<inlinemediaobject linkend="CMPJ_FreeMotion">
+<imageobject linkend="CMPJ_FreeMotion">
+<imagedata linkend="CMPJ_FreeMotion" fileref="../../images/gif/CMPJ_FreeMotion.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_Prismatic">
+<inlinemediaobject linkend="CMPJ_Prismatic">
+<imageobject linkend="CMPJ_Prismatic">
+<imagedata linkend="CMPJ_Prismatic" fileref="../../images/gif/CMPJ_Prismatic.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_Revolute">
+<inlinemediaobject linkend="CMPJ_Revolute">
+<imageobject linkend="CMPJ_Revolute">
+<imagedata linkend="CMPJ_Revolute" fileref="../../images/gif/CMPJ_Revolute.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_ActuatedRevolute">
+<inlinemediaobject linkend="CMPJ_ActuatedRevolute">
+<imageobject linkend="CMPJ_ActuatedRevolute">
+<imagedata linkend="CMPJ_ActuatedRevolute" fileref="../../images/gif/CMPJ_ActuatedRevolute.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_RollingWheel">
+<inlinemediaobject linkend="CMPJ_RollingWheel">
+<imageobject linkend="CMPJ_RollingWheel">
+<imagedata linkend="CMPJ_RollingWheel" fileref="../../images/gif/CMPJ_RollingWheel.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_ActuatedRollingWhee">
+<inlinemediaobject linkend="CMPJ_ActuatedRollingWhee">
+<imageobject linkend="CMPJ_ActuatedRollingWhee">
+<imagedata linkend="CMPJ_ActuatedRollingWhee" fileref="../../images/gif/CMPJ_ActuatedRollingWhee.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPJ_ActuatedPrismatic">
+<inlinemediaobject linkend="CMPJ_ActuatedPrismatic">
+<imageobject linkend="CMPJ_ActuatedPrismatic">
+<imagedata linkend="CMPJ_ActuatedPrismatic" fileref="../../images/gif/CMPJ_ActuatedPrismatic.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPL_Prismatic">
+<inlinemediaobject linkend="CMPL_Prismatic">
+<imageobject linkend="CMPL_Prismatic">
+<imagedata linkend="CMPL_Prismatic" fileref="../../images/gif/CMPL_Prismatic.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPL_Revolute">
+<inlinemediaobject linkend="CMPL_Revolute">
+<imageobject linkend="CMPL_Revolute">
+<imagedata linkend="CMPL_Revolute" fileref="../../images/gif/CMPL_Revolute.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPL_ActuatedPrismatic">
+<inlinemediaobject linkend="CMPL_ActuatedPrismatic">
+<imageobject linkend="CMPL_ActuatedPrismatic">
+<imagedata linkend="CMPL_ActuatedPrismatic" fileref="../../images/gif/CMPL_ActuatedPrismatic.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPL_ActuatedRevolute">
+<inlinemediaobject linkend="CMPL_ActuatedRevolute">
+<imageobject linkend="CMPL_ActuatedRevolute">
+<imagedata linkend="CMPL_ActuatedRevolute" fileref="../../images/gif/CMPL_ActuatedRevolute.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPP_Fixed">
+<inlinemediaobject linkend="CMPP_Fixed">
+<imageobject linkend="CMPP_Fixed">
+<imagedata linkend="CMPP_Fixed" fileref="../../images/gif/CMPP_Fixed.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPP_FixedTranslation">
+<inlinemediaobject linkend="CMPP_FixedTranslation">
+<imageobject linkend="CMPP_FixedTranslation">
+<imagedata linkend="CMPP_FixedTranslation" fileref="../../images/gif/CMPP_FixedTranslation.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPP_FixedRotation">
+<inlinemediaobject linkend="CMPP_FixedRotation">
+<imageobject linkend="CMPP_FixedRotation">
+<imagedata linkend="CMPP_FixedRotation" fileref="../../images/gif/CMPP_FixedRotation.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPP_Body">
+<inlinemediaobject linkend="CMPP_Body">
+<imageobject linkend="CMPP_Body">
+<imagedata linkend="CMPP_Body" fileref="../../images/gif/CMPP_Body.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPP_BodyShape">
+<inlinemediaobject linkend="CMPP_BodyShape">
+<imageobject linkend="CMPP_BodyShape">
+<imagedata linkend="CMPP_BodyShape" fileref="../../images/gif/CMPP_BodyShape.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPP_PointMass">
+<inlinemediaobject linkend="CMPP_PointMass">
+<imageobject linkend="CMPP_PointMass">
+<imagedata linkend="CMPP_PointMass" fileref="../../images/gif/CMPP_PointMass.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsPosition">
+<inlinemediaobject linkend="CMPS_AbsPosition">
+<imageobject linkend="CMPS_AbsPosition">
+<imagedata linkend="CMPS_AbsPosition" fileref="../../images/gif/CMPS_AbsPosition.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsVelocity">
+<inlinemediaobject linkend="CMPS_AbsVelocity">
+<imageobject linkend="CMPS_AbsVelocity">
+<imagedata linkend="CMPS_AbsVelocity" fileref="../../images/gif/CMPS_AbsVelocity.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsAcceleration">
+<inlinemediaobject linkend="CMPS_AbsAcceleration">
+<imageobject linkend="CMPS_AbsAcceleration">
+<imagedata linkend="CMPS_AbsAcceleration" fileref="../../images/gif/CMPS_AbsAcceleration.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_GenSensor">
+<inlinemediaobject linkend="CMPS_GenSensor">
+<imageobject linkend="CMPS_GenSensor">
+<imagedata linkend="CMPS_GenSensor" fileref="../../images/gif/CMPS_GenSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsAngle">
+<inlinemediaobject linkend="CMPS_AbsAngle">
+<imageobject linkend="CMPS_AbsAngle">
+<imagedata linkend="CMPS_AbsAngle" fileref="../../images/gif/CMPS_AbsAngle.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsAngularVelocity">
+<inlinemediaobject linkend="CMPS_AbsAngularVelocity">
+<imageobject linkend="CMPS_AbsAngularVelocity">
+<imagedata linkend="CMPS_AbsAngularVelocity" fileref="../../images/gif/CMPS_AbsAngularVelocity.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsAngularAccelerat">
+<inlinemediaobject linkend="CMPS_AbsAngularAccelerat">
+<imageobject linkend="CMPS_AbsAngularAccelerat">
+<imagedata linkend="CMPS_AbsAngularAccelerat" fileref="../../images/gif/CMPS_AbsAngularAccelerat.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsPosition2">
+<inlinemediaobject linkend="CMPS_AbsPosition2">
+<imageobject linkend="CMPS_AbsPosition2">
+<imagedata linkend="CMPS_AbsPosition2" fileref="../../images/gif/CMPS_AbsPosition2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsVelocity2">
+<inlinemediaobject linkend="CMPS_AbsVelocity2">
+<imageobject linkend="CMPS_AbsVelocity2">
+<imagedata linkend="CMPS_AbsVelocity2" fileref="../../images/gif/CMPS_AbsVelocity2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_AbsAcceleration2">
+<inlinemediaobject linkend="CMPS_AbsAcceleration2">
+<imageobject linkend="CMPS_AbsAcceleration2">
+<imagedata linkend="CMPS_AbsAcceleration2" fileref="../../images/gif/CMPS_AbsAcceleration2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_Distance">
+<inlinemediaobject linkend="CMPS_Distance">
+<imageobject linkend="CMPS_Distance">
+<imagedata linkend="CMPS_Distance" fileref="../../images/gif/CMPS_Distance.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_CutForce">
+<inlinemediaobject linkend="CMPS_CutForce">
+<imageobject linkend="CMPS_CutForce">
+<imagedata linkend="CMPS_CutForce" fileref="../../images/gif/CMPS_CutForce.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_CutForce2">
+<inlinemediaobject linkend="CMPS_CutForce2">
+<imageobject linkend="CMPS_CutForce2">
+<imagedata linkend="CMPS_CutForce2" fileref="../../images/gif/CMPS_CutForce2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_CutTorque">
+<inlinemediaobject linkend="CMPS_CutTorque">
+<imageobject linkend="CMPS_CutTorque">
+<imagedata linkend="CMPS_CutTorque" fileref="../../images/gif/CMPS_CutTorque.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_Power">
+<inlinemediaobject linkend="CMPS_Power">
+<imageobject linkend="CMPS_Power">
+<imagedata linkend="CMPS_Power" fileref="../../images/gif/CMPS_Power.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelPosition">
+<inlinemediaobject linkend="CMPS_RelPosition">
+<imageobject linkend="CMPS_RelPosition">
+<imagedata linkend="CMPS_RelPosition" fileref="../../images/gif/CMPS_RelPosition.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelVelocity">
+<inlinemediaobject linkend="CMPS_RelVelocity">
+<imageobject linkend="CMPS_RelVelocity">
+<imagedata linkend="CMPS_RelVelocity" fileref="../../images/gif/CMPS_RelVelocity.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelAcceleration">
+<inlinemediaobject linkend="CMPS_RelAcceleration">
+<imageobject linkend="CMPS_RelAcceleration">
+<imagedata linkend="CMPS_RelAcceleration" fileref="../../images/gif/CMPS_RelAcceleration.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_GenRelSensor">
+<inlinemediaobject linkend="CMPS_GenRelSensor">
+<imageobject linkend="CMPS_GenRelSensor">
+<imagedata linkend="CMPS_GenRelSensor" fileref="../../images/gif/CMPS_GenRelSensor.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_Angle">
+<inlinemediaobject linkend="CMPS_Angle">
+<imageobject linkend="CMPS_Angle">
+<imagedata linkend="CMPS_Angle" fileref="../../images/gif/CMPS_Angle.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelAngularVelocity">
+<inlinemediaobject linkend="CMPS_RelAngularVelocity">
+<imageobject linkend="CMPS_RelAngularVelocity">
+<imagedata linkend="CMPS_RelAngularVelocity" fileref="../../images/gif/CMPS_RelAngularVelocity.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelAngularAccelerat">
+<inlinemediaobject linkend="CMPS_RelAngularAccelerat">
+<imageobject linkend="CMPS_RelAngularAccelerat">
+<imagedata linkend="CMPS_RelAngularAccelerat" fileref="../../images/gif/CMPS_RelAngularAccelerat.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelPosition2">
+<inlinemediaobject linkend="CMPS_RelPosition2">
+<imageobject linkend="CMPS_RelPosition2">
+<imagedata linkend="CMPS_RelPosition2" fileref="../../images/gif/CMPS_RelPosition2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelVelocity2">
+<inlinemediaobject linkend="CMPS_RelVelocity2">
+<imageobject linkend="CMPS_RelVelocity2">
+<imagedata linkend="CMPS_RelVelocity2" fileref="../../images/gif/CMPS_RelVelocity2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+<link linkend="CMPS_RelAcceleration2">
+<inlinemediaobject linkend="CMPS_RelAcceleration2">
+<imageobject linkend="CMPS_RelAcceleration2">
+<imagedata linkend="CMPS_RelAcceleration2" fileref="../../images/gif/CMPS_RelAcceleration2.gif" width="100" depth="100" scalefit="1" align="center" valign="middle"/>
+</imageobject>
+</inlinemediaobject>
+</link>
+</para>
+</refsection>
+</refentry>
