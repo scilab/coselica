@@ -43,3 +43,15 @@ Ideal planetary gear box$$Engrenage à train épicycloïdal parfait$$
 ratio [-] : number of ring_teeth/sun_teeth (e.g. ratio=100/50)$$ratio [-] : rapport entre le nombre de dents de la couronne sur le nombre de dents du pignon planétaire(e.g. ratio=100/50)$$
 J [kg.m2] : Moment of inertia$$J [kg.m2] : Moment d'inertie autour de l'axe$$
 Linear 1D rotational spring$$Ressort de torsion linéaire$$
+Coulomb friction with Stribeck effect in bearings$$Ce bloc modélise le frottement dans une liaison pivot réalisée par roulements.$$Il est possible de spécifier le frottement sec constant de type Coulomb et le frottement de type Stribeck.
+Linear 1D rotational damper$$Ce bloc modélise un comportement de type visqueux au niveau d''une liaison pivot.$$
+d [N.m.s/rad] : Damping constant$$d [N.m.s/rad] : Coefficient de viscosité$$
+Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)$$Ce composant modélise un jeu dans une liaison pivot combiné à un comportement de type ressort de torsion et viscosité.$$
+b [rad] : Total backlash$$b [rad] : Jeu total$$
+c [N.m/rad] : Spring constant (c > 0)$$c [N.m/rad] : raideur de torsion (c > 0)$$
+phi_rel0 [rad] : Unstretched spring angle$$phi_rel0 [rad] : Angle à vide du ressort$$
+d [N.m.s/rad] : Damping constant$$d [N.m.s/rad] : Coefficient de viscosoté$$
+1D-rotational component with inertia$$Ce bloc modélise le comportement d'un solide massique en rotation autour d'axe fixe$$
+Linear 1D rotational spring and damper in parallel$$Ce bloc représente le comportement d'un ressort de torsion en parallèle d'un amortissement visqueux$$
+
+
