@@ -24,7 +24,7 @@ function [x,y,typ]=CMPL_ActuatedRevolute(job,arg1,arg2)
       model=arg1.model;
       while %t do
           [ok,phi_offset,exprs]=..
-              getvalue(['CMPL_ActuatedRevolute';__('Actuated revolute joint used in loops (1 rotational degree-of-freedom, no states)')],..
+              getvalue(['CMPL_ActuatedRevolute';__('Actuated revolute joint (1 rotational degree-of-freedom, no states)')],..
                        [__('phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)')],..
                        list('vec',1),exprs);
           if ~ok then break, end
