@@ -26,8 +26,8 @@ function [x,y,typ]=MBC_Derivative(job,arg1,arg2)
       while %t do
           [ok,k,T,exprs]=..
               getvalue(['MBC_Derivative';__('Approximated derivative block')],..
-                       [__('k [-] : Gains');...
-                        __('T [s] : Time constants (T>0 required; T=0 is ideal derivative block)')],..
+                       [__('k [-] : Gain');...
+                        __('T [s] : Time Constant (T>0 required; T=0 is ideal derivative block)')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];

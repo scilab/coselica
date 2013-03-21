@@ -25,8 +25,8 @@ function [x,y,typ]=MMT_Spring(job,arg1,arg2)
       while %t do
           [ok,s_rel0,c,exprs]=..
               getvalue(['MMT_Spring';__('Linear 1D translational spring')],..
-                       [__('s_rel0 [m] : unstretched spring length');...
-                        __('c [N/m] : spring constant')],..
+                       [__('s_rel0 [m] : Unstretched spring length');...
+                        __('c [N/m] : Spring constant')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.equations.parameters(2)=list(s_rel0,c)

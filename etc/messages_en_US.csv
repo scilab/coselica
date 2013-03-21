@@ -1,7 +1,6 @@
 1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange
 1D-rotational component with inertia
 1D translational spring damper combination with gap
-1D translational spring damper combination with gap
 a_0_start [m/s2] : Initial values of acceleration a = der(v)
 Actuated prismatic joint (1 translational degree-of-freedom, 2 states)
 Actuated prismatic joint used in loops (1 translational degree-of-freedom, no states)
@@ -28,35 +27,26 @@ Bf [-] : Forward beta
 B [-] : Matrix B of state space model (e.g., B=[1; 1])
 b [-] : Numerator coefficients of transfer function (e.g., 2*s+3 is specified as [2,3])
 b [rad] : Total backlash
-b [rad] : Total backlash (b >= 0)
 Brake based on Coulomb friction
 Br [-] : Reverse beta
 Bv [V] : Breakthrough voltage = Zener- or Z-voltage
-Ccs [F] : Collector-substrat(ground) cap.
+Ccs [F] : Collector-substrat(ground) cap
 C [F] : Capacitance
 cgeo [-] : cgeo >= 0, Geometry constant containing friction distribution assumption
 C [-] : Hazen-William coefficient
 Choose 1 or 0 in order to specify fixed frame or not
 Choose physical quantity : (0) position, (1) speed, (2) acceleration
-Choose physical quantity to impose : (0) position, (1) speed, (2) acceleration
-Choose physical quantity to imposed : (0) position, (1) speed, (2) acceleration
-Cjc [F] : Base-coll. zero bias depletion cap.
-Cje [F] : Base-emitter zero bias depletion cap.
+Cjc [F] : Base-coll. zero bias depletion cap
+Cje [F] : Base-emitter zero bias depletion cap
 C [J/K] : Heat capacity of part (= cp*m)
 Clutch based on Coulomb friction
 C [-] : Matrix C of state space model (e.g., C=[1, 1])
 Cmin [F] : Minimal capacitance
 c [N.m/rad] : Spring constant
-c [N.m/rad] : Spring constant (c > 0)
-c [N.m/rad] : Spring constant (c > 0)
-c [N/m] : spring constant
-c [N/m] : spring constant
-c [N/m] : Spring constant (c >= 0)
-Constant force, not dependent on speed
+c [N/m] : Spring constant
 Constant force, not dependent on speed
 Constant speed, not dependent on force
 Constant speed, not dependent on torque
-Constant torque, not dependent on speed
 Constant torque, not dependent on speed
 Coulomb friction with Stribeck effect in bearings
 Customer's demand
@@ -67,37 +57,23 @@ D [-] : Damping
 deltaPhi [rad] : Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)
 DeMultiplexer block for two output connectors
 D [in] : Pipe diameter
-dL [m] : shortening of channel
 dL [m] : Shortening of channel
 D [-] : Matrix D of state space model
-d [N/ (m/s)] : damping constant
-d [N/(m/s)] : damping constant
-d [N/ (m/s)] : damping constant [N/ (m/s)]
+d [N/(m/s)] : Damping constant
 d [N.m.s/rad] : Damping constant
-d [N.m.s/rad] : Damping constant
-d [N.m.s/rad] : Damping constant (d >= 0)
-d [N.s/m] : Damping constant (d >= 0)
-duration [-] : Durations of ramp
+d [N.s/m] : Damping constant
 duration [s] : Duration of ramp
 dV/dt [V/s] : Arc voltage slope
-dW [m] : narrowing of channel
 dW [m] : Narrowing of channel
 EG : activation energy
 EG : Energy gap for temperature effect on Is
 Electrical excitation
 Electromotoric force (electric/mechanic transformer)
-Electromotoric force (electric/mechanic transformer)
-Electromotoric force (electric/mechanic transformer)
-Electromotoric force (electric/mechanic transformer)
-Electromotoric force (electric/mechanic transformer)
-Electromotoric force (electric/mechanic transformer)
-EMax [-] : if x > EMax, the exp(x) function is linearized
 EMax [-] : if x > EMax, the exp(x) function is linearized
 EMin [-] : if x < EMin, the exp(x) function is linearized
 Extract scalar signal out of signal vector
 Falling duration of trapezoid must be positive.
 falling [s] : Falling duration of trapezoid
-falling [s] : Falling duration of trapezoid (>=0)
 fallTimeConst [s] : Fall time constant
 f_constant [N] : Nominal force (if negative, force is acting as load)
 F_Coulomb [N] : constant friction: Coulomb force
@@ -106,8 +82,6 @@ fexp [1/(rad/s)] : Exponential decay of Stribeck effect
 First order transfer function block (= 1 pole)
 Fixed flange
 Fixed frame (1 : Yes / 0 : No)
-Fixed frame (1 : Yes / 0 : No)
-Fixed frame (1 : Yes / 0 : No)
 Fixed heat flow boundary condition
 Fixed temperature boundary condition in degree Celsius
 Fixed temperature boundary condition in Kelvin
@@ -115,18 +89,14 @@ Fixed translation followed by a fixed rotation of frame_b with respect to frame_
 Fixed translation of frame_b with respect to frame_a
 Flange fixed in housing at a given angle
 fn_max [N] : fn_max >= 0, Maximum normal force
-fn_max [N] : fn_max >= 0, Maximum normal force
 f_nominal [N] : Nominal force (if negative, force is acting as load)
 ForceDirection [-] : Same direction of force in both directions of movement (1=yes,0=no)
 Forced movement of a flange according to an acceleration signal
 F_prop [N/(m/s)] : velocity dependent friction
-F_prop [N/(m/s)] : velocity dependent friction
 Frame fixed in the world frame at a given position (used for closing loops)
 Free motion joint (3 degrees-of-freedom, 6 states)
 freqHz [Hz] : Frequency of sine wave
-freqHz [Hz] : Frequency of sine wave
 frequency of signal (Hz)
-F_Stribeck [N] : Stribeck effect
 F_Stribeck [N] : Stribeck effect
 G1 [S] : Gyration conductance
 G2 [S] : Gyration conductance
@@ -151,7 +121,6 @@ Generic Relative Sensor
 Generic Sensor
 g [m/s2] : Constant gravity acceleration
 Goff [S] : Backward state-off conductance (opened diode conductance >= 0)
-Goff [S] : Opened switch conductance
 Goff [S] : Opened switch conductance
 G [Ohm^-1] : Conductance
 Gr [m2] : Net radiation conductance between two surfaces (see docu)
@@ -194,7 +163,6 @@ IGT [A] : Gate trigger current
 IH [A] : Holding current
 I [kg.m2] : Inertia of rigid body (I >= 0)
 Imposed Kinematic from fixed frame or not
-Imposed Kinematic from fixed frame or not
 index [-] : Index of output signal (positive integer <= nin)
 initType [-] : Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)
 initType [-] : Type of initial value for [phi,w,z] (0=guess,1=fixed)
@@ -211,7 +179,6 @@ Joint that describes an ideal actuated rolling wheel (1 non-holonomic constraint
 Joint that describes an ideal rolling wheel (1 non-holonomic constraint, no states)
 Jrotor [kg.m^2]: rotor inertial momentum
 k1 [-] : Gain of upper input
-k1 [-] : Gain of upper input
 K2 [-] : Bulk threshold parameter
 k2 [-] : Gain of lower input
 k2 [-] : Gain of middle input
@@ -227,7 +194,6 @@ kk2 : fitting parameter for K22
 k [N/A] : Transformation coefficient
 k [Nm/A] : constant fcem
 k [N.m/A] : Transformation coefficient
-k [N.m/A] : Transformation coefficient
 k [-] : Vector of sum coefficients (length nin)
 kvt : fitting parameter for Vt
 L1 [H] : Primary inductance
@@ -239,7 +205,6 @@ lengthFraction [1] : Location of point mass with respect to frame_a as a fractio
 Lever assuming small angle deviation (without mass and inertia; geometric constraint)
 L [ft] : Pipe length
 L [H] : inductance
-L [H] : Inductance
 Limit rate of change of signal
 Limit the range of a signal
 Linear 1D rotational damper
@@ -262,12 +227,9 @@ Linf [H] : Inductance at large currents (< Lnom)
 Lmd (H): main field inductance d-axis
 L [m] : Geometric constraint L=(L2*s1+L1*s2)/(L1+L2)-s
 L [m] : Geometric constraint L=(s1+s2)/2-s
-L [m] : Geometric constraint L=(s1+s2)/2-s
 Lm (H): main field inductance
 Lmin [H] : Minimal inductance
 L [m] : Length
-L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)
-L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)
 L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)
 Lmq (H): main field inductance q-axis
 Lnom [H] : Nominal inductance at nominal current
@@ -287,10 +249,7 @@ M [H] : Coupling inductance
 m [kg] : Mass of mass point (m > 0)
 m [kg] : Mass of point mass (> 0) on the connetion line between the origin of frame_a and the origin of frame_b
 m [kg] : Mass of rigid body (m >= 0)
-m [kg] : mass of the sliding mass
-m [kg] : mass of the sliding mass
 m [kg] : Mass of the sliding mass
-m : Number of phases
 m : Number of phases
 mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)
 mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)
@@ -315,10 +274,7 @@ N : Emission coefficient
 NF : Forward current emission coefficient
 Ni [-] : Ni*Ti is time constant of anti-windup compensation
 nin [-] : Number of inputs
-nin [-] : Number of inputs
 nout [-] : Number of outputs
-nout [-] : Number of outputs
-nperiod [-] : Number of periods (< 0 means infinite number of periods)
 nperiod [-] : Number of periods (< 0 means infinite number of periods)
 NR : Reverse current emission coefficient
 n [-] : Turns ratio
@@ -330,12 +286,7 @@ n [-] : Wheel axis resolved in frame_a
 nx [-] : Number of states
 offset [A] : Current offset
 offsetForce [N] : Offset of force
-offset [-] : offset of output signal
 offset [-] : Offset of output signal
-offset [-] : Offset of output signal
-offset [-] : Offset of output signal
-offset [-] : Offset of output signals
-offset [-] : Offset of output signals
 offsetTorque [N.m] : Offset of torque
 offset [V] : Voltage offset
 outMax [-] : Height of output for infinite riseTime
@@ -353,26 +304,16 @@ peak [-] : peak >= 1, peak*mue_pos = maximum value of mue for w_rel==0
 Period must be greater than Rising + Width + Falling
 Period [s]
 period [s] : Time for one period
-period [s] : Time for one period
-period [s] : Time for one period
-period [s] : Time for one period
-period [s] : Time for one period (>0)
 Permanent magnet excitation
-phase [rad] : Phase of sine wave
 phase [rad] : Phase of sine wave
 phi0 [rad] : Fixed offset angle of housing
 Phic [V] : Base-collector diffusion voltage
 Phie [V] : Base-emitter diffusion voltage
 phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)
-phi_offset [rad] : Relative angle offset (angle = phi + phi_offset)
-phi_rel0 [rad] : Unstretched spring angle
-phi_rel0 [rad] : Unstretched spring angle
-phi_rel0 [rad] : Unstretched spring angle
 phi_rel0 [rad] : Unstretched spring angle
 phi_rel_start [rad] : Initial value of angle phi_rel to rotate frame_a into frame_b
 phi_start [rad] : Initial value of angle phi to rotate world frame into frame_a
 phi_start [rad] : Initial value of rotation angle phi
-Physical quantity must be 0, 1 or 2
 Physical quantity must be 0, 1 or 2
 PID-controller in additive description form
 PID controller with limited output, anti-windup compensation and setpoint weighting
@@ -401,8 +342,6 @@ ratio [rad/m] : transmission ratio (flange_a.phi/flange_b.s)
 ratio [-] : Transmission ratio (2*flange_a.phi/(flange_left.phi+flange_right.phi))
 ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)
 r_CM [m] : Vector from frame_a to center of mass, resolved in frame_a
-r_CM [m] : Vector from frame_a to center of mass, resolved in frame_a
-RDS [Ohm] : Drain-Source-Resistance
 RDS [Ohm] : Drain-Source-Resistance
 Reservoir fixing the total head and elevation
 Revolute joint (1 rotational degree-of-freedom, 2 states)
@@ -418,11 +357,8 @@ rising [s] : Rising duration of trapezoid (>=0)
 r [m] : Position vector from world frame to frame_b, resolved in world frame
 r [m] : Radius of pulley (>0)
 r [m] : Vector from frame_a to frame_b resolved in frame_a
-r [m] : Vector from frame_a to frame_b resolved in frame_a
 Rod without inertia
 R [Ohm] : Parallel ohmic resistance
-R [Ohm] : Parallel ohmic resistance
-R [Ohm]: resistance
 R [Ohm] : Resistance
 Ron [Ohm] : Closed switch resistance
 Ron [Ohm] : Forward state-on differential resistance (closed diode resistance >=0)
@@ -444,7 +380,6 @@ Simple diode
 Simple diode with heating port
 Simple model of an inductor with saturation
 Simple MOS Transistor
-Simple MOS Transistor
 Simple MOS Transistor with heating port
 Simple nonideal model of an OpAmp with limitation
 Simple PMOS Transistor with heating port
@@ -455,7 +390,6 @@ Sine current source
 Sine voltage source
 Sliding mass with hard stop and Stribeck friction
 Sliding mass with inertia
-Sliding mass with inertia
 Sliding mass with inertia and gravitational force (=m*g)
 Sliding mass with Stribeck friction
 Slope [-] : Slope of the out.v/vin characteristic at vin=0
@@ -464,13 +398,10 @@ smax [m] : right stop for (right end of) sliding mass
 sMin [-] : Minimum slope
 smin [m] : left stop for (left end of) sliding mass
 s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)
-s_offset [m] : Relative distance offset (distance between frame_a and frame_b = s_offset + s)
 Source for constant current
 Source for constant voltage
 Squirrel Cage
-s_rel0 [m] : unstretched spring length
 s_rel0 [m] : Unstretched spring length
-s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero
 s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero
 s_small [m] : Prevent zero-division if distance between frame_a and frame_b is zero (s_small > 0)
 s_start [m] : Initial value for absolute position of center of mass
@@ -478,8 +409,6 @@ s_start [m] : Initial value of distance s
 s_start [m] : Start position
 start_time (s)
 startTime [s] : Force = offset for time < startTime
-startTime [s] : output = offset for time < startTime
-startTime [s] : Output = offset for time < startTime
 startTime [s] : Output = offset for time < startTime
 startTime [s] : Time offset
 startTime [s] : Torque = offset for time < startTime
@@ -497,16 +426,13 @@ Tau_prop [N.m/(rad/s)] : Angular velocity dependent friction
 Taur [s] : Ideal reverse transit time
 Tau_Stribeck [N.m] : Stribeck effect
 T [degC] : Fixed Temperature at the port
-Td [s] : Time constant of Derivative block
 Td [s] : Time Constant of Derivative block
 Temperature dependent electrical resistor
 Time for one period must be positive.
 Ti [s] : Time Constant of Integrator
 Ti [s] : Time constant of Integrator block
 T [K] : Fixed temperature at port
-Tnom (K) : Parameter measurement temperature
-Tnom (K): Parameter measurement temperature
-TNOM (K) : Parameter measurement temperature
+Tnom [K] : Parameter measurement temperature
 TOFF [s] : Switch off time
 TON [s] : Switch on time
 TorqueDirection [-] : Same direction of torque in both directions of rotation (1=yes,0=no)
@@ -516,13 +442,11 @@ transResistance [Ohm] : Transresistance
 Trapezoidal current source
 Trapezoidal voltage source
 T_ref [K] : Reference temperature
-T_ref [K] : Reference temperature
 T_start [K] : Initial temperature of part (in Kelvin)
 T [s] : Time Constant
 T [s] : Time constant (> 0)
 T [s] : Time constants (T>0 required; T=0 is ideal derivative block)
 T [s] : Time Constant (T>0 required)
-turnsRatio : ratio of armature turns over number of turns of the excitation winding
 turnsRatio : ratio of armature turns over number of turns of the excitation winding
 turnsRatio : stator current / excitation current
 uMax [-] : Upper limits of dead zones
@@ -542,7 +466,6 @@ v_fixed [m/s] : Fixed speed (if negative, force is acting as load)
 VGT [V] : Gate trigger voltage
 Vknee [V] : Forward threshold voltage (>= 0
 Vmax [V] : Max. arc voltage
-v_nominal [m/s] : Nominal speed (> 0)
 v_nominal [m/s] : Nominal speed (> 0)
 v_rel_a_start [m/s] : Initial values of velocity v_rel_a = der(r_rel_a)
 VRRM [V] : Reverse breakthrough voltage (>= 0)
@@ -590,8 +513,6 @@ y_start [-] : Start value of output
 y_start [-] : Start values of integrators
 Zener Diode with 3 working areas
 Z [ft] : elevation
-Z [ft] : elevation
 z_rel_start [rad/s2] : Initial value of angular acceleration z_rel = der(w_rel) of frame_b with respect to frame_a
 z_start [rad/s2] : Initial value of angular acceleration z = der(w) of frame_a
-z_start [rad/s2] : Initial value of relative angular acceleration z = der(w)
 z_start [rad/s2] : Initial value of relative angular acceleration z = der(w)

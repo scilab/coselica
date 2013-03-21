@@ -2691,8 +2691,8 @@ package Modelica
       end Der;
 
       model Derivative "Approximated derivative block"
-        parameter Real k = 1 "Gains";
-        parameter Real T = 0.01 "Time constants (T>0 required; T=0 is ideal derivative block)";
+        parameter Real k = 1 "Gain";
+        parameter Real T = 0.01 "Time constant (T>0 required; T=0 is ideal derivative block)";
         extends Interfaces.SISO;
         Real x "State of block";
       equation
