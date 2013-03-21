@@ -4961,18 +4961,16 @@ package Coselica
         parameter Real yOn = 1 "Output when switched on";
         parameter Real yOff = 0 "Output when switched off";
         parameter Real y_start = 0 "Start value of output";
-      protected
-        discrete Real yd(start = y_start, fixed = true) "discrete state for output value (y.signal=yd)";
+        Real yd(start = y_start) "state for output value (y.signal=yd)";
       equation
-        y.signal = yd;
+        der(yd) = 0;
         when u.signal >= uOn then
             yd = yOn;
-
         end when;
         when u.signal <= uOff then
             yd = yOff;
-
         end when;
+        y.signal = yd;
       end Hysteresis;
 
     end Nonlinear;
