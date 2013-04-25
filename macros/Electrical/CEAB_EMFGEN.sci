@@ -18,11 +18,11 @@ function [x,y,typ]=CEAB_EMFGEN(job,arg1,arg2)
       graphics=arg1.graphics;exprs=graphics.exprs;
       model=arg1.model;
       while %t do
-          [ok,k,fixedframe,exprs]=...
+          [ok, k, fixedframe, exprs]=...
               getvalue(['CEAB_EMFGEN';__('Electromotoric force (electric/mechanic transformer)')],...
                        [__('k [N.m/A] : Transformation coefficient');...
                         __('Fixed frame (1 : Yes / 0 : No)')],...
-                       list('vec',1,'vec',1),exprs);
+                       list('vec',1,'vec',1), exprs);
 
           if ~ok then break, end
 
@@ -34,44 +34,34 @@ function [x,y,typ]=CEAB_EMFGEN(job,arg1,arg2)
 
           //no error
           if ok then
-              if fixedframe==1 then //fixed frame -> emf0
-                  mo=modelica();
-                  mo.model='Coselica.Electrical.Analog.Basic.EMF0';
-                  mo.inputs=['p','n'];
-                  mo.outputs=['flange'];
-                  mo.parameters=list(['k'],...
-                                     list(k),...
-                                     [0]);
-                  model.equations=mo;
-                  model.in=ones(size(mo.inputs,'*'),1);
-                  model.out=ones(size(mo.outputs,'*'),1);
-                  x=standard_define([2 2],model,exprs,list([],0));
-                  x.graphics.in_implicit=['I','I'];
-                  x.graphics.in_style=[ElecInputStyle(),ElecOutputStyle()];
-                  x.graphics.out_implicit=['I'];
-                  x.graphics.out_style=[RotOutputStyle()];
+              graphics.exprs = exprs;
+              if fixedframe == 1 then //fixed frame -> emf0
+                  model.equations.model='Coselica.Electrical.Analog.Basic.EMF0';
+                  model.equations.parameters=list(['k'],...
+                                                  list(k),...
+                                                  [0]);
+                  model.equations.outputs=['flange'];
+                  model.out = 1
+                  graphics.out_implicit=['I'];
+                  graphics.out_style=[RotOutputStyle()];
+                  graphics.style = "CEAB_EMF0";
               else
-                  mo=modelica();
-                  mo.model='Coselica.Electrical.Analog.Basic.EMF';
-                  mo.inputs=['p','n'];
-                  mo.outputs=['flange','support'];
-                  mo.parameters=list(['k'],...
+                  model.equations.model='Coselica.Electrical.Analog.Basic.EMF';
+                  model.equations.outputs=['flange','support'];
+                  model.equations.parameters=list(['k'],...
                                      list(k),...
                                      [0]);
-                  model.equations=mo;
-                  model.in=ones(size(mo.inputs,'*'),1);
-                  model.out=ones(size(mo.outputs,'*'),1);
-                  x=standard_define([2 2],model,exprs,list([],0));
-                  x.graphics.in_implicit=['I','I'];
-                  x.graphics.in_style=[ElecInputStyle(),ElecOutputStyle() ];
-                  x.graphics.out_implicit=['I','I'];
-                  x.graphics.out_style=[RotOutputStyle(), RotInputStyle()];
+                  model.out=[1;1]
+                  graphics.out_implicit=['I','I'];
+                  graphics.out_style=[RotInputStyle(), RotOutputStyle()];
+                  graphics.style = "CEAB_EMF";
               end
+              x.model = model;
+              x.graphics = graphics;
+              break
           end
-
-
-          break
       end
+
      case 'define' then
       model=scicos_model();
       k=1;
@@ -96,5 +86,6 @@ function [x,y,typ]=CEAB_EMFGEN(job,arg1,arg2)
       x.graphics.in_style=[ElecInputStyle(),ElecOutputStyle()];
       x.graphics.out_implicit=['I'];
       x.graphics.out_style=[RotOutputStyle()];
+      x.graphics.style = "CEAB_EMF0";
     end
 endfunction
