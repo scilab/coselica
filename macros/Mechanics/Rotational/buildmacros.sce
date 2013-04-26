@@ -20,11 +20,14 @@ function buildblocks()
                     "CMR_Clutch"
                     "CMR_OneWayClutch"
                     "CMR_Freewheel"
+                    "MMR_IdealGearGen"
                     "MMR_IdealGear"
                     "MMR_IdealGear0"
                     "MMR_IdealPlanetary"
                     "CMRC_IdealDifferential"
+                    "MMR_IdealGearR2TGen"
                     "MMR_IdealGearR2T"
+                    "MMR_IdealGearR2T0"
                    ]
   sources_blocks = [
                     "CMRS_ImposedKinematic"

@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-function [x,y,typ]=MMR_IdealGearR2T(job,arg1,arg2)
+function [x,y,typ]=MMR_IdealGearR2T0(job,arg1,arg2)
     x=[];y=[];typ=[];
     select job
      case 'set' then
@@ -36,13 +36,13 @@ function [x,y,typ]=MMR_IdealGearR2T(job,arg1,arg2)
      case 'define' then
       model=scicos_model();
       ratio=1;
-      model.sim='MMR_IdealGearR2T';
+      model.sim='Modelica.Mechanics.Rotational.IdealGearR2T0';
       model.blocktype='c';
       model.dep_ut=[%t %f];
       mo=modelica();
-      mo.model='MMR_IdealGearR2T';
-      mo.inputs=['flange_a','bearingR'];
-      mo.outputs=['flange_b','bearingT'];
+      mo.model='Modelica.Mechanics.Rotational.IdealGearR2T0';
+      mo.inputs=['flange_a'];
+      mo.outputs=['flange_b'];
       mo.parameters=list(['ratio'],...
                          list(ratio),...
                          [0]);
@@ -52,9 +52,9 @@ function [x,y,typ]=MMR_IdealGearR2T(job,arg1,arg2)
       exprs=[sci2exp(ratio)];
       gr_i=[];
       x=standard_define([2 2],model,exprs,list(gr_i,0));
-      x.graphics.in_implicit=['I','I'];
-      x.graphics.in_style=[RotInputStyle(), RotOutputStyle()];
-      x.graphics.out_implicit=['I','I'];
-      x.graphics.out_style=[TransInputStyle(), TransOutputStyle()];
+      x.graphics.in_implicit=['I'];
+      x.graphics.in_style=[RotInputStyle()];
+      x.graphics.out_implicit=['I'];
+      x.graphics.out_style=[TransInputStyle()];
     end
 endfunction

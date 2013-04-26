@@ -1,1 +1,26 @@
-<svg/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="5.74" y1="16.036" x2="9.295" y2="16.036"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="5.74" y1="23.147" x2="9.295" y2="23.147"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" stroke-linecap="square" x1="7.518" y1="23.147" x2="7.518" y2="32.037"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="19.962" y1="8.925" x2="19.962" y2="35.592"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="18.184" y1="8.925" x2="21.739" y2="8.925"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="18.184" y1="1.814" x2="21.739" y2="1.814"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="30.628" y1="23.147" x2="34.184" y2="23.147"/>
+<line fill="none" stroke="#000000" stroke-width="1.125" x1="30.628" y1="16.036" x2="34.184" y2="16.036"/>
+<polyline fill="none" stroke="#000000" stroke-width="1.125" points="32.407,23.147 32.407,32.037 7.518,32.037 "/>
+<rect x="27.144" y="17.862" fill="#C0C0C0" stroke="#000000" width="10.729" height="3.553"/>
+<rect x="16.311" y="3.578" fill="#C0C0C0" stroke="#000000" width="7.206" height="3.552"/>
+<rect x="23.545" y="8.894" fill="#C0C0C0" stroke="#000000" width="3.551" height="21.378"/>
+<rect x="23.545" y="1.853" fill="#C0C0C0" stroke="#000000" width="3.551" height="7.199"/>
+<rect x="12.812" y="15.85" fill="#C0C0C0" stroke="#000000" width="3.551" height="7.661"/>
+<rect x="12.813" y="0.461" fill="#C0C0C0" stroke="#000000" width="3.551" height="15.426"/>
+<rect x="2.106" y="17.862" fill="#C0C0C0" stroke="#000000" width="10.67" height="3.553"/>
+<polyline id="polyline9" fill="none" stroke="#000000" points="11.97,35.456 28.319,35.456 24.232,39.543 "/>
+<line id="line11" fill="none" stroke="#000000" x1="24.232" y1="35.456" x2="20.144" y2="39.543"/>
+<line id="line13" fill="none" stroke="#000000" x1="20.144" y1="35.456" x2="16.057" y2="39.543"/>
+<line id="line15" fill="none" stroke="#000000" x1="16.057" y1="35.456" x2="11.97" y2="39.543"/>
+</svg>

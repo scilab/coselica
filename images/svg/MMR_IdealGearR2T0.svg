@@ -5,6 +5,11 @@
 	 id="Calque_1" sodipodi:docname="MMR_IdealGearR2T.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:cc="http://creativecommons.org/ns#" inkscape:version="0.48.2 r9819" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
 	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<polyline id="polyline9" fill="none" stroke="#000000" points="15.135,33.432 31.911,33.432 27.719,37.625 "/>
+<line id="line11" fill="none" stroke="#000000" x1="27.719" y1="33.432" x2="23.523" y2="37.625"/>
+<line id="line13" fill="none" stroke="#000000" x1="23.523" y1="33.432" x2="19.328" y2="37.625"/>
+<line id="line15" fill="none" stroke="#000000" x1="19.328" y1="33.432" x2="15.135" y2="37.625"/>
+<line id="line17" fill="none" stroke="#000000" x1="23.659" y1="33.431" x2="23.659" y2="28.641"/>
 <path id="path4243" d="M29.113,18.712l-2.812,2.071l0.799-3.399C27.406,18.213,28.22,18.747,29.113,18.712z"/>
 <rect id="rect4651" x="2.194" y="26.137" fill="#4D4D4D" stroke="#000000" width="37.459" height="3.219"/>
 <path id="path4243_1_" d="M10.478,9.868l3.332,1.043l-3.214,1.364C11.084,11.539,11.033,10.566,10.478,9.868z"/>

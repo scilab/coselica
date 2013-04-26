@@ -33,6 +33,8 @@ function runMe()
                     "CMTC_Pulley"
                     "CMTC_ActuatedPulley"
                     "CMTC_Lever"
+                    "MMR_IdealGearR2T"
+                    "MMR_IdealGearR2T0"
                         ]
     sensors_blocks = ["CMTS_PositionSensor"
                       "CMTS_SpeedSensor"
