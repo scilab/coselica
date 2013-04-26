@@ -8,10 +8,10 @@ endfunction
 function buildblocks()
   macros_path = get_absolute_file_path("buildmacros.sce");
   components_blocks = [ "MMR_Fixed"
-                     "CMRC_Free"
-                     "MMR_Inertia"
-                     "CMRC_Disc"
-                     "MMR_Spring"
+                    "CMRC_Free"
+                    "MMR_Inertia"
+                    "CMRC_Disc"
+                    "MMR_Spring"
                     "MMR_Damper"
                     "MMR_SpringDamper"
                     "CMRC_ElastoBacklash"
@@ -21,6 +21,7 @@ function buildblocks()
                     "CMR_OneWayClutch"
                     "CMR_Freewheel"
                     "MMR_IdealGear"
+                    "MMR_IdealGear0"
                     "MMR_IdealPlanetary"
                     "CMRC_IdealDifferential"
                     "MMR_IdealGearR2T"
