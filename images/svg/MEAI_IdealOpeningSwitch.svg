@@ -3,10 +3,20 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="2.36" y1="20" x2="11.376" y2="20"/>
-<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="12.748" y1="19.608" x2="27.84" y2="10.2"/>
-<line fill="none" stroke="#0000FF" stroke-width="1.125" stroke-linecap="square" stroke-linejoin="round" x1="27.84" y1="20" x2="37.641" y2="20"/>
-<line fill="none" stroke="#0000FF" stroke-width="1.125" x1="20" y1="10.004" x2="20" y2="14.904"/>
-<line fill="none" stroke="#0000FF" stroke-width="1.125" stroke-linecap="square" stroke-linejoin="round" x1="27.84" y1="16.08" x2="27.84" y2="20"/>
-<circle fill="none" stroke="#0000FF" stroke-width="1.125" cx="12.047" cy="19.984" r="0.859"/>
+<line id="line5942" fill="none" stroke="#0000FF" x1="3.36" y1="23" x2="12.376" y2="23"/>
+<g>
+	<line id="line5942_1_" fill="none" stroke="#0000FF" stroke-dasharray="2,1" x1="3.359" y1="31.229" x2="21.891" y2="31.229"/>
+	<line id="line5942_2_" fill="none" stroke="#0000FF" stroke-dasharray="2,1" x1="21.743" y1="31.727" x2="21.743" y2="17.875"/>
+</g>
+<line id="line5944" fill="none" stroke="#0000FF" x1="13.748" y1="22.607" x2="28.84" y2="13.2"/>
+<line id="line5944_1_" fill="none" stroke="#3399FF" x1="13.317" y1="22.062" x2="22.958" y2="7.12"/>
+<line id="line5946" fill="none" stroke="#0000FF" stroke-width="1.1169" x1="26.416" y1="23" x2="38.641" y2="23"/>
+<line id="line5948-2" fill="none" stroke="#0000FF" x1="26.085" y1="14.625" x2="26.085" y2="23.562"/>
+<circle fill="none" stroke="#0000FF" cx="13.062" cy="22.906" r="0.938"/>
+<g>
+	<g>
+		<polygon fill="#1A171B" points="27.274,7.726 29.534,2.228 24.914,3.539 		"/>
+	</g>
+</g>
+<path fill="none" stroke="#1A171B" d="M33.162,11.541c0,0-1.488-6.234-5.651-6.862"/>
 </svg>

@@ -2,15 +2,23 @@
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
-	 id="Calque_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="MEAI_IdealClosingSwitch.svg" inkscape:version="0.48.2 r9819"
+	 id="Calque_1" sodipodi:docname="MEAI_IdealClosingSwitch.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:cc="http://creativecommons.org/ns#" inkscape:version="0.48.2 r9819" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
 	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 <line id="line5942" fill="none" stroke="#0000FF" x1="2.36" y1="24" x2="11.376" y2="24"/>
-<line id="line5944" fill="none" stroke="#0000FF" x1="12.748" y1="23.607" x2="27.84" y2="14.2"/>
+<g>
+	<line id="line5942_1_" fill="none" stroke="#0000FF" stroke-dasharray="2,1" x1="2.359" y1="32.229" x2="20.891" y2="32.229"/>
+	<line id="line5942_2_" fill="none" stroke="#0000FF" stroke-dasharray="2,1" x1="20.743" y1="32.727" x2="20.743" y2="18.875"/>
+</g>
+<line id="line5944_1_" fill="none" stroke="#0000FF" x1="12.317" y1="23.062" x2="21.958" y2="8.12"/>
 <line id="line5946" fill="none" stroke="#0000FF" stroke-width="1.1169" x1="25.416" y1="24" x2="37.641" y2="24"/>
-<line id="line5948" fill="none" stroke="#0000FF" x1="19.831" y1="14.173" x2="19.831" y2="19.074"/>
-<line id="line5948-1" fill="none" stroke="#0000FF" x1="19.831" y1="7.652" x2="19.831" y2="12.552"/>
-<line id="line5948-1-7" fill="none" stroke="#0000FF" x1="19.831" y1="1.55" x2="19.831" y2="6.45"/>
-<line id="line5948-2" fill="none" stroke="#0000FF" x1="25.085" y1="13.482" x2="25.085" y2="24.562"/>
+<line id="line5948-2" fill="none" stroke="#0000FF" x1="25.085" y1="15.625" x2="25.085" y2="24.562"/>
+<line id="line5944" fill="none" stroke="#3399FF" x1="12.748" y1="23.607" x2="27.84" y2="14.2"/>
 <circle fill="none" stroke="#0000FF" cx="12.062" cy="23.906" r="0.938"/>
+<g>
+	<g>
+		<polygon fill="#1A171B" points="32.711,11.572 33.746,6.883 28.391,9.464 		"/>
+	</g>
+</g>
+<path fill="none" stroke="#1A171B" d="M31.419,9.048c-0.873-4.119-7.186-5.235-7.186-5.235"/>
 </svg>
