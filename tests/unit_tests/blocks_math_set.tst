@@ -43,6 +43,11 @@ blocks = ["CBMV_Add"
           "MBM_Tanh"];
 notTested = [];
 
+funcprot(0);
+needcompile = 0;
+alreadyran = %f;
+%scicos_context = struct();
+
 for j = 1:size(blocks,"*")
     interfunction = blocks(j);
 
