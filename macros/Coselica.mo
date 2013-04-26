@@ -2081,128 +2081,84 @@ package Modelica
          y.signal =  (if time < startTime then 0 elseif time >= T0 + T_width then 0 else amplitude);
        end PWM;
 
-
        model Q1driver
-         parameter Real width(start=50) "rapport cyclique en pourcentage";
-         parameter Real period (start=0.0002) "period of pulse signal";
          Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
-         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p;
          Modelica.Electrical.Analog.Interfaces.PositivePin pout_p ;
-         Modelica.Electrical.Analog.Interfaces.NegativePin pout_n ;
-         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch1 ;
-         Modelica.Blocks.Sources.Pulse pulse1(period = period, width = width) ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pout_n;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p ;
          Modelica.Electrical.Analog.Interfaces.NegativePin pin_n ;
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch1 ;
+         Modelica.Blocks.Interfaces.RealInput u ;
        equation
-         connect(idealdiode1.p,pin_n) ;
-         connect(pout_n,pin_n) ;
-         connect(pout_p,idealdiode1.n) ;
-         connect(idealclosingswitch1.n,idealdiode1.n) ;
+         connect(u,idealclosingswitch1.control) ;
          connect(pin_p,idealclosingswitch1.p) ;
-         connect(pulse1.y,idealclosingswitch1.control);
+         connect(pin_n,idealdiode1.p) ;
+         connect(pout_n,idealdiode1.p) ;
+         connect(pout_p,idealclosingswitch1.n) ;
+         connect(idealclosingswitch1.n,idealdiode1.n) ;
        end Q1driver;
 
+
+       model Q2driver
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pout_p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pin_n ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pout_n ;
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode2 ;
+         Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
+         Modelica.Blocks.Interfaces.RealInput u ;
+         Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealopeningswitch1 ;
+         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch1 ;
+       equation
+         connect(pin_p,idealclosingswitch1.n) ;
+         connect(idealopeningswitch1.p,pin_n) ;
+         connect(idealopeningswitch1.p,idealdiode2.p);
+         connect(idealclosingswitch1.p,idealopeningswitch1.n) ;
+         connect(idealdiode2.n,idealopeningswitch1.n) ;
+         connect(idealclosingswitch1.p,idealdiode1.p);
+         connect(idealdiode1.n,idealclosingswitch1.n) ;
+         connect(idealopeningswitch1.control,idealclosingswitch1.control) ;
+         connect(u,idealopeningswitch1.control) ;
+         connect(pout_n,idealdiode2.p) ;
+         connect(pout_p,idealdiode1.p) ;
+       end Q2driver;
+
        model Q4driver
-         parameter Real U(start=12) "Supply voltage (V) ";
          Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch1 ;
          Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch2 ;
-         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch3 ;
-         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealclosingswitch4 ;
+         Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealopeningswitch1 ;
+         Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealopeningswitch2 ;
          Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
          Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode2 ;
          Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode3 ;
          Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode4 ;
-         Modelica.Electrical.Analog.Basic.Ground ground1 ;
-         Modelica.Electrical.Analog.Sources.ConstantVoltage constantvoltage1(v = U) ;
-         Modelica.Electrical.Analog.Interfaces.PositivePin p ;
-         Modelica.Electrical.Analog.Interfaces.NegativePin n ;
-         Modelica.Blocks.Interfaces.RealInput com1 ;
-         Modelica.Blocks.Interfaces.RealInput com2 ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pin_n ;
+         Modelica.Electrical.Analog.Interfaces.PositivePin pout_p ;
+         Modelica.Electrical.Analog.Interfaces.NegativePin pout_n ;
+         Modelica.Blocks.Interfaces.RealInput u ;
        equation
-         connect(idealclosingswitch4.control,com2) ;
-         connect(idealclosingswitch3.control,com1) ;
-         connect(idealdiode1.p,n) ;
-         connect(idealdiode2.p,p) ;
-         connect(idealclosingswitch2.n,constantvoltage1.n) ;
-         connect(constantvoltage1.n,idealclosingswitch1.n) ;
-         connect(constantvoltage1.p,ground1.p) ;
-         connect(ground1.p,idealdiode4.p) ;
-         connect(ground1.p,idealdiode3.p) ;
-         connect(idealclosingswitch4.p,idealdiode4.p) ;
-         connect(idealclosingswitch4.n,idealdiode4.n) ;
-         connect(idealclosingswitch3.n,idealdiode3.n) ;
-         connect(idealclosingswitch3.p,idealdiode3.p) ;
-         connect(idealdiode2.p,idealclosingswitch4.n) ;
-         connect(idealclosingswitch2.n,idealdiode2.n) ;
-         connect(idealclosingswitch2.p,idealdiode2.p) ;
-         connect(idealdiode1.p,idealclosingswitch3.n) ;
-         connect(idealclosingswitch1.n,idealdiode1.n) ;
-         connect(idealclosingswitch1.p,idealdiode1.p) ;
-         connect(idealclosingswitch1.control,idealclosingswitch4.control) ;
-         connect(idealclosingswitch3.control,idealclosingswitch2.control) ;
+         connect(u,idealopeningswitch1.control) ;
+         connect(u,idealclosingswitch2.control) ;
+         connect(pout_n,idealdiode4.n) ;
+         connect(pout_p,idealopeningswitch1.p) ;
+         connect(idealdiode2.p,idealdiode4.n) ;
+         connect(idealclosingswitch1.n,idealopeningswitch1.p);
+         connect(pin_p,idealclosingswitch1.p) ;
+         connect(idealopeningswitch1.n,pin_n) ;
+         connect(idealdiode3.p,idealclosingswitch2.n) ;
+         connect(idealdiode1.n,idealopeningswitch2.p) ;
+         connect(idealdiode2.n,idealopeningswitch2.p) ;
+         connect(idealopeningswitch2.n,idealdiode2.p) ;
+         connect(idealdiode4.n,idealclosingswitch2.p) ;
+         connect(idealclosingswitch2.n,idealdiode4.p) ;
+         connect(idealopeningswitch1.n,idealdiode3.p) ;
+         connect(idealopeningswitch1.p,idealdiode3.n) ;
+         connect(idealclosingswitch1.n,idealdiode1.p) ;
+         connect(idealclosingswitch1.p,idealdiode1.n) ;
+         connect(idealopeningswitch1.control,idealopeningswitch2.control) ;
+         connect(idealclosingswitch1.control,idealclosingswitch2.control) ;
        end Q4driver;
-
-       //
-       //         model Q4driver
-       //           parameter Real U(start=12) "Supply voltage (V) ";
-       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode1 ;
-       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch1 ;
-       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode2 ;
-       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch2 ;
-       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode3 ;
-       //           Coselica.Electrical.Analog.Ideal.IdealDiode idealdiode4 ;
-       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch3 ;
-       //           Modelica.Electrical.Analog.Ideal.IdealClosingSwitch controlledidealclosingswitch4 ;
-       //           Modelica.Electrical.Analog.Interfaces.PositivePin p ;
-       //           Modelica.Electrical.Analog.Interfaces.NegativePin n ;
-       //           Modelica.Electrical.Analog.Sources.ConstantVoltage constantvoltage1 (v=U);
-       //           Modelica.Electrical.Analog.Basic.Ground ground1 ;
-       //           Modelica.Blocks.Interfaces.RealInput com1 "input signal for left switchs";
-       //           Modelica.Blocks.Interfaces.RealInput com2 "input signal for right switchs";
-       //         equation
-       //           connect(ground1.p,idealdiode4.p) ;
-       //           connect(ground1.p,idealdiode3.p) ;
-       //           connect(constantvoltage1.p,ground1.p) ;
-       //           connect(controlledidealclosingswitch1.control,controlledidealclosingswitch4.control) ;
-       //           connect(controlledidealclosingswitch3.control,controlledidealclosingswitch2.control) ;
-       //           connect(idealdiode4.n,idealdiode2.p) ;
-       //           connect(n,idealdiode4.n) ;
-       //           connect(idealdiode3.n,p) ;
-       //           connect(idealdiode3.n,idealdiode1.p) ;
-       //           connect(constantvoltage1.n,controlledidealclosingswitch2.n) ;
-       //           connect(constantvoltage1.n,idealdiode1.n) ;
-       //           connect(controlledidealclosingswitch3.n,idealdiode3.n) ;
-       //           connect(controlledidealclosingswitch4.n,idealdiode4.n) ;
-       //           connect(idealdiode2.n,controlledidealclosingswitch2.n) ;
-       //           connect(idealdiode1.n,controlledidealclosingswitch1.n) ;
-       //           connect(controlledidealclosingswitch4.p,idealdiode4.p) ;
-       //           connect(controlledidealclosingswitch3.p,idealdiode3.p) ;
-       //           connect(controlledidealclosingswitch2.p,idealdiode2.p) ;
-       //           connect(controlledidealclosingswitch1.p,idealdiode1.p) ;
-       //           connect(com1,controlledidealclosingswitch3.control) ;
-       //           connect(com2,controlledidealclosingswitch1.control) ;
-       //         end Q4driver;
-       //
-
-
-       //         model DC_PermanentMagnet "Permanent magnet DC machine"
-       //           extends Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine(final turnsRatio = (VaNominal - Ra * IaNominal) / (wNominal * Le * IeNominal));
-       //           Components.AirGapDC airGapDC(final turnsRatio = turnsRatio, final Le = Le) ;
-       //         protected
-       //           constant Real Le = 1 "total field excitation inductance";
-       //           constant Real IeNominal = 1 "equivalent excitation current";
-       //         public
-       //           Modelica.Electrical.Analog.Basic.Ground eGround ;
-       //           Modelica.Electrical.Analog.Sources.ConstantCurrent ie(I = IeNominal) ;
-       //         equation
-       //           //assert(VaNominal > Ra * IaNominal, "VaNominal has to be > Ra*IaNominal");
-       //           connect(eGround.p,ie.p) ;
-       //           connect(airGapDC.pin_ep,ie.n) ;
-       //           connect(airGapDC.pin_en,eGround.p) ;
-       //           connect(airGapDC.pin_ap,la.n) ;
-       //           connect(airGapDC.pin_an,pin_an) ;
-       //           connect(airGapDC.support,internalSupport) ;
-       //           connect(airGapDC.flange,inertiaRotor.flange_a) ;
-       //         end DC_PermanentMagnet;
 
 
      end Components;

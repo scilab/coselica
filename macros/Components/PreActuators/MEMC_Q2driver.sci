@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-function [x,y,typ]=MEMC_Q1driver(job,arg1,arg2)
+function [x,y,typ]=MEMC_Q2driver(job,arg1,arg2)
 x=[];y=[];typ=[];
 select job
   case 'set' then
@@ -26,7 +26,7 @@ select job
     model.blocktype='c';
     model.dep_ut=[%t %f];
     mo=modelica();
-      mo.model='Modelica.Electrical.Machines.Components.Q1driver';
+      mo.model='Modelica.Electrical.Machines.Components.Q2driver';
       mo.inputs=['pin_p', 'pin_n', 'u'];
       mo.outputs=['pout_p','pout_n'];
       mo.parameters=list([], list(), []);

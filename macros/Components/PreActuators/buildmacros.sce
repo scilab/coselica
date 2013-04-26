@@ -9,8 +9,9 @@ function buildblocks()
     macros_path = get_absolute_file_path("buildmacros.sce");
 
     preactuators_blocks = [
-        "MEMC_Q4driver"
         "MEMC_Q1driver"
+        "MEMC_Q2driver"
+        "MEMC_Q4driver"
         "CCP_PWM"
                    ]
 
