@@ -5,8 +5,9 @@ function runMe()
                     "MEMC_DCmotor"
                      ]
     preactuators_blocks = [
-                      "MEMC_Q4driver"
                       "MEMC_Q1driver"
+                      "MEMC_Q2driver"
+                      "MEMC_Q4driver"
                       "CCP_PWM"
                      ]
     xpal = tbx_build_pal(toolbox_dir, "Actuators", actuators_blocks)
