@@ -2070,13 +2070,14 @@ package Modelica
          Real width ;
          extends Modelica.Blocks.Interfaces.SISO;
        protected
-         discrete Real T0(start = startTime, fixed = true) "Start time of current period";
+         Real T0(final start = startTime) "Start time of current period";
        equation
+         der (T0) = 0;
          when time > T0 + period then
-           T0 = time;
+           reinit(T0, time);
          end when;
-         width=100*u.signal/2^nb_bits;
-         T_width=width/(100*frequency);
+         width = 100 * u.signal / 2^nb_bits;
+         T_width = width / (100 * frequency);
          y.signal =  (if time < startTime then 0 elseif time >= T0 + T_width then 0 else amplitude);
        end PWM;
 

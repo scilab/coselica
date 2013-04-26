@@ -1,6 +1,7 @@
 //
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
-// Copyright (C) 2012-2012 - Scilab Enterprises - Bruno JOFRET
+// Copyright (C) 2012-2013 - Scilab Enterprises - Bruno JOFRET
+// Copyright (C) 2012-2013 - David Violeau
 //
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
@@ -32,7 +33,7 @@ function [x,y,typ]=CCP_PWM(job,arg1,arg2)
       end
      case 'define' then
       model=scicos_model();
-      frequency=1;
+      frequency=500;
       nb_bits=8;
       start_time=0;
       model.sim='Coselica';
