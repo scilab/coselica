@@ -60,6 +60,6 @@ function [x,y,typ]=MBM_Gain(job,arg1,arg2)
       x.graphics.in_style=[RealInputStyle()];
       x.graphics.out_implicit=['I'];
       x.graphics.out_style=[RealOutputStyle()];
-      x.graphics.style=["blockWithLabel;shape=triangle;verticalLabelPosition=middle;verticalAlign=middle;displayedLabel=%s"]
+      x.graphics.style=["shape=triangle;blockWithLabel;verticalLabelPosition=middle;verticalAlign=middle;displayedLabel=%s"]
     end
 endfunction
