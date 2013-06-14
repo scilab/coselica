@@ -25,6 +25,7 @@ function trad = __(msg)
 
     index = find(%coselicaMessages(:, 1) == msg);
     if ~isempty(index) then
+        index = index(1); // If multiple translations are available, take the first one.
         if isempty(%coselicaMessages(index, 3)) then
             trad = %coselicaMessages(index, 2);
         else
