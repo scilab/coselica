@@ -1,7 +1,8 @@
 Ideal linear electrical inductor$$Ce bloc correspond à une inductance$$
 Temperature dependent electrical resistor$$Ce bloc correspond à une résistance chauffante.$$Le flux thermique est linéaire par rapport à la différence de température entre la température de la résistance et la température de référence
-R_ref [Ohm] : Resistance at temperature T_ref$$R_ref [Ohm] : Resistance à la temperature T_ref$$
-T_ref [K] : Reference temperature$$T_ref [K] : température de référence$$
+R_ref [Ohm] : Resistance at temperature T_ref$$R_ref [Ohm] : Résistance à la temperature T_ref$$
+T_ref [K] : Reference temperature$$T_ref [K] : Température de référence$$
+alpha [1/K] : Temperature coefficient of resistance$$alpha [1/K] : Coefficient de température$$
 Ideal linear electrical resistor$$Ce bloc correspond à une simple résistance$$
 Ideal linear electrical capacitor with variable capacitance$$Ce bloc correspond à une capacité variable.$$La variation de capacité est donnée par le signal de commande.
 Cmin [F] : Minimal capacitance$$Cmin [F] : Capacité minimale$$
