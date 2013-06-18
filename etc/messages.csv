@@ -4,6 +4,7 @@ R_ref [Ohm] : Resistance at temperature T_ref$$R_ref [Ohm] : Résistance à la t
 T_ref [K] : Reference temperature$$T_ref [K] : Température de référence$$
 alpha [1/K] : Temperature coefficient of resistance$$alpha [1/K] : Coefficient de température$$
 Ideal linear electrical resistor$$Ce bloc correspond à une simple résistance$$
+R [Ohm] : Resistance$$R [Ohm] : Résistance$$
 Ideal linear electrical capacitor with variable capacitance$$Ce bloc correspond à une capacité variable.$$La variation de capacité est donnée par le signal de commande.
 Cmin [F] : Minimal capacitance$$Cmin [F] : Capacité minimale$$
 Ideal linear electrical inductor with variable inductance$$Ce bloc correspond à une inductance variable.$$La variation d'inductance est donnée par le signal de commande.
@@ -37,7 +38,7 @@ Linear 1D rotational damper$$Ce bloc modélise un comportement de type visqueux 
 d [N.m.s/rad] : Damping constant$$d [N.m.s/rad] : Coefficient de viscosité$$
 b [rad] : Total backlash$$b [rad] : Jeu total$$
 Flange fixed in housing at a given angle$$Ce bloc modélise le bâti fixe. L'angle spécifié caractérise la référence des angles.$$
-phi0 [rad] : Fixed offset angle of housing$$phi0 [rad] : Offest angulaire du bâti$$
+phi0 [rad] : Fixed offset angle of housing$$phi0 [rad] : Décalage angulaire du bâti$$
 Ideal gear without inertia$$Ce bloc modélise la cinématique d''un engrenage sans masse, ni raideur, ni viscosité$$
 ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)$$ratio [-] : rapport de transmission (entrée/sortie)$$
 Ideal planetary gear box$$Engrenage à train épicycloïdal parfait$$
@@ -52,7 +53,87 @@ b [rad] : Total backlash$$b [rad] : Jeu total$$
 c [N.m/rad] : Spring constant (c > 0)$$c [N.m/rad] : raideur de torsion (c > 0)$$
 phi_rel0 [rad] : Unstretched spring angle$$phi_rel0 [rad] : Angle à vide du ressort$$
 d [N.m.s/rad] : Damping constant$$d [N.m.s/rad] : Coefficient de viscosoté$$
-1D-rotational component with inertia$$Ce bloc modélise le comportement d'un solide massique en rotation autour d'axe fixe$$
+1D-rotational component with inertia$$Ce bloc modélise le comportement d'un solide massique en rotation autour d'un axe fixe$$
 Linear 1D rotational spring and damper in parallel$$Ce bloc représente le comportement d'un ressort de torsion en parallèle d'un amortissement visqueux$$
-
-
+Predefined Source Voltage$$Ce bloc correspond à une source de tension.$$
+Type of signal : (0) constant, (1) step, (2) ramp, (3) sine, (4) pulse, (5) sawtooth, (6) trapezoid$$Type de signal : (0) constant, (1) échelon, (2) rampe, (3) sinusoïdal, (4) carré, (5) dents de scie, (6) Trapézoïdal.$$
+Choose type of signal between 0 and 6$$Choix du type de signal (valeur entre 0 et 6 attendue).$$
+Source for constant voltage$$Tension continue$$
+V [V] : Value of constant voltage$$V [V] : Valeur de la tension$$
+Step voltage source$$Génération d'un échelon$$
+V [V] : Height of step$$V [V] : Amplitude de l'échelon$$
+offset [V] : Voltage offset$$offset [V] : Tension de décalage$$
+startTime [s] : Time offset$$startTime [s] : Temps de décalage$$
+Ramp voltage source$$Génération d'une rampe$$
+V [V] : Height of ramp$$V [V] : Amplitude de la rampe$$
+duration [s] : Duration of ramp$$duration [s] : Durée de la rampe$$
+Sine voltage source$$Génération d'une sinusoïde$$
+V [V] : Amplitude of sine wave$$V [V] : Amplitude de la sinusoïde$$
+phase [rad] : Phase of sine wave$$phase [rad] : Phase de la sinusoïde$$
+freqHz [Hz] : Frequency of sine wave$$freqHz [Hz] : Fréquence de la sinusoïde$$
+Pulse voltage source$$Génération d'un signal carré$$
+V [V] : Amplitude of pulse$$V [V] : Amplitude du signal carré$$
+width [-] : Width of pulse in % of period$$width [-] : Largeur du carré en % de la période$$
+period [s] : Time for one period$$period [s] : Période du signal$$
+Saw tooth voltage source$$Génération d'un signal en dents de scie$$
+V [V] : Amplitude of saw tooth$$V [V] : Amplitude du signal$$
+Trapezoidal voltage source$$Génération d'un signal trapézoïdal$$
+V [V] : Amplitude of trapezoid$$V [V] : Amplitude du signal$$
+rising [s] : Rising duration of trapezoid (>=0)$$rising [s] : Temps de montée du signal (>=0)$$
+width [s] : Width duration of trapezoid (>=0)$$width [s] : Largeur de la trapézoïde (>=0)$$
+falling [s] : Falling duration of trapezoid (>=0)$$falling [s] : Temps de descente du signal (>=0)$$
+period [s] : Time for one period (>0)$$period [s] : Durée d'une période (>0)$$
+nperiod [-] : Number of periods (< 0 means infinite number of periods)$$nperiod [-] : Nombre de périodes (< 0 signifie une infinité de périodes)$$
+Lumped thermal element storing heat$$Capacité thermique$$
+C [J/K] : Heat capacity of part (= cp*m)$$C [J/K] : Capacité thermique(= cp*m) de la pièce$$
+steadyStateStart [-] : true, if component shall start in steady state$$steadyStateStart [-] : vrai, si à l'état stationnaire$$
+T_start [K] : Initial temperature of part (in Kelvin)$$T_start [K] : Température initiale de la pièce (en Kelvin)$$
+Scope parameters$$Paramètres$$
+Number of superposed curvs$$Nombre de courbes superposées$$
+Generate pulse signal$$Génération d'un signal carré$$
+amplitude [-] : Amplitude of pulse$$amplitude [-] : Amplitude du carré$$
+offset [-] : Offset of output signal$$offset [-] : Décalage$$
+startTime [s] : Output = offset for time < startTime$$startTime [s] : Temps de décalage$$
+Lumped thermal element transporting heat without storing it$$Ce bloc correspond à une conductivité thermique$$
+G [W/K] : Constant thermal conductance of material$$G [W/K] : Conductivité thermique du matériau$$
+Generate sine signal$$Génération d'un signal sinusoïdal$$
+amplitude [-] : Amplitude of sine wave$$amplitude [-] : Amplitude de la sinusoïde$$
+Generate constant signal$$Génération d'un signal constant$$
+k [-] : Constant output value$$k [-] : Valeur du signal$$
+Switch output between two constants with hysteresis$$Ce bloc permet de changer d'état ("on" ou "off") avec un cycle d'hystérésis$$
+uOn [-] : Switch on when u >= uOn$$uOn [-] : Passage à l'état "on" quand u >= uOn$$
+uOff [-] : Switch off when u <= uOff$$uOff [-] : Passage à l'état "off" quand u <= uOff$$
+yOn [-] : Output when switched on$$yOn [-] : Sortie si état "on"$$
+yOff [-] : Output when switched off$$yOff [-] : Sortie si état "off"$$
+y_start [-] : Start value of output$$y_start [-] : Valeur initiale de la sortie$$
+Electromotoric force (electric/mechanic transformer)$$Force électromotrice en rotation$$
+k [N.m/A] : Transformation coefficient$$k [N.m/A] : Constante de couple$$
+Generate step signal$$Génération d'un échelon$$
+height [-] : Height of step$$height [-] : Amplitude de l'échelon$$
+number of bits for duty cycle$$Nombre de bits pour le rapport cyclique$$
+frequency of signal (Hz)$$Fréquence du signal (Hz)$$
+Generate ramp signal$$Génération d'une rampe$$
+height [-] : Height of ramps$$height [-] : Amplitude de la rampe$$
+Ideal diode$$Ce bloc correspond à une diode idéale$$
+Ron [Ohm] : Forward state-on differential resistance (closed diode resistance >=0)$$Ron [Ohm] : Résistance de la diode dans le sens passant$$
+Goff [S] : Backward state-off conductance (opened diode conductance >= 0)$$Goff [S] : Conductance de la diode dans le sens bloquant$$
+Vknee [V] : Forward threshold voltage (>= 0)$$Vknee [V] : Tension de seuil$$
+DC motor with permanent magnet$$Ce bloc correspond permet de modéliser un moteur à aimants permanents$$
+k [Nm/A] : constant fcem$$k [Nm/A] : Constante de couple$$
+Jrotor [kg.m^2] : rotor inertial momentum$$Jrotor [kg.m^2] : Moment d'inertie du rotor$$
+First order transfer function block (= 1 pole)$$Ce bloc correspond à une fonction de transfert du premier ordre$$
+T [s] : Time Constant$$T [s] : Constante de temps$$
+Gearbox transforming rotational into translational motion$$Ce bloc modélise le comportement d'un mécanisme de type pignon crémaillère$$
+ratio [rad/m] : transmission ratio (flange_a.phi/flange_b.s)$$ratio [rad/m] : Rapport de transmission (entrée/sortie)$$
+Sliding mass with inertia$$Ce bloc modélise le comportement d'une masse en translation$$
+m [kg] : Mass of the sliding mass$$m [kg] : Masse du solide en translation$$
+initType [-] : Type of initial value for [s,v] (0=guess,1=fixed)$$Type de valeur initiale pour [s,v] (0=évaluée,1=fixée)$$
+s_start [m] : Initial value for absolute position of center of mass$$s_start [m] : Position initiale du centre de gravité$$
+v_start [m/s] : Initial value for absolute velocity of mass$$v_start [m/s] : Vitesse initiale du solide$$
+L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)$$L [m] : Longueur du solide de jonction à jonction$$
+Output the product of a gain value with the input signal$$Ce bloc permet de multiplier le signal d'entrée par un gain (coefficient multiplicateur)$$
+k [-] : Gain value multiplied with input signal$$k [-] : Valeur du coefficient multiplicateur$$
+Output the sum of the two inputs$$Ce bloc permet de faire la somme de deux entrées tout en leur appliquant un coefficiant multiplicateur$$
+k1 [-] : Gain of upper input$$k1 [-] : Gain de la première entrée$$
+k2 [-] : Gain of lower input$$k2 [-] : Gain de la deuxième entrée$$
+Proportional-Integral controller$$Ce bloc correspond à un correcteur de type proportionnel intégral$$

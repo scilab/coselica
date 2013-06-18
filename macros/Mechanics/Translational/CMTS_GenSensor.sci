@@ -22,7 +22,7 @@ function [x,y,typ]=CMTS_GenSensor(job,arg1,arg2)
       while %t do
 
           [ok,value,exprs] = getvalue([__('Generic Sensor')],..
-                                      [__('Please choose physical quantity : (0) position, (1) speed, (2) acceleration')],..
+                                      [__('Choose physical quantity : (0) position, (1) speed, (2) acceleration')],..
                                       list('vec',1),exprs);
           if ~ok then
               break

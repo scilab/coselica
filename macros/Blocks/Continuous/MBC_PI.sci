@@ -27,7 +27,7 @@ function [x,y,typ]=MBC_PI(job,arg1,arg2)
           [ok,k,T,exprs]=..
               getvalue(['MBC_PI';__('Proportional-Integral controller')],..
                        [__('k [-] : Gain');...
-                        __('T [s] : Time Constant (T>0 required)')],..
+                        __('T [s] : Time Constant')],..
                        list('vec',1,'vec',1),exprs);
           if ~ok then break, end
           model.in=[1];
