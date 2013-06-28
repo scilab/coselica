@@ -11,5 +11,5 @@
 //
 
 function coselicaVersion=getCoselicaVersion()
-    coselicaVersion = "0.6.2"
+    coselicaVersion = "0.6.3"
 endfunction
