@@ -1,136 +1,168 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMRS_QuadraticSpeedDepen">
-<refnamediv>
-<refname>CMRS_QuadraticSpeedDepen</refname>
-<refpurpose>CMRS_QuadraticSpeedDepen Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>CMRS_QuadraticSpeedDepen</refname>
+        <refpurpose>CMRS_QuadraticSpeedDepen Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gif/CMRS_QuadraticSpeedDepen.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_CMRS_QuadraticSpeedDepen">
+        <title>Description</title>
+        <para>Quadratic dependency of torque versus speed</para>
+    </refsection>
+    <refsection id="Palette_CMRS_QuadraticSpeedDepen">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gui/CMRS_QuadraticSpeedDepen_en_US_gui.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">tau_nominal [N.m] : Nominal torque (if negative, torque is acting as load)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 1</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">TorqueDirection [-] : Same direction of torque in both directions of rotation (1=yes,0=no)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 1</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">w_nominal [rad/s] : Nominal speed (&gt; 0)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 1</para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Outputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'flange'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'support'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Parameters :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'tau_nominal'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 1
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'TorqueDirection'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 1
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'w_nominal'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 1
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_CMRS_QuadraticSpeedDepen">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/CMRS_QuadraticSpeedDepen_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../../images/gif/CMRS_QuadraticSpeedDepen.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/CMRS_QuadraticSpeedDepen_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/CMRS_QuadraticSpeedDepen_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_CMRS_QuadraticSpeedDepen">
-<title>Description</title>
-<para>
-Quadratic dependency of torque versus speed
-</para>
-</refsection>
-<refsection id="Palette_CMRS_QuadraticSpeedDepen">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_CMRS_QuadraticSpeedDepen">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
 <listitem>
-<para>
-<link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection>
-<title>Block Screenshot</title>
-<para>
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../images/gui/CMRS_QuadraticSpeedDepen_gui.gif" align="center" valign="middle"/>
-</imageobject>
-</inlinemediaobject>
-</para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">tau_nominal [N.m] : Nominal torque (if negative, torque is acting as load)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 1</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold">TorqueDirection [-] : Same direction of torque in both directions of rotation (1=yes,0=no)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 1</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold">w_nominal [rad/s] : Nominal speed (&gt; 0)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 1</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Outputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'flange'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'support'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Parameters :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'tau_nominal'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 1
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'TorqueDirection'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 1
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-<listitem>
-<para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'w_nominal'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 1
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_CMRS_QuadraticSpeedDepen">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>CMRS_QuadraticSpeedDepen.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>Coselica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>

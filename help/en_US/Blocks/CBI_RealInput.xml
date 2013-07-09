@@ -1,76 +1,110 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CBI_RealInput">
-<refnamediv>
-<refname>CBI_RealInput</refname>
-<refpurpose>CBI_RealInput Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>CBI_RealInput</refname>
+        <refpurpose>CBI_RealInput Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../images/gif/CBI_RealInput.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_CBI_RealInput">
+        <title>Description</title>
+    </refsection>
+    <refsection id="Palette_CBI_RealInput">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Inputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'u'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Explicit</emphasis> variable.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Outputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'y'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Value type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_CBI_RealInput">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/CBI_RealInput_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../images/gif/CBI_RealInput.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/CBI_RealInput_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/CBI_RealInput_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_CBI_RealInput">
-<title>Description</title>
-</refsection>
-<refsection id="Palette_CBI_RealInput">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_CBI_RealInput">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
+<listitem>
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
+</para>
+</listitem>
 <listitem>
 <para>
-<link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Inputs :</emphasis></para>
-<itemizedlist>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'u'
-</para>
-<para>
-<emphasis role="bold">Explicit</emphasis> variable.
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Outputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'y'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Value type).
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_CBI_RealInput">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>CBI_RealInput.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>Coselica.Blocks.Interfaces.RealInput in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>

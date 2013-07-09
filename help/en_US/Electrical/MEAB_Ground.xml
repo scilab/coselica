@@ -1,63 +1,95 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MEAB_Ground">
-<refnamediv>
-<refname>MEAB_Ground</refname>
-<refpurpose>MEAB_Ground Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>MEAB_Ground</refname>
+        <refpurpose>MEAB_Ground Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../images/gif/MEAB_Ground.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_MEAB_Ground">
+        <title>Description</title>
+    </refsection>
+    <refsection id="Palette_MEAB_Ground">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Inputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'p'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_MEAB_Ground">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/MEAB_Ground_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../images/gif/MEAB_Ground.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/MEAB_Ground_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/MEAB_Ground_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_MEAB_Ground">
-<title>Description</title>
-</refsection>
-<refsection id="Palette_MEAB_Ground">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_MEAB_Ground">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
+<listitem>
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
+</para>
+</listitem>
 <listitem>
 <para>
-<link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Inputs :</emphasis></para>
-<itemizedlist>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'p'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Electrical type).
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_MEAB_Ground">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>MEAB_Ground.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>Modelica.Electrical.Analog.Basic.Ground in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>

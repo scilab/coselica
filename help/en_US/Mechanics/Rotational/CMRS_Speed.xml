@@ -1,84 +1,118 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMRS_Speed">
-<refnamediv>
-<refname>CMRS_Speed</refname>
-<refpurpose>CMRS_Speed Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>CMRS_Speed</refname>
+        <refpurpose>CMRS_Speed Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gif/CMRS_Speed.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_CMRS_Speed">
+        <title>Description</title>
+    </refsection>
+    <refsection id="Palette_CMRS_Speed">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Inputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'w_ref'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Value type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Outputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'flange'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'support'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_CMRS_Speed">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/CMRS_Speed_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../../images/gif/CMRS_Speed.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/CMRS_Speed_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/CMRS_Speed_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_CMRS_Speed">
-<title>Description</title>
-</refsection>
-<refsection id="Palette_CMRS_Speed">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_CMRS_Speed">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
 <listitem>
-<para>
-<link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Inputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'w_ref'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Value type).
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Outputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'flange'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'support'
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
+</listitem>
+<listitem>
 <para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_CMRS_Speed">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>CMRS_Speed.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>Coselica.Mechanics.Rotational.Sources.Speed in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>

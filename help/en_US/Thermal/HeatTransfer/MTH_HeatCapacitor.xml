@@ -1,128 +1,160 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MTH_HeatCapacitor">
-<refnamediv>
-<refname>MTH_HeatCapacitor</refname>
-<refpurpose>MTH_HeatCapacitor Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>MTH_HeatCapacitor</refname>
+        <refpurpose>MTH_HeatCapacitor Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gif/MTH_HeatCapacitor.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_MTH_HeatCapacitor">
+        <title>Description</title>
+        <para>Lumped thermal element storing heat</para>
+    </refsection>
+    <refsection id="Palette_MTH_HeatCapacitor">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gui/MTH_HeatCapacitor_en_US_gui.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">C [J/K] : Heat capacity of part (= cp*m)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 1</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">steadyStateStart [-] : true, if component shall start in steady state</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 0</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">T_start [K] : Initial temperature of part (in Kelvin)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 293.15</para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Outputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'port'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Thermal Heat Transfer type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Parameters :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'C'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 1
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'steadyStateStart'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 0
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'T_start'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 293.15
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_MTH_HeatCapacitor">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/MTH_HeatCapacitor_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../../images/gif/MTH_HeatCapacitor.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/MTH_HeatCapacitor_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/MTH_HeatCapacitor_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_MTH_HeatCapacitor">
-<title>Description</title>
-<para>
-Lumped thermal element storing heat
-</para>
-</refsection>
-<refsection id="Palette_MTH_HeatCapacitor">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_MTH_HeatCapacitor">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
 <listitem>
-<para>
-<link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
-</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection>
-<title>Block Screenshot</title>
-<para>
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../images/gui/MTH_HeatCapacitor_gui.gif" align="center" valign="middle"/>
-</imageobject>
-</inlinemediaobject>
-</para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">C [J/K] : Heat capacity of part (= cp*m)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 1</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold">steadyStateStart [-] : true, if component shall start in steady state</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 0</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold">T_start [K] : Initial temperature of part (in Kelvin)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 293.15</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Outputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'port'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Thermal Heat Transfer type).
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Parameters :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'C'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 1
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'steadyStateStart'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 0
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'T_start'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 293.15
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_MTH_HeatCapacitor">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>MTH_HeatCapacitor.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>MTH_HeatCapacitor in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>

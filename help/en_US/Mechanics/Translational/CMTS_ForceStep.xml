@@ -1,136 +1,168 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMTS_ForceStep">
-<refnamediv>
-<refname>CMTS_ForceStep</refname>
-<refpurpose>CMTS_ForceStep Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>CMTS_ForceStep</refname>
+        <refpurpose>CMTS_ForceStep Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gif/CMTS_ForceStep.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_CMTS_ForceStep">
+        <title>Description</title>
+        <para>Constant force, not dependent on speed</para>
+    </refsection>
+    <refsection id="Palette_CMTS_ForceStep">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gui/CMTS_ForceStep_en_US_gui.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">stepForce [N] : Height of force step (if negative, force is acting as load)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 1</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">offsetForce [N] : Offset of force</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 0</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">startTime [s] : Force = offset for time &lt; startTime</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 0</para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Outputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'flange'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'support'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Parameters :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'stepForce'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 1
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'offsetForce'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 0
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'startTime'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 0
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_CMTS_ForceStep">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/CMTS_ForceStep_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../../images/gif/CMTS_ForceStep.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/CMTS_ForceStep_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/CMTS_ForceStep_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_CMTS_ForceStep">
-<title>Description</title>
-<para>
-Constant force, not dependent on speed
-</para>
-</refsection>
-<refsection id="Palette_CMTS_ForceStep">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_CMTS_ForceStep">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
 <listitem>
-<para>
-<link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection>
-<title>Block Screenshot</title>
-<para>
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../images/gui/CMTS_ForceStep_gui.gif" align="center" valign="middle"/>
-</imageobject>
-</inlinemediaobject>
-</para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">stepForce [N] : Height of force step (if negative, force is acting as load)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 1</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold">offsetForce [N] : Offset of force</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 0</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold">startTime [s] : Force = offset for time &lt; startTime</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 0</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Outputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'flange'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'support'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Parameters :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'stepForce'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 1
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'offsetForce'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 0
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-<listitem>
-<para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'startTime'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 0
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_CMTS_ForceStep">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>CMTS_ForceStep.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>Coselica.Mechanics.Translational.Sources.ForceStep in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>

@@ -1,127 +1,161 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MMR_IdealGearR2T">
-<refnamediv>
-<refname>MMR_IdealGearR2T</refname>
-<refpurpose>MMR_IdealGearR2T Coselica block</refpurpose>
-</refnamediv>
-<refsection>
-<title>Block Screenshot</title>
+    <refnamediv>
+        <refname>MMR_IdealGearR2T</refname>
+        <refpurpose>MMR_IdealGearR2T Coselica block</refpurpose>
+    </refnamediv>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gif/MMR_IdealGearR2T.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </refsection>
+    <refsection id="Description_MMR_IdealGearR2T">
+        <title>Description</title>
+        <para>Gearbox transforming rotational into translational motion</para>
+    </refsection>
+    <refsection id="Palette_MMR_IdealGearR2T">
+        <title>Palette</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+                </para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection>
+        <title>Block Screenshot</title>
+        <para>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="../../../../images/gui/MMR_IdealGearR2T_en_US_gui.gif" align="center" valign="middle"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">ratio [rad/m] : transmission ratio (flange_a.phi/flange_b.s)</emphasis>
+                </para>
+                <para> Properties : Type 'vec' of size 1. </para>
+                <para> Default value : 1</para>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Defaultproperties_SineVoltage">
+        <title>Block Model / Default properties</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Inputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'flange_a'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'bearingR'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Outputs :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'flange_b'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'bearingT'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Parameters :</emphasis>
+                </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica parameter name :</emphasis> 'ratio'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Default value :</emphasis> 1
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Example_MMR_IdealGearR2T">
+        <title>Example</title>
+        <!-- Uncomment to enable example
 <para>
+<link type="scilab" linkend="coselica.zcos/xcos/examples/MMR_IdealGearR2T_Example.zcos">
 <inlinemediaobject>
 <imageobject>
-<imagedata fileref="../../../../images/gif/MMR_IdealGearR2T.gif" align="center" valign="middle"/>
+<imagedata fileref="../../../../examples/MMR_IdealGearR2T_Example.zcos"/>
 </imageobject>
 </inlinemediaobject>
+</link>
+<scilab:image><![CDATA[
+[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+importXcosDiagram(PATH + "/examples/MMR_IdealGearR2T_Example.zcos");
+xcos_simulate(scs_m, 4);
+]]></scilab:image>
 </para>
-</refsection>
-<refsection id="Description_MMR_IdealGearR2T">
-<title>Description</title>
-<para>
-Gearbox transforming rotational into translational motion
-</para>
-</refsection>
-<refsection id="Palette_MMR_IdealGearR2T">
-<title>Palette</title>
-<itemizedlist>
+-->
+    </refsection>
+    <refsection id="Seealso_MMR_IdealGearR2T">
+        <title>See also</title>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
+                </para>
+            </listitem>
+            <!-- Add other see Also Items
 <listitem>
-<para>
-<link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection>
-<title>Block Screenshot</title>
-<para>
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../images/gui/MMR_IdealGearR2T_gui.gif" align="center" valign="middle"/>
-</imageobject>
-</inlinemediaobject>
-</para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">ratio [rad/m] : transmission ratio (flange_a.phi/flange_b.s)</emphasis>
-</para>
-<para> Properties : Type 'vec' of size 1. </para>
-<para> Default value : 1</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Defaultproperties_SineVoltage">
-<title>Block Model / Default properties</title>
-<itemizedlist>
-<listitem>
-<para><emphasis role="bold">Inputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'flange_a'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'bearingR'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Outputs :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'flange_b'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold">Modelica variable name :</emphasis> 'bearingT'
-</para>
-<para>
-<emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
 </para>
 </listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para><emphasis role="bold">Parameters :</emphasis></para>
-<itemizedlist>
-<listitem>
-<para>
-<emphasis role="bold">Modelica parameter name :</emphasis> 'ratio'
-</para>
-<para>
-<emphasis role="bold">Default value :</emphasis> 1
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Interfacingfunction_MMR_IdealGearR2T">
-<title>Interfacing function</title>
-<itemizedlist>
-<listitem>
-<para>MMR_IdealGearR2T.sci</para>
-</listitem>
-</itemizedlist>
-</refsection>
-<refsection id="Modelicamodel_SineVoltage">
-<title>Modelica model</title>
-<itemizedlist>
-<listitem>
-<para>MMR_IdealGearR2T in COSELICA/macros/Coselica.mo file</para>
-</listitem>
-</itemizedlist>
-</refsection>
+-->
+        </itemizedlist>
+    </refsection>
 </refentry>
