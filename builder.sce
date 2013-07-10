@@ -49,7 +49,7 @@ end
 // =============================================================================
 
 tbx_builder_macros(toolbox_dir);
-
+etc_tlbx = toolbox_dir + filesep() + "etc" + filesep();
 // Load manually interface functions and path to Modelica file
 // to simulate during documentation compilation
 
@@ -88,11 +88,40 @@ cos_comppreactlib = lib(pathmacros);
 global %MODELICA_USER_LIBS;
 %MODELICA_USER_LIBS = [%MODELICA_USER_LIBS ; toolbox_dir+"/macros"];
 
+// load xcos libraries
+// =============================================================================
+loadXcosLibs();
+
+// load palette
+// =============================================================================
+function xpal = tbx_build_pal(toolbox_dir, name, interfaces)
+  h5_instances = toolbox_dir + filesep() + "images/h5/" + interfaces + ".sod";
+  pal_icons = toolbox_dir + filesep() + "images/gif/" + interfaces + ".gif";
+  graph_icons = toolbox_dir + filesep() + "images/svg/" + interfaces + ".svg";
+
+  xpal = xcosPal(name);
+
+  for i=1:size(interfaces,1)
+     // register to the palette.
+    xpal = xcosPalAddBlock(xpal, h5_instances(i), pal_icons(i), graph_icons(i));
+  end
+endfunction
+
+exec(etc_tlbx+"blocks.sce", -1);
+exec(etc_tlbx+"electrical.sce", -1);
+exec(etc_tlbx+"thermal_heattransfer.sce", -1);
+//exec(etc_tlbx+"hydraulic_hydraulictransfer.sce", -1);
+exec(etc_tlbx+"mechanics_translational.sce", -1);
+exec(etc_tlbx+"mechanics_rotational.sce", -1);
+exec(etc_tlbx+"mechanics_planar.sce", -1);
+exec(etc_tlbx+"components.sce", -1);
+
 
 tbx_builder_help(toolbox_dir);
 tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
 tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 
+clearglobal %MODELICA_USER_LIBS;
 clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE cos_mech_translib;
 
 cd(original_dir);
