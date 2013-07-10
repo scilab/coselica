@@ -49,10 +49,50 @@ end
 // =============================================================================
 
 tbx_builder_macros(toolbox_dir);
+
+// Load manually interface functions and path to Modelica file
+// to simulate during documentation compilation
+
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Utils/";
+cos_utils_lib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Blocks/Continuous/";
+cos_blocks_contlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Blocks/Nonlinear/";
+cos_blocks_nllib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Blocks/Interfaces/";
+cos_blocks_interflib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Blocks/Math/";
+cos_blocks_mathlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Blocks/Routing/";
+cos_blocks_routlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Blocks/Sources/";
+cos_blocks_srcslib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Thermal/HeatTransfer/";
+cos_thermal_heattlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Hydraulic/HydraulicTransfer/";
+cos_hydraulic_lib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Electrical/";
+cos_eleclib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Mechanics/Rotational/";
+cos_mech_rotlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Mechanics/Planar/";
+cos_mech_planlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Mechanics/Translational/";
+cos_mech_translib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Components/Actuators";
+cos_compactlib = lib(pathmacros);
+pathmacros = pathconvert( toolbox_dir ) + "macros" + filesep() + "Components/PreActuators";
+cos_comppreactlib = lib(pathmacros);
+
+
+global %MODELICA_USER_LIBS;
+%MODELICA_USER_LIBS = [%MODELICA_USER_LIBS ; toolbox_dir+"/macros"];
+
+
 tbx_builder_help(toolbox_dir);
 tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
 tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 
-clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE;
+clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE cos_mech_translib;
 
 cd(original_dir);
