@@ -98,23 +98,21 @@
     </refsection>
     <refsection id="Example_MTH_ThermalConductor">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MTH_ThermalConductor_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MTH_ThermalConductor_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MTH_ThermalConductor_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.zcos/examples/MTH_ThermalConductor_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../../examples/MTH_ThermalConductor_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+            <scilab:image><![CDATA[
+          [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+          PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+          importXcosDiagram(PATH + "/examples/MTH_ThermalConductor_Example.zcos");
+          xcos_simulate(scs_m, 4);
+          ]]></scilab:image>
+        </para>
     </refsection>
     <refsection id="Seealso_MTH_ThermalConductor">
         <title>See also</title>
@@ -124,22 +122,23 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
                 </para>
             </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MTH_HeatCapacitor">Heat Capacitor - Thermal Heat Transfer (Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MTH_TemperatureSensor">Temperature Sensor - Thermal Heat Transfer (Coselica)</link>
+                </para>
+            </listitem>
             <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+               <listitem>
+               <para>
+               <link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
+               </para>
+               </listitem>
+          -->
         </itemizedlist>
     </refsection>
 </refentry>
