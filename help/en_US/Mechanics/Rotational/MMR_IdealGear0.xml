@@ -101,7 +101,7 @@
     <refsection id="Example_MMR_IdealGear0">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.zcos/xcos/examples/MMR_IdealGear0_Example.zcos">
+            <link type="scilab" linkend="coselica.zcos/xcos/examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
                         <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos"/>

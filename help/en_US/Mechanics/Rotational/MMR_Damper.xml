@@ -15,7 +15,19 @@
     </refsection>
     <refsection id="Description_MMR_Damper">
         <title>Description</title>
-        <para>Linear 1D rotational damper</para>
+        <para>
+            This block is a model of a linear 1D rotational damper. The torque ( <latex>\tau</latex> ) formed by the damper is:
+        </para>
+        <para>
+            <latex>
+                \begin{eqnarray}
+                \tau = d * \omega
+                \end{eqnarray}
+            </latex>
+        </para>
+        <para>
+            with <latex> \omega\:</latex> the angular velocity in rad/s.
+        </para>
     </refsection>
     <refsection id="Palette_MMR_Damper">
         <title>Palette</title>
@@ -98,23 +110,21 @@
     </refsection>
     <refsection id="Example_MMR_Damper">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MMR_Damper_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MMR_Damper_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MMR_Damper_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.zcos/xcos/examples/Mechanics/Rotational/MMR_Damper_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_Damper_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_Damper_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>
     </refsection>
     <refsection id="Seealso_MMR_Damper">
         <title>See also</title>
@@ -124,22 +134,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MMR_Spring">MMR_Spring - Linear 1D rotational spring (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MMR_SpringDamper">MMR_SpringDamper - Linear 1D rotational spring and damper in parallel (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MMT_Damper">MMT_Damper - Linear 1D translational damper (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
