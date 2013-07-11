@@ -21,12 +21,12 @@
         <para>
             <latex>
                 \begin{eqnarray}
-                \tau = d * \omega
+                \tau = d * \omega_{rel}
                 \end{eqnarray}
             </latex>
         </para>
         <para>
-            with <latex> \omega\:</latex> the angular velocity in rad/s.
+            with <latex> \omega_{rel}\:</latex> the angular velocity in rad/s.
         </para>
     </refsection>
     <refsection id="Palette_MMR_Damper">
