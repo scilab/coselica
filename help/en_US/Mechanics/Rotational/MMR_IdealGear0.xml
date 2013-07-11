@@ -126,17 +126,17 @@ xcos_simulate(scs_m, 4);
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MMR_IdealGear">MMR_IdealGear - Ideal gear (Bloc Coselica)</link>
+                    <link linkend="MMR_IdealGear">MMR_IdealGear - Ideal gear (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MMR_IdealGearR2T0">MMR_IdealGearR2T0 - Rack and pignon system (Bloc Coselica)</link>
+                    <link linkend="MMR_IdealGearR2T0">MMR_IdealGearR2T0 - Rack and pignon system (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MMR_IdealPlanetary">MMR_IdealPlanetary - Ideal planetary (Bloc Coselica)</link>
+                    <link linkend="MMR_IdealPlanetary">MMR_IdealPlanetary - Ideal planetary (Block Coselica)</link>
                 </para>
             </listitem>
         </itemizedlist>
