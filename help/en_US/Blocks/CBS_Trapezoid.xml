@@ -188,23 +188,23 @@
     </refsection>
     <refsection id="Example_CBS_Trapezoid">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CBS_Trapezoid_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CBS_Trapezoid_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CBS_Trapezoid_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Trapezoid.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Trapezoid.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <para>
+            <scilab:image><![CDATA[
+          [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+          PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+          importXcosDiagram(PATH + "/examples/Trapezoid.zcos");
+          xcos_simulate(scs_m, 4);
+          ]]></scilab:image>
+        </para>
     </refsection>
     <refsection id="Seealso_CBS_Trapezoid">
         <title>See also</title>

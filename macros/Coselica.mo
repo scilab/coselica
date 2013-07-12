@@ -355,7 +355,9 @@ package Modelica
         extends Interfaces.Compliant;
         parameter Real c "Spring constant";
         parameter Real phi_rel0 = 0 "Unstretched spring angle";
+        Real w_rel "Relative angular velocity between flange_b and flange_a";
       equation
+        w_rel = der(phi_rel);
         tau = c * (phi_rel - phi_rel0);
       end Spring;
 
