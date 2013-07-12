@@ -99,13 +99,15 @@
     <refsection id="Example_MTH_ThermalConductor">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.zcos/examples/MTH_ThermalConductor_Example.zcos">
+            <link type="scilab" linkend="coselica.xcos/examples/MTH_ThermalConductor_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
                         <imagedata fileref="../../../../examples/MTH_ThermalConductor_Example.zcos"/>
                     </imageobject>
                 </inlinemediaobject>
             </link>
+        </para>
+        <para>
             <scilab:image><![CDATA[
           [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
           PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
