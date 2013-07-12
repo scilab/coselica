@@ -101,19 +101,21 @@
     <refsection id="Example_MMR_IdealGear0">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.zcos/xcos/examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos">
+            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
                         <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos"/>
                     </imageobject>
                 </inlinemediaobject>
             </link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
+        </para>
+        <para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_IdealGear0_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
         </para>
     </refsection>
     <refsection id="Seealso_MMR_IdealGear0">

@@ -142,13 +142,15 @@
     <refsection id="Example_MMR_SpringDamper">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.zcos/xcos/examples/Mechanics/Rotational/MMR_SpringDamper_Example.zcos">
+            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_SpringDamper_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
                         <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_SpringDamper_Example.zcos"/>
                     </imageobject>
                 </inlinemediaobject>
             </link>
+        </para>
+        <para>
             <scilab:image><![CDATA[
                 [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
                 PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();

@@ -15,7 +15,40 @@
     </refsection>
     <refsection id="Description_CMRC_ElastoBacklash">
         <title>Description</title>
-        <para>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</para>
+        <para>
+            This block is a backlash connected in series to linear spring and damper (backlash is modeled with elasticity).
+            The torque <latex>\tau\:</latex> is computed:
+        </para>
+        <para>
+            <Itemizedlist>
+                <listitem>
+                    <para>
+                        If position is greater than half of backlash, then
+                        <latex>
+                            \begin{eqnarray}
+                            \tau = c * (phi\_rel-phi\_rel0 - backlash) + d * \omega_{rel}
+                            \end{eqnarray}
+                        </latex>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        If position is lower than half of backlash, then
+                        <latex>
+                            \begin{eqnarray}
+                            \tau = c * (phi\_rel-phi\_rel0 + backlash) + d * \omega_{rel}
+                            \end{eqnarray}
+                        </latex>
+                    </para>
+                </listitem>
+            </Itemizedlist>
+        </para>
+        <para>
+            with phi_rel the combined angle and <latex> \omega_{rel}\: </latex> the angular velocity in rad/s.
+        </para>
+        <para>
+            Note that, if backlash is lower than <latex>2^{-10}\:</latex> rad, the system is reduced to a spring and a damper in parallel.
+        </para>
     </refsection>
     <refsection id="Palette_CMRC_ElastoBacklash">
         <title>Palette</title>
@@ -143,23 +176,23 @@
     </refsection>
     <refsection id="Example_CMRC_ElastoBacklash">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMRC_ElastoBacklash_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMRC_ElastoBacklash_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMRC_ElastoBacklash_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/CMRC_ElastoBacklash_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../../examples/Mechanics/Rotational/CMRC_ElastoBacklash_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Mechanics/Rotational/CMRC_ElastoBacklash_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>
     </refsection>
     <refsection id="Seealso_CMRC_ElastoBacklash">
         <title>See also</title>
@@ -169,22 +202,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MMR_SpringDamper">MMR_SpringDamper - Linear 1D rotational spring and damper in parallel (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MMR_Damper">MMR_Damper - Linear 1D rotational damper (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MMR_Spring">MMR_Spring - Linear 1D rotational spring (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
