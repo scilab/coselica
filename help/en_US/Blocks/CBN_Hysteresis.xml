@@ -158,23 +158,21 @@
     </refsection>
     <refsection id="Example_CBN_Hysteresis">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CBN_Hysteresis_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CBN_Hysteresis_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CBN_Hysteresis_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Hysteresis.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Hysteresis.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+            <scilab:image><![CDATA[
+          [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+          PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+          importXcosDiagram(PATH + "/examples/Hysteresis.zcos");
+          xcos_simulate(scs_m, 4);
+          ]]></scilab:image>
+        </para>
     </refsection>
     <refsection id="Seealso_CBN_Hysteresis">
         <title>See also</title>
