@@ -8,18 +8,20 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MMR_IdealGear0
+// Test MMR_IdealGear
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "/../../tests/unit_tests/Mechanics/Rotational/MMR_IdealGear0.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "/../../tests/unit_tests/Mechanics/Rotational/MMR_IdealGear.zcos"));
     xcos_simulate(scs_m, 4);
 
-    values = res.values;
-
-    assert_checktrue(res.values - 0.5*ones(300,1) < 10*%eps);
+    wheelB_speed = res.values(:,1);
+    bearing = res.values(:,2);
+    wheelA_speed = res.values(:,3);
+    
+    assert_checktrue(wheelB_speed - (1/0.5*(wheelA_speed-bearing)+bearing) < 1d-9);
 
 catch
    disp(lasterror())
