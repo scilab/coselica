@@ -15,6 +15,9 @@
     </refsection>
     <refsection id="Description_CMRC_Free">
         <title>Description</title>
+        <para>
+            This block models a flange rotating freely.
+        </para>
     </refsection>
     <refsection id="Palette_CMRC_Free">
         <title>Palette</title>
@@ -31,7 +34,7 @@
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">Inputs :</emphasis>
+                    <emphasis role="bold">Input :</emphasis>
                 </para>
                 <itemizedlist>
                     <listitem>
@@ -48,23 +51,23 @@
     </refsection>
     <refsection id="Example_CMRC_Free">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMRC_Free_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMRC_Free_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMRC_Free_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/CMRC_Free_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../../examples/Mechanics/Rotational/CMRC_Free_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Mechanics/Rotational/CMRC_Free_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_CMRC_Free">
         <title>See also</title>
@@ -74,22 +77,16 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MMR_Fixed">MMR_Fixed - Flange fixed in housing at a given angle (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CMTC_Free">CMTC_Free - Flange moving freely (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

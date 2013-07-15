@@ -117,6 +117,8 @@
                     </imageobject>
                 </inlinemediaobject>
             </link>
+        </para>
+        <para>
             <scilab:image><![CDATA[
                 [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
                 PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();

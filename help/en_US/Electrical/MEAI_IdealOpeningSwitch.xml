@@ -122,10 +122,10 @@
     <refsection id="Example_MEAI_IdealOpeningSwitch">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.xcos/xcos/examples/MEAI_IdealOpeningSwitch_Example.zcos">
+            <link type="scilab" linkend="coselica.xcos/examples/MEAI_IdealOpeningSwitch_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
-                        <imagedata fileref="../../../../examples/MEAI_IdealOpeningSwitch_Example.zcos"/>
+                        <imagedata fileref="../../../examples/MEAI_IdealOpeningSwitch_Example.zcos"/>
                     </imageobject>
                 </inlinemediaobject>
             </link>
