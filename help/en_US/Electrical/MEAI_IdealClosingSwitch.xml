@@ -122,15 +122,16 @@
     </refsection>
     <refsection id="Example_MEAI_IdealClosingSwitch">
         <title>Example</title>
+        <para>
+            <link type="scilab" linkend="coselica.cos/xcos/examples/MEAI_IdealClosingSwitch_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../../examples/MEAI_IdealClosingSwitch_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
         <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MEAI_IdealClosingSwitch_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MEAI_IdealClosingSwitch_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
 <scilab:image><![CDATA[
 [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
 PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
