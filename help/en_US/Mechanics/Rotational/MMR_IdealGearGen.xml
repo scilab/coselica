@@ -1,34 +1,28 @@
-<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MMR_IdealGearR2T0">
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="MMR_IdealGearGen">
     <refnamediv>
-        <refname>MMR_IdealGearR2T0</refname>
-        <refpurpose>MMR_IdealGearR2T0 Coselica block</refpurpose>
+        <refname>MMR_IdealGearGen</refname>
+        <refpurpose>MMR_IdealGearGen Coselica block</refpurpose>
     </refnamediv>
     <refsection>
         <title>Block Screenshot</title>
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gif/MMR_IdealGearR2T0.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gif/MMR_IdealGearGen.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
     </refsection>
-    <refsection id="Description_MMR_IdealGearR2T0">
+    <refsection id="Description_MMR_IdealGearGen">
         <title>Description</title>
-        <para>This block is an ideal gearbox transforming rotational into translational motion (rack and pignon system), with:</para>
         <para>
-            <latex>
-                \begin{eqnarray}
-                ratio = \frac{\Large{\omega_{in}}}{\Large{V_{out}}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            where <latex>\omega_{in}\:</latex> (resp. <latex>V_{out}\:</latex>) is the angular velocity of the pignon (resp. rack) in
-            rad/s (resp. m/s).
+            This block is an ideal gear. With this one, it is possible to choose if frame is fixed.
+            In this case, the block has the same behaviour as <link linkend="MMR_IdealGear0">MMR_IdealGear0</link>.
+            But if the frame is not fixed, the block is equivalent to <link linkend="MMR_IdealGear">MMR_IdealGear</link>,
+            where bearings are taken into account.
         </para>
     </refsection>
-    <refsection id="Palette_MMR_IdealGearR2T0">
+    <refsection id="Palette_MMR_IdealGearGen">
         <title>Palette</title>
         <itemizedlist>
             <listitem>
@@ -43,14 +37,14 @@
         <!--<para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMR_IdealGearR2T0_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMR_IdealGearGen_en_US_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>-->
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">ratio [rad/m] : transmission ratio (flange_a.phi/flange_b.s)</emphasis>
+                    <emphasis role="bold">ratio [-] : Transmission ratio (flange_a.phi/flange_b.phi)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
@@ -62,7 +56,7 @@
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">Input :</emphasis>
+                    <emphasis role="bold">Inputs :</emphasis>
                 </para>
                 <itemizedlist>
                     <listitem>
@@ -77,7 +71,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Output :</emphasis>
+                    <emphasis role="bold">Outputs :</emphasis>
                 </para>
                 <itemizedlist>
                     <listitem>
@@ -85,7 +79,15 @@
                             <emphasis role="bold">Modelica variable name :</emphasis> 'flange_b'
                         </para>
                         <para>
-                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Modelica variable name :</emphasis> 'bearing'
+                        </para>
+                        <para>
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -107,27 +109,27 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMR_IdealGearR2T">
+    <refsection id="Example_MMR_IdealGearGen">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_IdealGearR2T0_Example.zcos">
+            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_IdealGearGen_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_IdealGearR2T0_Example.zcos"/>
+                        <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_IdealGearGen_Example.zcos"/>
                     </imageobject>
                 </inlinemediaobject>
             </link>
         </para>
-        <para>
+        <!--<para>
             <scilab:image><![CDATA[
                 [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
                 PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_IdealGearR2T0_Example.zcos");
+                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_IdealGearGen_Example.zcos");
                 xcos_simulate(scs_m, 4);
             ]]></scilab:image>
-        </para>
+        </para>-->
     </refsection>
-    <refsection id="Seealso_MMR_IdealGearR2T">
+    <refsection id="Seealso_MMR_IdealGearGen">
         <title>See also</title>
         <itemizedlist>
             <listitem>
@@ -137,12 +139,12 @@
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MMR_IdealGearR2T">MMR_IdealGearR2T - Rack and pignon system with bearings (Block Coselica)</link>
+                    <link linkend="MMR_IdealGear0">MMR_IdealGear0 - Ideal gear without inertia with frame fixed (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MMR_IdealGear0">MMR_IdealGear0 - Ideal gear without inertia with frame fixed (Block Coselica)</link>
+                    <link linkend="MMR_IdealGear">MMR_IdealGear - Ideal gear with bearings (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
