@@ -171,12 +171,12 @@
             </link>
         </para>
         <para>
-            <scilab:image><![CDATA[
+            <!--<scilab:image><![CDATA[
                 [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
                 PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
                 importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_Mass_Example.zcos");
                 xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
+            ]]></scilab:image>-->
         </para>
     </refsection>
     <refsection id="Seealso_CMTC_Mass">
