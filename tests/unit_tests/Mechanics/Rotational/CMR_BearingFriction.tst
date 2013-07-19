@@ -8,28 +8,28 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test CMT_MassWithFriction
+// Test CMR_BearingFriction
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "/../../tests/unit_tests/Mechanics/Translational/CMT_MassWithFriction.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "/../../tests/unit_tests/Mechanics/Rotational/CMR_BearingFriction.zcos"));
     xcos_simulate(scs_m, 4);
 
-    force = res.values(:,1);
+    torque = res.values(:,1);
     accel = res.values(:,2);
     velocity = res.values(:,3);
     position = res.values(:,4);
-    m=2;
-    F_prop=1;
-    F_Coulomb=1;
-    F_Stribeck=5;
-    fexp=0.1;
+    J=20;
+    Tau_prop=1;
+    Tau_Coulomb=5;
+    Tau_Stribeck=2;
+    fexp=0.5;
 
-    f1 = F_prop * velocity + F_Coulomb + F_Stribeck * exp( -fexp * velocity)
+    Tau1 = Tau_prop * velocity + Tau_Coulomb + Tau_Stribeck * exp( -fexp * velocity);
 
-    assert_checktrue(f1-force+m*accel <1d-5);
+    assert_checktrue(abs(Tau1-torque+J*accel) <1d-5);
 
 catch
     disp(lasterror())

@@ -8,12 +8,21 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test CMTC_MassWithFriction
+// Test CMT_MassWithFriction
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "/../../tests/unit_tests/Mechanics/Translational/CMTC_MassWithFriction.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "/../../tests/unit_tests/Mechanics/Translational/CMT_MassWithFriction.zcos"));
     xcos_simulate(scs_m, 4);
+--------------------------------------------\
+ Main Modelica : TMPDIR/CMT_MassWithFriction_im.mo
+
+ Flat Modelica : TMPDIR/CMT_MassWithFriction_imf.mo
+ Simulation C code :TMPDIR/CMT_MassWithFriction_im.c
+WARNING: Diagram contains implicit blocks, compiling for implicit Solver.
+WARNING: Diagram has been compiled for implicit solver
+WARNING: switching to implicit Solver
+
     force = res.values(:,1);
     accel = res.values(:,2);
     velocity = res.values(:,3);
@@ -24,12 +33,109 @@ try
     F_Stribeck=5;
     fexp=0.1;
     f1 = F_prop * velocity + F_Coulomb + F_Stribeck * exp( -fexp * velocity)
+ f1  =
+ 
+    5.8552611  
+    5.7205968  
+    5.5953773  
+    5.47902    
+    5.3709313  
+    5.2706103  
+    5.1775564  
+    5.091305   
+    5.0114172  
+    4.9374854  
+    4.8691182  
+    4.805955   
+    4.7476559  
+    4.6938985  
+    4.6443803  
+    4.5988172  
+    4.5569362  
+    4.5184933  
+    4.4832517  
+    4.4509984  
+    4.4214979  
+    4.3945832  
+    4.3700652  
+    4.3477675  
+    4.3275373  
+    4.3092205  
+    4.2926806  
+    4.2777907  
+    4.2644332  
+    4.2524991  
+    4.2418884  
+    4.2325101  
+    4.2242766  
+    4.2171299  
+    4.2109631  
+    4.2057702  
+    4.2014673  
+    4.1980164  
+    4.1953914  
+    4.1935506  
+    4.1924854  
+    4.1921697  
+    4.1925993  
+    4.1937733  
+    4.1956961  
+    4.1983744  
+    4.2018336  
+    4.2060819  
+    4.2111546  
+    4.2170814  
+    4.2234886  
+    4.229965   
+    4.236507   
+    4.2431132  
+    4.2497794  
+    4.2565008  
+    4.2632733  
+    4.270095   
+    4.2769663  
+    4.2838683  
+    4.2908154  
+    4.2977918  
+    4.3047972  
+    4.3118282  
+    4.3188813  
+    4.3259531  
+    4.3330402  
+    4.3401394  
+    4.3472475  
+    4.3543614  
+    4.3614781  
+    4.3685947  
+    4.3757072  
+    4.3828153  
+    4.3899149  
+    4.3970035  
+    4.4040785  
+    4.4111373  
+    4.4181786  
+    4.4251991  
+    4.4321938  
+    4.4391687  
+    4.4461085  
+    4.4530262  
+    4.4599066  
+    4.4667593  
+    4.4735729  
+    4.4803536  
+    4.4870936  
+    4.4937942  
+    4.5004544  
+    4.507072   
+    4.5136457  
+    4.5201741  
+    4.5266562  
+    4.5330939  
+    4.5394777  
+    4.5458137  
+    4.5520989  
     assert_checktrue(f1-force+m*accel <1d-5);
 catch
     disp(lasterror())
- 
- Unable to open /home/hecquet/work/forge/coselica/macros/Utils//../../t 
-      ests/unit_tests/Mechanics/Translational/CMTC_MassWithFriction.zco 
-      s                                                                 
     assert_checktrue(%f);
 end
