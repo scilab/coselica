@@ -15,7 +15,39 @@
     </refsection>
     <refsection id="Description_CMTC_ElastoGap">
         <title>Description</title>
-        <para>1D translational spring damper combination with gap</para>
+        <para>
+            This block is a 1D translational spring damper combination with gap. If spring lenght (<latex>s_{rel}\:</latex>) is greater than <latex>s_{rel0}\:</latex>
+            the force created is null. But, in the other case, the force created (f) is:
+        </para>
+        <para>
+            <latex>
+                \begin{eqnarray}
+                f = f_c + f_d
+                \end{eqnarray}
+            </latex>
+        </para>
+        <para>
+            with, <latex>f_c = c * (s_{rel} - s_{rel0})</latex>, the spring force, and <latex>f_d\:</latex> is equal to:
+        </para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        <latex>f_c\:</latex> if <latex>d*V &lt; f_c</latex>, where V is the input velocity in m/s,
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <latex>-f_c\:</latex> if <latex>d*V &gt; -f_c</latex>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <latex>f_d\:</latex> in the other cases.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
     </refsection>
     <refsection id="Palette_CMTC_ElastoGap">
         <title>Palette</title>
@@ -128,23 +160,23 @@
     </refsection>
     <refsection id="Example_CMTC_ElastoGap">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMTC_ElastoGap_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMTC_ElastoGap_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMTC_ElastoGap_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMTC_ElastoGap_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMTC_ElastoGap_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_ElastoGap_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_CMTC_ElastoGap">
         <title>See also</title>
@@ -154,22 +186,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MMT_SpringDamper">MMT_SpringDamper - Linear 1D translational spring and damper in parallel (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MMT_Spring">MMT_Spring - Linear 1D translational spring (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MMT_Damper">MMT_Damper - Linear 1D translational damper (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
