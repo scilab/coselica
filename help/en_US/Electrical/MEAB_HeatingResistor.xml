@@ -15,7 +15,7 @@
     </refsection>
     <refsection id="Description_MEAB_HeatingResistor">
         <title>Description</title>
-        <para>Temperature dependent electrical resistor</para>
+        <para>This block is a model of a heating resistor, in other words, the output temperature depends on the electrical resistor.</para>
     </refsection>
     <refsection id="Palette_MEAB_HeatingResistor">
         <title>Palette</title>
@@ -136,23 +136,23 @@
     </refsection>
     <refsection id="Example_MEAB_HeatingResistor">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MEAB_HeatingResistor_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MEAB_HeatingResistor_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MEAB_HeatingResistor_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/MEAB_HeatingResistor_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Basic/MEAB_HeatingResistor_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Basic/MEAB_HeatingResistor_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_MEAB_HeatingResistor">
         <title>See also</title>
@@ -162,22 +162,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MEAB_Resistor">MEAB_Resistor - Ideal lineal electrical resistor (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAB_Conductor">MEAB_Conductor - Ideal linear electrical conductance (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MTH_HeatCapacitor">MTH_HeatCapacitor - Lumped thermal element storing heat (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
