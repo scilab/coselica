@@ -127,14 +127,14 @@
                 </inlinemediaobject>
             </link>
         </para>
-        <para>
+        <!--<para>
             <scilab:image><![CDATA[
                 [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
                 PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
                 importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_IdealGear_Example.zcos");
                 xcos_simulate(scs_m, 4);
             ]]></scilab:image>
-        </para>
+        </para>-->
     </refsection>
     <refsection id="Seealso_MMR_IdealGear">
         <title>See also</title>
