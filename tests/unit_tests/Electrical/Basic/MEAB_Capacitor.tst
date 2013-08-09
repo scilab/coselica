@@ -8,21 +8,19 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MEAB_HeatingResistor
+// Test MEAB_Capacitor
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Basic/MEAB_HeatingResistor.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Basic/MEAB_Capacitor.zcos"));
     xcos_simulate(scs_m, 4);
 
-    voltage = res.values(:,1);
-    current = res.values(:,2);
-    heat_flow = res.values(:,3);
+    dvoltage = res.values(:,2);
+    current = res.values(:,1);
 
-    assert_checkequal(-voltage, 2*current);
-    assert_checkequal(heat_flow, -voltage.*current);
+    assert_checktrue(abs(current - (-2*dvoltage)) < 1e-4);
 
 catch
    disp(lasterror())

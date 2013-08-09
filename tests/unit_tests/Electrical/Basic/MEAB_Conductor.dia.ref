@@ -8,7 +8,7 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MEAB_Resistor
+// Test MEAB_Conductor
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 try
     ilib_verbose(0);

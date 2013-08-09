@@ -8,26 +8,24 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MEAB_HeatingResistor
+// Test MEAB_Capacitor
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Basic/MEAB_HeatingResistor.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Basic/MEAB_Capacitor.zcos"));
     xcos_simulate(scs_m, 4);
 --------------------------------------------\
- Main Modelica : TMPDIR/MEAB_HeatingResistor_im.mo
+ Main Modelica : TMPDIR/MEAB_Capacitor_im.mo
 
- Flat Modelica : TMPDIR/MEAB_HeatingResistor_imf.mo
- Simulation C code :TMPDIR/MEAB_HeatingResistor_im.c
+ Flat Modelica : TMPDIR/MEAB_Capacitor_imf.mo
+ Simulation C code :TMPDIR/MEAB_Capacitor_im.c
 WARNING: Diagram contains implicit blocks, compiling for implicit Solver.
 WARNING: Diagram has been compiled for implicit solver
 WARNING: switching to implicit Solver
 
-    voltage = res.values(:,1);
-    current = res.values(:,2);
-    heat_flow = res.values(:,3);
-    assert_checkequal(-voltage, 2*current);
-    assert_checkequal(heat_flow, -voltage.*current);
+    dvoltage = res.values(:,2);
+    current = res.values(:,1);
+    assert_checktrue(abs(current - (-2*dvoltage)) < 1e-4);
 catch
    disp(lasterror())
    assert_checktrue(%f);

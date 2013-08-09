@@ -136,7 +136,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MEAB_Capacitor">MEAB_Capacitor - Ideal linear electrical capacitor (Block Coselica)</link>
+                    <link linkend="MEAB_VariableResistor">MEAB_VariableResistor - Ideal linear electrical resistor with variable resistance (Block Coselica)</link>
                 </para>
             </listitem>
         </itemizedlist>
