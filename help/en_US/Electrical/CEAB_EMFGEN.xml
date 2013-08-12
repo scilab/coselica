@@ -155,7 +155,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="CEAB_Translational">CEAB_Translational - Electromotoric force in a translational motion without fixed frame (Block Coselica)</link>
+                    <link linkend="CEAB_TranslationalEMF">CEAB_TranslationalEMF - Electromotoric force in a translational motion without fixed frame (Block Coselica)</link>
                 </para>
             </listitem>
         </itemizedlist>
