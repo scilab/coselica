@@ -15,10 +15,13 @@
     </refsection>
     <refsection id="Description_CEAB_TranslationalEMFGEN">
         <title>Description</title>
-        <para></para>
-        <para>CEAB_TranslationalEMEMFGEN</para>
-        <para></para>
-        <para>Electromotoric force (electric/mechanic transformer)</para>
+        <para>CEAB_TranslationalEMFGEN</para>
+        <para>
+            This block is an electromotoric force (electric/mechanic transformer) giving a translational motion.
+            With this block, it is possible to decide if the frame is fixed or not. If it the case, the block behaviour is the same
+            as <link linkend="CEAB_TranslationalEMF0">CEAB_TranslationalEMF0</link>. If it is not the case, this block is equal to 
+            <link linkend="CEAB_TranslationalEMF">CEAB_TranslationalEMF</link>.
+        </para>
         <para></para>
     </refsection>
     <refsection id="Palette_CEAB_TranslationalEMFGEN">
@@ -117,23 +120,23 @@
     </refsection>
     <refsection id="Example_CEAB_TranslationalEMFGEN">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CEAB_TranslationalEMFGEN_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CEAB_TranslationalEMFGEN_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CEAB_TranslationalEMFGEN_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/CEAB_TranslationalEMFGEN_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Basic/CEAB_TranslationalEMFGEN_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Basic/CEAB_TranslationalEMFGEN_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_CEAB_TranslationalEMFGEN">
         <title>See also</title>
@@ -143,22 +146,23 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="CEAB_TranslationalEMF0">CEAB_TranslationalEMF0 - Electromotoric force giving a translational motion with fixed frame (Block Coselica)
+                    </link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAB_TranslationalEMF">CEAB_TranslationalEMF - Electromotoric force giving a translational motion without fixed frame (Block Coselica)
+                    </link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAB_EMF">CEAB_EMF - Electromotoric force without fixed frame (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
