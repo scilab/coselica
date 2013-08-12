@@ -134,12 +134,12 @@
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="CEAB_EMF">CEAB_EMF - Electromotoric force with not fixed frame (Block Coselica)</link>
+                    <link linkend="CEAB_EMF">CEAB_EMF - Electromotoric force without fixed frame (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="CEAB_Translational">CEAB_Translational - Electromotoric force in a translational motion with not fixed frame (Block Coselica)</link>
+                    <link linkend="CEAB_TranslationalEMF0">CEAB_TranslationalEMF0 - Electromotoric force in a translational motion with fixed frame (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>

@@ -15,7 +15,11 @@
     </refsection>
     <refsection id="Description_CEAB_EMFGEN">
         <title>Description</title>
-        <para>Electromotoric force (electric/mechanic transformer)</para>
+        <para>
+            This block models an electromotoric force (electric/mechanic transformer). It is possible to choose if the frame must be fixed or not.
+            If this one is fixed, the behaviour is the same as <link linkend="CEAB_EMF0">CEAB_EMF0</link>. If it is not the case, the block is the
+            same as <link linkend="CEAB_EMF">CEAB_EMF</link>.
+        </para>
     </refsection>
     <refsection id="Palette_CEAB_EMFGEN">
         <title>Palette</title>
@@ -113,23 +117,23 @@
     </refsection>
     <refsection id="Example_CEAB_EMFGEN">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CEAB_EMFGEN_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CEAB_EMFGEN_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CEAB_EMFGEN_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/CEAB_EMFGEN_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Basic/CEAB_EMFGEN_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Basic/CEAB_EMFGEN_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_CEAB_EMFGEN">
         <title>See also</title>
@@ -139,22 +143,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="CEAB_EMF0">CEAB_EMF0 - Electromotoric force with fixed frame (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAB_EMF">CEAB_EMF - Electromotoric force without fixed frame (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAB_Translational">CEAB_Translational - Electromotoric force in a translational motion without fixed frame (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
