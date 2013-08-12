@@ -15,7 +15,7 @@
     </refsection>
     <refsection id="Description_MEAB_VCC">
         <title>Description</title>
-        <para>The MEAB_VCV block models a linear voltage-controlled current source.</para>
+        <para>The MEAB_VCC block models a linear voltage-controlled current source.</para>
     </refsection>
     <refsection id="Palette_MEAB_VCC">
         <title>Palette</title>
@@ -142,7 +142,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MEAB_VCV">MEAB_VCV - linear voltage-controlled voltage source (Block Coselica)</link>
+                    <link linkend="MEAB_VCV">MEAB_VCV - Linear voltage-controlled voltage source (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
