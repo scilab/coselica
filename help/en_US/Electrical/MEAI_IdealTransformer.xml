@@ -15,7 +15,7 @@
     </refsection>
     <refsection id="Description_MEAI_IdealTransformer">
         <title>Description</title>
-        <para>Ideal electrical transformer</para>
+        <para>This block is an ideal electrical transformer.</para>
     </refsection>
     <refsection id="Palette_MEAI_IdealTransformer">
         <title>Palette</title>
@@ -114,23 +114,23 @@
     </refsection>
     <refsection id="Example_MEAI_IdealTransformer">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MEAI_IdealTransformer_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MEAI_IdealTransformer_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MEAI_IdealTransformer_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Ideal/MEAI_IdealTransformer_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Ideal/MEAI_IdealTransformer_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Ideal/MEAI_IdealTransformer_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_MEAI_IdealTransformer">
         <title>See also</title>
@@ -140,22 +140,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MEAB_Transformer">MEAB_Transformer - Transformer with two ports (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAB_Inductor">MEAB_Inductor - Ideal linear electrical inductor (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAB_SaturatingInductor">MEAB_SaturatingInductor - Inductor with saturation (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
