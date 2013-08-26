@@ -14,7 +14,7 @@
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Basic/MEAI_IdealTransformer.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/MEAI_IdealTransformer.zcos"));
     xcos_simulate(scs_m, 4);
 
     Ve = res.values(:,2);

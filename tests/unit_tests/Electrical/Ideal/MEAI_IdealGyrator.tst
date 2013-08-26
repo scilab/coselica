@@ -8,24 +8,23 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test CEAI_IdealDiode
+// Test MEAI_IdealGyrator
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/CEAI_IdealDiode.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/MEAI_IdealGyrator.zcos"));
     xcos_simulate(scs_m, 4);
 
-    Vd = res.values(:,1);
-    Vr = res.values(:,2);
-    Vramp = res.values(:,3);
-    Vknee = 0.5;
-    
-    ind = find(Vramp < Vknee);
-    assert_checktrue(abs(Vr(ind) - zeros(ind)') < 1d-5);
-    ind = find(Vramp >= Vknee);
-    assert_checkalmostequal(Vramp(ind), Vr(ind)+Vd(ind));
+    Ie = res.values(:,1);
+    Is = res.values(:,2);
+    Ve = res.values(:,4);
+    Vs = res.values(:,3);
+    G = 2;
+
+    assert_checkequal(Ie, G*Vs);
+    assert_checkequal(Is, G*Ve);
 
 catch
    disp(lasterror())
