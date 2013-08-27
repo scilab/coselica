@@ -8,27 +8,30 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MEAI_IdealClosingSwitch
+// Test MEAI_IdealCommutSwitch
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/MEAI_IdealClosingSwitch.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/MEAI_IdealCommutSwitch.zcos"));
     xcos_simulate(scs_m, 4);
     
-    V = res.values(:,1);
-    I = res.values(:,2);
+    I1 = res.values(:,1);
+    I2 = res.values(:,2);
     cmd = res.values(:,3);
-    R = 0.5;
+    V=5*ones(I1);
+    R1 = 2;
+    R2 = 3;
     Ron = 0.00001;
     Goff = 0.00001;
 
     ind = find(cmd>0);
-    assert_checkalmostequal(I(ind), V(ind)/(R+Ron));
+    assert_checkalmostequal(I2(ind), V(ind)/(R2+Ron));
+    assert_checktrue(abs(I1(ind) - V(ind)*Goff) < 1d-9);
     ind = find(cmd==0);
-    ind = ind(2:$);
-    assert_checktrue(abs(I(ind) - V(ind)*Goff) < 1d-9);
+    assert_checkalmostequal(I1(ind), V(ind)/(R1+Ron));
+    assert_checktrue(abs(I2(ind) - V(ind)*Goff) < 1d-8);
 
 catch
    disp(lasterror())
