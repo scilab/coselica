@@ -15,7 +15,7 @@
     </refsection>
     <refsection id="Description_MEAI_IdealOpeningSwitch">
         <title>Description</title>
-        <para>Ideal electrical opener</para>
+        <para>This block models an ideal electrical opener, that is a normally closed contact.</para>
     </refsection>
     <refsection id="Palette_MEAI_IdealOpeningSwitch">
         <title>Palette</title>
@@ -122,23 +122,22 @@
     <refsection id="Example_MEAI_IdealOpeningSwitch">
         <title>Example</title>
         <para>
-            <link type="scilab" linkend="coselica.xcos/examples/MEAI_IdealOpeningSwitch_Example.zcos">
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Ideal/MEAI_IdealOpeningSwitch_Example.zcos">
                 <inlinemediaobject>
                     <imageobject>
-                        <imagedata fileref="../../../examples/MEAI_IdealOpeningSwitch_Example.zcos"/>
+                        <imagedata fileref="../../../examples/Electrical/Ideal/MEAI_IdealOpeningSwitch_Example.zcos"/>
                     </imageobject>
                 </inlinemediaobject>
             </link>
         </para>
-        <!-- Uncomment to enable example
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MEAI_IdealOpeningSwitch_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "/examples/Electrical/Ideal/MEAI_IdealOpeningSwitch_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_MEAI_IdealOpeningSwitch">
         <title>See also</title>
@@ -148,22 +147,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MEAI_IdealClosingSwitch">MEAI_IdealClosingSwitch - Ideal electrical closer (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAI_CloserWithArc">MEAI_CloserWithArc - Ideal closing switch with simple arc model (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAI_IdealCommutSwitch">MEAI_IdealCommutSwitch - Ideal commuting switch (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
