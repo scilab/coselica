@@ -15,7 +15,27 @@
     </refsection>
     <refsection id="Description_MEAS_Diode">
         <title>Description</title>
-        <para>Simple diode</para>
+        <para>
+            This block models a simple diode. If input voltage (Vin) is greater than a threshold voltage (equals to Vt*Maxexp), 
+            output current (Iout) can be computed with the formula:
+        </para>
+        <para>
+            <latex>
+                \begin{eqnarray}
+                Iout = Ids * (\exp(Maxexp) * (1+\frac{\Large{Vin}}{\Large{Vt}}-Maxexp)-1) + \frac{\Large{Vin}}{\Large{R}}
+                \end{eqnarray}
+            </latex>
+        </para>
+        <para>
+            In the other case:
+        </para>
+        <para>
+            <latex>
+                \begin{eqnarray}
+                Iout = Ids * (\exp(Vin/Vt) -1) + \frac{\Large{Vin}}{\Large{R}}
+                \end{eqnarray}
+            </latex>
+        </para>
     </refsection>
     <refsection id="Palette_MEAS_Diode">
         <title>Palette</title>
@@ -143,23 +163,23 @@
     </refsection>
     <refsection id="Example_MEAS_Diode">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MEAS_Diode_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MEAS_Diode_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MEAS_Diode_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_Diode_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_Diode_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_Diode_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>
     </refsection>
     <refsection id="Seealso_MEAS_Diode">
         <title>See also</title>
@@ -169,22 +189,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="CEAI_IdealDiode">CEAI_IdealDiode - Ideal diode (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAS_ZDiode">CEAS_ZDiode - Zener Diode with 3 working areas (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAS_HeatingDiode">MEAS_HeatingDiode - Simple diode with heating port (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
