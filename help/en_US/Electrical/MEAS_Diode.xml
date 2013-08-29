@@ -16,13 +16,13 @@
     <refsection id="Description_MEAS_Diode">
         <title>Description</title>
         <para>
-            This block models a simple diode. If input voltage (Vin) is greater than a threshold voltage (equals to Vt*Maxexp), 
+            This block models a simple diode. If diode voltage (Vd) is greater than a threshold voltage (equals to Vt*Maxexp), 
             output current (Iout) can be computed with the formula:
         </para>
         <para>
             <latex>
                 \begin{eqnarray}
-                Iout = Ids * (\exp(Maxexp) * (1+\frac{\Large{Vin}}{\Large{Vt}}-Maxexp)-1) + \frac{\Large{Vin}}{\Large{R}}
+                Iout = Ids * (\exp(Maxexp) * (1+\frac{\Large{Vd}}{\Large{Vt}}-Maxexp)-1) + \frac{\Large{Vd}}{\Large{R}}
                 \end{eqnarray}
             </latex>
         </para>
@@ -32,7 +32,7 @@
         <para>
             <latex>
                 \begin{eqnarray}
-                Iout = Ids * (\exp(Vin/Vt) -1) + \frac{\Large{Vin}}{\Large{R}}
+                Iout = Ids * (\exp(Vd/Vt) -1) + \frac{\Large{Vd}}{\Large{R}}
                 \end{eqnarray}
             </latex>
         </para>
