@@ -262,7 +262,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <link linkend="MEAS_PMOS">MEAS_PMOS - Simple MOS Transistor channel N (Block Coselica)</link>
+                    <link linkend="MEAS_NMOS">MEAS_NMOS - Simple MOS Transistor channel N (Block Coselica)</link>
                 </para>
             </listitem>
             <listitem>
