@@ -12,8 +12,17 @@
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/MEAS_Diode.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/MEAS_Diode.zcos"));
     xcos_simulate(scs_m, 4);
+--------------------------------------------\
+ Main Modelica : TMPDIR/MEAS_Diode_im.mo
+
+ Flat Modelica : TMPDIR/MEAS_Diode_imf.mo
+ Simulation C code :TMPDIR/MEAS_Diode_im.c
+WARNING: Diagram contains implicit blocks, compiling for implicit Solver.
+WARNING: Diagram has been compiled for implicit solver
+WARNING: switching to implicit Solver
+
     Iout = res.values(:,1);
     Vin = res.values(:,2);
     Ids = 0.000001;
@@ -26,8 +35,5 @@ try
     assert_checkalmostequal(Iout(ind), Ids * (exp(Vin(ind)/Vt) - 1) + Vin(ind)/R);
 catch
    disp(lasterror())
- 
- Unable to open /home/hecquet/work/forge/coselica/macros/Utils/../../te 
-      sts/unit_tests/Electrical/Ideal/MEAS_Diode.zcos                   
    assert_checktrue(%f);
 end

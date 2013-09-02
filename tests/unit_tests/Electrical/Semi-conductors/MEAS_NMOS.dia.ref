@@ -8,33 +8,36 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test CEAS_ZDiode
+// Test MEAS_NMOS
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/CEAS_ZDiode.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/MEAS_NMOS.zcos"));
     xcos_simulate(scs_m, 4);
 --------------------------------------------\
- Main Modelica : TMPDIR/CEAS_ZDiode_im.mo
+ Main Modelica : TMPDIR/MEAS_NMOS_im.mo
 
- Flat Modelica : TMPDIR/CEAS_ZDiode_imf.mo
- Simulation C code :TMPDIR/CEAS_ZDiode_im.c
+ Flat Modelica : TMPDIR/MEAS_NMOS_imf.mo
+ Simulation C code :TMPDIR/MEAS_NMOS_im.c
 WARNING: Diagram contains implicit blocks, compiling for implicit Solver.
 WARNING: Diagram has been compiled for implicit solver
 WARNING: switching to implicit Solver
 
-    Vd = res.values(:,1);
-    Iout = res.values(:,2);
-    Ids = 0.000001;
-    Vt = 0.04;
-    Maxexp = 30;
-    R = 1.000d+08;
-    Bv = 5.1;
-    Ibv = 0.7;
-    Nbv = 0.74;
-    ind = find(Vd/Vt <= Maxexp & Vd + Bv >= -Maxexp*Nbv*Vt);
-    assert_checktrue(Iout(ind) - (Ids * (exp(Vd(ind)/Vt) - 1) - Ibv * exp( -(Vd(ind) + Bv) / (Nbv * Vt)) + Vd(ind)/R) < 1d-5);
+    Vds = res.values(:,1);
+    Id = res.values(:,2);
+    Vgs = res.values(:,3);
+    Valim = 12*ones(Vds);
+    Rds = 1e7;
+    Rd = 1000;
+    ind = find(Vgs > 0);
+    assert_checktrue(abs(Valim(ind) - (Rd * Id(ind)) - Vds(ind)) < 1d-5);
+    ind = find(Vgs == 0);
+    assert_checktrue(abs(Vds(ind) - Valim(ind)) < 1d-4);
+    assert_checktrue(abs(Id(ind)) < 1d-5);
 catch
    disp(lasterror())
+ 
+ assert_checktrue: Assertion failed: found false entry in condition = [ 
+      F ...]                                                            
    assert_checktrue(%f);
 end

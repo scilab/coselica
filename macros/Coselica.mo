@@ -146,14 +146,14 @@ package Modelica
 
       package Celsius
 
-        model ToKelvin "Conversion model from 캜elsius to Kelvin.signal"
+        model ToKelvin "Conversion model from 째Celsius to Kelvin.signal"
           Modelica.Blocks.Interfaces.RealInput Celsius;
           Modelica.Blocks.Interfaces.RealOutput Kelvin;
         equation
           Kelvin.signal = (273.15 + Celsius.signal);
         end ToKelvin;
 
-        model TemperatureSensor "Absolute temperature sensor in 캜elsius"
+        model TemperatureSensor "Absolute temperature sensor in 째Celsius"
           Modelica.Blocks.Interfaces.RealOutput T;
           Interfaces.HeatPort_a port;
         equation
@@ -161,14 +161,14 @@ package Modelica
           port.Q_flow = 0;
         end TemperatureSensor;
 
-        model PrescribedTemperature "Variable temperature boundary condition in 캜elsius"
+        model PrescribedTemperature "Variable temperature boundary condition in 째Celsius"
           Interfaces.HeatPort_b port;
           Modelica.Blocks.Interfaces.RealInput T;
         equation
           port.T = (273.15 + T.signal);
         end PrescribedTemperature;
 
-        model FromKelvin "Conversion from Kelvin.signal to 캜elsius"
+        model FromKelvin "Conversion from Kelvin.signal to 째Celsius"
           Modelica.Blocks.Interfaces.RealInput Kelvin;
           Modelica.Blocks.Interfaces.RealOutput Celsius;
         equation
@@ -959,7 +959,7 @@ package Modelica
           uds = ud - us;
           ubs = if B.v < us then 0 else B.v - us;
           ugst = (G.v - us - Vt + K2 * ubs) * K5;
-          id = if ugst >= 0 then v * uds * gds else if ugst < uds then  -v * uds * (ugst - uds / 2 - gds) else  -v * ((ugst * ugst) / 2 - uds * gds);
+          id = if ugst >= 0 then uds * gds else if ugst < uds then  -v * uds * (ugst - uds / 2) + uds*gds else  -v * (ugst * ugst) / 2 + uds * gds;
           G.i = 0;
           D.i = if D.v > S.v then  -id else id;
           S.i = if D.v > S.v then id else  -id;
@@ -1056,7 +1056,7 @@ package Modelica
           uds = ud - us;
           ubs = if B.v > us then 0 else B.v - us;
           ugst = (G.v - us - Vt + K2 * ubs) * K5;
-          id = if ugst <= 0 then v * uds * gds else if ugst > uds then v * uds * (ugst - uds / 2 + gds) else v * ((ugst * ugst) / 2 + uds * gds);
+          id = if ugst <= 0 then uds * gds else if ugst > uds then v * uds * (ugst - uds / 2) + uds*gds else v * (ugst * ugst) / 2 + uds * gds;
           G.i = 0;
           D.i = if D.v < S.v then  -id else id;
           S.i = if D.v < S.v then id else  -id;

@@ -14,7 +14,7 @@
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Ideal/CEAS_ZDiode.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/CEAS_ZDiode.zcos"));
     xcos_simulate(scs_m, 4);
     
     Vd = res.values(:,1);

@@ -8,26 +8,27 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MEAS_Diode
+// Test MEAS_NMOS
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/MEAS_Diode.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/MEAS_NMOS.zcos"));
     xcos_simulate(scs_m, 4);
     
-    Iout = res.values(:,1);
-    Vin = res.values(:,2);
-    Ids = 0.000001;
-    Vt = 0.04;
-    Maxexp = 15;
-    R = 1.000d+08;
+    Vds = res.values(:,1);
+    Id = res.values(:,2);
+    Vgs = res.values(:,3);
+    Valim = 12*ones(Vds);
+    Rds = 1e7;
+    Rd = 1000;
 
-    ind = find(Vin/Vt > Maxexp);
-    assert_checktrue(Iout(ind) - (Ids * (exp(Maxexp) * (1 + Vin(ind)/Vt - Maxexp) - 1) + Vin(ind)/R) < 1d-11);
-    ind = find(Vin/Vt <= Maxexp);
-    assert_checkalmostequal(Iout(ind), Ids * (exp(Vin(ind)/Vt) - 1) + Vin(ind)/R);
+    ind = find(Vgs > 0);
+    assert_checktrue(abs(Valim(ind) - (Rd * Id(ind)) - Vds(ind)) < 1d-5);
+    ind = find(Vgs == 0);
+    assert_checktrue(abs(Vds(ind) - Valim(ind)) < 1d-4);
+    assert_checktrue(abs(Id(ind)) < 1d-5);
 
 catch
    disp(lasterror())
