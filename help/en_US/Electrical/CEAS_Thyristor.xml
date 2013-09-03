@@ -15,7 +15,21 @@
     </refsection>
     <refsection id="Description_CEAS_Thyristor">
         <title>Description</title>
-        <para>Simple Thyristor Model</para>
+        <para>
+            This block is a simple Thyristor model. There are three operating mode: conducting, blocking and reverse breakthrough.
+            When the thyristor is in blocking mode, it behaves like a resistance:
+        </para>
+        <para>
+            <latex>
+                \begin{eqnarray}
+                Roff = \frac{\Large{VDRM^{2}}}{\Large{VTM*IH}}
+                \end{eqnarray}
+            </latex>
+        </para>
+        <para>
+            To be in conducting mode, voltage between anode and cathode must be over VDRM or the gate current is positive during TON. 
+            The thyristor stay in conducting mode untill the anode current decrease under the holding current IH.
+        </para>
     </refsection>
     <refsection id="Palette_CEAS_Thyristor">
         <title>Palette</title>
@@ -271,23 +285,23 @@
     </refsection>
     <refsection id="Example_CEAS_Thyristor">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CEAS_Thyristor_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CEAS_Thyristor_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CEAS_Thyristor_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/CEAS_Thyristor_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/CEAS_Thyristor_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/CEAS_Thyristor_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_CEAS_Thyristor">
         <title>See also</title>
@@ -297,22 +311,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MEAS_Diode">MEAS_Diode - Simple diode (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAI_IdealDiode">CEAI_IdealDiode - Ideal diode (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="CEAS_ZDiode">CEAS_ZDiode - Zener diode with 3 working areas (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

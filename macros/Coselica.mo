@@ -4677,7 +4677,7 @@ package Coselica
           vGK = Gate.v - Cathode.v;
           vAK = Anode.v - Cathode.v;
           iGK = Gate.i;
-          vGK = if vGK < 0.65 then VGT / IGT * iGK else 0.65 ^ 2 / VGT + (iGK * (VGT - 0.65)) / IGT;
+          vGK = if vGK < 0.65 then VGT / IGT * iGK else 0.65 ^ 2 / VGT + (iGK * (VGT - 0.65) / IGT);
           vContot = vConmain + (if iGK < 0.95 * IGT then 0 else if iGK < 0.95 * IGT + 0.001 then 10000 * (iGK - 0.95 * IGT) * vAK else 10 * vAK);
           der(vControl) = (vContot - vControl) / (if vContot - vControl > 0 then 1.87 * TON else 0.638 * TOFF);
           Anode.i = noEvent(if vAK <  -VRRM then  -VRRM / Roff * exp( -(vAK + VRRM) / (Nbv * Vt)) else if vControl < Voff then vAK / Roff else if vControl < Von then vAK / (sqrt(Ron * Roff) * (Ron / Roff) ^ ((3 * (2 * vControl - Von - Voff) / (2 * (Von - Voff)) - 4 * ((2 * vControl - Von - Voff) / (2 * (Von - Voff))) ^ 3) / 2)) else vAK / Ron);
