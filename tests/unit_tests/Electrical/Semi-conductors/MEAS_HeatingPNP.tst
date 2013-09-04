@@ -8,23 +8,24 @@
 // <-- ENGLISH IMPOSED -->
 //
 // <-- Short Description -->
-// Test MEAS_PNP
+// Test MEAS_HeatingPNP
 
 [a, coselicaMacrosPath] = libraryinfo(whereis(getCoselicaVersion));
 
 try
     ilib_verbose(0);
-    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/MEAS_PNP.zcos"));
+    assert_checktrue(importXcosDiagram(coselicaMacrosPath + "../../tests/unit_tests/Electrical/Semi-conductors/MEAS_HeatingPNP.zcos"));
     xcos_simulate(scs_m, 4);
     
-    Vec = res.values(:,1);
-    Ib = res.values(:,2);
-    Valim = 12*ones(Vec);
-    
-    ind = find(Ib < 0);
-    assert_checktrue(abs(Vec(ind)) < 1d-3);
-    ind = find(Ib >= 0);
-    assert_checkalmostequal(Vec(ind), Valim(ind));
+    Ie = res.values(:,1);
+    Ve = res.values(:,2);
+    Vc = res.values(:,3);
+    Ic = res.values(:,4);
+    Q = res.values(:,5);
+    Vb = res.values(:,6);
+    Ib = res.values(:,7);
+
+    assert_checktrue(abs(Q - (-Ic.*Vc+Ib.*Vb+Ie.*Ve)) < 1d-10);
 
 catch
    disp(lasterror())

@@ -15,7 +15,7 @@
     </refsection>
     <refsection id="Description_MEAS_HeatingPNP">
         <title>Description</title>
-        <para>Simple PNP BJT according to Ebers-Moll with heating port</para>
+        <para>This block is a simple PNP BJT according to Ebers-Moll with heating port to model loss power.</para>
     </refsection>
     <refsection id="Palette_MEAS_HeatingPNP">
         <title>Palette</title>
@@ -444,23 +444,23 @@
     </refsection>
     <refsection id="Example_MEAS_HeatingPNP">
         <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MEAS_HeatingPNP_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MEAS_HeatingPNP_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MEAS_HeatingPNP_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
+        <para>
+            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_HeatingPNP_Example.zcos">
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_HeatingPNP_Example.zcos"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </link>
+        </para>
+        <!--<para>
+            <scilab:image><![CDATA[
+                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
+                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
+                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_HeatingPNP_Example.zcos");
+                xcos_simulate(scs_m, 4);
+            ]]></scilab:image>
+        </para>-->
     </refsection>
     <refsection id="Seealso_MEAS_HeatingPNP">
         <title>See also</title>
@@ -470,22 +470,21 @@ xcos_simulate(scs_m, 4);
                     <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
                 </para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+            <listitem>
+                <para>
+                    <link linkend="MEAS_PNP">MEAS_PNP - Simple BJT according to Ebers-Moll (type PNP) (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAS_NPN">MEAS_NPN - Simple BJT according to Ebers-Moll (type NPN) (Block Coselica)</link>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <link linkend="MEAS_HeatingNPN">MEAS_HeatingNPN - Simple BJT according to Ebers-Moll (type NPN) with heating port (Block Coselica)</link>
+                </para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>
