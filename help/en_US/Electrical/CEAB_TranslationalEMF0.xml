@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_CEAB_TranslationalEMF0">
         <title>Description</title>
-        <para>This block is an electromotoric force (electric/mechanic transformer) giving a translational motion with fixed frame.</para>
+        <para>
+            Electromotoric force (electric/mechanic transformer)
+        </para>
     </refsection>
     <refsection id="Palette_CEAB_TranslationalEMF0">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/CEAB_TranslationalEMF0_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/CEAB_TranslationalEMF0_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -104,49 +106,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CEAB_TranslationalEMF0">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/CEAB_TranslationalEMF0_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/CEAB_TranslationalEMF0_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Basic/CEAB_TranslationalEMF0_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CEAB_TranslationalEMF0">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CEAB_TranslationalEMF0">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>CEAB_TranslationalEMF0.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CEAB_TranslationalEMF">CEAB_TranslationalEMF - Electromotoric force giving a translational motion without fixed frame (Block Coselica)
-                    </link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAB_EMF0">CEAB_EMF0 - Electromotoric force with fixed frame (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_SlidingMass">MMT_SlidingMass - Sliding mass with inertia (Block Coselica)</link>
-                </para>
+                <para>Coselica.Electrical.Analog.Basic.TranslationalEMF0 in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -15,14 +15,21 @@
     </refsection>
     <refsection id="Description_CEAB_TranslationalEMFGEN">
         <title>Description</title>
-        <para>CEAB_TranslationalEMFGEN</para>
         <para>
-            This block is an electromotoric force (electric/mechanic transformer) giving a translational motion.
-            With this block, it is possible to decide if the frame is fixed or not. If it the case, the block behaviour is the same
-            as <link linkend="CEAB_TranslationalEMF0">CEAB_TranslationalEMF0</link>. If it is not the case, this block is equal to 
-            <link linkend="CEAB_TranslationalEMF">CEAB_TranslationalEMF</link>.
+
         </para>
-        <para></para>
+        <para>
+            CEAB_TranslationalEMEMFGEN
+        </para>
+        <para>
+
+        </para>
+        <para>
+            Electromotoric force (electric/mechanic transformer)
+        </para>
+        <para>
+
+        </para>
     </refsection>
     <refsection id="Palette_CEAB_TranslationalEMFGEN">
         <title>Palette</title>
@@ -39,7 +46,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/CEAB_TranslationalEMFGEN_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/CEAB_TranslationalEMFGEN_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -118,50 +125,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CEAB_TranslationalEMFGEN">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/CEAB_TranslationalEMFGEN_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/CEAB_TranslationalEMFGEN_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Basic/CEAB_TranslationalEMFGEN_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CEAB_TranslationalEMFGEN">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CEAB_TranslationalEMFGEN">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>CEAB_TranslationalEMFGEN.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CEAB_TranslationalEMF0">CEAB_TranslationalEMF0 - Electromotoric force giving a translational motion with fixed frame (Block Coselica)
-                    </link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAB_TranslationalEMF">CEAB_TranslationalEMF - Electromotoric force giving a translational motion without fixed frame (Block Coselica)
-                    </link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAB_EMF">CEAB_EMF - Electromotoric force without fixed frame (Block Coselica)</link>
-                </para>
+                <para>Coselica.Electrical.Analog.Basic.TranslationalEMF0 in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

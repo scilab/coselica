@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAS_HeatingDiode">
         <title>Description</title>
-        <para>This block is a simple diode with a heating port in order to model loss power.</para>
+        <para>
+            Simple diode with heating port
+        </para>
     </refsection>
     <refsection id="Palette_MEAS_HeatingDiode">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAS_HeatingDiode_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAS_HeatingDiode_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -74,7 +76,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Tnom [K] : Parameter measurement temperature</emphasis>
+                    <emphasis role="bold">TNOM (K) : Parameter measurement temperature</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 300.15</para>
@@ -194,48 +196,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAS_HeatingDiode">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_HeatingDiode_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_HeatingDiode_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_HeatingDiode_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAS_HeatingDiode">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAS_HeatingDiode">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAS_HeatingDiode.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_Diode">MEAS_Diode - Simple diode (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAS_ZDiode">CEAS_ZDiode - Zener diode with 3 working areas (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MTH_HeatCapacitor">MTH_HeatCapacitor - Lumped thermal element storing heat (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Semiconductors.HeatingDiode in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -146,14 +146,14 @@ package Modelica
 
       package Celsius
 
-        model ToKelvin "Conversion model from 째Celsius to Kelvin.signal"
+        model ToKelvin "Conversion model from 캜elsius to Kelvin.signal"
           Modelica.Blocks.Interfaces.RealInput Celsius;
           Modelica.Blocks.Interfaces.RealOutput Kelvin;
         equation
           Kelvin.signal = (273.15 + Celsius.signal);
         end ToKelvin;
 
-        model TemperatureSensor "Absolute temperature sensor in 째Celsius"
+        model TemperatureSensor "Absolute temperature sensor in 캜elsius"
           Modelica.Blocks.Interfaces.RealOutput T;
           Interfaces.HeatPort_a port;
         equation
@@ -161,14 +161,14 @@ package Modelica
           port.Q_flow = 0;
         end TemperatureSensor;
 
-        model PrescribedTemperature "Variable temperature boundary condition in 째Celsius"
+        model PrescribedTemperature "Variable temperature boundary condition in 캜elsius"
           Interfaces.HeatPort_b port;
           Modelica.Blocks.Interfaces.RealInput T;
         equation
           port.T = (273.15 + T.signal);
         end PrescribedTemperature;
 
-        model FromKelvin "Conversion from Kelvin.signal to 째Celsius"
+        model FromKelvin "Conversion from Kelvin.signal to 캜elsius"
           Modelica.Blocks.Interfaces.RealInput Kelvin;
           Modelica.Blocks.Interfaces.RealOutput Celsius;
         equation
@@ -355,9 +355,7 @@ package Modelica
         extends Interfaces.Compliant;
         parameter Real c "Spring constant";
         parameter Real phi_rel0 = 0 "Unstretched spring angle";
-        Real w_rel "Relative angular velocity between flange_b and flange_a";
       equation
-        w_rel = der(phi_rel);
         tau = c * (phi_rel - phi_rel0);
       end Spring;
 
@@ -959,7 +957,7 @@ package Modelica
           uds = ud - us;
           ubs = if B.v < us then 0 else B.v - us;
           ugst = (G.v - us - Vt + K2 * ubs) * K5;
-          id = if ugst >= 0 then uds * gds else if ugst < uds then  -v * uds * (ugst - uds / 2) + uds*gds else  -v * (ugst * ugst) / 2 + uds * gds;
+          id = if ugst >= 0 then v * uds * gds else if ugst < uds then  -v * uds * (ugst - uds / 2 - gds) else  -v * ((ugst * ugst) / 2 - uds * gds);
           G.i = 0;
           D.i = if D.v > S.v then  -id else id;
           S.i = if D.v > S.v then id else  -id;
@@ -1056,7 +1054,7 @@ package Modelica
           uds = ud - us;
           ubs = if B.v > us then 0 else B.v - us;
           ugst = (G.v - us - Vt + K2 * ubs) * K5;
-          id = if ugst <= 0 then uds * gds else if ugst > uds then v * uds * (ugst - uds / 2) + uds*gds else v * (ugst * ugst) / 2 + uds * gds;
+          id = if ugst <= 0 then v * uds * gds else if ugst > uds then v * uds * (ugst - uds / 2 + gds) else v * ((ugst * ugst) / 2 + uds * gds);
           G.i = 0;
           D.i = if D.v < S.v then  -id else id;
           S.i = if D.v < S.v then id else  -id;
@@ -4677,7 +4675,7 @@ package Coselica
           vGK = Gate.v - Cathode.v;
           vAK = Anode.v - Cathode.v;
           iGK = Gate.i;
-          vGK = if vGK < 0.65 then VGT / IGT * iGK else 0.65 ^ 2 / VGT + (iGK * (VGT - 0.65) / IGT);
+          vGK = if vGK < 0.65 then VGT / IGT * iGK else 0.65 ^ 2 / VGT + (iGK * (VGT - 0.65)) / IGT;
           vContot = vConmain + (if iGK < 0.95 * IGT then 0 else if iGK < 0.95 * IGT + 0.001 then 10000 * (iGK - 0.95 * IGT) * vAK else 10 * vAK);
           der(vControl) = (vContot - vControl) / (if vContot - vControl > 0 then 1.87 * TON else 0.638 * TOFF);
           Anode.i = noEvent(if vAK <  -VRRM then  -VRRM / Roff * exp( -(vAK + VRRM) / (Nbv * Vt)) else if vControl < Voff then vAK / Roff else if vControl < Von then vAK / (sqrt(Ron * Roff) * (Ron / Roff) ^ ((3 * (2 * vControl - Von - Voff) / (2 * (Von - Voff)) - 4 * ((2 * vControl - Von - Voff) / (2 * (Von - Voff))) ^ 3) / 2)) else vAK / Ron);

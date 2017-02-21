@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAS_NMOS">
         <title>Description</title>
-        <para>This block models a simple MOS Transistor channel N.</para>
+        <para>
+            Simple MOS Transistor
+        </para>
     </refsection>
     <refsection id="Palette_MEAS_NMOS">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAS_NMOS_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAS_NMOS_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -81,14 +83,14 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">dW [m] : Narrowing of channel</emphasis>
+                    <emphasis role="bold">dW [m] : narrowing of channel</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : -0.0000025</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">dL [m] : Shortening of channel</emphasis>
+                    <emphasis role="bold">dL [m] : shortening of channel</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : -0.0000015</para>
@@ -232,48 +234,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAS_NMOS">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_NMOS_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_NMOS_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_NMOS_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAS_NMOS">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAS_NMOS">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAS_NMOS.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_PMOS">MEAS_PMOS - Simple MOS Transistor channel P (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_NPN">MEAS_NPN - Simple BJT according to Ebers-Moll (type NPN) (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_PNP">MEAS_PNP - Simple BJT according to Ebers-Moll (type PNP) (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Semiconductors.NMOS in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -16,17 +16,7 @@
     <refsection id="Description_MEAB_OpAmp">
         <title>Description</title>
         <para>
-            This block is a simple nonideal model of an OpAmp with a Vout =f(Vin) characteristic 
-            (with Vin the difference between positive and negative pin of the input port) which is limited by VMin and VMax.
-            The slope at Vin=0 must be positive (or the absolute slope is taken into account in the calculations).
-            The output Vout is computed in this way:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                \Large{Vout} = \frac {\Large{VMax+VMin}}{2} + \frac{\Large{Slope*Vin}}{\Large{1+Slope*|\frac{2}{VMax-VMin}*Vin|}}
-                \end{eqnarray}
-            </latex>
+            Simple nonideal model of an OpAmp with limitation
         </para>
     </refsection>
     <refsection id="Palette_MEAB_OpAmp">
@@ -44,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAB_OpAmp_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAB_OpAmp_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -132,48 +122,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAB_OpAmp">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/MEAB_OpAmp_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/MEAB_OpAmp_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Basic/MEAB_OpAmp_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAB_OpAmp">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAB_OpAmp">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAB_OpAmp.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAI_IdealOpAmp">MEAI_IdealOpAmp - Ideal operational amplifier (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAI_IdealOpAmp3Pin">MEAI_IdealOpAmp3Pin - Ideal operational amplifier with 3 pins (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAI_IdealOpAmpLimited">MEAI_IdealOpAmpLimited - Ideal operational amplifier with limitation (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Basic.OpAmp in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

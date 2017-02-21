@@ -16,37 +16,7 @@
     <refsection id="Description_CMTC_ElastoGap">
         <title>Description</title>
         <para>
-            This block is a 1D translational spring damper combination with gap. If spring lenght (<latex>s_{rel}\:</latex>) is greater than <latex>s_{rel0}\:</latex>
-            the force created is null. But, in the other case, the force created (f) is:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                f = f_c + f_d
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            with, <latex>f_c = c * (s_{rel} - s_{rel0})</latex>, the spring force, and <latex>f_d\:</latex> is equal to:
-        </para>
-        <para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-                        <latex>f_c\:</latex> if <latex>d*V &lt; f_c</latex>, where V is the input velocity in m/s,
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        <latex>-f_c\:</latex> if <latex>d*V &gt; -f_c</latex>
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        <latex>f_d\:</latex> in the other cases.
-                    </para>
-                </listitem>
-            </itemizedlist>
+            1D translational spring damper combination with gap
         </para>
     </refsection>
     <refsection id="Palette_CMTC_ElastoGap">
@@ -64,21 +34,21 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMTC_ElastoGap_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMTC_ElastoGap_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">c [N/m] : Spring constant</emphasis>
+                    <emphasis role="bold">c [N/m] : Spring constant (c &gt;= 0)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">d [N.s/m] : Damping constant</emphasis>
+                    <emphasis role="bold">d [N.s/m] : Damping constant (d &gt;= 0)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
@@ -158,48 +128,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMTC_ElastoGap">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMTC_ElastoGap_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMTC_ElastoGap_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_ElastoGap_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMTC_ElastoGap">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMTC_ElastoGap">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMTC_ElastoGap.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMT_SpringDamper">MMT_SpringDamper - Linear 1D translational spring and damper in parallel (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_Spring">MMT_Spring - Linear 1D translational spring (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_Damper">MMT_Damper - Linear 1D translational damper (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Translational.Components.ElastoGap in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

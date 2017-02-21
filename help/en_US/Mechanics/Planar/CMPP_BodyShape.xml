@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_CMPP_BodyShape">
         <title>Description</title>
-        <para>Rigid body with mass, inertia tensor and two frame connectors (no states)</para>
+        <para>
+            Rigid body with mass, inertia tensor and two frame connectors (no states)
+        </para>
     </refsection>
     <refsection id="Palette_CMPP_BodyShape">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMPP_BodyShape_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMPP_BodyShape_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -246,50 +248,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMPP_BodyShape">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMPP_BodyShape_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMPP_BodyShape_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMPP_BodyShape_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_CMPP_BodyShape">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMPP_BodyShape">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Planar_pal">Mechanics_Planar - Coselica toolbox</link>
-                </para>
+                <para>CMPP_BodyShape.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>Coselica.Mechanics.Planar.Parts.BodyShape in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

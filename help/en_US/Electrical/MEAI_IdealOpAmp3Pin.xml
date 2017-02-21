@@ -15,7 +15,6 @@
     </refsection>
     <refsection id="Description_MEAI_IdealOpAmp3Pin">
         <title>Description</title>
-        <para>This block models an ideal operational amplifier with 3 pins.</para>
     </refsection>
     <refsection id="Palette_MEAI_IdealOpAmp3Pin">
         <title>Palette</title>
@@ -70,48 +69,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAI_IdealOpAmp3Pin">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Ideal/MEAI_IdealOpAmp3Pin_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Ideal/MEAI_IdealOpAmp3Pin_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Ideal/MEAI_IdealOpAmp3Pin_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAI_IdealOpAmp3Pin">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAI_IdealOpAmp3Pin">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAI_IdealOpAmp3Pin.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAI_IdealOpAmp">MEAI_IdealOpAmp - Ideal operational amplifier (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAI_IdealOpAmpLimited">MEAI_IdealOpAmpLimited - Ideal operational amplifier with limitation (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_OpAmp">MEAB_OpAmp - Non ideal operational amplifier (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

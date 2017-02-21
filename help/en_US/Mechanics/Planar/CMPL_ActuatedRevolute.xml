@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_CMPL_ActuatedRevolute">
         <title>Description</title>
-        <para>Actuated revolute joint (1 rotational degree-of-freedom, no states)</para>
+        <para>
+            Actuated revolute joint used in loops (1 rotational degree-of-freedom, no states)
+        </para>
     </refsection>
     <refsection id="Palette_CMPL_ActuatedRevolute">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMPL_ActuatedRevolute_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMPL_ActuatedRevolute_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -112,50 +114,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMPL_ActuatedRevolute">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMPL_ActuatedRevolute_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMPL_ActuatedRevolute_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMPL_ActuatedRevolute_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_CMPL_ActuatedRevolute">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMPL_ActuatedRevolute">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Planar_pal">Mechanics_Planar - Coselica toolbox</link>
-                </para>
+                <para>CMPL_ActuatedRevolute.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>Coselica.Mechanics.Planar.LoopJoints.ActuatedRevolute in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

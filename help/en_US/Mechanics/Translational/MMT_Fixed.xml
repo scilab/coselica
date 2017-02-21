@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MMT_Fixed">
         <title>Description</title>
-        <para>This block represents a fixed flange.</para>
+        <para>
+            Fixed flange
+        </para>
     </refsection>
     <refsection id="Palette_MMT_Fixed">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMT_Fixed_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMT_Fixed_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -81,43 +83,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMT_Fixed">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/MMT_Fixed_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/MMT_Fixed_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/MMT_Fixed_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MMT_Fixed">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MMT_Fixed">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>MMT_Fixed.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMTC_Free">CMTC_Free -  Flange moving freely (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_Fixed">MMR_Fixed - Flange fixed in housing at a given angle (Block Coselica)</link>
-                </para>
+                <para>Modelica.Mechanics.Translational.Fixed in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

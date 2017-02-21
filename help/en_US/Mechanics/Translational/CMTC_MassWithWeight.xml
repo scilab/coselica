@@ -16,8 +16,7 @@
     <refsection id="Description_CMTC_MassWithWeight">
         <title>Description</title>
         <para>
-            A sliding mass with inertia and gravitational force (=m*g) is modelled here. In this block, it is possible
-            to choose some initial values as velocities or positions.
+            Sliding mass with inertia and gravitational force (=m*g)
         </para>
     </refsection>
     <refsection id="Palette_CMTC_MassWithWeight">
@@ -35,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMTC_MassWithWeight_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMTC_MassWithWeight_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -159,48 +158,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMTC_MassWithWeight">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMTC_MassWithWeight_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMTC_MassWithWeight_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_MassWithWeight_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMTC_MassWithWeight">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMTC_MassWithWeight">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMTC_MassWithWeight.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMTC_Mass">CMTC_Mass - Sliding mass with inertia and initial values (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_SlidingMass">MMT_SlidingMass - Sliding mass with inertia (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CMT_MassWithFriction">CMT_MassWithFriction - Sliding mass with Stribeck friction (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Translational.Components.MassWithWeight in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -69,50 +69,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CBR_Multiplex2">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CBR_Multiplex2_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CBR_Multiplex2_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CBR_Multiplex2_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_CBR_Multiplex2">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CBR_Multiplex2">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
-                </para>
+                <para>CBR_Multiplex2.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>Coselica.Blocks.Routing.Multiplex2 in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

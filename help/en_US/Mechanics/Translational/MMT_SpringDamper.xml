@@ -16,17 +16,7 @@
     <refsection id="Description_MMT_SpringDamper">
         <title>Description</title>
         <para>
-            This block is a linear 1D translational spring and damper in parallel. The force (f) created can be computed:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                f = c * (s_{rel} - s_{rel0}) + d * V
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            with <latex>s_{rel}\:</latex> the spring length (in m), and V the input velocity in m/s.
+            Linear 1D translational spring and damper in parallel
         </para>
     </refsection>
     <refsection id="Palette_MMT_SpringDamper">
@@ -44,28 +34,28 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMT_SpringDamper_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMT_SpringDamper_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">s_rel0 [m] : Unstretched spring length</emphasis>
+                    <emphasis role="bold">s_rel0 [m] : unstretched spring length</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">c [N/m] : Spring constant</emphasis>
+                    <emphasis role="bold">c [N/m] : spring constant</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">d [N/(m/s)] : Damping constant</emphasis>
+                    <emphasis role="bold">d [N/(m/s)] : damping constant</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
@@ -138,48 +128,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMT_SpringDamper">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/MMT_SpringDamper_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/MMT_SpringDamper_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/MMT_SpringDamper_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MMT_SpringDamper">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MMT_SpringDamper">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>MMT_SpringDamper.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMT_Spring">MMT_Spring - Linear 1D translational spring (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_Damper">MMT_Damper - Linear 1D translational damper (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_SpringDamper">MMR_SpringDamper - Linear 1D rotational spring and damper in parallel (Block Coselica)</link>
-                </para>
+                <para>Modelica.Mechanics.Translational.SpringDamper in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -16,18 +16,7 @@
     <refsection id="Description_MMR_IdealGearR2T">
         <title>Description</title>
         <para>
-            This block is a gearbox transforming rotational into translational motion (rack and pignon system) with bearings, with:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                ratio = \frac{\Large{\varphi_a - \varphi_{bearingR}}}{\Large{s_b - s_{bearingT}}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            <latex>\varphi_a</latex> (resp. <latex>s_b</latex>) is the angular position (resp. the position) of the pignon (resp. the rack), and
-            <latex>\varphi_{bearingR}</latex> (resp. <latex>s_{bearingT}</latex>) is the bearing of rotational motion (resp. translational motion).
+            Gearbox transforming rotational into translational motion
         </para>
     </refsection>
     <refsection id="Palette_MMR_IdealGearR2T">
@@ -45,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMR_IdealGearR2T_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMR_IdealGearR2T_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -72,7 +61,7 @@
                             <emphasis role="bold">Modelica variable name :</emphasis> 'flange_a'
                         </para>
                         <para>
-                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
                         </para>
                     </listitem>
                     <listitem>
@@ -103,7 +92,7 @@
                             <emphasis role="bold">Modelica variable name :</emphasis> 'bearingT'
                         </para>
                         <para>
-                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Translational type).
+                            <emphasis role="bold">Implicit</emphasis> variable (Mechanics Rotational type).
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -125,48 +114,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMR_IdealGearR2T">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_IdealGearR2T_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_IdealGearR2T_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_IdealGearR2T_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MMR_IdealGearR2T">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MMR_IdealGearR2T">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>MMR_IdealGearR2T.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMR_IdealGearR2T0">MMR_IdealGearR2T0 - Rack and pignon system (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_IdealGear">MMR_IdealGear - Ideal gear (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_IdealPlanetary">MMR_IdealPlanetary - Ideal planetary (Block Coselica)</link>
-                </para>
+                <para>MMR_IdealGearR2T in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

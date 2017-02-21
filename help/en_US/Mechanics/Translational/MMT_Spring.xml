@@ -16,17 +16,7 @@
     <refsection id="Description_MMT_Spring">
         <title>Description</title>
         <para>
-            This is a mmodel of an ideal linear 1D translational spring. The force of this spring (f) is computed:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                f = c * (s_{rel} - s_{rel0})
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            with <latex>s_{rel}\:</latex> the spring length (in m).
+            Linear 1D translational spring
         </para>
     </refsection>
     <refsection id="Palette_MMT_Spring">
@@ -44,21 +34,21 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMT_Spring_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMT_Spring_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">s_rel0 [m] : Unstretched spring length</emphasis>
+                    <emphasis role="bold">s_rel0 [m] : unstretched spring length</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">c [N/m] : Spring constant</emphasis>
+                    <emphasis role="bold">c [N/m] : spring constant</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
@@ -123,48 +113,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMT_Spring">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/MMT_Spring_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/MMT_Spring_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/MMT_Spring_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MMT_Spring">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MMT_Spring">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>MMT_Spring.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMT_SpringDamper">MMT_SpringDamper - Linear 1D translational spring and damper in parallel (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_Damper">MMT_Damper - Linear 1D translational damper (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_Spring">MMR_Spring - Linear 1D rotational spring (Block Coselica)</link>
-                </para>
+                <para>Modelica.Mechanics.Translational.Spring in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAI_IdealGyrator">
         <title>Description</title>
-        <para>This block models an ideal gyrator.</para>
+        <para>
+            Ideal gyrator
+        </para>
     </refsection>
     <refsection id="Palette_MEAI_IdealGyrator">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAI_IdealGyrator_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAI_IdealGyrator_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -112,48 +114,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAI_IdealGyrator">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Ideal/MEAI_IdealGyrator_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Ideal/MEAI_IdealGyrator_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Ideal/MEAI_IdealGyrator_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAI_IdealGyrator">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAI_IdealGyrator">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAI_IdealGyrator.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAB_Gyrator">MEAB_Gyrator - Gyrator (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Resistor">MEAB_Resistor - Ideal linear electrical resistor (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Conductor">MEAB_Conductor - Ideal linear electrical conductance (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Ideal.IdealGyrator in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -16,18 +16,7 @@
     <refsection id="Description_MEAB_Transformer">
         <title>Description</title>
         <para>
-            This block models a real transformer with two ports. The link between primary and secondary parts can be descibed by:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                V1 = L1 * \frac {\Large{di1}}{\Large{dt}} + M * \frac {\Large{di2}}{\Large{dt}}
-                \\and \; V2 = L2 * \frac {\Large{di2}}{\Large{dt}} + M * \frac {\Large{di1}}{\Large{dt}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            with V1 and I1 (resp. V2 and I2) the voltage and the current at the primary part (resp. the secondary part).
+            Transformer with two ports
         </para>
     </refsection>
     <refsection id="Palette_MEAB_Transformer">
@@ -45,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAB_Transformer_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAB_Transformer_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -155,48 +144,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAB_Transformer">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/MEAB_Transformer_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/MEAB_Transformer_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Basic/MEAB_Transformer_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAB_Transformer">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAB_Transformer">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAB_Transformer.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAI_IdealTransformer">MEAI_IdealTransformer - Ideal electrical transformer (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Inductor">MEAB_Inductor - Ideal linear electrical inductor (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_SaturatingInductor">MEAB_SaturatingInductor - Inductor with saturation (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Basic.Transformer in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

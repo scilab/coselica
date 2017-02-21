@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MBN_Limiter">
         <title>Description</title>
-        <para>Limit the range of a signal</para>
+        <para>
+            Limit the range of a signal
+        </para>
     </refsection>
     <refsection id="Palette_MBN_Limiter">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MBN_Limiter_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MBN_Limiter_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -111,50 +113,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MBN_Limiter">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MBN_Limiter_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MBN_Limiter_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MBN_Limiter_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_MBN_Limiter">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MBN_Limiter">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
-                </para>
+                <para>MBN_Limiter.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>Modelica.Blocks.Nonlinear.Limiter in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

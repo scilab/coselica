@@ -16,37 +16,7 @@
     <refsection id="Description_CEAS_ZDiode">
         <title>Description</title>
         <para>
-            This block is a zener diode with 3 working areas. The first area is when Vd (diode voltage) is greater than Maxexp*Vt. The output current is :
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                Iout = Ids*(\exp(Maxexp) * (1+\frac{\Large{Vd}}{\Large{Vt}}-Maxexp)-1) + \frac{\Large{Vd}}{\Large{R}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            The second one is when Vd + Bv is lower than -Maxexp*Nbv*Vt, so output current is given by:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                Iout = -Ids-Ibv* \exp(Maxexp) * (1- \frac{\Large{Vd+Bv}}{\Large{Nbv*Vt}} - Maxexp) + \frac{\Large{Vd}}{\Large{R}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            In the other cases, Iout is given by this formula:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                Iout = -Ids * (\exp(Vd/Vt)-1) - Ibv * \exp(\frac{\Large{-Vd+Bv}}{\Large{Nbv*Vt}}) + \frac{\Large{Vd}}{\Large{R}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            If Bv is exceeded, this zener diode (unlike the simple diode) permits current in reverse direction.
+            Zener Diode with 3 working areas
         </para>
     </refsection>
     <refsection id="Palette_CEAS_ZDiode">
@@ -64,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/CEAS_ZDiode_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/CEAS_ZDiode_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -218,48 +188,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CEAS_ZDiode">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/CEAS_ZDiode_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/CEAS_ZDiode_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/CEAS_ZDiode_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CEAS_ZDiode">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CEAS_ZDiode">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>CEAS_ZDiode.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_Diode">MEAS_Diode - Simple diode (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAI_IdealDiode">CEAI_IdealDiode - Ideal diode (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_HeatingDiode">MEAS_HeatingDiode - Simple diode with heating port (Block Coselica)</link>
-                </para>
+                <para>Coselica.Electrical.Analog.Semiconductors.ZDiode in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

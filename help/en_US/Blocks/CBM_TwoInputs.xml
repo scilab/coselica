@@ -54,50 +54,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CBM_TwoInputs">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CBM_TwoInputs_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CBM_TwoInputs_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CBM_TwoInputs_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_CBM_TwoInputs">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CBM_TwoInputs">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
-                </para>
+                <para>CBM_TwoInputs.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>Coselica.Blocks.Math.TwoInputs in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

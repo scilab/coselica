@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MMR_Inertia">
         <title>Description</title>
-        <para>This block represents a 1D-rotational component with inertia.</para>
+        <para>
+            1D-rotational component with inertia
+        </para>
     </refsection>
     <refsection id="Palette_MMR_Inertia">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMR_Inertia_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMR_Inertia_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -96,43 +98,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMR_Inertia">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_Inertia_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_Inertia_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_Inertia_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MMR_Inertia">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MMR_Inertia">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>MMR_Inertia.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMR_SpringDamper">MMR_SpringDamper - Linear 1D rotational spring and damper in parallel (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CMTC_Mass">CMTC_Mass - Sliding mass with inertia (Block Coselica)</link>
-                </para>
+                <para>MMR_Inertia in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

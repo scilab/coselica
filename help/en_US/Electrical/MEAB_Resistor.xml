@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAB_Resistor">
         <title>Description</title>
-        <para>This block is an ideal linear electrical resistor.</para>
+        <para>
+            Ideal linear electrical resistor
+        </para>
     </refsection>
     <refsection id="Palette_MEAB_Resistor">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAB_Resistor_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAB_Resistor_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -96,48 +98,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAB_Resistor">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/MEAB_Resistor_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/MEAB_Resistor_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Basic/MEAB_Resistor_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAB_Resistor">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAB_Resistor">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAB_Resistor.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAB_HeatingResistor">MEAB_HeatingResistor - Temperature dependent electrical resistor (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Conductor">MEAB_Conductor - Ideal linear electrical conductance (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_VariableResistor">MEAB_VariableResistor - Ideal linear electrical resistor with variable resistance (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Basic.Resistor in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

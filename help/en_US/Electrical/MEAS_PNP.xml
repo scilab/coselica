@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAS_PNP">
         <title>Description</title>
-        <para>This block is a simple BJT according to Ebers-Moll, a PNP transistor type.</para>
+        <para>
+            Simple BJT according to Ebers-Moll
+        </para>
     </refsection>
     <refsection id="Palette_MEAS_PNP">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAS_PNP_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAS_PNP_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -81,21 +83,21 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Ccs [F] : Collector-substrat(ground) cap</emphasis>
+                    <emphasis role="bold">Ccs [F] : Collector-substrat(ground) cap.</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1.000D-12</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Cje [F] : Base-emitter zero bias depletion cap</emphasis>
+                    <emphasis role="bold">Cje [F] : Base-emitter zero bias depletion cap.</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 4.000D-13</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Cjc [F] : Base-collector zero bias depletion cap</emphasis>
+                    <emphasis role="bold">Cjc [F] : Base-coll. zero bias depletion cap.</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 5.000D-13</para>
@@ -359,48 +361,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAS_PNP">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_PNP_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_PNP_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_PNP_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAS_PNP">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAS_PNP">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAS_PNP.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_NPN">MEAS_NPN - Simple BJT according to Ebers-Moll (type NPN) (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_PMOS">MEAS_PMOS - Simple MOS Transistor channel P (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_NMOS">MEAS_NMOS - Simple MOS Transistor channel N (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Semiconductors.PNP in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

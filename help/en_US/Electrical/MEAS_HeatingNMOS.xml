@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAS_HeatingNMOS">
         <title>Description</title>
-        <para>This block is a simple MOS Transistor with heating port to model loss power.</para>
+        <para>
+            Simple MOS Transistor with heating port
+        </para>
     </refsection>
     <refsection id="Palette_MEAS_HeatingNMOS">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAS_HeatingNMOS_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAS_HeatingNMOS_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -81,14 +83,14 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">dW [m] : Narrowing of channel</emphasis>
+                    <emphasis role="bold">dW [m] : narrowing of channel</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : -0.0000025</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">dL [m] : Shortening of channel</emphasis>
+                    <emphasis role="bold">dL [m] : shortening of channel</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : -0.0000015</para>
@@ -102,7 +104,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Tnom [K] : Parameter measurement temperature</emphasis>
+                    <emphasis role="bold">Tnom (K) : Parameter measurement temperature</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 300.15</para>
@@ -285,48 +287,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAS_HeatingNMOS">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_HeatingNMOS_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_HeatingNMOS_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_HeatingNMOS_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAS_HeatingNMOS">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAS_HeatingNMOS">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAS_HeatingNMOS.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_NMOS"> MEAS_NMOS - Simple MOS Transistor channel N (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_PMOS"> MEAS_PMOS - Simple MOS Transistor channel P (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_HeatingPMOS">MEAS_HeatingPMOS - Simple MOS transistor channel P with heating port (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Semiconductors.HeatingNMOS in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

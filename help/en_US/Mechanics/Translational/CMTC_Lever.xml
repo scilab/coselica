@@ -16,15 +16,7 @@
     <refsection id="Description_CMTC_Lever">
         <title>Description</title>
         <para>
-            This block models a lever assuming small angle deviation (without mass and inertia, geometric constraint).
-            If F_flange_b1 (resp. F_flange_b2) is the force applied to the flange at the end of the first arm (resp. second arm),
-            and F_flange_a is the one applied at the flange in the middle of lever, the equations are:
-        </para>
-        <para>
-            F_flange_a*L2 + F_flange_b1*(L1+L2) = 0
-        </para>
-        <para>
-            and F_flange_a*L1 + F_flange_b2*(L1+L2) = 0
+            Lever assuming small angle deviation (without mass and inertia; geometric constraint)
         </para>
     </refsection>
     <refsection id="Palette_CMTC_Lever">
@@ -42,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMTC_Lever_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMTC_Lever_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -144,43 +136,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMTC_Lever">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMTC_Lever_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMTC_Lever_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_Lever_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMTC_Lever">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMTC_Lever">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMTC_Lever.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMTC_Pulley">CMTC_Pulley - Simple pulley (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_IdealGearR2T">MMR_IdealGearR2T - Rack and pignon system with bearings (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Translational.Components.Lever in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

@@ -16,11 +16,7 @@
     <refsection id="Description_CMT_MassWithFriction">
         <title>Description</title>
         <para>
-            A sliding mass with Stribeck friction is modelled here.
-        </para>
-        <para>
-            The friction force computed is f= F_prop*V + F_Coulomb + F_Stribeck * exp(-fexp*V) 
-            (resp. f= F_prop*V - F_Coulomb - F_Stribeck * exp(fexp*V)) type, if there is a forward (resp. backward) sliding.
+            Sliding mass with Stribeck friction
         </para>
     </refsection>
     <refsection id="Palette_CMT_MassWithFriction">
@@ -38,28 +34,28 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMT_MassWithFriction_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMT_MassWithFriction_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">m [kg] : Mass of the sliding mass</emphasis>
+                    <emphasis role="bold">m [kg] : mass of the sliding mass</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">F_prop [N/(m/s)] : Velocity dependent friction</emphasis>
+                    <emphasis role="bold">F_prop [N/(m/s)] : velocity dependent friction</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">F_Coulomb [N] : Constant friction: Coulomb force</emphasis>
+                    <emphasis role="bold">F_Coulomb [N] : constant friction: Coulomb force</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 5</para>
@@ -73,21 +69,21 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">fexp [1/(m/s)] : Exponential decay of Stribeck effect</emphasis>
+                    <emphasis role="bold">fexp [1/(m/s)] : exponential decay of Stribeck effect</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 2</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward, 0=Sticking, 1=Forward)</emphasis>
+                    <emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">L [m] : Length of component from left flange to right flange (= flange_b.s - flange_a.s)</emphasis>
+                    <emphasis role="bold">L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
@@ -192,48 +188,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMT_MassWithFriction">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMT_MassWithFriction_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMT_MassWithFriction_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMT_MassWithFriction_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMT_MassWithFriction">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMT_MassWithFriction">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMT_MassWithFriction.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMTC_Mass">CMTC_Mass - Sliding mass with inertia (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_SlidingMass">MMT_SlidingMass - Sliding mass with inertia (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CMTC_MassWithWeight">CMTC_MassWithWeight - Sliding mass with inertia and gravitational force (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Translational.MassWithFriction in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

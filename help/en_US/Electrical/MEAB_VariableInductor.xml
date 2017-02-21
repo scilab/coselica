@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAB_VariableInductor">
         <title>Description</title>
-        <para>This block models an ideal linear electrical inductor with variable inductance.</para>
+        <para>
+            Ideal linear electrical inductor with variable inductance
+        </para>
     </refsection>
     <refsection id="Palette_MEAB_VariableInductor">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAB_VariableInductor_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAB_VariableInductor_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -104,48 +106,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAB_VariableInductor">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/MEAB_VariableInductor_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/MEAB_VariableInductor_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "/examples/Electrical/Basic/MEAB_VariableInductor_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAB_VariableInductor">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAB_VariableInductor">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAB_VariableInductor.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAB_Inductor">MEAB_Inductor - Ideal linear electrical inductor (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_VariableResistor">MEAB_VariableResistor - Ideal linear electrical resistor with variable resistance (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_VariableCapacitor">MEAB_VariableCapacitor - Ideal linear electrical capacitor with variable capacitance (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Basic.VariableInductor in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

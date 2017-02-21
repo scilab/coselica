@@ -16,18 +16,7 @@
     <refsection id="Description_MMR_SpringDamper">
         <title>Description</title>
         <para>
-            This block is composed of a linear 1D rotational spring and damper in parallel. It models a combined shock absorber spring.
-            Therefore, the torque ( <latex>\tau</latex> ) can be computed:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                \tau = c * (phi\_rel-phi\_rel0) + d * \omega_{rel}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            with phi_rel the combined angle and <latex> \omega_{rel}\: </latex> the angular velocity in rad/s.
+            Linear 1D rotational spring and damper in parallel
         </para>
     </refsection>
     <refsection id="Palette_MMR_SpringDamper">
@@ -45,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MMR_SpringDamper_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MMR_SpringDamper_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -139,48 +128,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MMR_SpringDamper">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/MMR_SpringDamper_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Rotational/MMR_SpringDamper_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Rotational/MMR_SpringDamper_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MMR_SpringDamper">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MMR_SpringDamper">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>MMR_SpringDamper.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMR_Spring">MMR_Spring - Linear 1D rotational spring (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_Damper">MMR_Damper - Linear 1D rotational damper (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMT_SpringDamper">MMT_SpringDamper - Linear 1D translational spring and damper in parallel (Bloc Coselica)</link>
-                </para>
+                <para>MMR_SpringDamper in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

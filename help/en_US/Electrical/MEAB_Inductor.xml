@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAB_Inductor">
         <title>Description</title>
-        <para>This block is a model of an ideal linear electrical inductor.</para>
+        <para>
+            Ideal linear electrical inductor
+        </para>
     </refsection>
     <refsection id="Palette_MEAB_Inductor">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAB_Inductor_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAB_Inductor_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -96,48 +98,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAB_Inductor">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Basic/MEAB_Inductor_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Basic/MEAB_Inductor_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Basic/MEAB_Inductor_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAB_Inductor">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAB_Inductor">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAB_Inductor.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAB_VariableInductor">MEAB_VariableInductor - Ideal linear electrical inductor with variable inductance (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Resistor">MEAB_Resistor - Ideal linear electrical resistor (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Capacitor">MEAB_Capacitor - Ideal linear electrical capacitor (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Basic.Inductor in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

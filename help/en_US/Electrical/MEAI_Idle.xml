@@ -15,7 +15,6 @@
     </refsection>
     <refsection id="Description_MEAI_Idle">
         <title>Description</title>
-        <para>The MEAI_Idle block is a simple idle running branch.</para>
     </refsection>
     <refsection id="Palette_MEAI_Idle">
         <title>Palette</title>
@@ -62,43 +61,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAI_Idle">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Ideal/MEAI_Idle_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Ideal/MEAI_Idle_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Ideal/MEAI_Idle_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAI_Idle">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAI_Idle">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAI_Idle.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAI_Short">MEAI_Short - Simple short cut branch (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAB_Resistor">MEAB_Resistor - Ideal linear electrical resistor (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Ideal.Idle in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

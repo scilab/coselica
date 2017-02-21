@@ -16,15 +16,7 @@
     <refsection id="Description_CMRC_IdealDifferential">
         <title>Description</title>
         <para>
-            This block is a model of an ideal differential gear without inertia. The angular velocities are computed
-            with the fundamental relationship:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                \Large{\omega_{drive shaft/0}} = ratio * \frac{\Large{\omega_{right wheel/0} + \omega_{left wheel/0}}}{2}
-                \end{eqnarray}
-            </latex>
+            Ideal differential gear without inertia
         </para>
     </refsection>
     <refsection id="Palette_CMRC_IdealDifferential">
@@ -42,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMRC_IdealDifferential_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMRC_IdealDifferential_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -114,43 +106,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMRC_IdealDifferential">
-        <title>Example</title>
-            <para>
-                <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/CMRC_IdealDifferential_Example.zcos">
-                    <inlinemediaobject>
-                        <imageobject>
-                            <imagedata fileref="../../../../examples/Mechanics/Rotational/CMRC_IdealDifferential_Example.zcos"/>
-                        </imageobject>
-                    </inlinemediaobject>
-                </link>
-            </para>
-            <!--<para>
-                <scilab:image><![CDATA[
-                    [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                    PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                    importXcosDiagram(PATH + "examples/Mechanics/Rotational/CMRC_IdealDifferential_Example.zcos");
-                    xcos_simulate(scs_m, 4);
-                ]]></scilab:image>
-            </para>-->
-    </refsection>
-    <refsection id="Seealso_CMRC_IdealDifferential">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMRC_IdealDifferential">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>CMRC_IdealDifferential.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMR_IdealGear">MMR_IdealGear - Ideal gear (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_IdealPlanetary">MMR_IdealPlanetary - Ideal planetary gear (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Rotational.Components.IdealDifferential in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

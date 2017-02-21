@@ -16,9 +16,7 @@
     <refsection id="Description_CMTC_Pulley">
         <title>Description</title>
         <para>
-            A simple Pulley (without mass and inertia, geometric constraint) is modelled here. The forces applied to the
-            translational driving flanges of pulley are the same and are equal to the half of the force applied to the
-            flange at center of pulley.
+            Simple Pulley (without mass and inertia; geometric constraint)
         </para>
     </refsection>
     <refsection id="Palette_CMTC_Pulley">
@@ -36,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMTC_Pulley_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMTC_Pulley_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -108,48 +106,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMTC_Pulley">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMTC_Pulley_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMTC_Pulley_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_Pulley_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMTC_Pulley">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMTC_Pulley">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMTC_Pulley.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMTC_Mass">CMTC_Mass - Sliding mass with inertia and initial values (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CMTC_MassWithWeight">CMTC_MassWithWeight - Sliding mass with inertia and gravitational force (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_IdealGear0">MMR_IdealGear0 - IdealGear (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Translational.Components.Pulley in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

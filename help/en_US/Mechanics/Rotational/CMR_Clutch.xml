@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_CMR_Clutch">
         <title>Description</title>
-        <para>Clutch based on Coulomb friction </para>
+        <para>
+            Clutch based on Coulomb friction
+        </para>
     </refsection>
     <refsection id="Palette_CMR_Clutch">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMR_Clutch_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMR_Clutch_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -67,7 +69,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward, 0=Sticking, 1=Forward, 2=Free)</emphasis>
+                    <emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward,2=Free)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
@@ -164,50 +166,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMR_Clutch">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMR_Clutch_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMR_Clutch_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMR_Clutch_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_CMR_Clutch">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMR_Clutch">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>CMR_Clutch.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>CMR_Clutch in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

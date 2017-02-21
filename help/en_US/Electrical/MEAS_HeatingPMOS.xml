@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAS_HeatingPMOS">
         <title>Description</title>
-        <para>This is a simple PMOS Transistor with a heating port to model power loss.</para>
+        <para>
+            Simple PMOS Transistor with heating port
+        </para>
     </refsection>
     <refsection id="Palette_MEAS_HeatingPMOS">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAS_HeatingPMOS_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAS_HeatingPMOS_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -102,7 +104,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">Tnom [K] : Parameter measurement temperature</emphasis>
+                    <emphasis role="bold">Tnom (K) : Parameter measurement temperature</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 300.15</para>
@@ -285,48 +287,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAS_HeatingPMOS">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/MEAS_HeatingPMOS_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/MEAS_HeatingPMOS_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/MEAS_HeatingPMOS_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAS_HeatingPMOS">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAS_HeatingPMOS">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAS_HeatingPMOS.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_PMOS">MEAS_PMOS - Simple MOS Transistor channel P (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_NMOS">MEAS_NMOS - Simple MOS Transistor channel N (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAS_HeatingNMOS">MEAS_HeatingNMOS - Simple MOS transistor channel N with heating port (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Semiconductors.HeatingPMOS in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

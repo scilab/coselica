@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_CMT_Stop">
         <title>Description</title>
-        <para>Sliding mass with hard stop and Stribeck friction</para>
+        <para>
+            Sliding mass with hard stop and Stribeck friction
+        </para>
     </refsection>
     <refsection id="Palette_CMT_Stop">
         <title>Palette</title>
@@ -32,42 +34,42 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMT_Stop_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMT_Stop_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">smax [m] : Right stop for (right end of) sliding mass</emphasis>
+                    <emphasis role="bold">smax [m] : right stop for (right end of) sliding mass</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 25</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">smin [m] : Left stop for (left end of) sliding mass</emphasis>
+                    <emphasis role="bold">smin [m] : left stop for (left end of) sliding mass</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : -25</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">m [kg] : Mass of the sliding mass</emphasis>
+                    <emphasis role="bold">m [kg] : mass of the sliding mass</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">F_prop [N/(m/s)] : Velocity dependent friction</emphasis>
+                    <emphasis role="bold">F_prop [N/(m/s)] : velocity dependent friction</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 1</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">F_Coulomb [N] : Constant friction Coulomb force</emphasis>
+                    <emphasis role="bold">F_Coulomb [N] : constant friction: Coulomb force</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 5</para>
@@ -81,21 +83,21 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">fexp [1/(m/s)] : Exponential decay of Stribeck effect</emphasis>
+                    <emphasis role="bold">fexp [1/(m/s)] : exponential decay of Stribeck effect</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 2</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward, 0=Sticking, 1=Forward)</emphasis>
+                    <emphasis role="bold">mode_start [-] : Initial sliding mode (-1=Backward,0=Sticking,1=Forward)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">L [m] : Length of component from left flange to right flange (= flange_b.s - flange_a.s)</emphasis>
+                    <emphasis role="bold">L [m] : length of component from left flange to right flange (= flange_b.s - flange_a.s)</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
@@ -216,50 +218,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMT_Stop">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/CMT_Stop_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/CMT_Stop_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/CMT_Stop_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_CMT_Stop">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMT_Stop">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMT_Stop.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>Coselica.Mechanics.Translational.Stop in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

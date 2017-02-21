@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MEAI_IdealCommutSwitch">
         <title>Description</title>
-        <para>This block models an ideal commuting switch.</para>
+        <para>
+            Ideal commuting switch
+        </para>
     </refsection>
     <refsection id="Palette_MEAI_IdealCommutSwitch">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MEAI_IdealCommutSwitch_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MEAI_IdealCommutSwitch_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -127,48 +129,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MEAI_IdealCommutSwitch">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Ideal/MEAI_IdealCommutSwitch_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Ideal/MEAI_IdealCommutSwitch_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Ideal/MEAI_IdealCommutSwitch_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_MEAI_IdealCommutSwitch">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MEAI_IdealCommutSwitch">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>MEAI_IdealCommutSwitch.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAI_IdealOpeningSwitch">MEAI_IdealOpeningSwitch - Ideal electrical opener (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAI_IdealClosingSwitch">MEAI_IdealClosingSwitch - Ideal electrical closer (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MEAI_CloserWithArc">MEAI_CloserWithArc - Ideal closing switch with simple arc model (Block Coselica)</link>
-                </para>
+                <para>Modelica.Electrical.Analog.Ideal.IdealCommutSwitch in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

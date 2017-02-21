@@ -16,50 +16,7 @@
     <refsection id="Description_CMR_BearingFriction">
         <title>Description</title>
         <para>
-            This block is a model of Coulomb friction with Stribeck effect in bearings. The output torque, <latex>\tau\:</latex>
-            depends on the initial sliding mode.
-        </para>
-        <para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-                        If there is a backward initial sliding mode, then:
-                    </para>
-                    <para>
-                        <latex>
-                            \begin{eqnarray}
-                            \tau = Tau\_prop * \omega_{relfric} - Tau\_Coulomb -Tau\_Stribeck * exp(fexp * \omega_{relfric})
-                            \end{eqnarray}
-                        </latex>
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        If there is a forward initial sliding mode, then:
-                    </para>
-                    <para>
-                        <latex>
-                            \begin{eqnarray}
-                            \tau = Tau\_prop * \omega_{relfric} + Tau\_Coulomb + Tau\_Stribeck * exp(-fexp * \omega_{relfric})
-                            \end{eqnarray}
-                        </latex>
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        If the initial sliding is free, then, <latex>\tau\:</latex> is 0.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        In the last case, <latex>\tau = f(a_{relfric})</latex>
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </para>
-        <para>
-            With, <latex>\omega_{relfric}\:</latex> (resp. <latex>a_{relfric}</latex>) is the relative angular velocity (resp. acceleration)
-            between frictional surfaces.
+            Coulomb friction with Stribeck effect in bearings
         </para>
     </refsection>
     <refsection id="Palette_CMR_BearingFriction">
@@ -77,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMR_BearingFriction_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMR_BearingFriction_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -209,43 +166,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMR_BearingFriction">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/CMR_BearingFriction_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Rotational/CMR_BearingFriction_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Rotational/CMR_BearingFriction_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMR_BearingFriction">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMR_BearingFriction">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>CMR_BearingFriction.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMRC_ElastoBacklash">CMRC_ElastoBacklash - Backlash connected in series to linear spring and damper (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_SpringDamper">MMR_SpringDamper - 1D rotational spring and damper in parallel (Block Coselica)</link>
-                </para>
+                <para>CMR_BearingFriction in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

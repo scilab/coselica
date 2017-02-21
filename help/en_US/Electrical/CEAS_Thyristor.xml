@@ -16,19 +16,7 @@
     <refsection id="Description_CEAS_Thyristor">
         <title>Description</title>
         <para>
-            This block is a simple Thyristor model. There are three operating mode: conducting, blocking and reverse breakthrough.
-            When the thyristor is in blocking mode, it behaves like a resistance:
-        </para>
-        <para>
-            <latex>
-                \begin{eqnarray}
-                Roff = \frac{\Large{VDRM^{2}}}{\Large{VTM*IH}}
-                \end{eqnarray}
-            </latex>
-        </para>
-        <para>
-            To be in conducting mode, voltage between anode and cathode must be over VDRM or the gate current is positive during TON. 
-            The thyristor stay in conducting mode untill the anode current decrease under the holding current IH.
+            Simple Thyristor Model
         </para>
     </refsection>
     <refsection id="Palette_CEAS_Thyristor">
@@ -46,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/CEAS_Thyristor_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/CEAS_Thyristor_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -283,48 +271,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CEAS_Thyristor">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Electrical/Semi-conductors/CEAS_Thyristor_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../examples/Electrical/Semi-conductors/CEAS_Thyristor_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Electrical/Semi-conductors/CEAS_Thyristor_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CEAS_Thyristor">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CEAS_Thyristor">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Electrical_pal">Electrical - Coselica toolbox</link>
-                </para>
+                <para>CEAS_Thyristor.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MEAS_Diode">MEAS_Diode - Simple diode (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAI_IdealDiode">CEAI_IdealDiode - Ideal diode (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CEAS_ZDiode">CEAS_ZDiode - Zener diode with 3 working areas (Block Coselica)</link>
-                </para>
+                <para>Coselica.Electrical.Analog.Semiconductors.Thyristor in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

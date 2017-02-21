@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MTH_ThermalConductor">
         <title>Description</title>
-        <para>Lumped thermal element transporting heat without storing it</para>
+        <para>
+            Lumped thermal element transporting heat without storing it
+        </para>
     </refsection>
     <refsection id="Palette_MTH_ThermalConductor">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/MTH_ThermalConductor_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/MTH_ThermalConductor_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -96,51 +98,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MTH_ThermalConductor">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/MTH_ThermalConductor_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/MTH_ThermalConductor_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <para>
-            <scilab:image><![CDATA[
-          [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-          PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-          importXcosDiagram(PATH + "/examples/MTH_ThermalConductor_Example.zcos");
-          xcos_simulate(scs_m, 4);
-          ]]></scilab:image>
-        </para>
-    </refsection>
-    <refsection id="Seealso_MTH_ThermalConductor">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MTH_ThermalConductor">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Thermal_HeatTransfer_pal">Thermal_HeatTransfer - Coselica toolbox</link>
-                </para>
+                <para>MTH_ThermalConductor.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MTH_HeatCapacitor">Heat Capacitor - Thermal Heat Transfer (Coselica)</link>
-                </para>
+                <para>MTH_ThermalConductor in COSELICA/macros/Coselica.mo file</para>
             </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MTH_TemperatureSensor">Temperature Sensor - Thermal Heat Transfer (Coselica)</link>
-                </para>
-            </listitem>
-            <!-- Add other see Also Items
-               <listitem>
-               <para>
-               <link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-               </para>
-               </listitem>
-          -->
         </itemizedlist>
     </refsection>
 </refentry>

@@ -15,7 +15,9 @@
     </refsection>
     <refsection id="Description_MBS_Step">
         <title>Description</title>
-        <para>Generate step signal</para>
+        <para>
+            Generate step signal
+        </para>
     </refsection>
     <refsection id="Palette_MBS_Step">
         <title>Palette</title>
@@ -32,7 +34,7 @@
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../images/gui/MBS_Step_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../images/gui/MBS_Step_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -46,14 +48,14 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">offset [-] : Offset of output signal</emphasis>
+                    <emphasis role="bold">offset [-] : offset of output signal</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="bold">startTime [s] : Output = offset for time &lt; startTime</emphasis>
+                    <emphasis role="bold">startTime [s] : output = offset for time &lt; startTime</emphasis>
                 </para>
                 <para> Properties : Type 'vec' of size 1. </para>
                 <para> Default value : 0</para>
@@ -111,50 +113,20 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_MBS_Step">
-        <title>Example</title>
-        <!-- Uncomment to enable example
-<para>
-<link type="scilab" linkend="coselica.zcos/xcos/examples/MBS_Step_Example.zcos">
-<inlinemediaobject>
-<imageobject>
-<imagedata fileref="../../../../examples/MBS_Step_Example.zcos"/>
-</imageobject>
-</inlinemediaobject>
-</link>
-<scilab:image><![CDATA[
-[a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-importXcosDiagram(PATH + "/examples/MBS_Step_Example.zcos");
-xcos_simulate(scs_m, 4);
-]]></scilab:image>
-</para>
--->
-    </refsection>
-    <refsection id="Seealso_MBS_Step">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_MBS_Step">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Blocks_pal">Blocks - Coselica toolbox</link>
-                </para>
+                <para>MBS_Step.sci</para>
             </listitem>
-            <!-- Add other see Also Items
-<listitem>
-<link linkend="TrigFun">TrigFun - Trigonometric function (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="SINBLK_f">SINBLK_f - Sine (Bloc Xcos)</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="TANBLK_f">TANBLK_f - Tangente (Bloc Xcos)</link>
-</para>
-</listitem>
--->
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
+            <listitem>
+                <para>MBS_Step in COSELICA/macros/Coselica.mo file</para>
+            </listitem>
         </itemizedlist>
     </refsection>
 </refentry>

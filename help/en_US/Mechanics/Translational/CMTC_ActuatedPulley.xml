@@ -1,4 +1,4 @@
-h<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMTC_ActuatedPulley">
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xmlns:scilab="http://www.scilab.org" xml:id="CMTC_ActuatedPulley">
     <refnamediv>
         <refname>CMTC_ActuatedPulley</refname>
         <refpurpose>CMTC_ActuatedPulley Coselica block</refpurpose>
@@ -16,15 +16,8 @@ h<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/
     <refsection id="Description_CMTC_ActuatedPulley">
         <title>Description</title>
         <para>
-            This block is a model of an actuated Pulley (without mass and inertia, geometric constraint). If F_flange_b1 and F_flange_b2
-            are the forces applied to the translational driving flanges and F_flange_a is the one applied to the flange at center of pulley, we have:
+            Actuated Pulley (without mass and inertia; geometric constraint)
         </para>
-        <para>
-            F_flange_b1 = F_flange_b2 + force, with force = torque_axle/r
-        </para>
-        <para>
-            and F_flange_a + F_flange_b1 + F_flange_b2 =0
-        </para> 
     </refsection>
     <refsection id="Palette_CMTC_ActuatedPulley">
         <title>Palette</title>
@@ -41,7 +34,7 @@ h<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/
         <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="../../../../images/gui/CMTC_ActuatedPulley_en_US_gui.gif" align="center" valign="middle"/>
+                    <imagedata fileref="../../../../images/gui/CMTC_ActuatedPulley_gui.gif" align="center" valign="middle"/>
                 </imageobject>
             </inlinemediaobject>
         </para>
@@ -136,43 +129,19 @@ h<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMTC_ActuatedPulley">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Translational/CMTC_ActuatedPulley_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Translational/CMTC_ActuatedPulley_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Translational/CMTC_ActuatedPulley_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMTC_ActuatedPulley">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMTC_ActuatedPulley">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Translational_pal">Mechanics_Translational - Coselica toolbox</link>
-                </para>
+                <para>CMTC_ActuatedPulley.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="CMTC_Pulley">CMTC_Pulley - Simple pulley (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="MMR_IdealGearR2T">MMR_IdealGearR2T - Rack and pignon system with bearings (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Translational.Components.ActuatedPulley in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>

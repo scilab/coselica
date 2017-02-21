@@ -15,9 +15,6 @@
     </refsection>
     <refsection id="Description_CMRC_Free">
         <title>Description</title>
-        <para>
-            This block models a flange rotating freely.
-        </para>
     </refsection>
     <refsection id="Palette_CMRC_Free">
         <title>Palette</title>
@@ -34,7 +31,7 @@
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis role="bold">Input :</emphasis>
+                    <emphasis role="bold">Inputs :</emphasis>
                 </para>
                 <itemizedlist>
                     <listitem>
@@ -49,43 +46,19 @@
             </listitem>
         </itemizedlist>
     </refsection>
-    <refsection id="Example_CMRC_Free">
-        <title>Example</title>
-        <para>
-            <link type="scilab" linkend="coselica.xcos/examples/Mechanics/Rotational/CMRC_Free_Example.zcos">
-                <inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="../../../../examples/Mechanics/Rotational/CMRC_Free_Example.zcos"/>
-                    </imageobject>
-                </inlinemediaobject>
-            </link>
-        </para>
-        <!--<para>
-            <scilab:image><![CDATA[
-                [a, getCoselicaVersionPath] = libraryinfo(whereis(getCoselicaVersion))
-                PATH = getCoselicaVersionPath + filesep() + ".." + filesep() + ".." + filesep();
-                importXcosDiagram(PATH + "examples/Mechanics/Rotational/CMRC_Free_Example.zcos");
-                xcos_simulate(scs_m, 4);
-            ]]></scilab:image>
-        </para>-->
-    </refsection>
-    <refsection id="Seealso_CMRC_Free">
-        <title>See also</title>
+    <refsection id="Interfacingfunction_CMRC_Free">
+        <title>Interfacing function</title>
         <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="Mechanics_Rotational_pal">Mechanics_Rotational - Coselica toolbox</link>
-                </para>
+                <para>CMRC_Free.sci</para>
             </listitem>
+        </itemizedlist>
+    </refsection>
+    <refsection id="Modelicamodel_SineVoltage">
+        <title>Modelica model</title>
+        <itemizedlist>
             <listitem>
-                <para>
-                    <link linkend="MMR_Fixed">MMR_Fixed - Flange fixed in housing at a given angle (Block Coselica)</link>
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <link linkend="CMTC_Free">CMTC_Free - Flange moving freely (Block Coselica)</link>
-                </para>
+                <para>Coselica.Mechanics.Rotational.Components.Free in COSELICA/macros/Coselica.mo file</para>
             </listitem>
         </itemizedlist>
     </refsection>
