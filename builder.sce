@@ -19,7 +19,7 @@ catch
     error(gettext("Scilab 5.2 or more is required."));
 end
 
-if v(2) < 3 then
+if v(2) < 3 && v(1) < 6 then
     // new API in scilab 5.3
     error(gettext("Scilab 5.3 or more is required."));
 end
@@ -50,8 +50,8 @@ end
 
 tbx_builder_macros(toolbox_dir);
 tbx_builder_help(toolbox_dir);
-tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
-tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
+tbx_build_loader(toolbox_dir);
+tbx_build_cleaner(toolbox_dir);
 
 clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE;
 
